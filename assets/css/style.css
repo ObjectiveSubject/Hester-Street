@@ -1,12 +1,12 @@
 /**
- * Theme Name:  OS WP Starter
- * Theme URI:   http://github.com/ObjectiveSubject/os-wp-starter
- * Description: A Wordpress starter theme
+ * Theme Name:  Hester Street Collaborative
+ * Theme URI:   https://github.com/ObjectiveSubject/Hester-Street
+ * Description: Theme for hesterstreet.org
  * Author:      Objective Subject
  * Author URI:  http://objectivesubject.com
  * Version:     1.0.0
  * Tags:
- * Text Domain: cgu
+ * Text Domain: hsc
  *
  * License:     GPLv2+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -340,7 +340,6 @@ a {
   color: lightcoral;
   text-decoration: none;
   -webkit-transition: all 300ms ease;
-  -moz-transition: all 300ms ease;
   transition: all 300ms ease; }
   a:hover, a:focus, a:active {
     color: #e52525; }
@@ -596,7 +595,6 @@ hr {
   -o-appearance: none;
   appearance: none;
   -webkit-transition: all 300ms ease;
-  -moz-transition: all 300ms ease;
   transition: all 300ms ease; }
   .button:hover, .button:focus {
     background-color: gray;
@@ -639,7 +637,6 @@ label {
   padding: 0.5em;
   outline: 0;
   -webkit-transition: all 300ms ease;
-  -moz-transition: all 300ms ease;
   transition: all 300ms ease; }
   .form-field:hover {
     color: #111111; }
@@ -796,5 +793,3 @@ caption {
 
 .site-header {
   width: 100%; }
-
-/*# sourceMappingURL=style.css.map */

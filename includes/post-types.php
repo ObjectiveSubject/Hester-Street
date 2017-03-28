@@ -1,5 +1,5 @@
 <?php
-namespace OS_WP\PostTypes;
+namespace HSC\PostTypes;
 
 /**
  * Set up post types

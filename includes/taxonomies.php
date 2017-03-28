@@ -1,5 +1,5 @@
 <?php
-namespace OS_WP\Taxonomies;
+namespace HSC\Taxonomies;
 
 /**
  * Set up taxonomies.

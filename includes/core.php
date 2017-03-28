@@ -1,5 +1,5 @@
 <?php
-namespace OS_WP\Core;
+namespace HSC\Core;
 
 /**
  * Set up theme defaults and register supported WordPress features.
@@ -56,9 +56,9 @@ function scripts( $debug = false ) {
 
 	wp_enqueue_script(
 		'main',
-		OS_WP_TEMPLATE_URL . "/assets/js/main{$min}.js",
+		HSC_TEMPLATE_URL . "/assets/js/main{$min}.js",
 		array('jquery'),
-		OS_WP_VERSION,
+		HSC_VERSION,
 		true
 	);
 }
@@ -75,9 +75,9 @@ function styles( $debug = false ) {
 
 	wp_enqueue_style(
 		'style',
-		OS_WP_URL . "/assets/css/style{$min}.css",
+		HSC_URL . "/assets/css/style{$min}.css",
 		array(),
-		OS_WP_VERSION
+		HSC_VERSION
 	);
 }
 

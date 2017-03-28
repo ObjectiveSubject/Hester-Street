@@ -1,5 +1,5 @@
 <?php
-namespace OS_WP\Shortcodes;
+namespace HSC\Shortcodes;
 
 /**
  * Set up shortcodes
