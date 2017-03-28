@@ -1,0 +1,36 @@
+/**
+ * Theme Name:  Hester Street Collective
+ * Theme URI:   https://github.com/ObjectiveSubject/Hester-Street
+ * Description: Theme for hesterstreet.org
+ * Author:      Objective Subject
+ * Author URI:  http://objectivesubject.com
+ * Version:     1.0.0
+ * Tags:
+ * Text Domain: hsc
+ *
+ * License:     GPLv2+
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ */
+
+@import
+    "shared/bourbon/bourbon",
+    "shared/neat/neat",
+    "shared/variables",
+    "shared/mixins";
+
+@import
+    "base/normalize",
+    "base/document",
+    "base/typography",
+    "base/utility";
+
+@import
+    "blocks/buttons",
+    "blocks/forms",
+    "blocks/media",
+    "blocks/tables";
+
+@import
+    "views/content",
+    "views/footer",
+    "views/header";
