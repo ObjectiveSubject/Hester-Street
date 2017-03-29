@@ -1,0 +1,17 @@
+// Colors
+// ======================================= /
+@each $color-name, $hex in $color_map {
+
+	.u-color-#{$color-name} {
+    	color: $hex !important;
+	}
+
+	.u-link-#{$color-name} {
+		color: $hex !important;
+	}
+    
+    .u-bg-#{$color-name} {
+    	background-color: $hex;
+		color: white;
+	}
+}

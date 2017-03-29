@@ -14,11 +14,11 @@ button,
 input,
 select,
 textarea {
-	font-family: $font-main;
+	font-family: $gta-regular;
 	font-weight: 400;
 	color: $color-text-main;
-	font-size: rem(16);
-	line-height: $leading;
+	font-size: rem(18);
+	line-height: 1.375em;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -26,70 +26,64 @@ textarea {
 /* Headings
  * ------------------------------------------ */
  h1, .h1 {
-	margin-top: $leading;
-	margin-bottom: 0;
-	font-family: $font-main;
-	font-size: rem(32);
-	line-height: 1.1em;
-	font-weight: 300;
+	font-family: $gta-extended-black;
+	font-size: rem(70);
+	line-height: 1.125em;
+    margin-top: 0;
+    margin-bottom: 0;
+	text-transform: uppercase;
 	@include media($md) {
-		font-size: rem(44);
-		line-height: 1em;
+        
 	}
  }
  h2, .h2 {
-	margin-top: $leading;
-	margin-bottom: 0;
-	font-size: rem(24);
-	line-height: 1.25em;
-	font-weight: 400;
-	font-family: $font-main;
-	text-transform: none;
+	font-family: $gta-extended-black;
+	font-size: rem(48);
+	line-height: 1;
+    margin-top: 0;
+    margin-bottom: 0;
+	text-transform: uppercase;
 	@include media($md) {
-		font-size: rem(34);
-		line-height: 1.1em;
+        
 	}
  }
  h3, .h3 {
-	margin-top: $leading;
-	margin-bottom: 0;
-	font-size: rem(20);
-	line-height: 1.25em;
-	font-weight: 400;
-	font-family: $font-main;
-	text-transform: none;
+	font-family: $gta-extended-black;
+	font-size: rem(36);
+	line-height: 1.125em;
+    margin-top: 0;
+    margin-bottom: 0;
+	text-transform: uppercase;
 	@include media($md) {
-		font-size: rem(26);
+        
 	}
  }
  h4, .h4 {
-	margin-top: $leading;
-	margin-bottom: 0;
-	font-size: rem(18);
-	line-height: 1.2em;
-	font-weight: 400;
-	font-family: $font-main;
-	text-transform: none;
+	font-family: $gta-extended-black;
+	font-size: rem(30);
+	line-height: 1.25em;
+    margin-top: 0;
+    margin-bottom: 0;
+	text-transform: uppercase;
 	@include media($md) {
-		font-size: rem(20);
+        
 	}
  }
  h5, .h5 {
-	margin-top: $leading;
-	margin-bottom: 0;
-	font-family: $font-main;
-	font-size: rem(14);
-	line-height: 1.3em;
-	font-weight: 700;
+	font-family: $gta-extended-black;
+	font-size: rem(24);
+	line-height: 1.25em;
+    margin-top: 0;
+    margin-bottom: 0;
+	text-transform: uppercase;
  }
  h6, .h6 {
-	margin-top: $leading;
-	margin-bottom: 0;
-	font-family: $font-main;
-	font-size: rem(12);
-	line-height: 1.4em;
-	font-weight: 700;
-	letter-spacing: 0.1em;
+	font-family: $gta-extended-black;
+	font-size: rem(18);
+	line-height: 1.25em;
+    margin-top: 0;
+    margin-bottom: 0;
+	text-transform: uppercase;
  }
 
  /* Links
@@ -146,8 +140,9 @@ dfn, cite, em, i {
 }
 
 blockquote {
-	@extend h3;
-	font-family: $font-main;
+	@extend h2;
+	font-family: $gta-extended-black;
+    text-transform: none;
 	margin: ($leading * 2) 0;
 	// color: $color-blockquote;
 

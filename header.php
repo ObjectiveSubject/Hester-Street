@@ -12,9 +12,9 @@
 </head>
 <body <?php body_class(); ?>>
 
-	<div id="page" class="u-container">
+	<div id="page">
 
-		<header id="masthead" class="site-header" role="banner">
+		<!--<header id="masthead" class="site-header" role="banner">
 			<div class="site-branding">
 				<?php
 				if ( is_front_page() && is_home() ) : ?>
@@ -25,13 +25,13 @@
 				endif;
 				$description = get_bloginfo( 'description', 'display' );
 				if ( $description || is_customize_preview() ) : ?>
-					<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
+					<p class="site-description"><?php echo $description; ?></p>
 				<?php
 				endif; ?>
-			</div><!-- .site-branding -->
+			</div>
 
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', '_s' ); ?></button>
 				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-			</nav><!-- #site-navigation -->
-		</header><!-- #masthead -->
+			</nav>
+		</header>-->

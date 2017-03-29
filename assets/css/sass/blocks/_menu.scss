@@ -1,0 +1,11 @@
+.primary-menu {
+    @extend .u-mb-3;
+}
+.menu-item {
+    .primary-menu & {
+        @extend .h4;
+    }
+    .secondary-menu & {
+        @extend .h6;
+    }
+}

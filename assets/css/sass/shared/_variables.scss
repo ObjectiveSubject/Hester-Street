@@ -1,9 +1,9 @@
 // Structure
 // ------------------------------------------- /
-$max-width: rem(1040) !global;
+$max-width: rem(1240) !global;
 $grid-columns: 12 !global;
 
-$container-padding: 20px;
+$container-padding: 70px;
 
 // Breakpoints
 // ------------------------------------------- /
@@ -12,8 +12,41 @@ $md: 768px;
 $lg: 1000px;
 $xl: 1500px;
 
+// Borders
+// ------------------------------------------- /
+$border-width: 2px;
+
+$border_color_map: (
+	'black'				: black,
+	'white'				: white,
+);
+
 // Colors
 // ------------------------------------------- /
+
+// Primary
+$blue: #3266cc;
+$green: #afbd32;
+$orange: #feac00;
+$purple: #795acf;
+$red: #ff685d;
+$teal: #21b07a;
+// Neutrals
+$dark-gray: #202022;
+
+$color_map: (
+	// Primary
+	'blue'				: $blue,
+	'green'				: $green,
+	'orange'			: $orange,
+	'purple'			: $purple,
+	'red'				: $red,
+	'teal'				: $teal,
+	// Neutrals
+	'black'				: black,
+	'white'				: white,
+);
+
 $color-text-main: black;
 
 $color-link: lightcoral;
@@ -57,10 +90,21 @@ $color-google: #F44336;
 
 // Typography
 // ------------------------------------------- /
-$font-main: "Helvetica", Arial, sans-serif;
+@font-face {
+  font-family: 'GT-America-Extended-Black';
+  src: url('../fonts/GT-America-Extended-Black.woff') format('woff'),
+       url('../fonts/GT-America-Extended-Black.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'GT-America-Regular';
+  src: url('../fonts/GT-America-Standard-Regular.woff') format('woff'),
+       url('../fonts/GT-America-Standard-Regular.ttf') format('truetype');
+}
+$gta-extended-black : "GT-America-Extended-Black", Arial, sans-serif;
+$gta-regular : "GT-America-Regular", Arial, sans-serif;
 $font-code: "Menlo", monospace;
 $font-pre: "Menlo", monospace;
-$leading: 1.5rem;
+$leading: 1rem;
 $font-line-height-pre: 1.6rem;
 
 

@@ -1,0 +1,18 @@
+.section-row {
+    @include display(flex);
+    align-items: stretch;
+    position: relative;
+}
+.section-column {
+    @extend .u-px-1;
+    @extend .u-border-black;
+    [class*="u-bg-"] & {
+        @extend .u-border-white;
+    }
+}
+.section-content {
+    @include flex(1);
+    @include media($md) {
+        order: 0;
+    }
+}

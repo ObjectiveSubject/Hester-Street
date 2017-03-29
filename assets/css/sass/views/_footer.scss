@@ -1,3 +1,37 @@
 .site-footer {
-    margin: rem(50) 0 rem(20);
+    @extend .u-bg-blue;
+    @extend .u-py-3;
+}
+.footer-row {
+    @extend .section-row;
+}
+.footer-column {
+    @extend .section-column;
+    border-color: white;
+    .footer-content & {
+        @include flex-basis(50%);
+    }
+}
+.footer-content {
+    @extend .section-content;
+    @include display(flex);
+    align-items: flex-end;
+}
+
+// Menus
+// ----------------------------//
+.menu-item {
+    .site-footer & {
+        a {
+            color: white;
+        }
+    }
+}
+
+// Colophon
+// ----------------------------//
+address {
+    .site-footer & {
+        font-style: normal;
+    }
 }

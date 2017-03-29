@@ -7,7 +7,7 @@ table {
 
     .page-content & > {
         @extend .table;
-        @extend .table-ruled;
+        @extend .table--ruled;
     }
 }
 caption {

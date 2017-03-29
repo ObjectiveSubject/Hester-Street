@@ -1,3 +1,9 @@
+// Border
+// ------------------------------------- //
+@mixin border($color) {
+    border-left: $border-width solid $color;
+}
+
 // Media queries
 // ------------------------------------- //
 @mixin media($size) {

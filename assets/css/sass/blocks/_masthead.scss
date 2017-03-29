@@ -1,0 +1,9 @@
+.masthead {
+    flex: 0 0 rem(180);
+    @include media($md) {
+        order: 1;
+    }
+    .page-section & {
+        @extend .u-mb-6;
+    }
+}

@@ -1,0 +1,16 @@
+.hsc-logo {
+    display: block;
+    //background-image: url(../images/logo-hsc.svg);
+    background-image: url(../images/logo-hsc@2x.png);
+    background-size: 100% auto;
+    .masthead & {
+        width: 145px;
+        max-width: 100%;
+        height: 50px;
+        transition: none;
+    }
+    .site-footer & {
+        //background-image: url(../images/logo-hsc-white.svg);
+        background-image: url(../images/logo-hsc-white@2x.png);
+    }
+}

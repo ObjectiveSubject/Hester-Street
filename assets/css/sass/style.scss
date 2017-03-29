@@ -16,18 +16,33 @@
     "shared/bourbon/bourbon",
     "shared/neat/neat",
     "shared/variables",
-    "shared/mixins";
+    "shared/mixins",
+    "shared/utility/borders",
+    "shared/utility/colors",
+    "shared/utility/display",
+    "shared/utility/effects",
+    "shared/utility/grid",
+    "shared/utility/layout",
+    "shared/utility/typography";
 
 @import
     "base/normalize",
     "base/document",
-    "base/typography",
-    "base/utility";
+    "base/typography";
 
 @import
     "blocks/buttons",
     "blocks/forms",
+    "blocks/logo",
+    "blocks/masthead",
     "blocks/media",
+    "blocks/menu",
+    "blocks/modules",
+    "blocks/nav",
+    "blocks/page-content",
+    "blocks/page-section",
+    "blocks/section",
+    "blocks/site-content",
     "blocks/tables";
 
 @import

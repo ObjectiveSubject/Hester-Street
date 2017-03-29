@@ -1,0 +1,6 @@
+@each $color-name, $hex in $border_color_map {
+
+	.u-border-#{$color-name} {
+    	@include border( $hex );
+	}
+}
