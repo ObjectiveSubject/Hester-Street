@@ -1,7 +1,7 @@
 .hsc-logo {
     display: block;
-    //background-image: url(../images/logo-hsc.svg);
-    background-image: url(../images/logo-hsc@2x.png);
+    background-image: url(../images/logo-hsc.svg);
+    //background-image: url(../images/logo-hsc@2x.png);
     background-size: 100% auto;
     .masthead & {
         width: 145px;
@@ -10,7 +10,7 @@
         transition: none;
     }
     .site-footer & {
-        //background-image: url(../images/logo-hsc-white.svg);
-        background-image: url(../images/logo-hsc-white@2x.png);
+        background-image: url(../images/logo-hsc-white.svg);
+        //background-image: url(../images/logo-hsc-white@2x.png);
     }
 }

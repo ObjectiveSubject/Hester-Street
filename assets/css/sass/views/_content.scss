@@ -1,0 +1,21 @@
+.row {
+    @include display(flex);
+    align-items: stretch;
+    position: relative;
+    .column & {
+        @extend .u-py-6;
+    }
+    .sidebar & {
+        padding: 0;
+    }
+    .sidebar &+& {
+        @extend .u-mt-4;
+    }
+}
+.column {
+    @extend .u-px-1;
+    @extend .u-border-black;
+    [class*="u-bg-"] & {
+        @extend .u-border-white;
+    }
+}

@@ -1,0 +1,20 @@
+.post-title {
+    
+}
+.post-meta {
+    @include media($md) {
+        order: 1;
+    }
+}
+.post-content {
+    @include media($md) {
+        order: 0;
+    }
+    padding-right: $sidebar-width;
+    .sidebar + & {
+        @extend .u-pr-6;
+    }
+}
+.post-content--expanded {
+    padding-right: 0;
+}

@@ -31,19 +31,23 @@
     "base/typography";
 
 @import
+    "blocks/aside",
     "blocks/buttons",
     "blocks/forms",
+    "blocks/lists",
     "blocks/logo",
     "blocks/masthead",
     "blocks/media",
     "blocks/menu",
     "blocks/modules",
     "blocks/nav",
-    "blocks/page-content",
-    "blocks/page-section",
+    "blocks/page",
+    "blocks/post",
     "blocks/section",
+    "blocks/sidebar",
     "blocks/site-content",
-    "blocks/tables";
+    "blocks/tables",
+    "blocks/timeline";
 
 @import
     "views/content",

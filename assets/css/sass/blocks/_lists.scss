@@ -1,0 +1,16 @@
+.list-title {
+    @extend .h6;
+}
+.list {
+    .list-title + & {
+        @extend .u-mt-1;
+    }
+}
+.list-item {
+    &+& {
+        margin-top: $leading/4;
+    }
+    .timeline & {
+        @extend .h6;
+    }
+}

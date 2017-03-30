@@ -3,10 +3,10 @@
     @extend .u-py-3;
 }
 .footer-row {
-    @extend .section-row;
+    @extend .row;
 }
 .footer-column {
-    @extend .section-column;
+    @extend .column;
     border-color: white;
     .footer-content & {
         @include flex-basis(50%);
@@ -14,6 +14,7 @@
 }
 .footer-content {
     @extend .section-content;
+    @extend .has-sidebar;
     @include display(flex);
     align-items: flex-end;
 }

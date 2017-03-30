@@ -1,6 +1,6 @@
 .module {
     @extend .u-py-6;
-    .h2 {
-        text-transform: none;
-    }
+}
+.module-aside {
+    margin-top: $leading*3.375;
 }

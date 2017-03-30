@@ -7,6 +7,10 @@ $container-padding: 70px;
 
 // Breakpoints
 // ------------------------------------------- /
+$sidebar-width: rem(180);
+
+// Breakpoints
+// ------------------------------------------- /
 $sm: 500px;
 $md: 768px;
 $lg: 1000px;
@@ -44,14 +48,15 @@ $color_map: (
 	'teal'				: $teal,
 	// Neutrals
 	'black'				: black,
+    'dark-gray'         : $dark-gray,
 	'white'				: white,
 );
 
 $color-text-main: black;
 
-$color-link: lightcoral;
-$color-link-visited: lightcoral;
-$color-link-hover: darken( $color-link, 20% );
+$color-link: black;
+$color-link-visited: black;
+$color-link-hover: $blue;
 
 $color-code: black;
 
@@ -61,7 +66,7 @@ $color-background-body: white;
 $color-background-hr: lightgray;
 $color-background-pre: #eeeeee;
 
-$color-background-selection: lightblue;
+$color-background-selection: $blue;
 $color-selection-text: white;
 
 $color-btn: $color-text-main;

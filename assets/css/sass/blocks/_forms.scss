@@ -10,7 +10,7 @@ label {
 }
 
 .form-group {
-    @extend .u-clearfix;
+    @extend .u-clear;
     display: block;
     clear: both;
     margin-top: 1rem;

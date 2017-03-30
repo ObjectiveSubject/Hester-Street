@@ -1,0 +1,15 @@
+.sidebar {
+    flex: 0 0 $sidebar-width;
+    @include media($md) {
+        order: 1;
+    }
+    .has-module & {
+        @extend .u-pt-6;
+    }
+}
+.sidebar--expanded {
+    @include flex-basis( $sidebar-width*1.5 );
+    .column {
+        @extend .u-pr-0;
+    }
+}
