@@ -1,11 +1,12 @@
 .section-content {
-    width: flex-grid(12,$grid-columns);
-    @include media($md) {
-        width: flex-grid(10,$grid-columns);
-    }
+    @extend .u-px-1;
+    @extend .has-border;
     .has-sidebar & {
+        width: 100%;
+        @extend .u-pb-6;
         @include media($md) {
             order: 0;
+            flex: 0 1 flex-grid(8,$grid-columns)!important; // testing flex-grid layout
         }
     }
 }

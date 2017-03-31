@@ -1,3 +1,5 @@
+// testing if intended behaviour works with current structure
+
 ( function( window, $ ) {
 	'use strict';
 	var document = window.document;
@@ -11,13 +13,12 @@
                 elementParent  = element.parent(),
                 parentHeight   = elementParent.height(),
                 parentOffset   = elementParent.offset().top,
-                spacing        = parentHeight - elementHeight,
-                marginTop      = spacing - elementHeight;
+                margin         = parentHeight - elementHeight;
             
-            if ( scrollTop <= spacing ) {
+            if ( scrollTop <= margin ) {
                 element.css({'position': 'fixed','top': parentOffset+'px','margin-top': '0'});
             } else {
-                element.css({'position': 'relative','margin-top': marginTop+'px'});
+                element.css({'position': 'relative','top': 'auto','margin-top': margin+'px'});
             }
         }
 

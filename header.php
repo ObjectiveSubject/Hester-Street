@@ -11,27 +11,58 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+    
+    <header class="site-menu u-bg-black u-display-none">
+        <div class="site-menu-content">
+            <div class="flex u-container">
+                <div class="flex has-sidebar">
 
+                    <div class="sidebar">
+                        <div class="masthead">
+                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="hsc-logo">
+                                <span class="u-display-none"><?php bloginfo( 'name' ); ?></span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="menu">
+                        <nav id="site-navigation" class="main-navigation" role="navigation">
+
+                            <?php
+                            $menu_primary   = false;
+                            $menu_secondary = false;
+                            if ( has_nav_menu( 'footer-primary' ) ) {
+                                $menu_primary = wp_nav_menu(array(
+                                    'theme_location' => 'footer-primary',
+                                    'container'		 => false,
+                                    'menu_class'	 => 'primary-menu footer-primary-menu',
+                                    'menu_id'		 => 'footer-primary-menu',
+                                    'echo'			 => false
+                                ));
+                                echo $menu_primary;
+                            }
+                            if ( has_nav_menu( 'footer-secondary' ) ) {
+                                $menu_secondary = wp_nav_menu(array(
+                                    'theme_location' => 'footer-secondary',
+                                    'container'		 => false,
+                                    'menu_class'	 => 'secondary-menu footer-secondary-menu',
+                                    'menu_id'		 => 'footer-secondary-menu',
+                                    'echo'			 => false
+                                ));
+                                echo $menu_secondary;
+                            }
+                            ?>
+                            
+                        </nav>
+
+                        <div class="tagline">
+                            <?php bloginfo( 'description' ); ?>
+                        </div>
+                        
+                    </div><!-- .menu -->
+                </div>
+            </div>
+        </div>
+	</header>
+	
 	<div id="page">
-
-		<!--<header id="masthead" class="site-header" role="banner">
-			<div class="site-branding">
-				<?php
-				if ( is_front_page() && is_home() ) : ?>
-					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php else : ?>
-					<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-				endif;
-				$description = get_bloginfo( 'description', 'display' );
-				if ( $description || is_customize_preview() ) : ?>
-					<p class="site-description"><?php echo $description; ?></p>
-				<?php
-				endif; ?>
-			</div>
-
-			<nav id="site-navigation" class="main-navigation" role="navigation">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', '_s' ); ?></button>
-				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-			</nav>
-		</header>-->

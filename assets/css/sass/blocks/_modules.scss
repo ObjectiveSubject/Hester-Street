@@ -1,6 +1,13 @@
-.module {
-    @extend .u-py-6;
+.module--basic {
+    @include display(flex);
+}
+.module-content {
+    .module--basic & {
+        @include flex-basis( flex-grid(8,$grid-columns) ); // testing flex-grid layout
+    }
 }
 .module-aside {
-    margin-top: $leading*3.375;
+    .module--basic & {
+        @include flex-basis( flex-grid(4,$grid-columns) ); // testing flex-grid layout
+    }
 }

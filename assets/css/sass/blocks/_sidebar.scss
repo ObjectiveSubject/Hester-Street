@@ -1,10 +1,9 @@
 .sidebar {
     flex: 0 0 $sidebar-width;
+    @extend .u-px-1;
+    @extend .has-border;
     @include media($md) {
         order: 1;
-    }
-    .has-module & {
-        @extend .u-pt-6;
     }
 }
 .sidebar--expanded {
@@ -15,4 +14,8 @@
 }
 .sidebar-masthead {
     @extend .u-mb-6;
+}
+.sidebar-post-meta {
+    padding: none;
+    border: none;
 }

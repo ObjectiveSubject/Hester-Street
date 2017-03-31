@@ -1,22 +1,20 @@
 .site-footer {
-    @extend .u-bg-blue;
     @extend .u-py-3;
 }
 .footer-row {
-    @extend .row;
+    @extend .flex;
 }
 .footer-column {
-    @extend .column;
-    border-color: white;
+    @extend .u-px-1;
+    @extend .has-border;
     .footer-content & {
+        @extend .u-pr-6;
         @include flex-basis(50%);
     }
 }
 .footer-content {
-    @extend .section-content;
-    @extend .has-sidebar;
-    @include display(flex);
-    align-items: flex-end;
+    @extend .flex;
+    @include align-items(flex-end);
 }
 
 // Menus

@@ -1,7 +1,12 @@
-.post-title {
-    
+.post-image {
+    @extend .u-mb-4;
 }
 .post-meta {
+    @extend .u-pl-1;
+    @extend .has-border;
+    &+& {
+        @extend .u-mt-4;
+    }
     @include media($md) {
         order: 1;
     }
@@ -10,7 +15,7 @@
     @include media($md) {
         order: 0;
     }
-    padding-right: $sidebar-width;
+    padding-right: flex-grid(2,$grid-columns);
     .sidebar + & {
         @extend .u-pr-6;
     }

@@ -3,3 +3,9 @@
     	@include border( $hex );
 	}
 }
+.has-border {
+    @extend .u-border-black;
+    [class*="u-bg-"] & {
+        @extend .u-border-white;
+    }
+}

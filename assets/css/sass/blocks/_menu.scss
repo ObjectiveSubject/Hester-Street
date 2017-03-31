@@ -1,5 +1,12 @@
-.primary-menu {
-    @extend .u-mb-3;
+.menu {
+    @include display(flex);
+    @include flex-direction(column);
+    @include justify-content(space-between);
+    @extend .has-border;
+    @extend .u-px-1;
+}
+.secondary-menu {
+    @extend .u-mt-3;
 }
 .menu-item {
     .primary-menu & {
@@ -7,5 +14,10 @@
     }
     .secondary-menu & {
         @extend .h6;
+    }
+    .site-menu & {
+        a {
+            @extend .u-color-white;
+        }
     }
 }

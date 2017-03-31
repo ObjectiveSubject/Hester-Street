@@ -1,24 +1,17 @@
-.row { // basically makes content flex items
+.flex {
     @include display(flex);
+    @include justify-content(space-between);
     @include align-items(stretch);
     @include flex-wrap(wrap);
     @include media($md) {
         @include flex-wrap(nowrap);
     }
-    .column & {
-        @extend .u-py-6;
-    }
-    .sidebar & {
-        padding: 0;
-    }
-    .sidebar &+& {
-        @extend .u-mt-4;
-    }
 }
-.column { // outputs a left-border
-    @extend .u-px-1;
-    @extend .u-border-black;
-    [class*="u-bg-"] & {
-        @extend .u-border-white;
+.content {
+    flex: 0 1 flex-grid(12,$grid-columns);
+    .has-sidebar & {
+        @include media($md) {
+            flex: 0 1 flex-grid(10,$grid-columns);
+        }
     }
 }
