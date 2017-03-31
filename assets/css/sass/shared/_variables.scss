@@ -5,9 +5,9 @@ $grid-columns: 12 !global;
 
 $container-padding: 70px;
 
-// Breakpoints
+// Sidebar
 // ------------------------------------------- /
-$sidebar-width: rem(180);
+$sidebar-width: flex-grid(2,$grid-columns);
 
 // Breakpoints
 // ------------------------------------------- /

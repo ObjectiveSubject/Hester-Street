@@ -460,7 +460,7 @@ html {
 .u-mt-0 {
   margin-top: 0rem; }
 
-.u-mr-0, .has-sidebar .section-content, .footer-content .section-content, .has-sidebar .footer-content, .footer-content .footer-content, .has-module .section-content, .has-module .footer-content {
+.u-mr-0 {
   margin-right: 0rem; }
 
 .u-mb-0 {
@@ -739,7 +739,7 @@ html {
 .u-mr-6 {
   margin-right: 6rem; }
 
-.u-mb-6, .masthead-sidebar {
+.u-mb-6, .sidebar-masthead {
   margin-bottom: 6rem; }
 
 .u-ml-6 {
@@ -1372,7 +1372,7 @@ figure {
     order: 1; } }
 
 .post-content {
-  padding-right: 11.25rem; }
+  padding-right: 14.7%; }
   @media screen and (min-width: 768px) {
     .post-content {
       order: 0; } }
@@ -1381,29 +1381,25 @@ figure {
   padding-right: 0; }
 
 .section-content, .footer-content {
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  box-flex: 1;
-  -webkit-flex: 1;
-  -moz-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  margin-right: 11.25rem; }
+  width: 100%; }
+  @media screen and (min-width: 768px) {
+    .section-content, .footer-content {
+      width: 82.94%; } }
   @media screen and (min-width: 768px) {
     .has-sidebar .section-content, .footer-content .section-content, .has-sidebar .footer-content, .footer-content .footer-content {
       order: 0; } }
 
 .sidebar {
-  flex: 0 0 11.25rem; }
+  flex: 0 0 14.7%; }
   @media screen and (min-width: 768px) {
     .sidebar {
       order: 1; } }
 
 .sidebar--expanded {
-  -webkit-flex-basis: 16.88rem;
-  -moz-flex-basis: 16.88rem;
-  flex-basis: 16.88rem;
-  -ms-flex-preferred-size: 16.88rem; }
+  -webkit-flex-basis: 29.4%;
+  -moz-flex-basis: 29.4%;
+  flex-basis: 29.4%;
+  -ms-flex-preferred-size: 29.4%; }
 
 /* Tables
  * -----------------------------------------------------------*/
@@ -1503,8 +1499,31 @@ caption {
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: stretch;
+  -moz-box-align: stretch;
+  box-align: stretch;
+  -webkit-align-items: stretch;
+  -moz-align-items: stretch;
+  -ms-align-items: stretch;
+  -o-align-items: stretch;
   align-items: stretch;
-  position: relative; }
+  -ms-flex-align: stretch;
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  box-lines: multiple;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+  @media screen and (min-width: 768px) {
+    .row, .footer-row {
+      -webkit-box-lines: single;
+      -moz-box-lines: single;
+      box-lines: single;
+      -webkit-flex-wrap: nowrap;
+      -moz-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap; } }
   .sidebar .row, .sidebar .footer-row {
     padding: 0; }
 

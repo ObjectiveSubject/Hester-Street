@@ -1,13 +1,11 @@
 .section-content {
-    @include flex(1);
-    margin-right: $sidebar-width;
+    width: flex-grid(12,$grid-columns);
+    @include media($md) {
+        width: flex-grid(10,$grid-columns);
+    }
     .has-sidebar & {
         @include media($md) {
             order: 0;
         }
-        @extend .u-mr-0;
-    }
-    .has-module & {
-        @extend .u-mr-0;
     }
 }

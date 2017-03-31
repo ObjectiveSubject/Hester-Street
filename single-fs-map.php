@@ -15,7 +15,7 @@ get_header(); ?>
                     <div class="u-container">
                         <div class="row has-sidebar">
                             
-                            <div class="sidebar masthead-sidebar column">
+                            <div class="sidebar sidebar-masthead column">
 
                                 <?php get_template_part( 'partials/sidebar', 'masthead' ); ?>
                             
@@ -36,7 +36,28 @@ get_header(); ?>
                                             <div class="h6 u-display-inline-block u-ml-2">2007-2016</div>
                                         </div>
                                     </div>
-                                    
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                       
+                <section class="u-bg-red">
+                    <div class="u-container">
+                        <div class="row">
+                            <div class="column">
+                                Content here
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                        
+                <section class="section">
+                    <div class="u-container">
+                        <div class="row has-sidebar">
+                            <div class="section-content">
+                                <div class="column">
                                     <div class="row">
                                        
                                         <aside class="post-meta sidebar sidebar--expanded">
@@ -76,22 +97,17 @@ get_header(); ?>
                                         
                                         <div class="post-content">
                                             
-                                            <div class="post-meta__location">
-                                                <div class="h6">Location</div>
-                                                <!-- Google Maps embed -->
-                                                <div style="width: 100%; height: 0; padding-bottom: 75%; background: lightgray;" class="u-mt-1"></div>
-                                            </div>
-                                            
                                             <?php the_content(); ?>
+                                            
                                         </div>
                                         
                                     </div>
                                     
-                                </div><!-- .column -->
+                                </div>
                             </div> <!-- .section-content -->
 
-                        </div><!-- .row -->
-                    </div><!-- .u-container -->
+                        </div>
+                    </div>
                 </section>
                 
                 <section class="section">

@@ -8,8 +8,11 @@
     }
 }
 .sidebar--expanded {
-    @include flex-basis( $sidebar-width*1.5 );
+    @include flex-basis( $sidebar-width*2 );
     .column {
         @extend .u-pr-0;
     }
+}
+.sidebar-masthead {
+    @extend .u-mb-6;
 }

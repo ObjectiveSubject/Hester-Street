@@ -15,7 +15,7 @@ get_header(); ?>
                     <div class="u-container">
                         <div class="row has-sidebar">
 
-                            <div class="sidebar masthead-sidebar column">
+                            <div class="sidebar sidebar-masthead column">
 
                                 <?php get_template_part( 'partials/sidebar', 'masthead' ); ?>
                             

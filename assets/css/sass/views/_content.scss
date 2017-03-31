@@ -1,7 +1,10 @@
-.row {
+.row { // basically makes content flex items
     @include display(flex);
-    align-items: stretch;
-    position: relative;
+    @include align-items(stretch);
+    @include flex-wrap(wrap);
+    @include media($md) {
+        @include flex-wrap(nowrap);
+    }
     .column & {
         @extend .u-py-6;
     }
@@ -12,7 +15,7 @@
         @extend .u-mt-4;
     }
 }
-.column {
+.column { // outputs a left-border
     @extend .u-px-1;
     @extend .u-border-black;
     [class*="u-bg-"] & {
