@@ -8,12 +8,11 @@
     }
 }
 .content {
-    flex: 1 1 flex-grid(12,$grid-columns);
+    flex: 1 0 flex-grid(10,$grid-columns);
     @extend .u-px-1;
     @extend .has-border;
-    .has-sidebar & {
-        @include media($md) {
-            flex: 1 1 flex-grid(10,$grid-columns);
-        }
+    &:not(.section-content) {
+        @include display(flex);
+        @include flex-wrap(wrap);
     }
 }

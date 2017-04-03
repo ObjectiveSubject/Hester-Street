@@ -1,16 +1,28 @@
 .module {
     @extend .u-py-6;
+    .section:last-of-type &:not(.module--quote) {
+        padding-bottom: 0;
+    }
 }
 .module--basic {
     @include display(flex);
+    @include flex-wrap(wrap);
+}
+.module-title {
+    .module--basic & {
+        flex: 0 1 flex-grid(12,$grid-columns);
+    }
 }
 .module-content {
     .module--basic & {
-        @include flex-basis( flex-grid(8,$grid-columns) ); // testing flex-grid layout
+        flex: 0 0 flex-grid(8,$grid-columns);
+    }
+    &.module-content--full {
+        flex: 0 1 flex-grid(12,$grid-columns);
     }
 }
 .module-aside {
     .module--basic & {
-        @include flex-basis( flex-grid(4,$grid-columns) ); // testing flex-grid layout
+        flex: 0 0 flex-grid(4,$grid-columns);
     }
 }

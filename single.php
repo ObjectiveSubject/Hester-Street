@@ -31,15 +31,13 @@ get_header(); ?>
 
                                 <div class="section-content">
 
-                                    <div class="post-title u-mb-4">
-                                        <h1><?php the_title(); ?></h1>
-                                    </div>
+                                    <h1 class="post-title u-mb-4">
+                                        <?php the_title(); ?>
+                                    </h1>
 
                                     <div class="post-content">
-
-                                        <div class="post-entry">
-                                            <?php the_content(); ?>
-                                        </div>
+                                           
+                                        <?php the_content(); ?>
 
                                     </div>
 
