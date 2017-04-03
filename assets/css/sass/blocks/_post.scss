@@ -1,5 +1,8 @@
 .post-image {
+    height: 0;
+    padding-bottom: 60%;
     @extend .u-mb-4;
+    background-size: cover;
 }
 .post-meta {
     @extend .u-pl-1;

@@ -22,11 +22,12 @@ get_header(); ?>
                             </div>
                             
                             <div class="content">
+                                  
+                                <?php if ( get_the_post_thumbnail( $post_id ) ) : ?>
                                    
-                                <div class="post-image">
-                                    <!-- Temporarily output as <img> -->
-                                    <?php echo get_the_post_thumbnail( $post_id ); ?> 
-                                </div>
+                                <div class="post-image" style="background-image: url(<?php echo get_the_post_thumbnail_url( $post_id ); ?>);"></div>
+                                
+                                <?php endif; ?>
 
                                 <div class="section-content">
 
