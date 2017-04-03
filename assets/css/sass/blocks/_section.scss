@@ -1,8 +1,5 @@
 .section-content {
-    @extend .u-px-1;
-    @extend .has-border;
     .has-sidebar & {
-        width: 100%;
         @extend .u-pb-6;
         @include media($md) {
             order: 0;

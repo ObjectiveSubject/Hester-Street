@@ -15,6 +15,8 @@
 .footer-content {
     @extend .flex;
     @include align-items(flex-end);
+    border-left: none!important;
+    padding: 0;
 }
 
 // Menus
@@ -25,6 +27,12 @@
             color: white;
         }
     }
+}
+
+// Social
+// ----------------------------//
+.social {
+    @extend .secondary-menu;
 }
 
 // Colophon

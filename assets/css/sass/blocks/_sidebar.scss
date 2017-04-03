@@ -3,7 +3,7 @@
     @extend .u-px-1;
     @extend .has-border;
     @include media($md) {
-        order: 1;
+        order: 2;
     }
 }
 .sidebar--expanded {
@@ -16,6 +16,7 @@
     @extend .u-mb-6;
 }
 .sidebar-post-meta {
-    padding: none;
+    order: 1;
+    padding: 0;
     border: none;
 }

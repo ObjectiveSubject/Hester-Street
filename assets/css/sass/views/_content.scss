@@ -8,10 +8,12 @@
     }
 }
 .content {
-    flex: 0 1 flex-grid(12,$grid-columns);
+    flex: 1 1 flex-grid(12,$grid-columns);
+    @extend .u-px-1;
+    @extend .has-border;
     .has-sidebar & {
         @include media($md) {
-            flex: 0 1 flex-grid(10,$grid-columns);
+            flex: 1 1 flex-grid(10,$grid-columns);
         }
     }
 }

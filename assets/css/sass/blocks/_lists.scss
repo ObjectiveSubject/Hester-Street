@@ -7,10 +7,8 @@
     }
 }
 .list-item {
-    &+& {
-        margin-top: $leading/4;
-    }
-    .timeline & {
+    .timeline &,
+    .social & {
         @extend .h6;
     }
 }

@@ -37,7 +37,7 @@ get_header(); ?>
                 <section class="section u-bg-red">
                     <div class="u-container">
                         <div class="flex has-module">
-                            <div class="section-content module module--quote">
+                            <div class="content section-content module module--quote">
                                 <!--<div class="h6">About</div>-->
                                 <blockquote>Hester Street is an urban planning, design and community development nonprofit working so that neighborhoods are shaped by their people.</blockquote>
                                 <!--<a href="#">Read More</a>-->

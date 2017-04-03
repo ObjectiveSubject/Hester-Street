@@ -61,7 +61,13 @@
                         }
                         ?>
 
-                        <!-- social media -->
+                        <ul class="list social footer-social">
+                        
+                            <li class="list-item menu-item">
+                                <a href="#">Social item</a>
+                            </li>
+
+                        </ul>
 
                     </nav>
 
