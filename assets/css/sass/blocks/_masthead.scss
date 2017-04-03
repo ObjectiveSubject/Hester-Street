@@ -1,4 +1,8 @@
 .masthead {
     position: sticky; // testing intended behaviour
     top: $leading * 3;
+    @extend .u-mb-2;
+    @include media($md) {
+        margin-bottom: 0;
+    }
 }

@@ -1,4 +1,4 @@
-<div id="masthead" class="masthead js-sticky">
+<div id="masthead" class="masthead">
     <a id="logo" class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
         <svg class="hsc-logo" viewBox="0 0 1140 400">
             <g fill-rule="evenodd">

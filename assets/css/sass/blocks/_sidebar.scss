@@ -1,19 +1,15 @@
 .sidebar {
-    flex: 0 0 $sidebar-width;
     @extend .u-px-1;
     @extend .has-border;
     @include media($md) {
         order: 2;
-    }
-}
-.sidebar--expanded {
-    @include flex-basis( $sidebar-width*2 );
-    .column {
-        @extend .u-pr-0;
+        flex: 0 0 $sidebar-width;
     }
 }
 .sidebar-masthead {
-    @extend .u-mb-6;
+    @include media($md) {
+        margin-bottom: $leading * 6;
+    }
 }
 .sidebar-post-meta {
     order: 1;

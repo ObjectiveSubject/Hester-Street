@@ -12,12 +12,12 @@
         @extend .u-mt-4;
     }
     @include media($md) {
-        order: 1;
+        order: 2;
     }
 }
 .post-content {
     @include media($md) {
-        order: 0;
+        order: 1;
     }
 }
 .post-content--expanded {

@@ -443,7 +443,10 @@ html {
   position: relative;
   max-width: 77.5rem;
   margin: 0 auto;
-  padding: 0 70px; }
+  padding: 0 1rem; }
+  @media screen and (min-width: 768px) {
+    .u-container {
+      padding: 0 70px; } }
 
 .u-mt-nudge {
   margin-top: 0.5rem; }
@@ -484,7 +487,7 @@ html {
 .u-pt-0 {
   padding-top: 0rem; }
 
-.u-pr-0, .sidebar--expanded .column {
+.u-pr-0 {
   padding-right: 0rem; }
 
 .u-pb-0 {
@@ -556,7 +559,7 @@ html {
 .u-mr-2 {
   margin-right: 2rem; }
 
-.u-mb-2 {
+.u-mb-2, .masthead {
   margin-bottom: 2rem; }
 
 .u-ml-2 {
@@ -596,7 +599,7 @@ html {
 .u-ma-3 {
   margin: 3rem; }
 
-.u-mt-3, .secondary-menu, .social {
+.u-mt-3, .secondary-menu, .social, .wrap {
   margin-top: 3rem; }
 
 .u-mr-3 {
@@ -619,7 +622,7 @@ html {
 .u-pa-3 {
   padding: 3rem; }
 
-.u-pt-3, .site-content, .site-menu-content {
+.u-pt-3 {
   padding-top: 3rem; }
 
 .u-pr-3 {
@@ -740,7 +743,7 @@ html {
 .u-mr-6 {
   margin-right: 6rem; }
 
-.u-mb-6, .section:last-of-type .section-content, .sidebar-masthead {
+.u-mb-6, .section:last-of-type .section-content {
   margin-bottom: 6rem; }
 
 .u-ml-6 {
@@ -1319,6 +1322,9 @@ label {
 .masthead {
   position: sticky;
   top: 3rem; }
+  @media screen and (min-width: 768px) {
+    .masthead {
+      margin-bottom: 0; } }
 
 /* Media
  * -----------------------------------------------------------*/
@@ -1430,35 +1436,31 @@ figure {
 
 @media screen and (min-width: 768px) {
   .post-meta {
-    order: 1; } }
+    order: 2; } }
 
 @media screen and (min-width: 768px) {
   .post-content {
-    order: 0; } }
+    order: 1; } }
 
 .post-content--expanded {
   padding-right: 0; }
 
-.has-sidebar .section-content {
-  flex: 0 1 65.88%; }
-  @media screen and (min-width: 768px) {
-    .has-sidebar .section-content {
-      order: 0; } }
+@media screen and (min-width: 768px) {
+  .has-sidebar .section-content {
+    order: 0;
+    flex: 0 1 65.88%; } }
 
 .content .section-content {
   flex: 0 1 74.41%; }
 
-.sidebar {
-  flex: 0 0 14.7%; }
-  @media screen and (min-width: 768px) {
-    .sidebar {
-      order: 2; } }
+@media screen and (min-width: 768px) {
+  .sidebar {
+    order: 2;
+    flex: 0 0 14.7%; } }
 
-.sidebar--expanded {
-  -webkit-flex-basis: 29.4%;
-  -moz-flex-basis: 29.4%;
-  flex-basis: 29.4%;
-  -ms-flex-preferred-size: 29.4%; }
+@media screen and (min-width: 768px) {
+  .sidebar-masthead {
+    margin-bottom: 6rem; } }
 
 .sidebar-post-meta {
   order: 1;
