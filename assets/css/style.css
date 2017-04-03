@@ -743,7 +743,7 @@ html {
 .u-mr-6 {
   margin-right: 6rem; }
 
-.u-mb-6, .section:last-of-type .section-content {
+.u-mb-6, .section:last-of-type .content {
   margin-bottom: 6rem; }
 
 .u-ml-6 {
@@ -763,10 +763,10 @@ html {
 .u-pt-6, .page-content {
   padding-top: 6rem; }
 
-.u-pr-6, .tagline, .footer-content .footer-column {
+.u-pr-6, .footer-content .footer-column {
   padding-right: 6rem; }
 
-.u-pb-6, .has-sidebar .section-content {
+.u-pb-6, .has-sidebar .content {
   padding-bottom: 6rem; }
 
 .u-pl-6 {
@@ -1064,29 +1064,38 @@ textarea {
 
 /* Headings
  * ------------------------------------------ */
-h1, .h1, .tagline {
+h1, .h1 {
   font-family: "GT-America-Extended-Black", Arial, sans-serif;
-  font-size: 4.38rem;
+  font-size: 2.25rem;
   line-height: 1;
   margin-top: 0;
   margin-bottom: 0;
   text-transform: uppercase; }
+  @media screen and (min-width: 768px) {
+    h1, .h1 {
+      font-size: 4.38rem; } }
 
 h2, blockquote, .h2 {
   font-family: "GT-America-Extended-Black", Arial, sans-serif;
-  font-size: 3rem;
+  font-size: 2rem;
   line-height: 1;
   margin-top: 0;
   margin-bottom: 0;
   text-transform: uppercase; }
+  @media screen and (min-width: 768px) {
+    h2, blockquote, .h2 {
+      font-size: 3rem; } }
 
 h3, .h3 {
   font-family: "GT-America-Extended-Black", Arial, sans-serif;
-  font-size: 2.25rem;
+  font-size: 2rem;
   line-height: 1.125em;
   margin-top: 0;
   margin-bottom: 0;
   text-transform: uppercase; }
+  @media screen and (min-width: 768px) {
+    h3, .h3 {
+      font-size: 2.25rem; } }
 
 h4, .h4, .primary-menu .menu-item {
   font-family: "GT-America-Extended-Black", Arial, sans-serif;
@@ -1105,7 +1114,8 @@ h5, .h5 {
   text-transform: uppercase; }
 
 h6, .h6, .list-title, .timeline .list-item,
-.social .list-item, .secondary-menu .menu-item, .social .menu-item {
+.social .list-item,
+.page-anchors .list-item, .secondary-menu .menu-item, .social .menu-item {
   font-family: "GT-America-Extended-Black", Arial, sans-serif;
   font-size: 1.13rem;
   line-height: 1.25em;
@@ -1431,7 +1441,7 @@ figure {
 .post-image {
   width: 100%;
   height: 0;
-  padding-bottom: 60%;
+  padding-bottom: 56.25%;
   background-size: cover; }
 
 @media screen and (min-width: 768px) {
@@ -1600,23 +1610,24 @@ caption {
       -ms-flex-wrap: nowrap;
       flex-wrap: nowrap; } }
 
-.content {
-  flex: 1 0 82.94%; }
-  .content:not(.section-content) {
-    display: -webkit-box;
-    display: -moz-box;
-    display: box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-lines: multiple;
-    -moz-box-lines: multiple;
-    box-lines: multiple;
-    -webkit-flex-wrap: wrap;
-    -moz-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap; }
+.content:not(.section-content) {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  box-lines: multiple;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+
+.section:last-of-type .content {
+  padding-bottom: 0; }
 
 .footer-content .footer-column {
   -webkit-flex-basis: 50%;
@@ -1635,7 +1646,7 @@ caption {
   align-items: flex-end;
   -ms-flex-align: end;
   border-left: none !important;
-  padding: 0; }
+  padding: 0 !important; }
 
 .site-footer .menu-item a {
   color: white; }

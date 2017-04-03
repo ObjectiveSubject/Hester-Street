@@ -31,7 +31,6 @@
     "base/typography";
 
 @import
-    "blocks/aside",
     "blocks/buttons",
     "blocks/forms",
     "blocks/lists",
@@ -40,14 +39,11 @@
     "blocks/media",
     "blocks/menu",
     "blocks/modules",
-    "blocks/nav",
     "blocks/page",
     "blocks/post",
     "blocks/section",
     "blocks/sidebar",
-    "blocks/tables",
-    "blocks/tagline",
-    "blocks/timeline";
+    "blocks/tables";
 
 @import
     "views/content",

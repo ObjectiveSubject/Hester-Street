@@ -1,6 +1,5 @@
 .section-content {
     .has-sidebar & {
-        @extend .u-pb-6;
         @include media($md) {
             order: 0;
             flex: 0 1 flex-grid(8,$grid-columns);
@@ -8,8 +7,5 @@
     }
     .content & {
         flex: 0 1 flex-grid(9,$grid-columns);
-    }
-    .section:last-of-type & {
-        @extend .u-mb-6;
     }
 }

@@ -24,9 +24,14 @@ get_header(); ?>
                                 </div>
 
                                 <div class="content section-content">
-                                    <h1 class="page-title h2">
-                                        <?php the_title(); ?>
-                                    </h1>
+                                    <div class="page-title">
+                                        <h1 class="h2"><?php the_title(); ?></h1>
+                                        <ul class="list page-anchors">
+                                            <li class="list-item">
+                                                <a href="#">Anchor</a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                     <div class="page-content">
                                         <?php the_content(); ?>
                                     </div>

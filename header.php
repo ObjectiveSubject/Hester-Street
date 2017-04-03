@@ -69,7 +69,7 @@
                             
                         </nav>
 
-                        <div class="tagline">
+                        <div class="h1">
                             <?php bloginfo( 'description' ); ?>
                         </div>
                         

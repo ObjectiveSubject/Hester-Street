@@ -16,7 +16,7 @@
     @extend .flex;
     @include align-items(flex-end);
     border-left: none!important;
-    padding: 0;
+    padding: 0!important;
 }
 
 // Menus

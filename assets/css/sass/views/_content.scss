@@ -11,11 +11,17 @@
     }
 }
 .content {
-    flex: 1 0 flex-grid(10,$grid-columns);
     @extend .u-px-1;
     @extend .has-border;
     &:not(.section-content) {
         @include display(flex);
         @include flex-wrap(wrap);
+    }
+    .has-sidebar & {
+        @extend .u-pb-6;
+    }
+    .section:last-of-type & {
+        padding-bottom: 0;
+        @extend .u-mb-6;
     }
 }

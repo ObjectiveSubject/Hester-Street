@@ -27,35 +27,35 @@ textarea {
  * ------------------------------------------ */
  h1, .h1 {
 	font-family: $gta-extended-black;
-	font-size: rem(70);
+	font-size: rem(36);
 	line-height: 1;
     margin-top: 0;
     margin-bottom: 0;
 	text-transform: uppercase;
 	@include media($md) {
-        
+        font-size: rem(70);
 	}
  }
  h2, .h2 {
 	font-family: $gta-extended-black;
-	font-size: rem(48);
+	font-size: rem(32);
 	line-height: 1;
     margin-top: 0;
     margin-bottom: 0;
 	text-transform: uppercase;
 	@include media($md) {
-        
+        font-size: rem(48);
 	}
  }
  h3, .h3 {
 	font-family: $gta-extended-black;
-	font-size: rem(36);
+	font-size: rem(32);
 	line-height: 1.125em;
     margin-top: 0;
     margin-bottom: 0;
 	text-transform: uppercase;
 	@include media($md) {
-        
+        font-size: rem(36);
 	}
  }
  h4, .h4 {
@@ -65,9 +65,6 @@ textarea {
     margin-top: 0;
     margin-bottom: 0;
 	text-transform: uppercase;
-	@include media($md) {
-        
-	}
  }
  h5, .h5 {
 	font-family: $gta-extended-black;
