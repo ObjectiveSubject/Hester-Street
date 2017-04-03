@@ -3,7 +3,7 @@
     @extend .has-border;
     @include media($md) {
         order: 2;
-        flex: 0 0 $sidebar-width;
+        width: $sidebar-width;
     }
 }
 .sidebar-masthead {

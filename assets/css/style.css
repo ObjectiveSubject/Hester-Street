@@ -1466,7 +1466,7 @@ figure {
 @media screen and (min-width: 768px) {
   .sidebar {
     order: 2;
-    flex: 0 0 14.7%; } }
+    width: 14.7%; } }
 
 @media screen and (min-width: 768px) {
   .sidebar-masthead {
