@@ -1316,6 +1316,10 @@ label {
     [class*="u-bg-"] .hsc-logo g {
       fill: white; }
 
+.masthead {
+  position: sticky;
+  top: 3rem; }
+
 /* Media
  * -----------------------------------------------------------*/
 /* Make sure embeds and iframes fit their containers. */
