@@ -15,9 +15,9 @@
     <header class="site-menu u-bg-black u-display-none">
         <div class="site-menu-content">
             <div class="flex u-container">
-                <div class="flex has-sidebar">
+                <div class="flex">
 
-                    <div class="sidebar">
+                    <div class="section__sidebar flex__item">
                         <div class="masthead">
                             <a id="logo" class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
                                 <svg class="hsc-logo" viewBox="0 0 1140 400" fill-rule="evenodd">
@@ -37,7 +37,7 @@
                         </div>
                     </div>
 
-                    <div class="menu">
+                    <div class="menu section__content">
                         <nav id="site-navigation" class="main-navigation" role="navigation">
 
                             <?php

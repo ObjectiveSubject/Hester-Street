@@ -1,4 +1,7 @@
 .section__content {
+    @include media($md) {
+        order: 1;
+    }
     .has-sidebar & {
         @extend .u-pb-6;
     }
@@ -10,5 +13,9 @@
 .section__sidebar {
     @include media($md) {
         order: 2;
+        margin-bottom: $leading * 6;
+        .footer & {
+            margin-bottom: 0;
+        }
     }
 }

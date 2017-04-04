@@ -6,9 +6,9 @@
 
 	<footer class="site-footer footer u-bg-blue" role="contentinfo">
         <div class="u-container">
-            <div class="flex has-sidebar">
+            <div class="flex">
 
-                <div class="sidebar footer-column section__sidebar flex__item">
+                <div class="section__sidebar flex__item">
 
                     <div class="masthead">
                         <a id="logo" class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -30,9 +30,9 @@
 
                 </div>
 
-                <div class="content footer-content section__content flex__item">
+                <div class="footer__content section__content flex flex__item">
                    
-                    <nav class="footer-navigation footer-column">
+                    <nav class="footer-navigation flex__item">
 
                         <?php
                         $menu_primary   = false;
@@ -61,7 +61,7 @@
 
                         <ul class="list social footer-social">
                         
-                            <li class="list-item menu-item">
+                            <li class="list__item menu-item">
                                 <a href="#">Social item</a>
                             </li>
 
@@ -69,7 +69,7 @@
 
                     </nav>
 
-                    <div id="colophon" class="footer-colophon footer-column">
+                    <div id="colophon" class="footer-colophon flex__item">
                         Hester Street is an urban planning, design and community development nonprofit working so that neighborhoods are shaped by their people.
                         <address class="u-mt-6">
                             <span class="h6 u-display-block">113 Hester Street</span>
@@ -77,7 +77,7 @@
                         </address>
                     </div>
 
-                </div><!-- .footer-content -->
+                </div><!-- .footer__content -->
 
             </div><!-- .footer-row -->
         </div>

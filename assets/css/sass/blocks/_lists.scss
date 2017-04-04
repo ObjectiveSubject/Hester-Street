@@ -6,7 +6,7 @@
         @extend .u-mt-1;
     }
 }
-.list-item {
+.list__item {
     .social &,
     .page-anchors & {
         @extend .h6;

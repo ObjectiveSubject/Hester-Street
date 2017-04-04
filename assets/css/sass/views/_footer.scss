@@ -1,18 +1,14 @@
 .site-footer {
     @extend .u-py-3;
 }
-.footer-column {
-    @extend .flex__item;
-    .footer-content & {
+.footer__content {
+    @include align-items(flex-end);
+    padding: 0!important;
+    border: none!important;
+    .flex__item {
         @extend .u-pr-6;
         flex: 1 0 flex-grid(6,$grid-columns);
     }
-}
-.footer-content {
-    @extend .flex;
-    @include align-items(flex-end);
-    border-left: none!important;
-    padding: 0!important;
 }
 
 // Menus

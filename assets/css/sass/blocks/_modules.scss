@@ -8,20 +8,20 @@
     @include display(flex);
     @include flex-wrap(wrap);
 }
-.module-title {
+.module__title {
     .module--basic & {
         flex: 0 1 flex-grid(12,$grid-columns);
     }
 }
-.module-content {
+.module__content {
     .module--basic & {
         flex: 0 0 flex-grid(8,$grid-columns);
     }
-    &.module-content--full {
+    &.module__content--full {
         flex: 0 1 flex-grid(12,$grid-columns);
     }
 }
-.module-aside {
+.module__aside {
     .module--basic & {
         flex: 0 0 flex-grid(4,$grid-columns);
     }
