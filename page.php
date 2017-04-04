@@ -23,7 +23,7 @@ get_header(); ?>
 
                                 </div>
 
-                                <div class="section__content">
+                                <div class="section__content flex__item">
                                     <div class="page-title">
                                         <h1 class="h2"><?php the_title(); ?></h1>
                                         <ul class="list page-anchors">
