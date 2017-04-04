@@ -5,3 +5,9 @@
     @extend .u-mb-4;
     background-size: cover;
 }
+.post-title {
+    @extend .page-title;
+}
+.post-content {
+    @extend .page-content;
+}

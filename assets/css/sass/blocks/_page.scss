@@ -1,3 +1,9 @@
+.page-title {
+    @extend .u-pr-6;
+}
 .page-content {
-    @extend .u-pt-6;
+    @extend .u-mt-6;
+    @include media($md) {
+        padding-right: 30%; // placeholder
+    }
 }

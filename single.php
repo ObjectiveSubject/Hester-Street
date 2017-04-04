@@ -30,24 +30,18 @@ get_header(); ?>
                                     <div class="post-image" style="background-image: url(<?php echo get_the_post_thumbnail_url( $post_id ); ?>);"></div>
 
                                     <?php endif; ?>
+                                    
+                                    <h1 class="post-title">
+                                        <?php the_title(); ?>
+                                    </h1>
 
-                                    <div class="section-content">
+                                    <div class="post-content">
+                                        <?php the_content(); ?>
+                                    </div>
 
-                                        <h1 class="post-title u-mb-4">
-                                            <?php the_title(); ?>
-                                        </h1>
+                                </div>
 
-                                        <div class="post-content">
-
-                                            <?php the_content(); ?>
-
-                                        </div>
-
-                                    </div> <!-- .section-content -->
-
-                                </div><!-- .content -->
-
-                            </div>
+                            </div><!-- .flex -->
                         </div><!-- .u-container -->
                     </section>
                     
