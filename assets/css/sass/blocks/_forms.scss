@@ -12,17 +12,19 @@ label {
     @extend .u-clear;
     display: block;
     clear: both;
-    margin-top: 1rem;
+    @extend .u-mt-1;
 }
 
 .form-field {
     display: block;
     width: 100%;
     color: $color-text-input;
-    border: 1px solid $color-border-input;
+    border: 0;
+    border-bottom: 2px solid transparent;
     border-radius: 0;
     box-sizing: border-box;
-    padding: 0.5em;
+    padding: 0;
+    @extend .u-pt-1;
     outline: 0;
     @include transition( all 300ms ease );
 
@@ -32,6 +34,8 @@ label {
     &:focus {
         border-color: $color-text-input-focus;
         color: $color-text-input-focus;
+        @extend .u-py-1;
+        border-color: $color-border-input-focus;
     }
 
     @include placeholder {

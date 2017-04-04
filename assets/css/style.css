@@ -507,7 +507,7 @@ html {
 .u-ma-1 {
   margin: 1rem; }
 
-.u-mt-1, .list-title + .list {
+.u-mt-1, .form-group, .list-title + .list {
   margin-top: 1rem; }
 
 .u-mr-1 {
@@ -530,7 +530,7 @@ html {
 .u-pa-1 {
   padding: 1rem; }
 
-.u-pt-1 {
+.u-pt-1, .form-field {
   padding-top: 1rem; }
 
 .u-pr-1 {
@@ -546,7 +546,7 @@ html {
   padding-left: 1rem;
   padding-right: 1rem; }
 
-.u-py-1 {
+.u-py-1, .form-field:focus {
   padding-top: 1rem;
   padding-bottom: 1rem; }
 
@@ -1288,26 +1288,27 @@ label {
 
 .form-group {
   display: block;
-  clear: both;
-  margin-top: 1rem; }
+  clear: both; }
 
 .form-field {
   display: block;
   width: 100%;
-  color: #333333;
-  border: 1px solid #cccccc;
+  color: black;
+  border: 0;
+  border-bottom: 2px solid transparent;
   border-radius: 0;
   box-sizing: border-box;
-  padding: 0.5em;
+  padding: 0;
   outline: 0;
   -webkit-transition: all 300ms ease;
   -moz-transition: all 300ms ease;
   transition: all 300ms ease; }
   .form-field:hover {
-    color: #111111; }
+    color: #202022; }
   .form-field:focus {
-    border-color: lightblue;
-    color: lightblue; }
+    border-color: black;
+    color: black;
+    border-color: black; }
   .form-field::-webkit-input-placeholder {
     color: lightgray; }
   .form-field::-moz-placeholder {

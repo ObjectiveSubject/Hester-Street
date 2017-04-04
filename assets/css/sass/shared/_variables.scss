@@ -72,13 +72,13 @@ $color-btn-bg-hover: gray;
 $color-btn-disabled: gray;
 $color-btn-disabled-bg: lightgray;
 
-$color-border-input: #cccccc;
-$color-border-input-hover: #cccccc;
-$color-border-input-focus: #cccccc;
+$color-border-input: black;
+$color-border-input-hover: $dark-gray;
+$color-border-input-focus: black;
 
-$color-text-input: #333333;
-$color-text-input-hover: #111111;
-$color-text-input-focus: lightblue;
+$color-text-input: black;
+$color-text-input-hover: $dark-gray;
+$color-text-input-focus: black;
 
 $color-text-muted: lightgray;
 
