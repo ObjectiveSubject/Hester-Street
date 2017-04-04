@@ -1,13 +1,12 @@
 .logo {
     display: block;
+    width: $leading * 10;
 }
 .hsc-logo {
-    width: $leading * 8;
+    width: 100%;
     vertical-align: bottom;
-    g {
-        fill: black;
-        [class*="u-bg-"] & {
-            fill: white;
-        }
+    fill: black;
+    [class*="u-bg-"] & {
+        fill: white;
     }
 }

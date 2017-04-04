@@ -1,11 +1,14 @@
-.section-content {
+.section__content {
     .has-sidebar & {
-        @include media($md) {
-            order: 0;
-            flex: 0 1 flex-grid(8,$grid-columns);
-        }
+        @extend .u-pb-6;
     }
-    .content & {
-        flex: 0 1 flex-grid(9,$grid-columns);
+    .section:last-of-type & {
+        padding-bottom: 0;
+        @extend .u-mb-6;
+    }
+}
+.section__sidebar {
+    @include media($md) {
+        order: 2;
     }
 }

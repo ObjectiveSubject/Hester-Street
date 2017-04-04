@@ -1,11 +1,3 @@
-.sidebar {
-    @extend .u-px-1;
-    @extend .has-border;
-    @include media($md) {
-        order: 2;
-        width: $sidebar-width;
-    }
-}
 .sidebar-masthead {
     @include media($md) {
         margin-bottom: $leading * 6;

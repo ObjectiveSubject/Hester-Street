@@ -1,15 +1,11 @@
 .site-footer {
     @extend .u-py-3;
 }
-.footer-row {
-    @extend .flex;
-}
 .footer-column {
-    @extend .u-px-1;
-    @extend .has-border;
+    @extend .flex__item;
     .footer-content & {
         @extend .u-pr-6;
-        @include flex-basis(50%);
+        flex: 1 0 flex-grid(6,$grid-columns);
     }
 }
 .footer-content {
@@ -24,14 +20,14 @@
 .menu-item {
     .site-footer & {
         a {
-            color: white;
+            @extend .u-color-white;
         }
     }
 }
 
 // Social
 // ----------------------------//
-.social {
+.footer-social {
     @extend .secondary-menu;
 }
 

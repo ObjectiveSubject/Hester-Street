@@ -17,13 +17,13 @@ get_header(); ?>
                         <div class="u-container">
                             <div class="flex has-sidebar">
 
-                                <div class="sidebar sidebar-masthead">
+                                <div class="sidebar sidebar-masthead section__sidebar flex__item">
 
                                     <?php get_template_part( 'partials/sidebar', 'masthead' ); ?>
 
                                 </div>
 
-                                <div class="content section-content">
+                                <div class="content section__content">
                                     <div class="page-title">
                                         <h1 class="h2"><?php the_title(); ?></h1>
                                         <ul class="list page-anchors">
@@ -44,7 +44,7 @@ get_header(); ?>
                     <section class="section u-bg-red">
                         <div class="u-container">
                             <div class="flex has-module">
-                                <div class="content section-content">
+                                <div class="content section__content flex__item">
                                     <div class="module module--quote">
 
                                         <blockquote>Hester Street is an urban planning, design and community development nonprofit working so that neighborhoods are shaped by their people.</blockquote>
@@ -58,7 +58,7 @@ get_header(); ?>
                     <section class="section">
                         <div class="u-container">
                             <div class="flex has-module">
-                                <div class="content section-content">
+                                <div class="content section__content flex__item">
                                     <div class="module module--basic">
 
                                         <div class="module-title">
@@ -78,7 +78,7 @@ get_header(); ?>
                     <section class="section">
                         <div class="u-container">
                             <div class="flex has-module">
-                                <div class="content section-content">
+                                <div class="content section__content flex__item">
                                     <div class="module module--basic">
 
                                         <div class="module-title">
@@ -98,7 +98,7 @@ get_header(); ?>
                     <section class="section">
                         <div class="u-container">
                             <div class="flex has-module">
-                                <div class="content section-content">
+                                <div class="content section__content flex__item">
                                     <div class="module module--basic">
 
                                         <div class="module-title">
@@ -122,7 +122,7 @@ get_header(); ?>
                     <section class="section">
                         <div class="u-container">
                             <div class="flex has-module">
-                                <div class="content section-content">
+                                <div class="content section__content flex__item">
                                     <div class="module module--basic">
 
                                         <div class="module-title">

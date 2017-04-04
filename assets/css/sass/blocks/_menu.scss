@@ -1,3 +1,6 @@
+.site-menu {
+    @extend .u-transition-300;
+}
 .menu {
     @include display(flex);
     @include flex-direction(column);
@@ -18,6 +21,9 @@
     .site-menu & {
         a {
             @extend .u-color-white;
+            &:hover {
+                @extend .u-color-dark-gray;
+            }
         }
     }
 }

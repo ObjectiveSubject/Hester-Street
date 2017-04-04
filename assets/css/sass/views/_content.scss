@@ -1,5 +1,8 @@
 .wrap {
-    @extend .u-mt-3;
+    @extend .u-mt-2;
+    @include media($md) {
+        margin-top: $leading * 3;
+    }
 }
 .flex {
     @include display(flex);
@@ -10,18 +13,7 @@
         @include flex-wrap(nowrap);
     }
 }
-.content {
+.flex__item {
     @extend .u-px-1;
     @extend .has-border;
-    &:not(.section-content) {
-        @include display(flex);
-        @include flex-wrap(wrap);
-    }
-    .has-sidebar & {
-        @extend .u-pb-6;
-    }
-    .section:last-of-type & {
-        padding-bottom: 0;
-        @extend .u-mb-6;
-    }
 }
