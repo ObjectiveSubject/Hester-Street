@@ -5,18 +5,3 @@
     @extend .u-mb-4;
     background-size: cover;
 }
-.post-meta {
-    @extend .u-pl-1;
-    @extend .has-border;
-    &+& {
-        @extend .u-mt-4;
-    }
-    @include media($md) {
-        order: 2;
-    }
-}
-.post-content {
-    @include media($md) {
-        order: 1;
-    }
-}

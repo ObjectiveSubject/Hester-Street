@@ -17,13 +17,13 @@ get_header(); ?>
                         <div class="u-container">
                             <div class="flex has-sidebar">
 
-                                <div class="sidebar sidebar-masthead section__sidebar flex__item">
+                                <div class="sidebar-masthead section__sidebar flex__item">
 
                                     <?php get_template_part( 'partials/sidebar', 'masthead' ); ?>
 
                                 </div>
 
-                                <div class="content section__content flex__item">
+                                <div class="section__content flex__item">
 
                                     <?php if ( get_the_post_thumbnail( $post_id ) ) : ?>
 
