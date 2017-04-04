@@ -27,11 +27,11 @@ get_header();
                                         <h1 class="h2"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'hsc' ); ?></h1>
                                     </div>
                                     <div class="page-content h3">
-                                        <?php esc_html_e( 'It looks like nothing was found at this location. Maybe try a search?', 'hsc' ); ?>
+                                        <?php esc_html_e( 'It looks like nothing was found at this location.', 'hsc' ); ?>
                                     </div>
 
                                     <form role="search" method="get" class="search-form u-mt-6" action="<?php echo site_url(); ?>">
-                                        <label for="page-404-s" class="h6"><?php _e( 'Try a new search:', 'hsc' ); ?></label>
+                                        <label for="page-404-s" class="h6"><?php _e( 'Maybe try a search?', 'hsc' ); ?></label>
                                         <input id="page-404-s" type="search" class="search-field form-field h3 u-mt-1" placeholder="<?php _e( 'Search', 'hsc' ); ?>" value="<?php echo get_search_query(); ?>" name="s">
                                     </form>
 
