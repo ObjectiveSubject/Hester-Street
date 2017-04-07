@@ -19,11 +19,11 @@
         @extend .h6;
     }
     .site-menu & {
-        a {
-            @extend .u-color-white;
-            &:hover {
-                @extend .u-color-dark-gray;
-            }
-        }
+        // a {
+        //     @extend .u-color-white;
+        //     &:hover {
+        //         @extend .u-color-dark-gray;
+        //     }
+        // }
     }
 }

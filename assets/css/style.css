@@ -520,7 +520,7 @@ hr {
   background-color: black;
   color: white; }
 
-.u-color-dark-gray, .site-menu .menu-item a:hover {
+.u-color-dark-gray {
   color: #202022 !important; }
 
 .u-link-dark-gray {
@@ -530,7 +530,7 @@ hr {
   background-color: #202022;
   color: white; }
 
-.u-color-white, .site-menu .menu-item a, .site-footer .menu-item a, .site-menu {
+.u-color-white, .site-footer .menu-item a, .site-menu {
   color: white !important; }
 
 .u-link-white {
