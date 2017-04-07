@@ -27,21 +27,25 @@ function register_my_post_types() {
 	register_extended_post_type( 'project', array(
 		'menu_icon' 		=> 'dashicons-media-spreadsheet',
 		'supports' 			=> array( 'title', 'editor', 'excerpt', 'thumbnail' ),
+		'has_archive'		=> true
 	) );
 
 	register_extended_post_type( 'team_member', array(
 		'menu_icon' 		=> 'dashicons-businessman',
 		'supports' 			=> array( 'title', 'editor', 'excerpt', 'thumbnail' ),
+		'has_archive'		=> true
 	) );
 
 	register_extended_post_type( 'event', array(
 		'menu_icon' 		=> 'dashicons-calendar-alt',
 		'supports' 			=> array( 'title', 'editor', 'excerpt', 'thumbnail' ),
+		'has_archive'		=> true
 	) );
 
 	register_extended_post_type( 'publication', array(
 		'menu_icon' 		=> 'dashicons-book-alt',
 		'supports' 			=> array( 'title', 'editor', 'excerpt', 'thumbnail' ),
+		'has_archive'		=> true
 	) );
 
 }

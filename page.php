@@ -17,6 +17,8 @@ get_header(); ?>
                         <div class="u-container">
                             <div class="flex has-sidebar">
 
+                                <?php get_template_part( 'partials/menu-ui' ); ?>
+
                                 <div class="sidebar-masthead section__sidebar flex__item">
 
                                     <?php get_template_part( 'partials/sidebar', 'masthead' ); ?>
@@ -25,7 +27,7 @@ get_header(); ?>
 
                                 <div class="section__content flex__item">
                                     <div class="page-title">
-                                        <h1 class="h2 u-mt-0"><?php the_title(); ?></h1>
+                                        <h1 class="h2 u-mt-pull"><?php the_title(); ?></h1>
                                         <ul class="list page-anchors">
                                             <li class="list__item">
                                                 <a href="#">Anchor</a>

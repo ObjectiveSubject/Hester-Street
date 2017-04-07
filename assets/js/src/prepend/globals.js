@@ -15,8 +15,16 @@
             } else {
                 document.addEventListener( "DOMContentLoaded", callback );
             }
-        }
+        },
 
+    };
+
+    hsc.query = function( selector, getFirst ) {
+        if ( getFirst ) {
+            return document.querySelector(selector);
+        } else {
+            return document.querySelectorAll( selector );
+        }
     };
 
     window.hsc = hsc;

@@ -49,15 +49,15 @@
     <li>This is the last list item</li>
 </ol>
 
-<hr/>
+<!--<hr/>-->
 
-<h3>Preformatted & code</h3>
+<!--<h3>Preformatted & code</h3>-->
 
-<pre>
+<!--<pre>
 Fusce efficitur,
 massa ut <code>fermentum</code> maximus,
 nisl libero eleifend odio,
-ornare consectetur massa velit vel tellus.</pre>
+ornare consectetur massa velit vel tellus.</pre>-->
 
 <hr/>
 
@@ -98,51 +98,3 @@ ornare consectetur massa velit vel tellus.</pre>
     <p><input id="button" value="Small Button" type="button" class="button button--small"/></p>
     <p><input id="disabled" value="Disabled Button" type="button" class="button button--disabled" disabled/></p>
 </form>
-
-<hr/>
-
-<h3>Table with <code>.table</code> and <code>.table--bordered</code> classes</h3>
-<table class="table table--bordered">
-    <tr>
-        <th>Table Heading 1</th>
-        <th>Table Heading 2</th>
-        <th>Table Heading 3</th>
-        <th>Table Heading 4</th>
-        <th>Table Heading 5</th>
-    </tr>
-    <tr>
-        <td>Table Cell 1</td>
-        <td>Table Cell 2</td>
-        <td>Table Cell 3</td>
-        <td>Table Cell 4</td>
-        <td>Table Cell 5</td>
-    </tr>
-    <tr>
-        <td>Table Cell 1</td>
-        <td>Table Cell 2</td>
-        <td>Table Cell 3</td>
-        <td>Table Cell 4</td>
-        <td>Table Cell 5</td>
-    </tr>
-    <tr>
-        <td>Table Cell 1</td>
-        <td>Table Cell 2</td>
-        <td>Table Cell 3</td>
-        <td>Table Cell 4</td>
-        <td>Table Cell 5</td>
-    </tr>
-    <tr>
-        <td>Table Cell 1</td>
-        <td>Table Cell 2</td>
-        <td>Table Cell 3</td>
-        <td>Table Cell 4</td>
-        <td>Table Cell 5</td>
-    </tr>
-    <tr>
-        <th>Table Footer 1</th>
-        <th>Table Footer 2</th>
-        <th>Table Footer 3</th>
-        <th>Table Footer 4</th>
-        <th>Table Footer 5</th>
-    </tr>
-</table>

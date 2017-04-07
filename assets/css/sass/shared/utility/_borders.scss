@@ -4,8 +4,8 @@
 	}
 }
 .has-border {
-    @extend .u-border-black;
+    @include border( #000000 );
     [class*="u-bg-"] & {
-        @extend .u-border-white;
+        @include border( #ffffff );
     }
 }

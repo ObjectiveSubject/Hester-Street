@@ -3,11 +3,11 @@
 @each $color-name, $hex in $color_map {
 
 	.u-color-#{$color-name} {
-    	color: $hex !important;
+    	color: $hex;
 	}
 
 	.u-link-#{$color-name} {
-		color: $hex !important;
+		color: $hex;
 	}
     
     .u-bg-#{$color-name} {

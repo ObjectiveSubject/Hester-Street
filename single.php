@@ -17,6 +17,8 @@ get_header(); ?>
                         <div class="u-container">
                             <div class="flex has-sidebar">
 
+                                <?php get_template_part( 'partials/menu-ui' ); ?>
+
                                 <div class="sidebar-masthead section__sidebar flex__item">
 
                                     <?php get_template_part( 'partials/sidebar', 'masthead' ); ?>
@@ -31,7 +33,7 @@ get_header(); ?>
 
                                     <?php endif; ?>
                                     
-                                    <h1 class="post-title u-mt-0">
+                                    <h1 class="post-title u-mt-pull">
                                         <?php the_title(); ?>
                                     </h1>
 

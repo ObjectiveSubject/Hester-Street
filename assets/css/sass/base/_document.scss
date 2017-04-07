@@ -14,6 +14,11 @@ html {
 
 body {
 	overflow-x: hidden;
+	&.has-open-menu {
+		height: 100vh;
+		overflow: hidden;
+		padding-right: 15px;
+	}
 }
 
 @include selection {
@@ -29,33 +34,36 @@ body {
 .media-size  {
 	display: block;
 	position: fixed;
+	z-index: 1000;
 	bottom: 0;
 	left: 0;
 	background: rgba(white, 0.25);
-	padding: 5px;
+	text-align: center;
+	line-height: 32px;
+	width: 50px;
 	color: #bbb;
 	font-size: 12px;
 	&:before {
-		content: "default";
+		content: "-";
 	}
 	@include media($sm) {
 		&:before {
-			content: "small";
+			content: "$sm";
 		}
 	}
 	@include media($md) {
 		&:before {
-			content: "medium";
+			content: "$md";
 		}
 	}
 	@include media($lg) {
 		&:before {
-			content: "large";
+			content: "$lg";
 		}
 	}
 	@include media($xl) {
 		&:before {
-			content: "xlarge";
+			content: "$xl";
 		}
 	}
 }

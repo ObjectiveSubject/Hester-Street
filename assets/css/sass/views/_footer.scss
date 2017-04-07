@@ -3,11 +3,12 @@
 }
 .footer__content {
     @include align-items(flex-end);
-    padding: 0!important;
-    border: none!important;
+    padding: 0 !important;
     .flex__item {
-        @extend .u-pr-6;
-        flex: 1 0 flex-grid(6,$grid-columns);
+        @include media($md) {
+            padding-right: 6rem;
+        }
+        flex: 1 0 flex-grid(6,$grid-columns);        
     }
 }
 

@@ -16,6 +16,8 @@ get_header();
                         <div class="u-container">
                             <div class="flex has-sidebar">
 
+                                <?php get_template_part( 'partials/menu-ui' ); ?>
+
                                 <div class="sidebar sidebar-masthead section__sidebar flex__item">
 
                                     <?php get_template_part( 'partials/sidebar', 'masthead' ); ?>
@@ -24,7 +26,7 @@ get_header();
 
                                 <div class="content section__content flex__item">
                                     <div class="page-title">
-                                        <h1 class="h2"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'hsc' ); ?></h1>
+                                        <h1 class="h2 u-mt-pull"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'hsc' ); ?></h1>
                                     </div>
                                     <div class="page-content h3">
                                         <?php esc_html_e( 'It looks like nothing was found at this location.', 'hsc' ); ?>

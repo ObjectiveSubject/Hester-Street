@@ -1,9 +1,17 @@
 .section__content {
+    min-width: 0;
+    
     @include media($md) {
         order: 1;
     }
     .has-sidebar & {
         @extend .u-pb-6;
+        @include media($md) {
+            @include flex-basis( flex-grid(9, $grid-columns) );
+        }
+        @include media($lg) {
+            @include flex-basis( flex-grid(10, $grid-columns) );
+        }
     }
     .section:last-of-type & {
         padding-bottom: 0;
@@ -12,10 +20,14 @@
 }
 .section__sidebar {
     @include media($md) {
+        @include flex-basis( flex-grid(3, $grid-columns) );
         order: 2;
         margin-bottom: $leading * 6;
         .footer & {
             margin-bottom: 0;
         }
+    }
+    @include media($lg) {
+        @include flex-basis( flex-grid(2, $grid-columns) );
     }
 }

@@ -1,6 +1,3 @@
-.site-menu {
-    @extend .u-transition-300;
-}
 .menu {
     @include display(flex);
     @include flex-direction(column);
@@ -8,22 +5,78 @@
     @extend .has-border;
     @extend .u-px-1;
 }
+.primary-menu {
+    margin-top: 3rem;
+    @include media($md) {
+        margin-top: -0.3rem;
+    }
+}
 .secondary-menu {
     @extend .u-mt-3;
 }
 .menu-item {
     .primary-menu & {
-        @extend .h4;
+        @extend .h2;
+        @extend .u-mt-0;
     }
     .secondary-menu & {
         @extend .h6;
+        @extend .u-mt-0;
     }
-    .site-menu & {
-        // a {
-        //     @extend .u-color-white;
-        //     &:hover {
-        //         @extend .u-color-dark-gray;
-        //     }
-        // }
+}
+
+.menu-ui {
+    @extend .u-px-1;
+    border-left: 2px solid white;
+    @include media($md) {
+        border: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+.menu-icon {
+    width: 32px;
+    height: 26px;
+    display: block;
+    position: relative;
+    cursor: pointer;
+}
+.menu-icon__bar {
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    display: block;
+    position: absolute;
+    left: 0;
+    @include transition( all 300ms ease-out );
+    .has-open-menu & {
+        background-color: white;
+    }
+
+    &.top { 
+        top: 0; 
+        @include transform-origin(50% center);
+        .has-open-menu & {
+           @include transform( rotate(225deg) );
+           top: 13px;
+        }
+    }
+    &.middle { 
+        top: 50%; 
+        margin-top: -1px; 
+        @include transition-delay( 300ms );
+        .has-open-menu & {
+            opacity: 0;
+            @include transform( translateX(-16px) );
+        }
+    }
+    &.bottom { 
+        bottom: 0;
+        @include transform-origin( 50% bottom );
+        .has-open-menu & {
+            @include transform( rotate(-225deg) );
+            bottom: 13px;
+        }
     }
 }

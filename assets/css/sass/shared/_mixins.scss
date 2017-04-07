@@ -1,3 +1,8 @@
+// Calculate rem units
+@function rem($val) {
+    @return #{ $val / 16 }rem;
+}
+
 // Border
 // ------------------------------------- //
 @mixin border($color) {
@@ -6,8 +11,8 @@
 
 // Media queries
 // ------------------------------------- //
-@mixin media($size) {
-    @media screen and (min-width: $size) {
+@mixin media($size, $minmax: min, $context: screen) {
+    @media #{$context} and (#{$minmax}-width: $size) {
         @content;
     }
 }
