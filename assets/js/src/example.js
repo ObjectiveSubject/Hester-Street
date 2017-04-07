@@ -1,26 +1,24 @@
-/**
- * Every piece of UI that requires javascript should have its own
- * javascript file. Use this file as a template for structuring
- * all JS source files.
- *
- * {Document Title}
- * {Description}
- */
+//   Every piece of UI that requires javascript should have its own
+//   javascript file. Use this file as a template for structuring
+//   all JS source files.
+ 
+//   {Document Title}
+//   {Description}
 
-( function( window, $ ) {
-	'use strict';
-	var document = window.document;
+// ( function( window, $ ) {
+// 	'use strict';
+// 	var document = window.document;
 
-    var objectName = {
+//     var objectName = {
 
-        init: function() {
-            // Do something...
-        }
+//         init: function() {
+//             // Do something...
+//         }
 
-    };
+//     };
 
-    $(document).ready(function(){
-        objectName.init();
-    });
+//     $(document).ready(function(){
+//         objectName.init();
+//     });
 
-} )( this, jQuery );
+// } )( this, jQuery );

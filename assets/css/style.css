@@ -25,6 +25,425 @@ html {
   font-family: 'GT-America-Regular';
   src: url("../fonts/GT-America-Standard-Regular.woff") format("woff"), url("../fonts/GT-America-Standard-Regular.ttf") format("truetype"); }
 
+/* Normalize
+ * ------------------------------------------- */
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%; }
+
+body {
+  margin: 0; }
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block; }
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline; }
+
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+[hidden],
+template {
+  display: none; }
+
+a {
+  background-color: transparent; }
+
+a:active,
+a:hover {
+  outline: 0; }
+
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+b,
+strong {
+  font-weight: bold; }
+
+dfn {
+  font-style: italic; }
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+mark {
+  background: #ff0;
+  color: #000; }
+
+small {
+  font-size: 80%; }
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+img {
+  border: 0; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+figure {
+  margin: 1em 40px; }
+
+hr {
+  box-sizing: content-box;
+  height: 0; }
+
+pre {
+  overflow: auto; }
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em; }
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0; }
+
+button {
+  overflow: visible; }
+
+button,
+select {
+  text-transform: none; }
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer; }
+
+button[disabled],
+html input[disabled] {
+  cursor: default; }
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+input {
+  line-height: normal; }
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0; }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+input[type="search"] {
+  -webkit-appearance: textfield; }
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+legend {
+  border: 0;
+  padding: 0; }
+
+textarea {
+  overflow: auto; }
+
+optgroup {
+  font-weight: bold; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+td,
+th {
+  padding: 0; }
+
+/* Global
+ * ------------------------------------------- */
+*,
+*:before,
+*:after {
+  /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box; }
+
+body {
+  overflow-x: hidden; }
+
+::-moz-selection {
+  color: white;
+  background: #3266cc; }
+
+::selection {
+  color: white;
+  background: #3266cc; }
+
+/* Media Size indicator
+ *
+ * Used to display the current media size.
+ * See footer.php for the element.
+ * ---------------------------------------- */
+.media-size {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 5px;
+  color: #bbb;
+  font-size: 12px; }
+  .media-size:before {
+    content: "default"; }
+  @media screen and (min-width: 500px) {
+    .media-size:before {
+      content: "small"; } }
+  @media screen and (min-width: 768px) {
+    .media-size:before {
+      content: "medium"; } }
+  @media screen and (min-width: 1000px) {
+    .media-size:before {
+      content: "large"; } }
+  @media screen and (min-width: 1500px) {
+    .media-size:before {
+      content: "xlarge"; } }
+
+/* Typography
+ * ------------------------------------------ */
+html {
+  font-size: 100%; }
+  @media screen and (min-width: 1500px) {
+    html {
+      font-size: 18px; } }
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: "GT-America-Regular", Arial, sans-serif;
+  font-weight: 400;
+  color: black;
+  font-size: 1.12rem;
+  line-height: 1.375em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+/* Headings
+ * ------------------------------------------ */
+h1, .h1 {
+  font-family: "GT-America-Extended-Black", Arial, sans-serif;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  font-size: 2.25rem;
+  line-height: 1; }
+  @media screen and (min-width: 768px) {
+    h1, .h1 {
+      font-size: 4.38rem; } }
+
+h2, blockquote, .h2 {
+  font-family: "GT-America-Extended-Black", Arial, sans-serif;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  font-size: 2.12rem;
+  line-height: 1; }
+  @media screen and (min-width: 768px) {
+    h2, blockquote, .h2 {
+      font-size: 3rem; } }
+
+h3, .h3 {
+  font-family: "GT-America-Extended-Black", Arial, sans-serif;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  font-size: 2rem;
+  line-height: 1.125em; }
+  @media screen and (min-width: 768px) {
+    h3, .h3 {
+      font-size: 2.25rem; } }
+
+h4, .h4, .primary-menu .menu-item {
+  font-family: "GT-America-Extended-Black", Arial, sans-serif;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  font-size: 1.88rem;
+  line-height: 1.25em; }
+
+h5, .h5 {
+  font-family: "GT-America-Extended-Black", Arial, sans-serif;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  font-size: 1.5rem;
+  line-height: 1.25em; }
+
+h6, .h6, .list-title, .social .list__item,
+.page-anchors .list__item, .secondary-menu .menu-item, .footer-social .menu-item {
+  font-family: "GT-America-Extended-Black", Arial, sans-serif;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  font-size: 1.12rem;
+  line-height: 1.25em; }
+
+/* Links
+  * ------------------------------------------- */
+a {
+  color: black;
+  text-decoration: none;
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  transition: all 300ms ease; }
+  [class*="u-bg-"] a {
+    color: white; }
+  a:hover, a:focus, a:active {
+    color: #3266cc; }
+  a:focus {
+    outline: 0; }
+  a:hover, a:active {
+    outline: 0; }
+
+/* Copy
+ * ------------------------------------------ */
+p {
+  margin-top: 1rem;
+  margin-bottom: 0; }
+
+ul, ol {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0; }
+
+dt {
+  font-weight: 700; }
+
+dd {
+  margin: 0 1.5em 1.5em; }
+
+b, strong {
+  font-weight: 700; }
+
+dfn, cite, em, i {
+  font-style: italic; }
+
+blockquote {
+  text-transform: none;
+  margin: 1rem 0 0; }
+  blockquote p {
+    margin: 0; }
+
+address {
+  margin: 1rem 0 0; }
+
+pre {
+  background: #eeeeee;
+  font-family: "Menlo", monospace;
+  font-size: 0.88rem;
+  line-height: 1.6rem;
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1em; }
+
+code, kbd, tt, var {
+  font-family: "Menlo", monospace;
+  font-family: 400;
+  background: #eeeeee;
+  color: black; }
+  p code, p kbd, p tt, p var {
+    padding: 0.25em;
+    font-size: 0.88rem; }
+
+abbr, acronym {
+  border-bottom: 1px dotted #666;
+  cursor: help; }
+
+mark, ins {
+  background: #fff9c0;
+  text-decoration: none; }
+
+hr {
+  background-color: lightgray;
+  border: 0;
+  height: 1px;
+  margin: 1rem 0 0;
+  width: 100%; }
+
+/* Text meant only for screen readers.
+ * ------------------------------------------------- */
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden; }
+  .screen-reader-text:hover, .screen-reader-text:active, .screen-reader-text:focus {
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    color: #21759b;
+    display: block;
+    font-size: 0.05rem;
+    font-weight: 700;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+    /* Above WP toolbar. */ }
+
 .u-border-black, .has-border, .menu, .flex__item {
   border-left: 2px solid black; }
 
@@ -813,426 +1232,6 @@ html {
 .u-text-right {
   text-align: right; }
 
-/* Normalize
- * ------------------------------------------- */
-html {
-  font-family: sans-serif;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%; }
-
-body {
-  margin: 0; }
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-main,
-menu,
-nav,
-section,
-summary {
-  display: block; }
-
-audio,
-canvas,
-progress,
-video {
-  display: inline-block;
-  vertical-align: baseline; }
-
-audio:not([controls]) {
-  display: none;
-  height: 0; }
-
-[hidden],
-template {
-  display: none; }
-
-a {
-  background-color: transparent; }
-
-a:active,
-a:hover {
-  outline: 0; }
-
-abbr[title] {
-  border-bottom: 1px dotted; }
-
-b,
-strong {
-  font-weight: bold; }
-
-dfn {
-  font-style: italic; }
-
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0; }
-
-mark {
-  background: #ff0;
-  color: #000; }
-
-small {
-  font-size: 80%; }
-
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline; }
-
-sup {
-  top: -0.5em; }
-
-sub {
-  bottom: -0.25em; }
-
-img {
-  border: 0; }
-
-svg:not(:root) {
-  overflow: hidden; }
-
-figure {
-  margin: 1em 40px; }
-
-hr {
-  box-sizing: content-box;
-  height: 0; }
-
-pre {
-  overflow: auto; }
-
-code,
-kbd,
-pre,
-samp {
-  font-family: monospace, monospace;
-  font-size: 1em; }
-
-button,
-input,
-optgroup,
-select,
-textarea {
-  color: inherit;
-  font: inherit;
-  margin: 0; }
-
-button {
-  overflow: visible; }
-
-button,
-select {
-  text-transform: none; }
-
-button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-  -webkit-appearance: button;
-  cursor: pointer; }
-
-button[disabled],
-html input[disabled] {
-  cursor: default; }
-
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0; }
-
-input {
-  line-height: normal; }
-
-input[type="checkbox"],
-input[type="radio"] {
-  box-sizing: border-box;
-  padding: 0; }
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  height: auto; }
-
-input[type="search"] {
-  -webkit-appearance: textfield; }
-
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none; }
-
-fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em; }
-
-legend {
-  border: 0;
-  padding: 0; }
-
-textarea {
-  overflow: auto; }
-
-optgroup {
-  font-weight: bold; }
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
-
-td,
-th {
-  padding: 0; }
-
-/* Global
- * ------------------------------------------- */
-*,
-*:before,
-*:after {
-  /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
-  box-sizing: inherit; }
-
-html {
-  box-sizing: border-box; }
-
-body {
-  overflow-x: hidden; }
-
-::-moz-selection {
-  color: white;
-  background: #3266cc; }
-
-::selection {
-  color: white;
-  background: #3266cc; }
-
-/* Media Size indicator
- *
- * Used to display the current media size.
- * See footer.php for the element.
- * ---------------------------------------- */
-.media-size {
-  display: block;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  background: rgba(255, 255, 255, 0.25);
-  padding: 5px;
-  color: #bbb;
-  font-size: 12px; }
-  .media-size:before {
-    content: "default"; }
-  @media screen and (min-width: 500px) {
-    .media-size:before {
-      content: "small"; } }
-  @media screen and (min-width: 768px) {
-    .media-size:before {
-      content: "medium"; } }
-  @media screen and (min-width: 1000px) {
-    .media-size:before {
-      content: "large"; } }
-  @media screen and (min-width: 1500px) {
-    .media-size:before {
-      content: "xlarge"; } }
-
-/* Typography
- * ------------------------------------------ */
-html {
-  font-size: 100%; }
-  @media screen and (min-width: 1500px) {
-    html {
-      font-size: 18px; } }
-
-body,
-button,
-input,
-select,
-textarea {
-  font-family: "GT-America-Regular", Arial, sans-serif;
-  font-weight: 400;
-  color: black;
-  font-size: 1.13rem;
-  line-height: 1.375em;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
-/* Headings
- * ------------------------------------------ */
-h1, .h1 {
-  font-family: "GT-America-Extended-Black", Arial, sans-serif;
-  font-size: 2.25rem;
-  line-height: 1;
-  margin-top: 0;
-  margin-bottom: 0;
-  text-transform: uppercase; }
-  @media screen and (min-width: 768px) {
-    h1, .h1 {
-      font-size: 4.38rem; } }
-
-h2, blockquote, .h2 {
-  font-family: "GT-America-Extended-Black", Arial, sans-serif;
-  font-size: 2rem;
-  line-height: 1;
-  margin-top: 0;
-  margin-bottom: 0;
-  text-transform: uppercase; }
-  @media screen and (min-width: 768px) {
-    h2, blockquote, .h2 {
-      font-size: 3rem; } }
-
-h3, .h3 {
-  font-family: "GT-America-Extended-Black", Arial, sans-serif;
-  font-size: 2rem;
-  line-height: 1.125em;
-  margin-top: 0;
-  margin-bottom: 0;
-  text-transform: uppercase; }
-  @media screen and (min-width: 768px) {
-    h3, .h3 {
-      font-size: 2.25rem; } }
-
-h4, .h4, .primary-menu .menu-item {
-  font-family: "GT-America-Extended-Black", Arial, sans-serif;
-  font-size: 1.88rem;
-  line-height: 1.25em;
-  margin-top: 0;
-  margin-bottom: 0;
-  text-transform: uppercase; }
-
-h5, .h5 {
-  font-family: "GT-America-Extended-Black", Arial, sans-serif;
-  font-size: 1.5rem;
-  line-height: 1.25em;
-  margin-top: 0;
-  margin-bottom: 0;
-  text-transform: uppercase; }
-
-h6, .h6, .list-title, .social .list__item,
-.page-anchors .list__item, .secondary-menu .menu-item, .footer-social .menu-item {
-  font-family: "GT-America-Extended-Black", Arial, sans-serif;
-  font-size: 1.13rem;
-  line-height: 1.25em;
-  margin-top: 0;
-  margin-bottom: 0;
-  text-transform: uppercase; }
-
-/* Links
-  * ------------------------------------------- */
-a {
-  color: black;
-  text-decoration: none;
-  -webkit-transition: all 300ms ease;
-  -moz-transition: all 300ms ease;
-  transition: all 300ms ease; }
-  [class*="u-bg-"] a {
-    color: white; }
-  a:hover, a:focus, a:active {
-    color: #3266cc; }
-  a:focus {
-    outline: 0; }
-  a:hover, a:active {
-    outline: 0; }
-
-/* Copy
- * ------------------------------------------ */
-p {
-  margin-top: 1rem;
-  margin-bottom: 0; }
-
-ul, ol {
-  list-style: none;
-  margin: 0;
-  padding: 0; }
-
-dt {
-  font-weight: 700; }
-
-dd {
-  margin: 0 1.5em 1.5em; }
-
-b, strong {
-  font-weight: 700; }
-
-dfn, cite, em, i {
-  font-style: italic; }
-
-blockquote {
-  font-family: "GT-America-Extended-Black", Arial, sans-serif;
-  text-transform: none;
-  margin: 0; }
-  blockquote p {
-    margin: 0; }
-
-address {
-  margin: 1rem 0 0; }
-
-pre {
-  background: #eeeeee;
-  font-family: "Menlo", monospace;
-  font-size: 0.88rem;
-  line-height: 1.6rem;
-  margin-bottom: 1.6em;
-  max-width: 100%;
-  overflow: auto;
-  padding: 1em; }
-
-code, kbd, tt, var {
-  font-family: "Menlo", monospace;
-  font-family: 400;
-  background: #eeeeee;
-  color: black; }
-  p code, p kbd, p tt, p var {
-    padding: 0.25em;
-    font-size: 0.88rem; }
-
-abbr, acronym {
-  border-bottom: 1px dotted #666;
-  cursor: help; }
-
-mark, ins {
-  background: #fff9c0;
-  text-decoration: none; }
-
-hr {
-  background-color: lightgray;
-  border: 0;
-  height: 1px;
-  margin: 1rem 0 0;
-  width: 100%; }
-
-/* Text meant only for screen readers.
- * ------------------------------------------------- */
-.screen-reader-text {
-  clip: rect(1px, 1px, 1px, 1px);
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden; }
-  .screen-reader-text:hover, .screen-reader-text:active, .screen-reader-text:focus {
-    background-color: #f1f1f1;
-    border-radius: 3px;
-    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-    clip: auto !important;
-    color: #21759b;
-    display: block;
-    font-size: 0.05rem;
-    font-weight: 700;
-    height: auto;
-    left: 5px;
-    line-height: normal;
-    padding: 15px 23px 14px;
-    text-decoration: none;
-    top: 5px;
-    width: auto;
-    z-index: 100000;
-    /* Above WP toolbar. */ }
-
 .button {
   border: 0;
   border-radius: 0;
@@ -1330,6 +1329,7 @@ label {
     fill: white; }
 
 .masthead {
+  position: -webkit-sticky;
   position: sticky;
   top: 3rem; }
   @media screen and (min-width: 768px) {

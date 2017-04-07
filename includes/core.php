@@ -57,7 +57,7 @@ function scripts( $debug = false ) {
 	wp_enqueue_script(
 		'main',
 		HSC_TEMPLATE_URL . "/assets/js/main{$min}.js",
-		array('jquery'),
+		array(''),
 		HSC_VERSION,
 		true
 	);

@@ -25,7 +25,7 @@ get_header(); ?>
 
                                 <div class="section__content flex__item">
                                     <div class="page-title">
-                                        <h1 class="h2"><?php the_title(); ?></h1>
+                                        <h1 class="h2 u-mt-0"><?php the_title(); ?></h1>
                                         <ul class="list page-anchors">
                                             <li class="list__item">
                                                 <a href="#">Anchor</a>

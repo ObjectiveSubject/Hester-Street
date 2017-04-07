@@ -25,13 +25,13 @@ get_header(); ?>
 
                                 <div class="section__content flex__item">
 
-                                    <?php if ( get_the_post_thumbnail( $post_id ) ) : ?>
+                                    <?php if ( get_the_post_thumbnail() ) : ?>
 
-                                    <div class="post-image" style="background-image: url(<?php echo get_the_post_thumbnail_url( $post_id ); ?>);"></div>
+                                    <div class="post-image" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);"></div>
 
                                     <?php endif; ?>
                                     
-                                    <h1 class="post-title">
+                                    <h1 class="post-title u-mt-0">
                                         <?php the_title(); ?>
                                     </h1>
 

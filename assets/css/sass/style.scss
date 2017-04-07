@@ -16,7 +16,14 @@
     "shared/bourbon/bourbon",
     "shared/neat/neat",
     "shared/variables",
-    "shared/mixins",
+    "shared/mixins";    
+
+@import
+    "base/normalize",
+    "base/document",
+    "base/typography";
+
+@import
     "shared/utility/borders",
     "shared/utility/colors",
     "shared/utility/display",
@@ -24,11 +31,6 @@
     "shared/utility/grid",
     "shared/utility/layout",
     "shared/utility/typography";
-
-@import
-    "base/normalize",
-    "base/document",
-    "base/typography";
 
 @import
     "blocks/buttons",

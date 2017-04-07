@@ -1,6 +1,6 @@
 module.exports = {
 	livereload: {
-		files: ['assets/css/*.css'],
+		files: ['assets/css/*.css', 'assets/js/*.js'],
 		options: {
 			livereload: true
 		}
@@ -14,8 +14,8 @@ module.exports = {
 	},
 	js: {
 		files: ['assets/js/src/**/*.js', 'assets/js/vendor/**/*.js'],
-			tasks: ['js'],
-			options: {
+		tasks: ['js'],
+		options: {
 			debounceDelay: 500
 		}
 	}
