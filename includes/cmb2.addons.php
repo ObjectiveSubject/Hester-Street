@@ -65,26 +65,26 @@ function cmb2_get_nav_menus() {
  *
  * @return array An array of options that matches the CMB2 options array
  */
-function cmb2_get_concentrations() {
+// function cmb2_get_concentrations() {
 
-	$taxonomy = '_area_of_study';
-	$terms = (array) get_terms( $taxonomy );
+// 	$taxonomy = '_area_of_study';
+// 	$terms = (array) get_terms( $taxonomy );
 
-	$concentrations = array();
+// 	$concentrations = array();
 
-	if ( ! empty( $terms ) ) {
-		foreach ( $terms as $term ) {
-			$term_children = get_term_children( $term->term_id, $taxonomy );
+// 	if ( ! empty( $terms ) ) {
+// 		foreach ( $terms as $term ) {
+// 			$term_children = get_term_children( $term->term_id, $taxonomy );
 
-			foreach ( $term_children as $child ) {
-				$term = get_term_by( 'id', $child, $taxonomy );
-				$concentrations[ $term->term_id ] = $term->name;
-			}
-		}
-	}
+// 			foreach ( $term_children as $child ) {
+// 				$term = get_term_by( 'id', $child, $taxonomy );
+// 				$concentrations[ $term->term_id ] = $term->name;
+// 			}
+// 		}
+// 	}
 
-	return $concentrations;
-}
+// 	return $concentrations;
+// }
 
 /**
  * Exclude metabox on non top level posts

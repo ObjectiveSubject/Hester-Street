@@ -89,6 +89,13 @@ function styles( $debug = false ) {
 function modify_queries( $query ) {
 
    	// Perform query modifications here
+	if ( ! is_admin() && $query->is_main_query() ) {
+
+		if ( is_page_template( 'page-news.php' ) ) {
+			$query->set('post_type', array( 'event' ));
+		}
+
+	}
 
 }
 

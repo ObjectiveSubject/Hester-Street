@@ -39,7 +39,21 @@ function register_my_post_types() {
 	register_extended_post_type( 'event', array(
 		'menu_icon' 		=> 'dashicons-calendar-alt',
 		'supports' 			=> array( 'title', 'editor', 'excerpt', 'thumbnail' ),
-		'has_archive'		=> true
+		// 'has_archive'		=> true,
+		'admin_cols' => array(
+			// 'featured_image' => array(
+			// 	'title'          => 'Illustration',
+			// 	'featured_image' => 'thumbnail'
+			// ),
+			'datetime' => array(
+				'title'       => 'Date & Time',
+				'meta_key'    => 'event_datetime',
+				'date_format' => get_option( 'date_format' ) . ', g:ia'
+			),
+			// 'genre' => array(
+			// 	'taxonomy' => 'genre'
+			// )
+		),
 	) );
 
 	register_extended_post_type( 'publication', array(

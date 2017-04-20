@@ -1,5 +1,5 @@
 <?php
-namespace HSC\MetaBoxes\General;
+namespace HSC\MetaBoxes\Events;
 
 /**
  * Metaboxes that appear on more than one post type around the site
@@ -12,7 +12,7 @@ function setup() {
 	};
 
 	// NOTE: Uncomment to activate metabox
-	// add_action( 'cmb2_init',  $n( 'general_options' ) );
+	add_action( 'cmb2_init',  $n( 'event_options' ) );
 }
 
 /**
@@ -20,21 +20,27 @@ function setup() {
  * See https://github.com/WebDevStudios/CMB2/wiki/Field-Types for
  * more information on creating metaboxes and field types.
  */
-function general_options() {
+function event_options() {
 
-	$prefix = 'general_';
+	$prefix = 'event_';
 
 	$cmb = new_cmb2_box( array(
 		'id'           => $prefix . 'metabox',
-		'title'        => __( 'General Options', 'cmb2' ),
+		'title'        => __( 'Event Options', 'cmb2' ),
 		'priority'     => 'high',
-		'object_types' => array( 'page' )
+		'object_types' => array( 'event' )
 	) );
 
 	$cmb->add_field( array(
-		'name'	=> __( 'A Title', 'cmb2' ),
-		'desc'  => __( 'A description', 'cmb2' ),
-		'id'  	=> $prefix . 'field_id',
+		'name'	=> __( 'Date & Time', 'cmb2' ),
+		'id'  	=> $prefix . 'datetime',
+		'type'	=> 'text_datetime_timestamp',
+		'default' => time()
+	) );
+
+	$cmb->add_field( array(
+		'name'	=> __( 'Venue', 'cmb2' ),
+		'id'  	=> $prefix . 'venue',
 		'type'	=> 'text'
 	) );
 
