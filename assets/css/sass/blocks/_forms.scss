@@ -9,7 +9,7 @@ label {
 }
 
 .form-group {
-    @extend .u-clear;
+    @extend .u-clearfix;
     display: block;
     clear: both;
     @extend .u-mt-1;

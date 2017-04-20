@@ -16,7 +16,7 @@
 }
 .menu-item {
     .primary-menu & {
-        @extend .h2;
+        @extend .h3;
         @extend .u-mt-0;
     }
     .secondary-menu & {

@@ -46,6 +46,10 @@
 
     }
 
+    .u-width-#{$i} {
+        width: flex-grid( $i, $grid-columns );
+    }
+
 }
 
 [class*="u-span-"]{
