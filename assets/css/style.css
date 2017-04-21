@@ -1575,6 +1575,24 @@ figure {
   padding-bottom: 56.25%;
   background-size: cover; }
 
+.hentry.preview.event-upcoming {
+  background-color: black;
+  color: white; }
+  .hentry.preview.event-upcoming a {
+    color: white; }
+
+.hentry.preview.event-past {
+  background-color: #666666;
+  color: white; }
+  .hentry.preview.event-past a {
+    color: white; }
+
+.hentry.preview.category-newsletter {
+  background-color: #21b07a;
+  color: white; }
+  .hentry.preview.category-newsletter a {
+    color: white; }
+
 .section__content {
   min-width: 0; }
   @media screen and (min-width: 768px) {

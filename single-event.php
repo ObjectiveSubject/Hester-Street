@@ -35,7 +35,7 @@ get_header(); ?>
                                     </h1>
 
                                     <h2 class="h3 u-mt-0">
-                                        <?php the_date(); ?>, 7:00pm<br/>
+                                        <?php echo date( get_option('date_format') . ', g:ia', get_post_meta( $post->ID, 'event_datetime', true ) ); ?><br/>
                                         PS. 101 Auditorium
                                     </h2>
 

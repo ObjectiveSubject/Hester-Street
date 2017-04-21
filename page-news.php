@@ -37,6 +37,8 @@ $result_count = ( 1 === $result_count ) ? $result_count . ' result' : $result_co
                                     
                                     <h1 class="page-title h2 u-mt-pull"><span class="u-color-dark-gray"><? _e( 'News', 'hsc' ); ?></span></h1>
 
+                                    <pre><?php var_dump( is_page_template( 'page-news.php' ) ); ?></pre>
+
                                     <?php if ( have_posts() ) : ?>
 
                                         <?php if ( 1 < get_query_var('paged') ) : ?>

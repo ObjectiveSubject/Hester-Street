@@ -10,3 +10,35 @@
 .post-content {
     @extend .page-content;
 }
+
+.hentry {
+
+    &.preview {
+
+        &.event-upcoming {
+            background-color: black;
+            color: white;
+            a {
+                color: white;
+            }
+        }
+
+        &.event-past {
+            background-color: tint( black, 40% );
+            color: white;
+            a {
+                color: white;
+            }
+        }
+
+        &.category-newsletter {
+            background-color: $teal;
+            color: white;
+            a {
+                color: white;
+            }
+        }
+
+    }
+
+}
