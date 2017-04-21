@@ -47,7 +47,7 @@ function register_my_post_types() {
 			// ),
 			'datetime' => array(
 				'title'       => 'Date & Time',
-				'meta_key'    => 'event_datetime',
+				'meta_key'    => 'post_datetime',
 				'date_format' => get_option( 'date_format' ) . ', g:ia'
 			),
 			// 'genre' => array(

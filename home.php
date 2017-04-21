@@ -50,7 +50,7 @@ $page_for_posts = get_option( 'page_for_posts' )
                                         </div>
                                     <?php endif; ?>
 
-                                    <div>
+                                    <div class="u-clearfix">
 
                                         <?php while ( have_posts() ) : the_post();
 
@@ -58,12 +58,11 @@ $page_for_posts = get_option( 'page_for_posts' )
                                             $post_class = array( 'u-span-4 u-mt-4 preview' );
                                             if ( 'event' == $post_type ) {
                                                 $now = time();
-                                                $event_datetime = get_post_meta( $post->ID, 'event_datetime', true );
+                                                $event_datetime = get_post_meta( $post->ID, 'post_datetime', true );
                                                 $is_upcoming = $now < $event_datetime; 
                                                 $is_past = $now >= $event_datetime;
                                                 $post_class[] = ( $is_upcoming ) ? 'event-upcoming' : 'event-past';
                                             } ?>
-                                            
                                             <article <?php post_class( implode( ' ', $post_class ) ); ?>>
                                                 <?php get_template_part( 'partials/content', $post_type . '-preview' ); ?>
                                             </article>
@@ -73,6 +72,7 @@ $page_for_posts = get_option( 'page_for_posts' )
                                     </div>
 
                                     <div class="posts-pagination">
+                                        <hr/>
                                         <?php the_posts_pagination( array( 'mid_size' => 2 ) ); ?>
                                     </div>
 

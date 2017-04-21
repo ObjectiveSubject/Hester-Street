@@ -93,6 +93,9 @@ function modify_queries( $query ) {
 
 		if ( is_home() && ! is_front_page() ) {
 			$query->set('post_type', array( 'post', 'event' ));
+			$query->set('orderby', 'meta_value');
+			$query->set('meta_key', 'post_datetime');
+			$query->set('posts_per_page', '9');
 		}
 
 	}

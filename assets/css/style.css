@@ -1593,6 +1593,13 @@ figure {
   .hentry.preview.category-newsletter a {
     color: white; }
 
+.hentry.preview.event-upcoming, .hentry.preview.event-past, .hentry.preview.category-newsletter {
+  -webkit-transition: background 300ms ease-out;
+  -moz-transition: background 300ms ease-out;
+  transition: background 300ms ease-out; }
+  .hentry.preview.event-upcoming:hover, .hentry.preview.event-past:hover, .hentry.preview.category-newsletter:hover {
+    background-color: #3266cc; }
+
 .section__content {
   min-width: 0; }
   @media screen and (min-width: 768px) {

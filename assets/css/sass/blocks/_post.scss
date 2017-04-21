@@ -11,34 +11,39 @@
     @extend .page-content;
 }
 
-.hentry {
+.hentry.preview {
 
-    &.preview {
-
-        &.event-upcoming {
-            background-color: black;
+    &.event-upcoming {
+        background-color: black;
+        color: white;
+        a {
             color: white;
-            a {
-                color: white;
-            }
         }
+    }
 
-        &.event-past {
-            background-color: tint( black, 40% );
+    &.event-past {
+        background-color: tint( black, 40% );
+        color: white;
+        a {
             color: white;
-            a {
-                color: white;
-            }
         }
+    }
 
-        &.category-newsletter {
-            background-color: $teal;
+    &.category-newsletter {
+        background-color: $teal;
+        color: white;
+        a {
             color: white;
-            a {
-                color: white;
-            }
         }
+    }
 
+    &.event-upcoming,
+    &.event-past,
+    &.category-newsletter {
+        @include transition(background 300ms ease-out);
+        &:hover {
+            background-color: $blue 
+        }
     }
 
 }
