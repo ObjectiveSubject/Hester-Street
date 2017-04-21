@@ -35,7 +35,15 @@ $result_count = ( 1 === $result_count ) ? $result_count . ' result' : $result_co
 
                                 <div class="section__content flex__item">
                                     
-                                    <h1 class="page-title h2 u-mt-pull"><span class="u-color-dark-gray"><? the_archive_title(); ?></span></h1>
+                                    <h1 class="page-title h2 u-mt-pull">
+                                        <span class="u-color-dark-gray">
+                                            <? if ( is_post_type_archive() ) {
+                                                post_type_archive_title(); 
+                                            } else {
+                                                the_archive_title();
+                                            } ?>
+                                        </span>
+                                    </h1>
 
                                     <?php if ( have_posts() ) : ?>
 
