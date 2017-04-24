@@ -30,48 +30,52 @@ $page_for_posts = get_option( 'page_for_posts' )
                                     
                                     <ul class="filter-toggle-list list">
                                         <li class="filter-toggle-list__item list__item">
-                                            <a href="#filter-group-post-type" class="filter-group-toggle">Post Type</a>
+                                            <a href="#filter-group-post-type" data-target="#filter-group-post-type" class="filter-group-toggle is-active js-fade-toggle">Post Type</a>
                                         </li>
                                         <li class="filter-toggle-list__item list__item">
-                                            <a href="#filter-group-date" class="filter-group-toggle">Date</a>
+                                            <a href="#filter-group-date" data-target="#filter-group-date" class="filter-group-toggle js-fade-toggle">Date</a>
                                         </li>
                                     </ul>
 
-                                    <ul id="filter-group-post-type" class="filter-group list">
-                                        <li class="filter-group__item list__item">
-                                            <a href="#">Event</a>
-                                        </li>
-                                        <li class="filter-group__item list__item">
-                                            <a href="#">Newsletter</a>
-                                        </li>
-                                        <li class="filter-group__item list__item">
-                                            <a href="#">Press</a>
-                                        </li>
-                                        <li class="filter-group__item list__item">
-                                            <a href="#">News</a>
-                                        </li>
-                                    </ul>
+                                    <div class="filter-groups u-mt-4">
 
-                                    <ul id="filter-group-date" class="filter-group list">
-                                        <li class="filter-group__item list__item">
-                                            <a href="#">Upcoming</a>
-                                        </li>
-                                        <li class="filter-group__item list__item">
-                                            <a href="#">Last Month</a>
-                                        </li>
-                                        <li class="filter-group__item list__item">
-                                            <a href="#">Last 3 Months</a>
-                                        </li>
-                                        <li class="filter-group__item list__item">
-                                            <a href="#">Last 6 Months</a>
-                                        </li>
-                                        <li class="filter-group__item list__item">
-                                            <a href="#">Last Year</a>
-                                        </li>
-                                        <li class="filter-group__item list__item">
-                                            <a href="#">Last 3 Years</a>
-                                        </li>
-                                    </ul>
+                                        <ul id="filter-group-post-type" class="filter-group is-active list">
+                                            <li class="list__item">
+                                                <a href="#" class="filter-group__item">Event</a>
+                                            </li>
+                                            <li class="list__item">
+                                                <a href="#" class="filter-group__item">Newsletter</a>
+                                            </li>
+                                            <li class="list__item">
+                                                <a href="#" class="filter-group__item">Press</a>
+                                            </li>
+                                            <li class="list__item">
+                                                <a href="#" class="filter-group__item">News</a>
+                                            </li>
+                                        </ul>
+
+                                        <ul id="filter-group-date" class="filter-group list">
+                                            <li class="filter-group__item list__item">
+                                                <a href="#">Upcoming</a>
+                                            </li>
+                                            <li class="filter-group__item list__item">
+                                                <a href="#">Last Month</a>
+                                            </li>
+                                            <li class="filter-group__item list__item">
+                                                <a href="#">Last 3 Months</a>
+                                            </li>
+                                            <li class="filter-group__item list__item">
+                                                <a href="#">Last 6 Months</a>
+                                            </li>
+                                            <li class="filter-group__item list__item">
+                                                <a href="#">Last Year</a>
+                                            </li>
+                                            <li class="filter-group__item list__item">
+                                                <a href="#">Last 3 Years</a>
+                                            </li>
+                                        </ul>
+
+                                    </div>
                                     
                                 </div> <!-- .section__content -->
 
