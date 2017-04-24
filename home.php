@@ -113,7 +113,7 @@ $page_for_posts = get_option( 'page_for_posts' )
                                                 $post_class[] = ( $is_upcoming ) ? 'event-upcoming' : 'event-past';
                                             } ?>
                                             <article <?php post_class( implode( ' ', $post_class ) ); ?>>
-                                                <?php get_template_part( 'partials/content', $post_type . '-preview' ); ?>
+                                                <?php get_template_part( 'partials/content-preview', $post_type ); ?>
                                             </article>
                                             
                                         <?php endwhile; ?>

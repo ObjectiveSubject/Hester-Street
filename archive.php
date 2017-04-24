@@ -3,16 +3,7 @@
  * Archive template
  */
 get_header();
-global $wp_query;
-$pagination = '';
-if ( $wp_query->max_num_pages > 1 ) {
-	$paginate_links = paginate_links( array(
-		'mid_size' => 2
-	) );
-	$pagination = '<nav class="pagination">' . $paginate_links . '</nav>';
-}
-$result_count = $wp_query->found_posts;
-$result_count = ( 1 === $result_count ) ? $result_count . ' result' : $result_count . ' results';
+$queried_object = get_queried_object();
 ?>
 
 	<div class="site-content">
@@ -22,84 +13,73 @@ $result_count = ( 1 === $result_count ) ? $result_count . ' result' : $result_co
                 <div class="wrap">
                     
                     <section class="section">
-                        <div class="u-container">
-                            <div class="flex has-sidebar">
+                        <div class="flex has-sidebar u-container">
+                            
+                            <?php get_template_part( 'partials/menu-ui' ); ?>
 
-                                <?php get_template_part( 'partials/menu-ui' ); ?>
+                            <div class="sidebar-masthead section__sidebar flex__item">
 
-                                <div class="sidebar-masthead section__sidebar flex__item">
+                                <?php get_template_part( 'partials/sidebar', 'masthead' ); ?>
 
-                                    <?php get_template_part( 'partials/sidebar', 'masthead' ); ?>
+                            </div>
+
+                            <div class="section__content flex__item">
+                                
+                                <h1 class="page-title h2 u-mt-pull">
+                                    <span class="u-color-dark-gray">
+                                        <? if ( is_post_type_archive() ) {
+                                            post_type_archive_title(); 
+                                        } else {
+                                            the_archive_title();
+                                        } ?>
+                                    </span>
+                                </h1>
+
+                                <?php get_template_part( 'partials/filters', $queried_object->name ); ?>
+
+                            </div> <!-- .section__content -->
+
+                        </div><!-- .u-container -->
+                    </section>
+
+                    <section class="section">
+                        <div class="flex u-container">
+
+                            <div class="section__content u-width-12 flex__item">
+                                
+                                <?php if ( have_posts() ) : ?>
+
+                                    <?php if ( 1 < get_query_var('paged') ) : ?>
+                                    <div class="posts-pagination">
+                                        <?php the_posts_pagination( array( 'mid_size' => 2 ) ); ?>
+                                        <hr>
+                                    </div>
+                                <?php endif; ?>
+
+                                <div class="u-clearfix">
+
+                                    <?php while ( have_posts() ) : the_post();
+                                        $post_type = get_post_type();
+                                        $post_class = array( 'u-span-4 u-mt-4 preview' ); ?>
+                                        
+                                        <article <?php post_class( implode( ' ', $post_class ) ); ?>>
+                                            <?php get_template_part( 'partials/content-preview', $post_type ); ?>
+                                        </article>
+                                        
+                                    <?php endwhile; ?>
 
                                 </div>
 
-                                <div class="section__content flex__item">
-                                    
-                                    <h1 class="page-title h2 u-mt-pull">
-                                        <span class="u-color-dark-gray">
-                                            <? if ( is_post_type_archive() ) {
-                                                post_type_archive_title(); 
-                                            } else {
-                                                the_archive_title();
-                                            } ?>
-                                        </span>
-                                    </h1>
+                                <hr class="u-mt-4"/>
 
-                                    <?php if ( have_posts() ) : ?>
+                                <div class="posts-pagination u-pt-1">
+                                    <?php the_posts_pagination( array( 'mid_size' => 2 ) ); ?>
+                                </div>
 
-                                        <?php if ( 1 < get_query_var('paged') ) : ?>
-                                            <div class="posts-pagination">
-                                                <?php echo $pagination; ?>
-                                                <hr>
-                                            </div>
-                                        <?php endif; ?>
+                                <?php endif; ?>
 
-                                        <div>
+                            </div> <!-- .section__content -->
 
-                                            <?php while ( have_posts() ) : the_post(); ?>
-                                                
-                                                <article <?php post_class( 'u-mt-4' ); ?>>
-                                                    <div class="h6">
-                                                        <?php switch ( $post_type ) {
-                                                            case 'post':
-                                                                echo 'Post - ' . get_the_date();
-                                                                break;
-                                                            case 'page':
-                                                                $ancestors = array_reverse( get_post_ancestors( $post->ID ) );
-                                                                $page_path = array();
-                                                                foreach ( $ancestors as $ancestor ) {
-                                                                    array_push( $page_path, '<a href="' .  get_permalink( $ancestor ) . '">' . get_the_title( $ancestor ) . '</a>' );
-                                                                }
-                                                                echo implode( ' &rsaquo; ', $page_path );
-                                                                break;
-                                                            default:
-                                                                echo str_replace( '_', ' ', $post_type );
-                                                                break;
-                                                        }
-                                                        ?>
-                                                    </div>
-                                                    <h3 class="hentry-title">
-                                                        <a href="<?php the_permalink(); ?>" title="Read more"><?php the_title(); ?></a>
-                                                    </h3>
-                                                    <div class="hentry-excerpt">
-                                                        <?php the_excerpt(); ?>
-                                                    </div>
-                                                    <hr class="u-mt-4">
-                                                </article>
-                                                
-                                            <?php endwhile; ?>
-
-                                        </div>
-
-                                        <div class="posts-pagination">
-                                            <?php echo $pagination; ?>
-                                        </div>
-
-                                    <?php endif; ?>
-
-                                </div> <!-- .section__content -->
-
-                            </div>
                         </div><!-- .u-container -->
                     </section>
                     
