@@ -1,0 +1,64 @@
+.filter-toggle-list {
+    @extend .u-clearfix;
+}
+
+.filter-toggle-list__item {
+    @include media($md) {
+        width: 50%;
+        float: left;
+        border-right: 2px solid black;
+        padding-left: 1em;
+        &:nth-child(2n) {
+            border-right: 0;
+        }
+        &:nth-child(2n+1) {
+            padding-left: 0;
+        }
+    }
+    @include media($lg) {
+        width: 33.333%;
+        &:nth-child(2n) {
+            border-right: 2px solid black;
+        }
+        &:nth-child(2n+1) {
+            padding-left: 1em;
+        }
+        &:nth-child(3n),
+        &:last-child {
+            border-right: 0;
+        }
+        &:nth-child(3n+1) {
+            padding-left: 0;
+        }
+    }
+    @include media($xl) {
+        width: 20%;
+        &:nth-child(3n) {
+            border-right: 2px solid black;
+        }
+        &:nth-child(3n+1) {
+            padding-left: 1em;
+        }
+        &:nth-child(5n) {
+            border-right: 0;
+        }
+        &:nth-child(5n+1) {
+            padding-left: 0;
+        }
+    }
+
+}
+
+.filter-group-toggle {
+    display: block;
+    text-transform: uppercase;
+    min-height: 2rem;
+    @include media($md) {
+        min-height: 3rem;
+    }
+}
+
+.filter-group__item {
+    @extend .h6;
+    margin-top: 0;
+}

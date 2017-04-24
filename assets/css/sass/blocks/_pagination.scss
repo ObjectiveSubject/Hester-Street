@@ -1,0 +1,20 @@
+.page-numbers {
+    @extend .h6;
+    color: tint(black, 60%);
+
+    &.current,
+    &.prev,
+    &.next {
+        color: black;
+    }
+
+    &.next,
+    &.prev {
+        &:hover {
+            color: $color-link-hover;
+        }
+    }
+    &.next { margin-left: 1rem; }
+    &.prev { margin-right: 1rem; }
+
+}

@@ -26,7 +26,52 @@ $page_for_posts = get_option( 'page_for_posts' )
 
                                 <div class="section__content flex__item">
 
-                                    <h1 class="page-title h2 u-mt-pull"><span class="u-color-dark-gray"><? echo get_the_title( $page_for_posts ); ?></span></h1> 
+                                    <h1 class="page-title h2 u-mt-pull"><? echo get_the_title( $page_for_posts ); ?></h1> 
+                                    
+                                    <ul class="filter-toggle-list list">
+                                        <li class="filter-toggle-list__item list__item">
+                                            <a href="#filter-group-post-type" class="filter-group-toggle">Post Type</a>
+                                        </li>
+                                        <li class="filter-toggle-list__item list__item">
+                                            <a href="#filter-group-date" class="filter-group-toggle">Date</a>
+                                        </li>
+                                    </ul>
+
+                                    <ul id="filter-group-post-type" class="filter-group list">
+                                        <li class="filter-group__item list__item">
+                                            <a href="#">Event</a>
+                                        </li>
+                                        <li class="filter-group__item list__item">
+                                            <a href="#">Newsletter</a>
+                                        </li>
+                                        <li class="filter-group__item list__item">
+                                            <a href="#">Press</a>
+                                        </li>
+                                        <li class="filter-group__item list__item">
+                                            <a href="#">News</a>
+                                        </li>
+                                    </ul>
+
+                                    <ul id="filter-group-date" class="filter-group list">
+                                        <li class="filter-group__item list__item">
+                                            <a href="#">Upcoming</a>
+                                        </li>
+                                        <li class="filter-group__item list__item">
+                                            <a href="#">Last Month</a>
+                                        </li>
+                                        <li class="filter-group__item list__item">
+                                            <a href="#">Last 3 Months</a>
+                                        </li>
+                                        <li class="filter-group__item list__item">
+                                            <a href="#">Last 6 Months</a>
+                                        </li>
+                                        <li class="filter-group__item list__item">
+                                            <a href="#">Last Year</a>
+                                        </li>
+                                        <li class="filter-group__item list__item">
+                                            <a href="#">Last 3 Years</a>
+                                        </li>
+                                    </ul>
                                     
                                 </div> <!-- .section__content -->
 
@@ -71,8 +116,9 @@ $page_for_posts = get_option( 'page_for_posts' )
 
                                     </div>
 
-                                    <div class="posts-pagination">
-                                        <hr/>
+                                    <hr class="u-mt-4"/>
+
+                                    <div class="posts-pagination u-pt-1">
                                         <?php the_posts_pagination( array( 'mid_size' => 2 ) ); ?>
                                     </div>
 
