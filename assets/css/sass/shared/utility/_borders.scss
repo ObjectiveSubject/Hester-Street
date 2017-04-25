@@ -9,3 +9,16 @@
         @include border( #ffffff );
     }
 }
+
+.u-border-top {
+    border-top: 2px solid black;
+}
+.u-border-right {
+    border-right: 2px solid black;
+}
+.u-border-bottom {
+    border-bottom: 2px solid black;
+}
+.u-border-left {
+    border-left: 2px solid black;
+}

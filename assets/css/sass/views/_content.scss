@@ -14,9 +14,17 @@
     }
 }
 .flex__item {
-    @extend .u-px-1;
     @extend .has-border;
     .flex__item:first-child {
         border: 0;
+    }
+    &:not(.is-flush) {
+        padding-left: flex-gutter($grid-columns);
+        padding-left: flex-gutter($grid-columns);
+    }
+}
+@for $i from 0 through 6 {
+    .flex-order-#{$i} {
+        @include order($i);
     }
 }

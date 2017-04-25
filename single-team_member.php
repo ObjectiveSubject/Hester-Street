@@ -4,7 +4,14 @@
  */
 
 global $post;
-get_header(); ?>
+get_header();
+
+$roles = get_the_terms( $post->ID, 'team_role' );
+$member_role = ( $roles ) ? $roles[0]->name : 'Team';
+$member_title = get_post_meta( $post->ID, 'member_title', true );
+$member_scope_areas = get_post_meta( $post->ID, 'member_scope_areas', true );
+$member_issue_areas = get_post_meta( $post->ID, 'member_issue_areas', true );
+$member_website = get_post_meta( $post->ID, 'member_website', true ); ?>
 
 	<div class="site-content">
 
@@ -20,27 +27,66 @@ get_header(); ?>
                                 <?php get_template_part( 'partials/menu-ui' ); ?>
 
                                 <div class="sidebar-masthead section__sidebar flex__item">
-
                                     <?php get_template_part( 'partials/sidebar', 'masthead' ); ?>
-
                                 </div>
 
                                 <div class="section__content flex__item">
-                                    
-                                    <div class="h2 u-mt-pull"><?php _e( 'Team', 'hsc' ); ?></div>
+                                    <a href="<?php echo site_url( 'team/' ); ?>" class="member-heading h2 u-display-block u-mt-pull" data-title="<?php echo $member_role; ?>" data-title-hover="&larr; Team" role="presentation">&nbsp;</a>
+                                </div>
 
-                                    <h1 class="post-title u-mt-3">
-                                        <?php the_title(); ?>
-                                    </h1>
+                        </div><!-- .u-container -->
+                    </section>
 
-                                    <h2 class="h3 u-mt-0"><?php the_date(); ?></h2>
+                    <section class="section">
+                        <div class="flex u-container">
 
-                                     <?php if ( get_the_post_thumbnail() ) : ?>
-                                        <div class="post-image u-mt-3" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);"></div>
-                                    <?php endif; ?>
+                                <div class="section__content flex__item">
 
-                                    <div class="post-content u-mt-2">
-                                        <?php the_content(); ?>
+                                    <div class="flex">
+
+                                        <div class="flex__item is-flush u-width-5">
+                                            
+                                            <?php if ( get_the_post_thumbnail() ) : ?>
+                                                <?php the_post_thumbnail( 'large', array( 'class' => 'u-mb-3' ) ); ?>
+                                            <?php endif; ?>
+
+                                            <?php if ( $member_issue_areas ) : ?>
+                                                <div class="scope-areas member-meta u-mb-3">
+                                                    <h6 class="u-mt-0">Scope Focus Areas</h6>
+                                                    <div class="u-mt-nudge">
+                                                        <?php echo nl2br( $member_issue_areas ); ?>
+                                                    </div>
+                                                </div>
+                                            <?php endif; ?>
+
+                                            <?php if ( $member_issue_areas ) : ?>
+                                                <div class="issue-areas member-meta u-mb-3">
+                                                    <h6 class="u-mt-0">Issue Focus Areas</h6>
+                                                    <div class="u-mt-nudge">
+                                                        <?php echo nl2br( $member_issue_areas ); ?>
+                                                    </div>
+                                                </div>
+                                            <?php endif; ?>
+
+                                            <?php if ( $member_website ) : ?>
+                                                <div class="member-website member-meta">
+                                                    <a href="<?php echo esc_url( $member_website ); ?>" class="h6" target="_blank">View Website &nearr;</a>
+                                                </div>
+                                            <?php endif; ?>
+
+                                        </div>
+
+                                        <div class="flex__item u-width-7">
+                                            <h1 class="post-title u-mt-pull">
+                                                <?php the_title(); ?>
+                                            </h1>
+                                            <div class="h6"><?php echo $member_title; ?></div>
+                                            <div class="h6"><?php echo get_the_excerpt(); ?></div>
+                                            <div class="post-content">
+                                                <?php the_content(); ?>
+                                            </div>
+                                        </div>
+
                                     </div>
 
                                 </div>
@@ -51,28 +97,34 @@ get_header(); ?>
                     <!--Related Posts-->
                     <?php 
                     $args = array(
-                        'posts_per_page' => 2,
-                        'post__not_in' => array( $post->ID ),
+                        'post_type' => 'project',
+                        'posts_per_page' => 10,
+                        'meta_query' => array(
+                            array(
+                                'key' => 'project_team_members',
+                                'value' => strval($post->ID),
+                                'compare' => 'LIKE'
+                            )
+                        )
                     );
-                    $recent = new WP_Query( $args ); ?>
+                    $projects = new WP_Query( $args ); ?>
 
-                    <?php if ( $recent->have_posts() ) : ?>
+                    <?php if ( $projects->have_posts() ) : ?>
                     
                         <section class="section">
                             <div class="flex u-container">
-                                <div class="section__content flex__item u-width-12">
+                                <div class="section__content flex__item u-width-12 u-pt-6">
                                     
-                                    <div class="h6 u-mt-0"><?php _e( 'Recent News', 'hsc' ); ?></div>
+                                    <div class="h6 u-mt-0"><?php echo explode( ' ', get_the_title() )[0] . '\'s Projects'?></div>
 
-                                    <ul class="u-clearfix">
-                                        <?php while( $recent->have_posts() ) : $recent->the_post(); ?>
-                                            <li class="u-span-6">
+                                    <ul class="u-clearfix u-mt-0">
+                                        <?php while( $projects->have_posts() ) : $projects->the_post(); ?>
+                                            <li class="u-span-6 u-mt-1">
                                                 <a href="<?php the_permalink(); ?>" class="u-display-block">
                                                     <?php if ( get_the_post_thumbnail() ) : ?>
                                                         <div class="post-image" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);"></div>
                                                     <?php endif; ?>
                                                     <h3 class="h5"><?php the_title(); ?></h3>
-                                                    <p class="h6 u-mt-0"><?php echo get_the_date() ?></p>
                                                 </a>
                                             </li>
                                         <?php endwhile; ?>

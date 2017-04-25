@@ -26,6 +26,17 @@ function project_options() {
 	) );
 
     $cmb->add_field( array(
+        'name'	=> __( 'Associated Team Members', 'cmb2' ),
+        'id'  	=> $prefix . 'team_members',
+        'type'    => 'custom_attached_posts',
+        'options' => array(
+            // 'show_thumbnails' => true, // Show thumbnails on the left
+            'filter_boxes'    => true, // Show a text box for filtering the results
+            'query_args'      => array( 'post_type' => 'team_member', 'posts_per_page' => 500 ), // override the get_posts args
+        )
+    ) );
+	
+	$cmb->add_field( array(
         'name'	=> __( 'Associated Events', 'cmb2' ),
         'id'  	=> $prefix . 'events',
         'type'    => 'custom_attached_posts',

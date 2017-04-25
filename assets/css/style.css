@@ -469,6 +469,18 @@ hr {
   [class*="u-bg-"] .has-border, [class*="u-bg-"] .menu, [class*="u-bg-"] .flex__item {
     border-left: 2px solid #ffffff; }
 
+.u-border-top {
+  border-top: 2px solid black; }
+
+.u-border-right {
+  border-right: 2px solid black; }
+
+.u-border-bottom {
+  border-bottom: 2px solid black; }
+
+.u-border-left {
+  border-left: 2px solid black; }
+
 .u-color-blue {
   color: #3266cc; }
 
@@ -1019,7 +1031,7 @@ hr {
 .u-pl-1 {
   padding-left: 1rem; }
 
-.u-px-1, .menu, .menu-ui, .flex__item {
+.u-px-1, .menu, .menu-ui {
   padding-left: 1rem;
   padding-right: 1rem; }
 
@@ -1858,6 +1870,73 @@ caption {
 .flex__item .flex__item:first-child {
   border: 0; }
 
+.flex__item:not(.is-flush) {
+  padding-left: 2.36%;
+  padding-left: 2.36%; }
+
+.flex-order-0 {
+  -webkit-box-ordinal-group: 0;
+  -moz-box-ordinal-group: 0;
+  box-ordinal-group: 0;
+  -webkit-order: 0;
+  -moz-order: 0;
+  order: 0;
+  -ms-flex-order: 0; }
+
+.flex-order-1 {
+  -webkit-box-ordinal-group: 1;
+  -moz-box-ordinal-group: 1;
+  box-ordinal-group: 1;
+  -webkit-order: 1;
+  -moz-order: 1;
+  order: 1;
+  -ms-flex-order: 1; }
+
+.flex-order-2 {
+  -webkit-box-ordinal-group: 2;
+  -moz-box-ordinal-group: 2;
+  box-ordinal-group: 2;
+  -webkit-order: 2;
+  -moz-order: 2;
+  order: 2;
+  -ms-flex-order: 2; }
+
+.flex-order-3 {
+  -webkit-box-ordinal-group: 3;
+  -moz-box-ordinal-group: 3;
+  box-ordinal-group: 3;
+  -webkit-order: 3;
+  -moz-order: 3;
+  order: 3;
+  -ms-flex-order: 3; }
+
+.flex-order-4 {
+  -webkit-box-ordinal-group: 4;
+  -moz-box-ordinal-group: 4;
+  box-ordinal-group: 4;
+  -webkit-order: 4;
+  -moz-order: 4;
+  order: 4;
+  -ms-flex-order: 4; }
+
+.flex-order-5 {
+  -webkit-box-ordinal-group: 5;
+  -moz-box-ordinal-group: 5;
+  box-ordinal-group: 5;
+  -webkit-order: 5;
+  -moz-order: 5;
+  order: 5;
+  -ms-flex-order: 5; }
+
+.flex-order-6 {
+  -webkit-box-ordinal-group: 6;
+  -moz-box-ordinal-group: 6;
+  box-ordinal-group: 6;
+  -webkit-order: 6;
+  -moz-order: 6;
+  order: 6;
+  -ms-flex-order: 6; }
+
 .footer__content {
   -webkit-box-align: end;
   -moz-box-align: end;
@@ -1907,5 +1986,18 @@ caption {
 .site-menu-content {
   min-height: 100%;
   height: 100%; }
+
+.member-heading:before {
+  content: attr(data-title);
+  display: block; }
+
+.member-heading:hover:before {
+  content: attr(data-title-hover); }
+
+@media screen and (min-width: 1000px) {
+  .member-meta {
+    border-left: 2px solid black;
+    padding-left: 1rem;
+    margin-left: 14.7%; } }
 
 /*# sourceMappingURL=style.css.map */
