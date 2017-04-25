@@ -15,11 +15,6 @@ function setup() {
 	add_action( 'cmb2_init',  $n( 'post_options' ) );
 }
 
-/**
- * Example metabox
- * See https://github.com/WebDevStudios/CMB2/wiki/Field-Types for
- * more information on creating metaboxes and field types.
- */
 function post_options() {
 
 	$prefix = 'post_';

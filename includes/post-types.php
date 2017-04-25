@@ -33,7 +33,17 @@ function register_my_post_types() {
 	register_extended_post_type( 'team_member', array(
 		'menu_icon' 		=> 'dashicons-businessman',
 		'supports' 			=> array( 'title', 'editor', 'excerpt', 'thumbnail' ),
-		'has_archive'		=> true
+		'rewrite'			=> array( 'slug' => 'team', 'with_front' => false ),
+		'has_archive'		=> false,
+		'admin_cols' => array(
+			'team_role' => array(
+				'taxonomy' => 'team_role'
+			),
+			'member_website' => array(
+				'title'       => 'Link',
+				'meta_key'    => 'member_website',
+			),
+		),
 	) );
 
 	register_extended_post_type( 'event', array(

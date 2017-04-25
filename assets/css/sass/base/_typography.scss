@@ -102,9 +102,16 @@ textarea {
 /* Copy
  * ------------------------------------------ */
 
-p {
+p, .p {
 	margin-top: $leading * 2;
     margin-bottom: 0;
+	text-transform: none;
+	font-family: $gta-regular;
+	font-weight: 400;
+	font-size: rem(18);
+	line-height: 1.375em;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 ul, ol {

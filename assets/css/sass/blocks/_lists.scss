@@ -10,5 +10,6 @@
     .social &,
     .page-anchors & {
         @extend .h6;
+        margin-top: 0;
     }
 }

@@ -15,11 +15,6 @@ function setup() {
 	add_action( 'cmb2_init',  $n( 'event_options' ) );
 }
 
-/**
- * Example metabox
- * See https://github.com/WebDevStudios/CMB2/wiki/Field-Types for
- * more information on creating metaboxes and field types.
- */
 function event_options() {
 
 	$prefix = 'event_';
