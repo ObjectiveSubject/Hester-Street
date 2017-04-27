@@ -16,7 +16,7 @@
     </li>
 </ul>
 
-<div class="filter-groups u-mt-4">
+<div class="filter-groups">
 
     <?php 
     // SERVICES 
@@ -24,7 +24,7 @@
     $services = get_terms( array( 'taxonomy' => 'service', 'hide_empty' => false, 'parent' => 0 ) );
     if ( $services ) : ?>
 
-        <ul id="filter-group-post-type" class="filter-group is-active list">
+        <ul id="filter-group-services" class="filter-group is-active list u-mt-2">
 
             <?php foreach ( $services as $service ) : 
             $children = get_terms( array( 'taxonomy' => 'service', 'hide_empty' => false, 'parent' => $service->term_id ) ); ?>
@@ -51,7 +51,7 @@
     $issues = get_terms( array( 'taxonomy' => 'issue', 'hide_empty' => false ) );
     if ( $issues ) : ?>
 
-        <ul id="filter-group-post-type" class="filter-group is-active list">
+        <ul id="filter-group-issues" class="filter-group is-active list u-mt-2">
 
             <?php foreach ( $issues as $issue ) : ?>
 
@@ -65,7 +65,7 @@
 
     <?php endif; ?>
 
-    <ul id="filter-group-date" class="filter-group list">
+    <ul id="filter-group-date" class="filter-group list u-mt-2">
         <li class="filter-group__item list__item">
             <a href="#">Last Month</a>
         </li>
