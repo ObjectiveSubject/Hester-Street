@@ -8,11 +8,14 @@
 
     var headerMenu = {
 
+        node: document.querySelector('.site-menu'),
+
         init: function() {
-            headerMenu.events();
+            headerMenu.toggles();
+            headerMenu.hoverColors();
         },
 
-        events: function() {
+        toggles: function() {
 
             var menuToggles = hsc.query( '.js-menu-toggle' ),
                 body = hsc.query( 'body', true ),
@@ -28,7 +31,31 @@
                 }
             }
 
-        }
+        },
+
+        hoverColors: function() {
+            var timeout = null,
+                links = document.querySelectorAll('.header-primary-menu .menu-item a');
+
+            for ( var i=0; links.length > i; i++ ) {
+                links[i].addEventListener('mouseover', onMouseover);
+                links[i].addEventListener('mouseout', onMouseout);
+            }
+
+            function onMouseover(e){
+                var text = e.target.innerText.toLowerCase();
+                headerMenu.node.dataset.background = text;
+                // console.log(e);
+                if ( timeout ) {
+                    clearTimeout(timeout);
+                }
+            }
+            function onMouseout(e){
+                timeout = setTimeout(function(){
+                    headerMenu.node.dataset.background = "";
+                }, 500);
+            }
+        },
 
     };
 

@@ -4861,11 +4861,14 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 
     var headerMenu = {
 
+        node: document.querySelector('.site-menu'),
+
         init: function() {
-            headerMenu.events();
+            headerMenu.toggles();
+            headerMenu.hoverColors();
         },
 
-        events: function() {
+        toggles: function() {
 
             var menuToggles = hsc.query( '.js-menu-toggle' ),
                 body = hsc.query( 'body', true ),
@@ -4881,7 +4884,31 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
                 }
             }
 
-        }
+        },
+
+        hoverColors: function() {
+            var timeout = null,
+                links = document.querySelectorAll('.header-primary-menu .menu-item a');
+
+            for ( var i=0; links.length > i; i++ ) {
+                links[i].addEventListener('mouseover', onMouseover);
+                links[i].addEventListener('mouseout', onMouseout);
+            }
+
+            function onMouseover(e){
+                var text = e.target.innerText.toLowerCase();
+                headerMenu.node.dataset.background = text;
+                // console.log(e);
+                if ( timeout ) {
+                    clearTimeout(timeout);
+                }
+            }
+            function onMouseout(e){
+                timeout = setTimeout(function(){
+                    headerMenu.node.dataset.background = "";
+                }, 500);
+            }
+        },
 
     };
 
@@ -4900,10 +4927,12 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
         init: function() {
             
             toggles.fadeToggles();
+            toggles.classToggles();
 
         },
 
         fade: document.querySelectorAll('.js-fade-toggle'),
+        class: document.querySelectorAll('.js-class-toggle'),
 
         fadeToggles: function() {
 
@@ -4916,8 +4945,36 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
             function onClick(e) {
                 e.preventDefault();
                 var target = document.querySelector(e.target.dataset.target);
-                console.log(target);
                 TweenLite.fromTo( target, 0.3, { display: 'none', opacity: 0 }, { display: 'block', opacity: 1 } );
+            }
+
+        },
+
+        classToggles: function() {
+            
+            var event = 'click',
+                classEvents = {
+                    click: function(e) {
+                        e.preventDefault();
+                        var targets = document.querySelectorAll(e.target.dataset.target);
+                        var className = e.target.dataset.class;
+                        if ( targets.length ) {
+                            for ( var t=0; targets.length > t; t++ ) {
+                                if  ( targets[t].className.indexOf(className) > -1 ) {
+                                    TweenLite.set(targets[t], { className:'-=' + className } );
+                                } else {
+                                    TweenLite.set(targets[t], { className:'+=' + className } );
+                                }
+                            }
+                        }
+                    }
+                };
+
+            if ( toggles.class.length ) {
+                for ( var i=0; toggles.class.length > i; i++ ) {  
+                    event = toggles.class[i].dataset.event || event;
+                    toggles.class[i].addEventListener( event, classEvents[event] );
+                }
             }
 
         }

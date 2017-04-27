@@ -15,7 +15,7 @@
     
 
 
-    <header class="site-menu u-bg-black">
+    <header class="site-menu" data-background="">
         <div class="site-menu-content">
             <div class="flex has-sidebar u-container">
 
@@ -41,28 +41,28 @@
                     </div>
                 </div>
 
-                <div class="menu section__content">
+                <div class="menu section__content flex__item">
                     <nav id="site-navigation" class="main-navigation u-mt-pull" role="navigation">
 
                         <?php
                         $menu_primary   = false;
                         $menu_secondary = false;
-                        if ( has_nav_menu( 'footer-primary' ) ) {
+                        if ( has_nav_menu( 'primary' ) ) {
                             $menu_primary = wp_nav_menu(array(
-                                'theme_location' => 'footer-primary',
+                                'theme_location' => 'primary',
                                 'container'		 => false,
-                                'menu_class'	 => 'primary-menu footer-primary-menu',
-                                'menu_id'		 => 'footer-primary-menu',
+                                'menu_class'	 => 'primary-menu header-primary-menu',
+                                'menu_id'		 => 'header-primary-menu',
                                 'echo'			 => false
                             ));
                             echo $menu_primary;
                         }
-                        if ( has_nav_menu( 'footer-secondary' ) ) {
+                        if ( has_nav_menu( 'secondary' ) ) {
                             $menu_secondary = wp_nav_menu(array(
-                                'theme_location' => 'footer-secondary',
+                                'theme_location' => 'secondary',
                                 'container'		 => false,
-                                'menu_class'	 => 'secondary-menu footer-secondary-menu',
-                                'menu_id'		 => 'footer-secondary-menu',
+                                'menu_class'	 => 'secondary-menu header-secondary-menu',
+                                'menu_id'		 => 'header-secondary-menu',
                                 'echo'			 => false
                             ));
                             echo $menu_secondary;

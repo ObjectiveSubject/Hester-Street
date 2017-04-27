@@ -111,6 +111,8 @@ function add_menus() {
 	// Register main footer and one for each school
 	register_nav_menus(
 		array(
+			'primary' => 'Primary',
+			'secondary' => 'Secondary',
 			'footer-primary' => 'Footer Primary',
 			'footer-secondary' => 'Footer Secondary',
 		)

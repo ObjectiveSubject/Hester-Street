@@ -6,7 +6,7 @@
     width: 100%;
     vertical-align: bottom;
     fill: black;
-    [class*="u-bg-"] & {
+    [class*="u-bg-"] &, .site-menu & {
         fill: white;
     }
 }

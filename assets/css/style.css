@@ -1448,7 +1448,7 @@ label {
   width: 100%;
   vertical-align: bottom;
   fill: black; }
-  [class*="u-bg-"] .hsc-logo {
+  [class*="u-bg-"] .hsc-logo, .site-menu .hsc-logo {
     fill: white; }
 
 .masthead {
@@ -1966,9 +1966,31 @@ caption {
   left: 0;
   opacity: 0;
   pointer-events: none;
-  -webkit-transition: opacity 600ms ease-out;
-  -moz-transition: opacity 600ms ease-out;
-  transition: opacity 600ms ease-out; }
+  background-color: black;
+  color: white;
+  -webkit-transition: opacity 600ms ease-out, background 300ms ease-out;
+  -moz-transition: opacity 600ms ease-out, background 300ms ease-out;
+  transition: opacity 600ms ease-out, background 300ms ease-out; }
+  .site-menu a {
+    color: white; }
+    .site-menu a:hover, .site-menu a:focus {
+      color: #3266cc; }
+  .site-menu .primary-menu a:hover, .site-menu .primary-menu a:focus {
+    color: black; }
+  .site-menu[data-background="projects"] {
+    background-color: #afbd32; }
+  .site-menu[data-background="team"] {
+    background-color: #795acf; }
+  .site-menu[data-background="about"] {
+    background-color: #ff685d; }
+  .site-menu[data-background="publications"] {
+    background-color: #feac00; }
+  .site-menu[data-background="news"] {
+    background-color: #21b07a; }
+  .site-menu[data-background="contact"] {
+    background-color: #3266cc; }
+  .site-menu .flex__item {
+    border-color: white; }
   body.has-open-menu .site-menu {
     pointer-events: all;
     opacity: 1;

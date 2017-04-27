@@ -30,7 +30,7 @@ get_header(); ?>
                                         <h1 class="h2 u-mt-pull"><?php the_title(); ?></h1>
                                         <ul class="list page-anchors">
                                             <li class="list__item">
-                                                <a href="#">Anchor</a>
+                                                <a href="#" class="js-class-toggle" data-target="#page" data-class="test" >Anchor</a>
                                             </li>
                                         </ul>
                                     </div>
