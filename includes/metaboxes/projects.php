@@ -26,7 +26,58 @@ function project_options() {
 	) );
 
     $cmb->add_field( array(
-        'name'	=> __( 'Associated Team Members', 'cmb2' ),
+        'name'	=> __( 'Alternate Title', 'cmb2' ),
+        'id'  	=> $prefix . 'alt_title',
+        'type'    => 'text'
+    ) );
+
+    $cmb->add_field( array(
+        'name'	=> __( 'Subtitle', 'cmb2' ),
+        'id'  	=> $prefix . 'subtitle',
+        'type'    => 'text'
+    ) );
+
+    $cmb->add_field( array(
+		'name'	=> __( 'Begin Date', 'cmb2' ),
+		'id'  	=> $prefix . 'begin_date', // need to use 'post_' prefix here because we group posts and events together with meta query on front end.
+		'type'	=> 'text_date_timestamp',
+		'default' => time()
+	) );
+
+    $cmb->add_field( array(
+		'name'	=> __( 'End Date', 'cmb2' ),
+        'desc'	=> __( 'Leave blank for ongoing projects', 'cmb2' ),
+		'id'  	=> $prefix . 'end_date', // need to use 'post_' prefix here because we group posts and events together with meta query on front end.
+		'type'	=> 'text_date_timestamp',
+	) );
+    
+    $cmb->add_field( array(
+		'name'	=> __( 'Location', 'cmb2' ),
+        'desc'	=> __( 'paste GEOJSON here. Go to <a href="http://geojson.io/" target="_blank">geojson.io</a> to create your custom geoJSON.', 'cmb2' ),
+		'id'  	=> $prefix . 'geojson', // need to use 'post_' prefix here because we group posts and events together with meta query on front end.
+		'type'	=> 'textarea_code',
+	) );
+
+    $cmb->add_field( array(
+		'name'	=> __( 'Scope', 'cmb2' ),
+		'id'  	=> $prefix . 'scope', // need to use 'post_' prefix here because we group posts and events together with meta query on front end.
+		'type'	=> 'textarea_small',
+	) );
+
+    $cmb->add_field( array(
+		'name'	=> __( 'Project Site', 'cmb2' ),
+		'id'  	=> $prefix . 'site', // need to use 'post_' prefix here because we group posts and events together with meta query on front end.
+		'type'	=> 'text',
+	) );
+
+    $cmb->add_field( array(
+		'name'	=> __( 'Project Site URL', 'cmb2' ),
+		'id'  	=> $prefix . 'site_url', // need to use 'post_' prefix here because we group posts and events together with meta query on front end.
+		'type'	=> 'text',
+	) );
+
+    $cmb->add_field( array(
+        'name'	=> __( 'Project Team Members', 'cmb2' ),
         'id'  	=> $prefix . 'team_members',
         'type'    => 'custom_attached_posts',
         'options' => array(
@@ -37,7 +88,7 @@ function project_options() {
     ) );
 	
 	$cmb->add_field( array(
-        'name'	=> __( 'Associated Events', 'cmb2' ),
+        'name'	=> __( 'Project Events', 'cmb2' ),
         'id'  	=> $prefix . 'events',
         'type'    => 'custom_attached_posts',
         'options' => array(
