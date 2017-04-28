@@ -3,15 +3,15 @@
 @each $color-name, $hex in $color_map {
 
 	.u-color-#{$color-name} {
-    	color: $hex;
+    	color: $hex !important;
 	}
 
-	.u-link-#{$color-name} {
-		color: $hex;
+	.u-color-hover-#{$color-name} {
+		&:hover { color: $hex !important; }
 	}
     
     .u-bg-#{$color-name} {
-    	background-color: $hex;
-		color: white;
+    	background-color: $hex !important;
+		color: white !important;
 	}
 }

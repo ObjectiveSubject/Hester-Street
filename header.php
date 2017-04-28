@@ -11,7 +11,14 @@
 	<?php wp_head(); ?>
     <?php hsc_open_graph_tags(); ?>
 </head>
-<body <?php body_class(); ?>>
+
+<?php
+$body_class = ''; 
+if ( is_single() || is_page() ) {
+    $body_class = get_post_type() . '-' . $post->post_name;
+} ?>
+
+<body <?php body_class( $body_class ); ?>>
     
 
 

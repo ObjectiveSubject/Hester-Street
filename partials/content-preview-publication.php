@@ -20,7 +20,7 @@ endif;?>
 </h3>
 
 <div class="hentry-excerpt u-mt-nudge">
-    <a href="<?php the_permalink(); ?>" title="Read <?php the_title(); ?>">Read</a>
+    <a href="<?php the_permalink(); ?>" class="u-color-hover-orange" title="Read <?php the_title(); ?>">Read</a>
     &nbsp;&nbsp;&nbsp;
-    <a href="#download-link" title="Download <?php the_title(); ?>">Download &darr;</a>
+    <a href="#download-link" class="u-color-hover-orange" title="Download <?php the_title(); ?>">Download &darr;</a>
 </div>

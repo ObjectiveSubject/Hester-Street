@@ -34,7 +34,7 @@ $roles = get_terms( array( 'taxonomy' => 'team_role', 'hide_empty' => false ) );
                                 <ul class="list page-anchors">
                                     <?php foreach ( $roles as $role ) : ?>
                                     <li class="list__item">
-                                        <a href="#<?php echo $role->slug; ?>"><?php echo $role->name; ?></a>
+                                        <a href="#<?php echo $role->slug; ?>" class="u-color-hover-purple"><?php echo $role->name; ?></a>
                                     </li>
                                     <?php endforeach; ?>
                                 </ul>

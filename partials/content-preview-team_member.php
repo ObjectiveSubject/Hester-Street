@@ -4,7 +4,7 @@
 
 $margin = ''; ?>
 
-<a href="<?php the_permalink(); ?>" class="u-display-block" title="Read more">
+<a href="<?php the_permalink(); ?>" class="u-display-block u-color-hover-purple" title="Read more">
 
     <?php if ( has_post_thumbnail() ) : ?>
         <div class="hentry-thumbnail">

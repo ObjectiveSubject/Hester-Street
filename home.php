@@ -41,37 +41,37 @@ $page_for_posts = get_option( 'page_for_posts' )
 
                                         <ul id="filter-group-post-type" class="filter-group is-active list">
                                             <li class="list__item">
-                                                <a href="#" class="filter-group__item">Event</a>
+                                                <a href="#" class="filter-group__item u-color-hover-teal">Event</a>
                                             </li>
                                             <li class="list__item">
-                                                <a href="#" class="filter-group__item">Newsletter</a>
+                                                <a href="#" class="filter-group__item u-color-hover-teal">Newsletter</a>
                                             </li>
                                             <li class="list__item">
-                                                <a href="#" class="filter-group__item">Press</a>
+                                                <a href="#" class="filter-group__item u-color-hover-teal">Press</a>
                                             </li>
                                             <li class="list__item">
-                                                <a href="#" class="filter-group__item">News</a>
+                                                <a href="#" class="filter-group__item u-color-hover-teal">News</a>
                                             </li>
                                         </ul>
 
                                         <ul id="filter-group-date" class="filter-group list">
                                             <li class="filter-group__item list__item">
-                                                <a href="#">Upcoming</a>
+                                                <a href="#" class="u-color-hover-teal">Upcoming</a>
                                             </li>
                                             <li class="filter-group__item list__item">
-                                                <a href="#">Last Month</a>
+                                                <a href="#" class="u-color-hover-teal">Last Month</a>
                                             </li>
                                             <li class="filter-group__item list__item">
-                                                <a href="#">Last 3 Months</a>
+                                                <a href="#" class="u-color-hover-teal">Last 3 Months</a>
                                             </li>
                                             <li class="filter-group__item list__item">
-                                                <a href="#">Last 6 Months</a>
+                                                <a href="#" class="u-color-hover-teal">Last 6 Months</a>
                                             </li>
                                             <li class="filter-group__item list__item">
-                                                <a href="#">Last Year</a>
+                                                <a href="#" class="u-color-hover-teal">Last Year</a>
                                             </li>
                                             <li class="filter-group__item list__item">
-                                                <a href="#">Last 3 Years</a>
+                                                <a href="#" class="u-color-hover-teal">Last 3 Years</a>
                                             </li>
                                         </ul>
 

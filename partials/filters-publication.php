@@ -35,7 +35,7 @@
 
                 <?php foreach( $children as $child ) : ?>
                     <li class="list__item">
-                        <a href="#" data-filter="<?php echo $child->slug ?>" class="filter-group__item"><?php echo $child->name; ?></a>
+                        <a href="#" data-filter="<?php echo $child->slug ?>" class="filter-group__item u-color-hover-orange"><?php echo $child->name; ?></a>
                     </li>
                 <?php endforeach; ?>
 
@@ -56,7 +56,7 @@
             <?php foreach ( $issues as $issue ) : ?>
 
                 <li class="list__item">
-                    <a href="#" data-filter="<?php echo $issue->slug ?>" class="filter-group__item"><?php echo $issue->name; ?></a>
+                    <a href="#" data-filter="<?php echo $issue->slug ?>" class="filter-group__item u-color-hover-orange"><?php echo $issue->name; ?></a>
                 </li>
 
             <?php endforeach; ?>
@@ -66,20 +66,20 @@
     <?php endif; ?>
 
     <ul id="filter-group-date" class="filter-group list u-mt-2">
-        <li class="filter-group__item list__item">
-            <a href="#">Last Month</a>
+        <li class="list__item">
+            <a href="#" class="filter-group__item u-color-hover-orange">Last Month</a>
         </li>
-        <li class="filter-group__item list__item">
-            <a href="#">Last 3 Months</a>
+        <li class="list__item">
+            <a href="#" class="filter-group__item u-color-hover-orange">Last 3 Months</a>
         </li>
-        <li class="filter-group__item list__item">
-            <a href="#">Last 6 Months</a>
+        <li class="list__item">
+            <a href="#" class="filter-group__item u-color-hover-orange">Last 6 Months</a>
         </li>
-        <li class="filter-group__item list__item">
-            <a href="#">Last Year</a>
+        <li class="list__item">
+            <a href="#" class="filter-group__item u-color-hover-orange">Last Year</a>
         </li>
-        <li class="filter-group__item list__item">
-            <a href="#">Last 3 Years</a>
+        <li class="list__item">
+            <a href="#" class="filter-group__item u-color-hover-orange">Last 3 Years</a>
         </li>
     </ul>
 

@@ -26,13 +26,11 @@ $queried_object = get_queried_object();
                             <div class="section__content flex__item">
                                 
                                 <h1 class="page-title h2 u-mt-pull">
-                                    <span class="u-color-dark-gray">
-                                        <? if ( is_post_type_archive() ) {
-                                            post_type_archive_title(); 
-                                        } else {
-                                            the_archive_title();
-                                        } ?>
-                                    </span>
+                                    <? if ( is_post_type_archive() ) {
+                                        post_type_archive_title(); 
+                                    } else {
+                                        the_archive_title();
+                                    } ?>
                                 </h1>
 
                                 <?php get_template_part( 'partials/filters', $queried_object->name ); ?>
