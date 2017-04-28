@@ -80,7 +80,7 @@ get_header(); ?>
                                     <ul class="u-clearfix">
                                         <?php while( $projects->have_posts() ) : $projects->the_post(); ?>
                                             <li class="u-span-6">
-                                                <a href="<?php the_permalink(); ?>" class="u-display-block">
+                                                <a href="<?php the_permalink(); ?>" class="u-display-block u-color-hover-green">
                                                     <?php if ( get_the_post_thumbnail() ) : ?>
                                                         <div class="post-image" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);"></div>
                                                     <?php endif; ?>
