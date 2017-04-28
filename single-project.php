@@ -35,7 +35,7 @@ get_header(); ?>
                                         <?php the_title(); ?>
                                     </h1>
 
-                                    <div id="map" class="u-mt-3" style="height:350px;"></div>
+                                    <div id="map" class="u-mt-3" style="height:350px;" data-geojson='<?php echo get_field('project_geojson') ?>'></div>
 
                                     <div class="post-content u-mt-2">
                                         <?php the_content(); ?>
@@ -52,7 +52,7 @@ get_header(); ?>
 
                             <div class="section__content flex__item u-width-12">
                                 
-                                <pre><?php var_dump( get_post_meta( $post->ID, 'project_events', true ) ); ?></pre>
+                                <pre><?php var_dump( json_decode( get_field('project_geojson') ) ); ?></pre>
 
                             </div>
 

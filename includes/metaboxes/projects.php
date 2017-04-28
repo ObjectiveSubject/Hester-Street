@@ -51,12 +51,12 @@ function project_options() {
 		'type'	=> 'text_date_timestamp',
 	) );
     
-    $cmb->add_field( array(
-		'name'	=> __( 'Location', 'cmb2' ),
-        'desc'	=> __( 'paste GEOJSON here. Go to <a href="http://geojson.io/" target="_blank">geojson.io</a> to create your custom geoJSON.', 'cmb2' ),
-		'id'  	=> $prefix . 'geojson', // need to use 'post_' prefix here because we group posts and events together with meta query on front end.
-		'type'	=> 'textarea_code',
-	) );
+    // $cmb->add_field( array(
+	// 	'name'	=> __( 'Location', 'cmb2' ),
+    //     'desc'	=> __( 'paste GEOJSON here. Go to <a href="http://geojson.io/" target="_blank">geojson.io</a> to create your custom geoJSON.', 'cmb2' ),
+	// 	'id'  	=> $prefix . 'geojson', // need to use 'post_' prefix here because we group posts and events together with meta query on front end.
+	// 	'type'	=> 'textarea_code',
+	// ) );
 
     $cmb->add_field( array(
 		'name'	=> __( 'Scope', 'cmb2' ),

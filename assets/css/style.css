@@ -1860,6 +1860,14 @@ caption {
     .sidebar-map {
       display: block; } }
 
+.post-type-archive-project .project.hentry {
+  opacity: 0.3;
+  -webkit-transition: opacity 300ms ease-out;
+  -moz-transition: opacity 300ms ease-out;
+  transition: opacity 300ms ease-out; }
+  .post-type-archive-project .project.hentry.is-active {
+    opacity: 1; }
+
 @media screen and (min-width: 768px) {
   .wrap {
     margin-top: 3rem; } }

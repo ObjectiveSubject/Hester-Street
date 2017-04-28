@@ -9,3 +9,13 @@
     height: 100vh;
     // background-color: #ddd;
 }
+
+.project.hentry {
+    .post-type-archive-project & {
+        opacity: 0.3;
+        @include transition(opacity 300ms ease-out);
+        &.is-active {
+            opacity: 1;
+        }
+    }
+}

@@ -56,11 +56,13 @@ function scripts( $debug = false ) {
 
 	if ( is_singular('project') || is_post_type_archive( 'project' ) ) {
 		wp_enqueue_script(
-			'mapbox_js',
-			'https://api.mapbox.com/mapbox-gl-js/v0.36.0/mapbox-gl.js',
-			array(),
-			'0.36.0',
-			true
+			'mapbox_js', 'https://api.mapbox.com/mapbox-gl-js/v0.36.0/mapbox-gl.js', array(), HSC_VERSION, true
+		);
+		wp_enqueue_script(
+			'turf_js', 'https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js', array(), HSC_VERSION, true
+		);
+		wp_enqueue_script(
+			'scrollmagic', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js', array(), HSC_VERSION, true
 		);
 	}
 	if ( is_singular('project') ) {
