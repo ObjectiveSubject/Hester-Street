@@ -15,7 +15,9 @@
 }
 .flex__item {
     @extend .has-border;
-    .flex__item:first-child {
+
+    &.is-borderless,
+    .flex__item:first-child, {
         border: 0;
     }
     &:not(.is-flush) {

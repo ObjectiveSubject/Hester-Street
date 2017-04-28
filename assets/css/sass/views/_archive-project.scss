@@ -1,0 +1,7 @@
+.sidebar-map {
+    position: -webkit-sticky;
+    position: sticky; // locally testing intended behaviour; unsupported in ie, edge
+    top: 0;
+    height: 100vh;
+    // background-color: #ddd;
+}

@@ -54,6 +54,34 @@ function features() {
 function scripts( $debug = false ) {
 	$min = ( $debug || defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
+	if ( is_singular('project') || is_post_type_archive( 'project' ) ) {
+		wp_enqueue_script(
+			'mapbox_js',
+			'https://api.mapbox.com/mapbox-gl-js/v0.36.0/mapbox-gl.js',
+			array(),
+			'0.36.0',
+			true
+		);
+	}
+	if ( is_singular('project') ) {
+		wp_enqueue_script(
+			'projects',
+			HSC_TEMPLATE_URL . "/assets/js/project{$min}.js",
+			array(),
+			HSC_VERSION,
+			true
+		);	
+	}
+	if ( is_post_type_archive( 'project' ) ) {
+		wp_enqueue_script(
+			'projects',
+			HSC_TEMPLATE_URL . "/assets/js/archive-project{$min}.js",
+			array(),
+			HSC_VERSION,
+			true
+		);	
+	}
+
 	wp_enqueue_script(
 		'main',
 		HSC_TEMPLATE_URL . "/assets/js/main{$min}.js",
@@ -72,6 +100,15 @@ function scripts( $debug = false ) {
  */
 function styles( $debug = false ) {
 	$min = ( $debug || defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+
+	if ( is_singular( 'project' ) || is_post_type_archive( 'project' ) ) {
+		wp_enqueue_style(
+			'mapbox_style',
+			'https://api.mapbox.com/mapbox-gl-js/v0.36.0/mapbox-gl.css',
+			array(),
+			'0.36.0'
+		);
+	}
 
 	wp_enqueue_style(
 		'style',

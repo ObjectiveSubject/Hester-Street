@@ -1717,26 +1717,48 @@ figure {
       -moz-flex-basis: 82.94%;
       flex-basis: 82.94%;
       -ms-flex-preferred-size: 82.94%; } }
+  @media screen and (min-width: 768px) {
+    .has-sidebar.has-fat-sidebar .section__content {
+      -webkit-flex-basis: 48.82%;
+      -moz-flex-basis: 48.82%;
+      flex-basis: 48.82%;
+      -ms-flex-preferred-size: 48.82%; } }
+  @media screen and (min-width: 1000px) {
+    .has-sidebar.has-fat-sidebar .section__content {
+      -webkit-flex-basis: 65.88%;
+      -moz-flex-basis: 65.88%;
+      flex-basis: 65.88%;
+      -ms-flex-preferred-size: 65.88%; } }
   .section:last-of-type .section__content {
     padding-bottom: 0; }
 
 @media screen and (min-width: 768px) {
   .section__sidebar {
+    order: 2;
+    margin-bottom: 6rem;
     -webkit-flex-basis: 23.23%;
     -moz-flex-basis: 23.23%;
     flex-basis: 23.23%;
-    -ms-flex-preferred-size: 23.23%;
-    order: 2;
-    margin-bottom: 6rem; }
+    -ms-flex-preferred-size: 23.23%; }
     .footer .section__sidebar {
-      margin-bottom: 0; } }
+      margin-bottom: 0; }
+    .has-fat-sidebar .section__sidebar {
+      -webkit-flex-basis: 48.82%;
+      -moz-flex-basis: 48.82%;
+      flex-basis: 48.82%;
+      -ms-flex-preferred-size: 48.82%; } }
 
 @media screen and (min-width: 1000px) {
   .section__sidebar {
     -webkit-flex-basis: 14.7%;
     -moz-flex-basis: 14.7%;
     flex-basis: 14.7%;
-    -ms-flex-preferred-size: 14.7%; } }
+    -ms-flex-preferred-size: 14.7%; }
+    .has-fat-sidebar .section__sidebar {
+      -webkit-flex-basis: 31.76%;
+      -moz-flex-basis: 31.76%;
+      flex-basis: 31.76%;
+      -ms-flex-preferred-size: 31.76%; } }
 
 /* Tables
  * -----------------------------------------------------------*/
@@ -1828,6 +1850,12 @@ caption {
 .table--hover > tbody > tr:hover {
   background-color: gray; }
 
+.sidebar-map {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 100vh; }
+
 @media screen and (min-width: 768px) {
   .wrap {
     margin-top: 3rem; } }
@@ -1875,6 +1903,7 @@ caption {
       -ms-flex-wrap: nowrap;
       flex-wrap: nowrap; } }
 
+.flex__item.is-borderless,
 .flex__item .flex__item:first-child {
   border: 0; }
 

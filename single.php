@@ -6,8 +6,8 @@
 get_header();
 
 global $post;
-$cats = (array) get_the_terms( $post, 'category' );
-$cat = ($cats) ? $cats[0]->name : 'News'; ?>
+$cats = get_the_terms( $post, 'category' );
+$cat = ( ! empty( $cats ) ) ? $cats[0]->name : 'News'; ?>
 
 	<div class="site-content">
 

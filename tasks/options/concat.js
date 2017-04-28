@@ -14,5 +14,17 @@ module.exports = {
 			'assets/js/src/*.js'
 		],
 		dest: 'assets/js/main.js'
+	},
+	singleProject: {
+		src: [
+			'assets/js/views/project.js'
+		],
+		dest: 'assets/js/project.js'
+	},
+	archiveProject: {
+		src: [
+			'assets/js/views/archive-project.js'
+		],
+		dest: 'assets/js/archive-project.js'
 	}
 };

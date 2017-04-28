@@ -35,6 +35,8 @@ get_header(); ?>
                                         <?php the_title(); ?>
                                     </h1>
 
+                                    <div id="map" class="u-mt-3" style="height:350px;"></div>
+
                                     <div class="post-content u-mt-2">
                                         <?php the_content(); ?>
                                     </div>
