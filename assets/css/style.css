@@ -1851,10 +1851,14 @@ caption {
   background-color: gray; }
 
 .sidebar-map {
+  display: none;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   height: 100vh; }
+  @media screen and (min-width: 768px) {
+    .sidebar-map {
+      display: block; } }
 
 @media screen and (min-width: 768px) {
   .wrap {
