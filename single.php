@@ -3,8 +3,11 @@
  * Single Post template
  */
 
+get_header();
+
 global $post;
-get_header(); ?>
+$cats = (array) get_the_terms( $post, 'category' );
+$cat = ($cats) ? $cats[0]->name : 'News'; ?>
 
 	<div class="site-content">
 
@@ -27,7 +30,7 @@ get_header(); ?>
 
                                 <div class="section__content flex__item">
                                     
-                                    <div class="h2 u-mt-pull"><?php _e( 'News', 'hsc' ); ?></div>
+                                    <div class="h2 u-mt-pull"><?php echo $cat; ?></div>
 
                                     <h1 class="post-title u-mt-3">
                                         <?php the_title(); ?>
