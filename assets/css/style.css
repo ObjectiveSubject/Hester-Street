@@ -1360,18 +1360,8 @@ hr {
 
 @media screen and (min-width: 1000px) {
   .filter-toggle-list__item {
-    width: 33.333%; }
-    .filter-toggle-list__item:nth-child(2n+1) a {
-      border-left: 2px solid;
-      padding-left: 1em; }
-    .filter-toggle-list__item:nth-child(3n+1) a {
-      border-left: 0;
-      padding-left: 0; } }
-
-@media screen and (min-width: 1400px) {
-  .filter-toggle-list__item {
     width: 20%; }
-    .filter-toggle-list__item:nth-child(3n+1) a {
+    .filter-toggle-list__item:nth-child(2n+1) a {
       border-left: 2px solid;
       padding-left: 1em; }
     .filter-toggle-list__item:nth-child(5n+1) a {

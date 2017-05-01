@@ -8,9 +8,9 @@ $queried_object = get_queried_object();
 
 	<div class="site-content">
         
-        <div class="wrap">
+        <div id="project-archive-app" class="wrap">
             
-            <section class="section">
+            <section class="section" data-test-attr="blank">
                 <div class="flex has-sidebar u-container">
                     
                     <?php get_template_part( 'partials/menu-ui' ); ?>
@@ -27,7 +27,74 @@ $queried_object = get_queried_object();
                             <? post_type_archive_title(); ?>
                         </h1>
 
-                        <?php get_template_part( 'partials/filters', $queried_object->name ); ?>
+                        <div id="project-filters">
+
+                            <ul class="filter-toggle-list list">
+                                <li class="filter-toggle-list__item list__item" v-for="toggle in projectFilterData.filterToggles">
+                                    <a href="#" class="filter-group-toggle" v-bind:class="[ currentFilterGroup == toggle.slug ? 'is-active' : '' ]" v-on:click="toggleFilterGroup(toggle)">{{toggle.name}}</a>
+                                </li>
+                            </ul>
+
+                            <div class="filter-groups">
+
+                                <ul id="filter-group-services" class="filter-group list u-mt-2" v-if="currentFilterGroup == 'services'">
+                                    <li class="list__item u-mt-1" v-for="service in projectFilterData.services" :key="service.slug"> 
+                                        <span class="u-caps">{{ service.name }}</span>
+                                        <ul v-if="service.children.length">
+                                            <li class="list__item" v-for="child in service.children" :key="child.slug">
+                                                <a href="#" class="filter-group__item u-color-hover-orange" v-on:click.prevent="addFilter(child)">{{ child.name }}</a>
+                                            </li>
+                                        </ul>
+                                        
+                                    </li>
+                                </ul>
+
+                                <ul id="filter-group-issues" class="filter-group list u-mt-2" v-if="currentFilterGroup == 'issues'">
+                                    <li class="list__item" v-for="issue in projectFilterData.issues" :key="issue.slug"> 
+                                        <a href="#" class="filter-group__item u-color-hover-orange" v-on:click.prevent="addFilter(issue)">{{ issue.name }}</a>
+                                    </li>
+                                </ul>
+
+                                <ul id="filter-group-date" class="filter-group list u-mt-2" v-if="currentFilterGroup == 'date'">
+                                    <li class="list__item"> 
+                                        <a href="#" class="filter-group__item u-color-hover-orange" v-on:click.stop="addFilter(30*24*60*60)">Last Month</a>
+                                    </li>
+                                    <li class="list__item"> 
+                                        <a href="#" class="filter-group__item u-color-hover-orange" v-on:click.prevent="addFilter((30*24*60*60)*3)">Last 3 Months</a>
+                                    </li>
+                                    <li class="list__item"> 
+                                        <a href="#" class="filter-group__item u-color-hover-orange" v-on:click.stop="addFilter((30*24*60*60)*6)">Last 6 Months</a>
+                                    </li>
+                                    <li class="list__item"> 
+                                        <a href="#" class="filter-group__item u-color-hover-orange" v-on:click.stop="addFilter(365*24*60*60)">Last Year</a>
+                                    </li>
+                                    <li class="list__item"> 
+                                        <a href="#" class="filter-group__item u-color-hover-orange" v-on:click.stop="addFilter((365*24*60*60)*3)">Last 3 Years</a>
+                                    </li>
+                                </ul>
+
+                                <ul id="filter-group-status" class="filter-group list u-mt-2" v-if="currentFilterGroup == 'status'">
+                                    <li class="list__item" v-for="stati in projectFilterData.status" :key="stati.slug"> 
+                                        <a href="#" class="filter-group__item u-color-hover-orange" v-on:click.stop="addFilter(stati)">{{ stati.name }}</a>
+                                    </li>
+                                </ul>
+
+                                <ul id="filter-group-locations" class="filter-group list u-mt-2" v-if="currentFilterGroup == 'locations'">
+                                    <li class="list__item u-mt-1" v-for="location in projectFilterData.locations" :key="location.slug"> 
+                                        <span class="u-caps" v-if="location.children.length">{{ location.name }}</span>
+                                        <a href="#" class="filter-group__item u-color-hover-orange" v-if="location.children.length === 0"v-on:click.prevent="addFilter(location)">{{ location.name }}</a>
+                                        <ul v-if="location.children.length">
+                                            <li class="list__item" v-for="child in location.children" :key="child.slug">
+                                                <a href="#" class="filter-group__item u-color-hover-orange" v-on:click.prevent="addFilter(child)">{{ child.name }}</a>
+                                            </li>
+                                        </ul>
+                                        
+                                    </li>
+                                </ul>
+                                
+                            </div>
+
+                        </div>
 
                     </div> <!-- .section__content -->
 
@@ -38,41 +105,30 @@ $queried_object = get_queried_object();
                 <div class="project-results flex has-sidebar has-fat-sidebar u-container">
 
                     <div class="section__sidebar flex__item is-borderless is-flush">
-                        <div id="archive-project-map" class="sidebar-map"></div>
+                        <archive-map :projects="projects"></archive-map>
                     </div>
 
                     <div class="section__content u-width-12 flex__item">
-                        
-                        <?php if ( have_posts() ) : ?>
-
-                            <?php if ( 1 < get_query_var('paged') ) : ?>
-                            <div class="posts-pagination">
-                                <?php the_posts_pagination( array( 'mid_size' => 2 ) ); ?>
-                                <hr>
-                            </div>
-                        <?php endif; ?>
 
                         <div class="u-clearfix">
 
-                            <?php while ( have_posts() ) : the_post();
-                                $post_type = get_post_type();
-                                $post_class = array( 'u-mb-4 preview' ); ?>
+                            <article :id="project.slug" class="u-mb-4" v-for="project in projects" :key="project.title" :class="project.post_class" :data-geojson='project.geojson'>
                                 
-                                <article <?php post_class( implode( ' ', $post_class ) ); ?> data-geojson='<?php echo get_field('project_geojson') ?>'>
-                                    <?php get_template_part( 'partials/content-preview', $post_type ); ?>
-                                </article>
+                                <div class="hentry-thumbnail" v-if="project.attachment.src">
+                                    <img :src="project.attachment.src" :width="project.attachment.width" :height="project.attachment.height" alt="project image"/>
+                                </div>
+
+                                <div class="h6 u-mt-nudge">
+                                    Date...
+                                </div>
+
+                                <h2 class="hentry-title u-mt-nudge">
+                                    <a :href="project.url" title="Read more">{{ project.title }}</a>
+                                </h2>
                                 
-                            <?php endwhile; ?>
+                            </article>
 
                         </div>
-
-                        <!--<hr class="u-mt-4"/>-->
-
-                        <!--<div class="posts-pagination u-pt-1">
-                            <?php the_posts_pagination( array( 'mid_size' => 2 ) ); ?>
-                        </div>-->
-
-                        <?php endif; ?>
 
                     </div> <!-- .section__content -->
 

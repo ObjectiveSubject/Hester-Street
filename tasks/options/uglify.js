@@ -13,7 +13,8 @@ module.exports = {
 			' */\n',
 			mangle: {
 				except: ['jQuery']
-			}
+			},
+			sourceMap: true
 		}
 	}
 };

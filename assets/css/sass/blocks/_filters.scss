@@ -19,23 +19,8 @@
         }
     }
     @include media($lg) {
-        width: 33.333%;
-        &:nth-child(2n+1) {
-            a {
-                border-left: 2px solid;
-                padding-left: 1em;
-            }
-        }
-        &:nth-child(3n+1) {
-            a {
-                border-left: 0;
-                padding-left: 0;
-            }
-        }
-    }
-    @include media($xl) {
         width: 20%;
-        &:nth-child(3n+1) {
+        &:nth-child(2n+1) {
             a {
                 border-left: 2px solid;
                 padding-left: 1em;

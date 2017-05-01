@@ -17,6 +17,7 @@ define( 'HSC_ASSETS',       HSC_TEMPLATE_URL . '/assets/' );
 require_once HSC_INC . 'core.php';
 
 require_once HSC_INC . 'cmb2.addons.php';
+require_once HSC_INC . 'api.php';
 require_once HSC_INC . 'comments.php';
 require_once HSC_INC . 'metaboxes.php';
 require_once HSC_INC . 'post-types.php';
@@ -33,6 +34,7 @@ include( HSC_INC . 'libraries/cmb2-post-search-field/cmb2_post_search_field.php'
 
 // Run the setup functions
 HSC\Core\setup();
+HSC\API\setup();
 HSC\Comments\setup();
 HSC\Shortcodes\setup();
 HSC\PostTypes\setup();

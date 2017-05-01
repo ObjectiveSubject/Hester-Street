@@ -27,7 +27,19 @@ function register_my_post_types() {
 	register_extended_post_type( 'project', array(
 		'menu_icon' 		=> 'dashicons-media-spreadsheet',
 		'supports' 			=> array( 'title', 'editor', 'excerpt', 'thumbnail' ),
-		'has_archive'		=> true
+		'has_archive'		=> true,
+		'admin_cols' => array(
+			'project_begin_date' => array(
+				'title' => 'Begin Date',
+				'meta_key' => 'project_begin_date',
+				'date_format' => get_option( 'date_format' )
+			),
+			'project_end_date' => array(
+				'title' => 'End Date',
+				'meta_key' => 'project_end_date',
+				'date_format' => get_option( 'date_format' )
+			),
+		),
 	) );
 
 	register_extended_post_type( 'team_member', array(
