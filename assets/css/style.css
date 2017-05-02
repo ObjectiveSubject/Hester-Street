@@ -1269,6 +1269,10 @@ hr {
   padding-top: 6rem;
   padding-bottom: 6rem; }
 
+.u-font-gta-extended {
+  font-family: "GT-America-Extended-Black", Arial, sans-serif;
+  text-transform: uppercase; }
+
 .u-weight-light {
   font-weight: 300; }
 
@@ -1380,11 +1384,22 @@ a.filter-group-toggle {
       min-height: 3rem; } }
 
 .filter-group__item {
-  margin-top: 0; }
-  .has-item-selected .filter-group__item {
-    color: #999999; }
+  margin-top: 0;
+  cursor: pointer;
+  -webkit-transition: color 300ms ease-out;
+  -moz-transition: color 300ms ease-out;
+  transition: color 300ms ease-out; }
+  .filter-group__item:hover {
+    color: #feac00; }
+  .has-selection .filter-group__item {
+    color: #cccccc; }
+    .has-selection .filter-group__item:hover {
+      color: #feac00; }
   .filter-group__item.is-active {
     color: black; }
+    .filter-group__item.is-active:hover {
+      color: black;
+      text-decoration: line-through; }
 
 /* Basic Form Styles
  * ------------------------------------------- */

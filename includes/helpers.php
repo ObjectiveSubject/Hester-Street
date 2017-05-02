@@ -21,11 +21,11 @@ function get_lcl_data_archive_project() {
     
     return array(
         'filterToggles' => array(
-            array( 'slug' => 'services', 'name' => 'Services' ),
-            array( 'slug' => 'issues', 'name' => 'Issues' ),
+            array( 'slug' => 'service', 'name' => 'Services' ),
+            array( 'slug' => 'issue', 'name' => 'Issues' ),
             array( 'slug' => 'date', 'name' => 'Date' ),
             array( 'slug' => 'status', 'name' => 'Status' ),
-            array( 'slug' => 'locations', 'name' => 'Locations')
+            array( 'slug' => 'location', 'name' => 'Locations')
         ),
         'services' => $services,
         'issues' => $issues,

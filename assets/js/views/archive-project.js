@@ -24,7 +24,7 @@
             
             this.map = new mapboxgl.Map({
                 container: 'archive-project-map',
-                style: 'mapbox://styles/objectivesubject/cj21fglc3004t2sp199kzw03v',
+                style: 'mapbox://styles/objectivesubject/cj26w6viz00052ss0boe1o2uf',
                 center: [-73.98270130711586, 40.72701126185467], // manhattan
                 zoom: 11
             });
@@ -38,7 +38,6 @@
         watch: {
             projects: function(projects) {
 
-                console.log(projects);
                 var _this = this;
                 
                 if ( this.scrollMagicController ) {
@@ -138,16 +137,77 @@
 
     } );
 
+    Vue.component( 'filter-term', {
+        template: '<li class="list__item filter-group__item" v-bind:class="{ \'is-active\' : active }" v-on:click="select">{{ filterObj.name }}</li>',
+        props: [ 'filterObj', 'isActive' ],
+        data: function() {
+            return {
+                active: this.isActive
+            };
+        },
+        methods: {
+            select: function(){
+                if ( this.active ) {
+                    this.active = false;
+                } else {
+                    this.active = true;
+                }
+                this.$emit('select');
+            }
+        }
+    } );
+
     var app = new Vue({
         el: '#project-archive-app',
         data: {
-            currentFilterGroup: "services",
+            currentFilterGroup: "service",
+            currentFilters: {
+                service: [],
+                issue: [],
+                date: false,
+                status: "",
+                location: [],
+            },
             projectFilterData: projectFilterData,
-            // map: new ProjectsArchiveMap(),
             projects: []
         },
         mounted: function(e){
-            this.getProjects();
+            this.getProjects(this.projectApiUrl);
+        },
+        computed: {
+            projectApiUrl: function() {
+
+                var services  = computeFilterString(this.currentFilters.service, 'all_services'),
+                    issues    = computeFilterString(this.currentFilters.issue, 'all_issues'),
+                    locations = computeFilterString(this.currentFilters.location, 'all_locations'),
+                    date      = 'all_dates',
+                    status    = 'all_status';
+
+                if ( this.currentFilters.date ) {
+                    var now = new Date(),
+                        nowSeconds = now.getTime() / 1000;
+                    
+                    date = nowSeconds - this.currentFilters.date.seconds;
+                }
+
+                if ( this.currentFilters.status ) {
+                    status = this.currentFilters.status.slug;
+                }
+
+                function computeFilterString(filterArray, default_val){
+                    var str = [];
+                    if ( filterArray.length ) {
+                        filterArray.forEach(function(value, key){
+                            str.push(value);
+                        });
+                        return str.join('+');
+                    } else {
+                        return default_val;
+                    }
+                }
+
+                return [ date, services, issues, status, locations ].join('/');
+            }
         },
         methods: {
             
@@ -155,33 +215,34 @@
                 this.currentFilterGroup = toggle.slug;
             },
 
-            addFilter: function( filter, e ){
-                // console.log(filter);
-                this.projects.shift();
+            toggleFilter: function( filter_obj, e ){
+                var filterIndex = this.currentFilters[filter_obj.taxonomy].indexOf(filter_obj.slug);
+                if ( filterIndex > -1 ) {
+                    this.currentFilters[filter_obj.taxonomy].splice(filterIndex, 1);
+                } else {
+                    this.currentFilters[filter_obj.taxonomy].push(filter_obj.slug);
+                }
+                this.getProjects(this.projectApiUrl);
             },
 
-            removeFilter: function( filter, e ){
-                // console.log(filter);
+            toggleDate: function(filter_obj, e) {
+                if ( this.currentFilters.date.seconds == filter_obj.seconds ) {
+                    this.currentFilters.date = false;
+                } else {
+                    this.currentFilters.date = filter_obj;
+                }
+                this.getProjects(this.projectApiUrl);
             },
 
-            getProjects: function( params ) {
+            getProjects: function( url ) {
                 var instance = this;
-                var defaults = {
-                        startDate: 'all_dates',
-                        services: 'all_services',
-                        issues: 'all_issues',
-                        status: 'all_status',
-                        locations: 'all_locations'
-                    };
-                params = Object.assign( defaults, params );
                     
-                fetch( HSC.api + '/projects/' + [params.startDate, params.services, params.issues, params.status, params.locations].join('/') )
+                fetch( HSC.api + '/projects/' + url )
                     .then(function(response){
                         return response.json();
                     })
                     .then(function(json){
                         instance.projects = json;
-                        // instance.map.update();
                     })
                     .catch(function(ex) {
                         console.log('Project fetch failed', ex);

@@ -50,19 +50,28 @@ a.filter-group-toggle {
 }
 
 .filter-group {
-    // display: none; //toggled with JS
-    // .no-js & {
-    //     display: block !important;
-    // }
+   
 }
 
 .filter-group__item {
     @extend .h6;
     margin-top: 0;
-    .has-item-selected & {
-        color: $medium-gray;
+    cursor: pointer;
+    @include transition( color 300ms ease-out );
+    &:hover {
+        color: $orange;
+    }
+    .has-selection & {
+        color: $light-gray;
+        &:hover {
+            color: $orange;
+        }
     }
     &.is-active {
         color: black;
+        &:hover {
+            color: black;
+            text-decoration: line-through;
+        }
     }
 }

@@ -32,67 +32,89 @@ $queried_object = get_queried_object();
                             <ul class="filter-toggle-list list">
                                 <!-- VueJS node -->
                                 <li class="filter-toggle-list__item list__item" v-for="toggle in projectFilterData.filterToggles">
-                                    <a href="#" class="filter-group-toggle" v-bind:class="[ currentFilterGroup == toggle.slug ? 'is-active' : '' ]" v-on:click="toggleFilterGroup(toggle)">{{toggle.name}}</a>
+                                    <a href="#" class="filter-group-toggle" v-bind:class="[ currentFilterGroup == toggle.slug ? 'is-active' : '' ]" v-on:click="toggleFilterGroup(toggle)">
+                                        {{toggle.name}}<br/>
+                                        <span v-if="toggle.slug != 'date' && currentFilters[toggle.slug].length" class="u-color-green u-font-gta-extended">{{ currentFilters[toggle.slug].length }} selected</span>
+                                        <span v-if="toggle.slug == 'date'" class="u-color-green u-font-gta-extended">{{ currentFilters.date.shortName || currentFilters.date.name }}</span>
+                                    </a>
                                 </li>
                             </ul>
 
                             <div class="filter-groups">
 
                                 <!-- VueJS node -->
-                                <ul id="filter-group-services" class="filter-group list u-mt-2" v-if="currentFilterGroup == 'services'">
+                                <ul id="filter-group-services" class="filter-group list u-mt-2" :class="{ 'has-selection' : currentFilters.service.length }" v-if="currentFilterGroup == 'service'">
                                     <li class="list__item u-mt-1" v-for="service in projectFilterData.services" :key="service.slug"> 
                                         <span class="u-caps">{{ service.name }}</span>
                                         <ul v-if="service.children.length">
-                                            <li class="list__item" v-for="child in service.children" :key="child.slug">
-                                                <a href="#" class="filter-group__item u-color-hover-orange" v-on:click.prevent="addFilter(child)">{{ child.name }}</a>
-                                            </li>
+                                            <li is="filter-term"
+                                                v-for="child in service.children" :key="child.slug"
+                                                :is-active="currentFilters[child.taxonomy].indexOf(child.slug) > -1" 
+                                                :filter-obj="child" v-on:select="toggleFilter(child)"></li>
                                         </ul>
                                         
                                     </li>
                                 </ul>
 
                                 <!-- VueJS node -->
-                                <ul id="filter-group-issues" class="filter-group list u-mt-2" v-if="currentFilterGroup == 'issues'">
-                                    <li class="list__item" v-for="issue in projectFilterData.issues" :key="issue.slug"> 
-                                        <a href="#" class="filter-group__item u-color-hover-orange" v-on:click.prevent="addFilter(issue)">{{ issue.name }}</a>
-                                    </li>
+                                <ul id="filter-group-issues" class="filter-group list u-mt-2" :class="{ 'has-selection' : currentFilters.issue.length }" v-if="currentFilterGroup == 'issue'">
+                                    <li is="filter-term"
+                                        v-for="issue in projectFilterData.issues" :key="issue.slug"
+                                        :filter-obj="issue" 
+                                        :is-active="currentFilters[issue.taxonomy].indexOf(issue.slug) > -1" 
+                                        v-on:select="toggleFilter(issue)"></li>
                                 </ul>
 
                                 <!-- VueJS node -->
-                                <ul id="filter-group-date" class="filter-group list u-mt-2" v-if="currentFilterGroup == 'date'">
-                                    <li class="list__item"> 
-                                        <a href="#" class="filter-group__item u-color-hover-orange" v-on:click.stop="addFilter(30*24*60*60)">Last Month</a>
-                                    </li>
-                                    <li class="list__item"> 
-                                        <a href="#" class="filter-group__item u-color-hover-orange" v-on:click.prevent="addFilter((30*24*60*60)*3)">Last 3 Months</a>
-                                    </li>
-                                    <li class="list__item"> 
-                                        <a href="#" class="filter-group__item u-color-hover-orange" v-on:click.stop="addFilter((30*24*60*60)*6)">Last 6 Months</a>
-                                    </li>
-                                    <li class="list__item"> 
-                                        <a href="#" class="filter-group__item u-color-hover-orange" v-on:click.stop="addFilter(365*24*60*60)">Last Year</a>
-                                    </li>
-                                    <li class="list__item"> 
-                                        <a href="#" class="filter-group__item u-color-hover-orange" v-on:click.stop="addFilter((365*24*60*60)*3)">Last 3 Years</a>
-                                    </li>
+                                <ul id="filter-group-date" class="filter-group list u-mt-2" :class="{ 'has-selection' : currentFilters.date }" v-if="currentFilterGroup == 'date'">
+                                    <li is="filter-term"
+                                        :filter-obj="{ name: 'Last Month', seconds: (30*24*60*60) }" 
+                                        :is-active="currentFilters.date.name == 'Last Month'"
+                                        v-on:select="toggleDate({ name: 'Last Month', seconds: (30*24*60*60) })"></li>
+                                    <li is="filter-term"
+                                        :filter-obj="{ name: 'Last 3 Months', shortName: 'Last 3 Mos.', seconds: ((30*24*60*60)*3) }" 
+                                        :is-active="currentFilters.date.name == 'Last 3 Months'"
+                                        v-on:select="toggleDate({ name: 'Last 3 Months', shortName: 'Last 3 Mos.', seconds: ((30*24*60*60)*3) })"></li>
+                                    <li is="filter-term"
+                                        :filter-obj="{ name: 'Last 6 Months', shortName: 'Last 6 Mos.', seconds: ((30*24*60*60)*6) }" 
+                                        :is-active="currentFilters.date.name == 'Last 6 Months'"
+                                        v-on:select="toggleDate({ name: 'Last 6 Months', shortName: 'Last 6 Mos.', seconds: ((30*24*60*60)*6) })"></li>
+                                    <li is="filter-term"
+                                        :filter-obj="{ name: 'Last Year', seconds: (365*24*60*60) }" 
+                                        :is-active="currentFilters.date.name == 'Last Year'"
+                                        v-on:select="toggleDate({ name: 'Last Year', seconds: (365*24*60*60) })"></li>
+                                    <li is="filter-term"
+                                        :filter-obj="{ name: 'Last 3 Years', shortName: 'Last 3 Yrs.', seconds: ((365*24*60*60)*3) }" 
+                                        :is-active="currentFilters.date.name == 'Last 3 Years'"
+                                        v-on:select="toggleDate({ name: 'Last 3 Years', shortName: 'Last 3 Yrs.', seconds: ((365*24*60*60)*3) })"></li>
                                 </ul>
 
                                 <!-- VueJS node -->
-                                <ul id="filter-group-status" class="filter-group list u-mt-2" v-if="currentFilterGroup == 'status'">
-                                    <li class="list__item" v-for="stati in projectFilterData.status" :key="stati.slug"> 
-                                        <a href="#" class="filter-group__item u-color-hover-orange" v-on:click.stop="addFilter(stati)">{{ stati.name }}</a>
-                                    </li>
+                                <ul id="filter-group-status" class="filter-group list u-mt-2" :class="{ 'has-selection' : currentFilters.status.length }" v-if="currentFilterGroup == 'status'">
+                                    <li is="filter-term"
+                                        v-for="stati in projectFilterData.status" :key="stati.slug"
+                                        :filter-obj="stati" 
+                                        :is-active="currentFilters[stati.taxonomy].indexOf(stati.slug) > -1" 
+                                        v-on:select="toggleFilter(stati)"></li>
                                 </ul>
 
                                 <!-- VueJS node -->
-                                <ul id="filter-group-locations" class="filter-group list u-mt-2" v-if="currentFilterGroup == 'locations'">
+                                <ul id="filter-group-locations" class="filter-group list u-mt-2" :class="{ 'has-selection' : currentFilters.location.length }" v-if="currentFilterGroup == 'location'">
                                     <li class="list__item u-mt-1" v-for="location in projectFilterData.locations" :key="location.slug"> 
+                                        
                                         <span class="u-caps" v-if="location.children.length">{{ location.name }}</span>
-                                        <a href="#" class="filter-group__item u-color-hover-orange" v-if="location.children.length === 0"v-on:click.prevent="addFilter(location)">{{ location.name }}</a>
+                                        <span is="filter-term" 
+                                              v-if="location.children.length === 0" 
+                                              :filter-obj="location" 
+                                              :is-active="currentFilters[location.taxonomy].indexOf(location.slug) > -1" 
+                                              v-on:select="toggleFilter(location)"></span>
+                                            
                                         <ul v-if="location.children.length">
-                                            <li class="list__item" v-for="child in location.children" :key="child.slug">
-                                                <a href="#" class="filter-group__item u-color-hover-orange" v-on:click.prevent="addFilter(child)">{{ child.name }}</a>
-                                            </li>
+                                            <li is="filter-term"
+                                                v-for="child in location.children" :key="child.slug"
+                                                :filter-obj="child" 
+                                                :is-active="currentFilters[child.taxonomy].indexOf(child.slug) > -1" 
+                                                v-on:select="toggleFilter(child)"></li>
                                         </ul>
                                         
                                     </li>
