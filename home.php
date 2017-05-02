@@ -30,10 +30,10 @@ $page_for_posts = get_option( 'page_for_posts' )
                                     
                                     <ul class="filter-toggle-list list">
                                         <li class="filter-toggle-list__item list__item">
-                                            <a href="#filter-group-post-type" data-target="#filter-group-post-type" class="filter-group-toggle is-active js-fade-toggle">Post Type</a>
+                                            <a href="#filter-group-post-type" data-target="#filter-group-post-type" class="filter-group-toggle is-active">Post Type</a>
                                         </li>
                                         <li class="filter-toggle-list__item list__item">
-                                            <a href="#filter-group-date" data-target="#filter-group-date" class="filter-group-toggle js-fade-toggle">Date</a>
+                                            <a href="#filter-group-date" data-target="#filter-group-date" class="filter-group-toggle">Date</a>
                                         </li>
                                     </ul>
 

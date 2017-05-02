@@ -19,6 +19,7 @@ require_once HSC_INC . 'core.php';
 require_once HSC_INC . 'cmb2.addons.php';
 require_once HSC_INC . 'api.php';
 require_once HSC_INC . 'comments.php';
+require_once HSC_INC . 'helpers.php';
 require_once HSC_INC . 'metaboxes.php';
 require_once HSC_INC . 'post-types.php';
 require_once HSC_INC . 'shortcodes.php';

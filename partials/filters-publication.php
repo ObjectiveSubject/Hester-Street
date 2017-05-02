@@ -6,13 +6,13 @@
 
 <ul class="filter-toggle-list list">
     <li class="filter-toggle-list__item list__item">
-        <a href="#filter-group-services" data-target="#filter-group-services" class="filter-group-toggle is-active js-fade-toggle">Services</a>
+        <a href="#filter-group-services" data-target="#filter-group-services" class="filter-group-toggle is-active">Services</a>
     </li>
     <li class="filter-toggle-list__item list__item">
-        <a href="#filter-group-issues" data-target="#filter-group-issues" class="filter-group-toggle js-fade-toggle">Issues</a>
+        <a href="#filter-group-issues" data-target="#filter-group-issues" class="filter-group-toggle">Issues</a>
     </li>
     <li class="filter-toggle-list__item list__item">
-        <a href="#filter-group-date" data-target="#filter-group-date" class="filter-group-toggle js-fade-toggle">Date</a>
+        <a href="#filter-group-date" data-target="#filter-group-date" class="filter-group-toggle">Date</a>
     </li>
 </ul>
 

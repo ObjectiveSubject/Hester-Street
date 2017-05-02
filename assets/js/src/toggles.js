@@ -9,29 +9,11 @@
 
         init: function() {
             
-            toggles.fadeToggles();
             toggles.classToggles();
 
         },
 
-        fade: document.querySelectorAll('.js-fade-toggle'),
         class: document.querySelectorAll('.js-class-toggle'),
-
-        fadeToggles: function() {
-
-            if ( toggles.fade.length ) {
-                for ( var i=0; toggles.fade.length > i; i++ ) {  
-                    toggles.fade[i].addEventListener( 'click', onClick );
-                }
-            }
-
-            function onClick(e) {
-                e.preventDefault();
-                var target = document.querySelector(e.target.dataset.target);
-                TweenLite.fromTo( target, 0.3, { display: 'none', opacity: 0 }, { display: 'block', opacity: 1 } );
-            }
-
-        },
 
         classToggles: function() {
             
@@ -44,9 +26,9 @@
                         if ( targets.length ) {
                             for ( var t=0; targets.length > t; t++ ) {
                                 if  ( targets[t].className.indexOf(className) > -1 ) {
-                                    TweenLite.set(targets[t], { className:'-=' + className } );
+                                    targets[t].className.split(className).join('');
                                 } else {
-                                    TweenLite.set(targets[t], { className:'+=' + className } );
+                                    targets[t].className = targets[t].className + ' ' + className;
                                 }
                             }
                         }

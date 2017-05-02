@@ -54,62 +54,37 @@ function features() {
 function scripts( $debug = false ) {
 	$min = ( $debug || defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
+	wp_register_script( 'mapbox_js', 'https://api.mapbox.com/mapbox-gl-js/v0.36.0/mapbox-gl.js', array(), HSC_VERSION, true );
+	wp_register_script( 'turf_js', 'https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js', array(), HSC_VERSION, true );
+	wp_register_script( 'scrollmagic', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js', array(), HSC_VERSION, true );
+
 	wp_register_script( 'main', HSC_TEMPLATE_URL . "/assets/js/main{$min}.js", array(), HSC_VERSION, true );
+	wp_register_script( 'single-project', HSC_TEMPLATE_URL . "/assets/js/project{$min}.js", array(), HSC_VERSION, true );
+	wp_register_script( 'archive-project', HSC_TEMPLATE_URL . "/assets/js/archive-project{$min}.js", array(), HSC_VERSION, true );
 
-	if ( is_singular('project') || is_post_type_archive( 'project' ) ) {
-		wp_enqueue_script( 'mapbox_js', 'https://api.mapbox.com/mapbox-gl-js/v0.36.0/mapbox-gl.js', array(), HSC_VERSION, true );
-		wp_enqueue_script( 'turf_js', 'https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js', array(), HSC_VERSION, true );
-		wp_enqueue_script( 'scrollmagic', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js', array(), HSC_VERSION, true );
-	}
+	/* Main
+	 * -------------------------------------------------------- */
 
-	if ( is_singular('project') ) {
-		wp_enqueue_script(
-			'projects',
-			HSC_TEMPLATE_URL . "/assets/js/project{$min}.js",
-			array(),
-			HSC_VERSION,
-			true
-		);	
-	}
-	if ( is_post_type_archive( 'project' ) ) {
-		wp_enqueue_script(
-			'projects',
-			HSC_TEMPLATE_URL . "/assets/js/archive-project{$min}.js",
-			array(),
-			HSC_VERSION,
-			true
-		);
-
-		$services = get_terms( array( 'taxonomy' => 'service', 'hide_empty' => false, 'parent' => 0 ) );
-		foreach ( $services as $service ) {
-			$service->children = get_terms( array( 'taxonomy' => 'service', 'hide_empty' => false, 'parent' => $service->term_id ) );
-		}
-		$issues = get_terms( array( 'taxonomy' => 'issue', 'hide_empty' => false ) );
-		$status = get_terms( array( 'taxonomy' => 'status', 'hide_empty' => false ) );
-		$locations = get_terms( array( 'taxonomy' => 'location', 'hide_empty' => false, 'parent' => 0 ) );
-		foreach ( $locations as $location ) {
-			$location->children = get_terms( array( 'taxonomy' => 'location', 'hide_empty' => false, 'parent' => $location->term_id ) );
-		}
-		wp_localize_script( 'main', 'projectFilterData', array(
-			'filterToggles' => array(
-				array( 'slug' => 'services', 'name' => 'Services' ),
-				array( 'slug' => 'issues', 'name' => 'Issues' ),
-				array( 'slug' => 'date', 'name' => 'Date' ),
-				array( 'slug' => 'status', 'name' => 'Status' ),
-				array( 'slug' => 'locations', 'name' => 'Locations')
-			),
-			'services' => $services,
-			'issues' => $issues,
-			'status' => $status,
-			'locations' => $locations
-		 ) );
-	}
-
+	wp_enqueue_script('main');
 	wp_localize_script( 'main', 'HSC', array(
 		'api' => site_url('hsc-api/')
 	));
 
-	wp_enqueue_script('main');
+	/* Specific Views
+	 * -------------------------------------------------------- */
+	
+	if ( is_singular('project') || is_post_type_archive( 'project' ) ) {
+		wp_enqueue_script( 'mapbox_js' );
+		wp_enqueue_script( 'turf_js' );
+		wp_enqueue_script( 'scrollmagic' );
+	}
+	if ( is_singular('project') ) {
+		wp_enqueue_script( 'single-project' );
+	}
+	if ( is_post_type_archive( 'project' ) ) {
+		wp_enqueue_script( 'archive-project' );
+		wp_localize_script( 'archive-project', 'projectFilterData', \HSC\Helpers\get_lcl_data_archive_project() );
+	}
 }
 
 /**
