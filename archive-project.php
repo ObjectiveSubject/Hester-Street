@@ -30,6 +30,7 @@ $queried_object = get_queried_object();
                         <div id="project-filters">
 
                             <ul class="filter-toggle-list list">
+                                <!-- VueJS node -->
                                 <li class="filter-toggle-list__item list__item" v-for="toggle in projectFilterData.filterToggles">
                                     <a href="#" class="filter-group-toggle" v-bind:class="[ currentFilterGroup == toggle.slug ? 'is-active' : '' ]" v-on:click="toggleFilterGroup(toggle)">{{toggle.name}}</a>
                                 </li>
@@ -37,6 +38,7 @@ $queried_object = get_queried_object();
 
                             <div class="filter-groups">
 
+                                <!-- VueJS node -->
                                 <ul id="filter-group-services" class="filter-group list u-mt-2" v-if="currentFilterGroup == 'services'">
                                     <li class="list__item u-mt-1" v-for="service in projectFilterData.services" :key="service.slug"> 
                                         <span class="u-caps">{{ service.name }}</span>
@@ -49,12 +51,14 @@ $queried_object = get_queried_object();
                                     </li>
                                 </ul>
 
+                                <!-- VueJS node -->
                                 <ul id="filter-group-issues" class="filter-group list u-mt-2" v-if="currentFilterGroup == 'issues'">
                                     <li class="list__item" v-for="issue in projectFilterData.issues" :key="issue.slug"> 
                                         <a href="#" class="filter-group__item u-color-hover-orange" v-on:click.prevent="addFilter(issue)">{{ issue.name }}</a>
                                     </li>
                                 </ul>
 
+                                <!-- VueJS node -->
                                 <ul id="filter-group-date" class="filter-group list u-mt-2" v-if="currentFilterGroup == 'date'">
                                     <li class="list__item"> 
                                         <a href="#" class="filter-group__item u-color-hover-orange" v-on:click.stop="addFilter(30*24*60*60)">Last Month</a>
@@ -73,12 +77,14 @@ $queried_object = get_queried_object();
                                     </li>
                                 </ul>
 
+                                <!-- VueJS node -->
                                 <ul id="filter-group-status" class="filter-group list u-mt-2" v-if="currentFilterGroup == 'status'">
                                     <li class="list__item" v-for="stati in projectFilterData.status" :key="stati.slug"> 
                                         <a href="#" class="filter-group__item u-color-hover-orange" v-on:click.stop="addFilter(stati)">{{ stati.name }}</a>
                                     </li>
                                 </ul>
 
+                                <!-- VueJS node -->
                                 <ul id="filter-group-locations" class="filter-group list u-mt-2" v-if="currentFilterGroup == 'locations'">
                                     <li class="list__item u-mt-1" v-for="location in projectFilterData.locations" :key="location.slug"> 
                                         <span class="u-caps" v-if="location.children.length">{{ location.name }}</span>
@@ -105,6 +111,7 @@ $queried_object = get_queried_object();
                 <div class="project-results flex has-sidebar has-fat-sidebar u-container">
 
                     <div class="section__sidebar flex__item is-borderless is-flush">
+                        <!-- VueJS node -->
                         <archive-map :projects="projects"></archive-map>
                     </div>
 
@@ -112,20 +119,17 @@ $queried_object = get_queried_object();
 
                         <div class="u-clearfix">
 
+                            <!-- VueJS node -->
                             <article :id="project.slug" class="u-mb-4" v-for="project in projects" :key="project.title" :class="project.post_class" :data-geojson='project.geojson'>
-                                
                                 <div class="hentry-thumbnail" v-if="project.attachment.src">
                                     <img :src="project.attachment.src" :width="project.attachment.width" :height="project.attachment.height" alt="project image"/>
                                 </div>
-
                                 <div class="h6 u-mt-nudge">
-                                    Date...
+                                    {{ project.date_string }}
                                 </div>
-
                                 <h2 class="hentry-title u-mt-nudge">
                                     <a :href="project.url" title="Read more">{{ project.title }}</a>
                                 </h2>
-                                
                             </article>
 
                         </div>

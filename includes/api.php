@@ -144,6 +144,21 @@ function projects_request() {
 					'height' => $attachment_src[2],
 				);
 			}
+
+			$begin = get_post_meta( $post->ID, 'project_begin_date', true );
+			$end = get_post_meta( $post->ID, 'project_end_date', true );
+			if ( ! $end ) {
+				$begin_string = date( 'M. Y', $begin );
+				$end_string = 'Present';
+			} else {
+				if ( date( 'Y', $begin ) == date( 'Y', $end ) ) {
+					$begin_string = date( 'M', $begin );
+				} else {
+					$begin_string = date( 'M. Y', $begin );
+				}
+				$end_string = date( 'M. Y', $end );
+			}
+
 			array_push( $data, array(
 				'title' 	=> $post->post_title,
                 'title_alt' => get_post_meta( $post->ID, 'project_alt_title', true ),
@@ -152,6 +167,7 @@ function projects_request() {
 				'attachment' => $attachment,
 				'begin_date' => get_post_meta( $post->ID, 'project_begin_date', true ),
                 'end_date' => get_post_meta( $post->ID, 'project_end_date', true ),
+				'date_string' => $begin_string . ' – ' . $end_string, 
                 'geojson' => get_post_meta( $post->ID, 'project_geojson', true ),
 				'post_class' => implode( ' ', get_post_class() )
 			) );
