@@ -1,5 +1,6 @@
 .sidebar-map {
     display: none;
+    @include transition(opacity 300ms ease-out);
     @include media($md) {
         display: block;
     }
@@ -7,15 +8,64 @@
     position: sticky; // locally testing intended behaviour; unsupported in ie, edge
     top: 0;
     height: 100vh;
-    // background-color: #ddd;
+    
+    .is-loading & {
+        opacity: 0.3;
+    }
 }
 
 .project.hentry {
+    .no-js {
+        opacity: 1 !important;
+    }
     .post-type-archive-project & {
-        opacity: 0.3;
         @include transition(opacity 300ms ease-out);
-        &.is-active {
-            opacity: 1;
+    }
+    .post-type-archive-project .is-loading &,
+    .post-type-archive-project &:not(.is-active) {
+        opacity: 0.3;
+    }
+    
+}
+
+.page-title  {
+    .post-type-archive-project & {
+        @include media($lg){
+            max-width: 80%;
+            float: left;
         }
+    }
+}
+
+.page-header__right {
+    .post-type-archive-project & {
+        overflow: hidden;
+        margin-top: 1rem;
+        @include media($lg){
+            height: 3rem;
+            width: 20%;
+            float: right;
+            margin-top: 0;
+        }
+    }
+}
+
+.reset-filters-btn {
+    text-transform: uppercase;
+    height: 100%;
+    display: block;
+    color: $green;
+
+    @include media($lg){
+        padding-left: 1em;
+        border-left: 2px solid;
+    }
+
+    &:hover {
+        color: $red;
+    }
+    @include transform( translateY(100%) );
+    .has-filters & {
+        @include transform( translateY(0) );
     }
 }

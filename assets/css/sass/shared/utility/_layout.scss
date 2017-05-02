@@ -22,6 +22,12 @@
     }
 }
 
+.u-columns-2 {
+    @include media($lg) {
+        @include columns(2);
+    }
+}
+
 // Spacing
 // -------
 // Borrowed from: http://v4-alpha.getbootstrap.com/utilities/spacing/

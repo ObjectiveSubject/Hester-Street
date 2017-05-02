@@ -59,13 +59,17 @@ a.filter-group-toggle {
     cursor: pointer;
     @include transition( color 300ms ease-out );
     &:hover {
-        color: $orange;
+        color: $green;
     }
     .has-selection & {
         color: $light-gray;
         &:hover {
-            color: $orange;
+            color: $green;
         }
+    }
+    .is-loading & {
+        cursor: default;
+        pointer-events: none;
     }
     &.is-active {
         color: black;

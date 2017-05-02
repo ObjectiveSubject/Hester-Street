@@ -8,7 +8,7 @@ $queried_object = get_queried_object();
 
 	<div class="site-content">
         
-        <div id="project-archive-app" class="wrap">
+        <div id="project-archive-app" class="wrap" :class="[[ loading ? 'is-loading' : 'loaded' ], { 'has-filters' : hasFilters } ]">
             
             <section class="section" data-test-attr="blank">
                 <div class="flex has-sidebar u-container">
@@ -23,9 +23,14 @@ $queried_object = get_queried_object();
 
                     <div class="section__content flex__item">
                         
-                        <h1 class="page-title h2 u-mt-pull">
-                            <? post_type_archive_title(); ?>
-                        </h1>
+                        <div class="page-header u-clearfix">
+                            <h1 class="page-title h2 u-mt-pull">
+                                <? post_type_archive_title(); ?>
+                            </h1>
+                            <div class="page-header__right">
+                                <a href="#" v-on:click.prevent="resetFilters()" class="reset-filters-btn u-font-gta-extended">Clear All</a>
+                            </div>
+                        </div>
 
                         <div id="project-filters">
 
@@ -34,8 +39,9 @@ $queried_object = get_queried_object();
                                 <li class="filter-toggle-list__item list__item" v-for="toggle in projectFilterData.filterToggles">
                                     <a href="#" class="filter-group-toggle" v-bind:class="[ currentFilterGroup == toggle.slug ? 'is-active' : '' ]" v-on:click="toggleFilterGroup(toggle)">
                                         {{toggle.name}}<br/>
-                                        <span v-if="toggle.slug != 'date' && currentFilters[toggle.slug].length" class="u-color-green u-font-gta-extended">{{ currentFilters[toggle.slug].length }} selected</span>
+                                        <span v-if="toggle.slug != 'date' && toggle.slug != 'status' && currentFilters[toggle.slug].length" class="u-color-green u-font-gta-extended">{{ currentFilters[toggle.slug].length }} selected</span>
                                         <span v-if="toggle.slug == 'date'" class="u-color-green u-font-gta-extended">{{ currentFilters.date.shortName || currentFilters.date.name }}</span>
+                                        <span v-if="toggle.slug == 'status'" class="u-color-green u-font-gta-extended">{{ currentFilters.status.name }}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -44,9 +50,9 @@ $queried_object = get_queried_object();
 
                                 <!-- VueJS node -->
                                 <ul id="filter-group-services" class="filter-group list u-mt-2" :class="{ 'has-selection' : currentFilters.service.length }" v-if="currentFilterGroup == 'service'">
-                                    <li class="list__item u-mt-1" v-for="service in projectFilterData.services" :key="service.slug"> 
+                                    <li class="list__item u-mb-1" v-for="service in projectFilterData.services" :key="service.slug"> 
                                         <span class="u-caps">{{ service.name }}</span>
-                                        <ul v-if="service.children.length">
+                                        <ul v-if="service.children.length" class="u-columns-2">
                                             <li is="filter-term"
                                                 v-for="child in service.children" :key="child.slug"
                                                 :is-active="currentFilters[child.taxonomy].indexOf(child.slug) > -1" 
@@ -57,7 +63,7 @@ $queried_object = get_queried_object();
                                 </ul>
 
                                 <!-- VueJS node -->
-                                <ul id="filter-group-issues" class="filter-group list u-mt-2" :class="{ 'has-selection' : currentFilters.issue.length }" v-if="currentFilterGroup == 'issue'">
+                                <ul id="filter-group-issues" class="filter-group list u-mt-2 u-columns-2" :class="{ 'has-selection' : currentFilters.issue.length }" v-if="currentFilterGroup == 'issue'">
                                     <li is="filter-term"
                                         v-for="issue in projectFilterData.issues" :key="issue.slug"
                                         :filter-obj="issue" 
@@ -66,7 +72,7 @@ $queried_object = get_queried_object();
                                 </ul>
 
                                 <!-- VueJS node -->
-                                <ul id="filter-group-date" class="filter-group list u-mt-2" :class="{ 'has-selection' : currentFilters.date }" v-if="currentFilterGroup == 'date'">
+                                <ul id="filter-group-date" class="filter-group list u-mt-2 " :class="{ 'has-selection' : currentFilters.date }" v-if="currentFilterGroup == 'date'">
                                     <li is="filter-term"
                                         :filter-obj="{ name: 'Last Month', seconds: (30*24*60*60) }" 
                                         :is-active="currentFilters.date.name == 'Last Month'"
@@ -90,12 +96,12 @@ $queried_object = get_queried_object();
                                 </ul>
 
                                 <!-- VueJS node -->
-                                <ul id="filter-group-status" class="filter-group list u-mt-2" :class="{ 'has-selection' : currentFilters.status.length }" v-if="currentFilterGroup == 'status'">
+                                <ul id="filter-group-status" class="filter-group list u-mt-2" :class="{ 'has-selection' : currentFilters.status }" v-if="currentFilterGroup == 'status'">
                                     <li is="filter-term"
                                         v-for="stati in projectFilterData.status" :key="stati.slug"
                                         :filter-obj="stati" 
-                                        :is-active="currentFilters[stati.taxonomy].indexOf(stati.slug) > -1" 
-                                        v-on:select="toggleFilter(stati)"></li>
+                                        :is-active="currentFilters.status.slug == stati.slug" 
+                                        v-on:select="toggleStatus(stati)"></li>
                                 </ul>
 
                                 <!-- VueJS node -->
@@ -109,7 +115,7 @@ $queried_object = get_queried_object();
                                               :is-active="currentFilters[location.taxonomy].indexOf(location.slug) > -1" 
                                               v-on:select="toggleFilter(location)"></span>
                                             
-                                        <ul v-if="location.children.length">
+                                        <ul v-if="location.children.length" class="u-columns-2">
                                             <li is="filter-term"
                                                 v-for="child in location.children" :key="child.slug"
                                                 :filter-obj="child" 
@@ -140,6 +146,11 @@ $queried_object = get_queried_object();
                     <div class="section__content u-width-12 flex__item">
 
                         <div class="u-clearfix">
+
+                            <div v-if=" ! projects.length " class="error">
+                                <h3 class="u-mt-0">Hmm... no projects match your criteria :(</h3>
+                                <p class="h6">Try removing some of your filters above &uarr;</p>                                
+                            </div>
 
                             <!-- VueJS node -->
                             <article :id="project.slug" class="u-mb-4" v-for="project in projects" :key="project.title" :class="project.post_class" :data-geojson='project.geojson'>

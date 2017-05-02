@@ -934,6 +934,12 @@ hr {
     .u-container {
       padding: 0 70px; } }
 
+@media screen and (min-width: 1000px) {
+  .u-columns-2 {
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    columns: 2; } }
+
 .u-mt-pull {
   margin-top: -0.18em; }
 
@@ -1390,11 +1396,14 @@ a.filter-group-toggle {
   -moz-transition: color 300ms ease-out;
   transition: color 300ms ease-out; }
   .filter-group__item:hover {
-    color: #feac00; }
+    color: #afbd32; }
   .has-selection .filter-group__item {
     color: #cccccc; }
     .has-selection .filter-group__item:hover {
-      color: #feac00; }
+      color: #afbd32; }
+  .is-loading .filter-group__item {
+    cursor: default;
+    pointer-events: none; }
   .filter-group__item.is-active {
     color: black; }
     .filter-group__item.is-active:hover {
@@ -1857,6 +1866,9 @@ caption {
 
 .sidebar-map {
   display: none;
+  -webkit-transition: opacity 300ms ease-out;
+  -moz-transition: opacity 300ms ease-out;
+  transition: opacity 300ms ease-out;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -1864,14 +1876,58 @@ caption {
   @media screen and (min-width: 768px) {
     .sidebar-map {
       display: block; } }
+  .is-loading .sidebar-map {
+    opacity: 0.3; }
+
+.project.hentry .no-js {
+  opacity: 1 !important; }
 
 .post-type-archive-project .project.hentry {
-  opacity: 0.3;
   -webkit-transition: opacity 300ms ease-out;
   -moz-transition: opacity 300ms ease-out;
   transition: opacity 300ms ease-out; }
-  .post-type-archive-project .project.hentry.is-active {
-    opacity: 1; }
+
+.post-type-archive-project .is-loading .project.hentry,
+.post-type-archive-project .project.hentry:not(.is-active) {
+  opacity: 0.3; }
+
+@media screen and (min-width: 1000px) {
+  .post-type-archive-project .page-title, .post-type-archive-project .post-title {
+    max-width: 80%;
+    float: left; } }
+
+.post-type-archive-project .page-header__right {
+  overflow: hidden;
+  margin-top: 1rem; }
+  @media screen and (min-width: 1000px) {
+    .post-type-archive-project .page-header__right {
+      height: 3rem;
+      width: 20%;
+      float: right;
+      margin-top: 0; } }
+
+.reset-filters-btn {
+  text-transform: uppercase;
+  height: 100%;
+  display: block;
+  color: #afbd32;
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  -o-transform: translateY(100%);
+  transform: translateY(100%); }
+  @media screen and (min-width: 1000px) {
+    .reset-filters-btn {
+      padding-left: 1em;
+      border-left: 2px solid; } }
+  .reset-filters-btn:hover {
+    color: #ff685d; }
+  .has-filters .reset-filters-btn {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0); }
 
 @media screen and (min-width: 768px) {
   .wrap {

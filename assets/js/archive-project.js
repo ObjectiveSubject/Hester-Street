@@ -16,6 +16,8 @@
         data: function(){
             return {
                 map: false,
+                mapCenter: [-73.98270130711586, 40.72701126185467], // manhattan
+                mapZoom: 11,
                 scrollMagicController: false
             };
         },
@@ -24,14 +26,16 @@
             this.map = new mapboxgl.Map({
                 container: 'archive-project-map',
                 style: 'mapbox://styles/objectivesubject/cj26w6viz00052ss0boe1o2uf',
-                center: [-73.98270130711586, 40.72701126185467], // manhattan
-                zoom: 11
+                center: this.mapCenter,
+                zoom: this.mapZoom
             });
             this.map.scrollZoom.disable();
             this.map.dragRotate.disable();
             this.map.dragPan.disable();
             this.map.doubleClickZoom.disable();
             this.map.touchZoomRotate.disable();
+
+            console.log(this.map);
 
         },
         watch: {
@@ -47,9 +51,14 @@
 
                 // set 100ms timeout so project markup has a chance to populate
                 setTimeout(function(){
-                    for ( var p=0; projects.length > p; p++ ) {
-                        _this.setupProjectScene(projects[p]);
+                    if ( projects.length ) {
+                        for ( var p=0; projects.length > p; p++ ) {
+                            _this.setupProjectScene(projects[p]);
+                        }
+                    } else {
+                        _this.resetMap();
                     }
+                    
                 },100);
                 
             }
@@ -88,6 +97,20 @@
 
                 var geoJsonBounds = turf.extent(geoJson);
                 this.map.fitBounds(geoJsonBounds, { maxZoom: 14, padding: { top:40, bottom:20, left:20, right:20 } });
+            },
+
+            resetMap: function(){
+                if ( this.map.getSource("project-features") ) {
+                    this.map.removeSource("project-features");
+                }
+                if ( this.map.getLayer("project-polygons") ) {
+                    this.map.removeLayer("project-polygons");
+                }
+                if ( this.map.getLayer("project-points") ) {
+                    this.map.removeLayer("project-points");
+                }
+                // this.map.zoomTo(11);
+                this.map.easeTo({center:this.mapCenter,zoom:this.mapZoom});
             },
 
             updateSource: function(id, geoJson) {
@@ -144,13 +167,13 @@
                 active: this.isActive
             };
         },
+        watch: {
+            isActive: function(newVal){
+                this.active = newVal;
+            }
+        },
         methods: {
             select: function(){
-                if ( this.active ) {
-                    this.active = false;
-                } else {
-                    this.active = true;
-                }
                 this.$emit('select');
             }
         }
@@ -159,12 +182,13 @@
     var app = new Vue({
         el: '#project-archive-app',
         data: {
+            loading: true,
             currentFilterGroup: "service",
             currentFilters: {
                 service: [],
                 issue: [],
                 date: false,
-                status: "",
+                status: false,
                 location: [],
             },
             projectFilterData: projectFilterData,
@@ -174,6 +198,13 @@
             this.getProjects(this.projectApiUrl);
         },
         computed: {
+            hasFilters: function(){
+                if ( this.currentFilters.service.length ) return true;
+                if ( this.currentFilters.issue.length ) return true;
+                if ( this.currentFilters.location.length ) return true;
+                if ( this.currentFilters.date ) return true;
+                if ( this.currentFilters.status ) return true;
+            },
             projectApiUrl: function() {
 
                 var services  = computeFilterString(this.currentFilters.service, 'all_services'),
@@ -221,6 +252,7 @@
                 } else {
                     this.currentFilters[filter_obj.taxonomy].push(filter_obj.slug);
                 }
+                this.loading = true;
                 this.getProjects(this.projectApiUrl);
             },
 
@@ -230,6 +262,29 @@
                 } else {
                     this.currentFilters.date = filter_obj;
                 }
+                this.loading = true;
+                this.getProjects(this.projectApiUrl);
+            },
+
+            toggleStatus: function(filter_obj, e) {
+                if ( this.currentFilters.status.slug == filter_obj.slug ) {
+                    this.currentFilters.status = false;
+                } else {
+                    this.currentFilters.status = filter_obj;
+                }
+                this.loading = true;
+                this.getProjects(this.projectApiUrl);
+            },
+
+            resetFilters: function(){
+                this.currentFilters = {
+                    service: [],
+                    issue: [],
+                    date: false,
+                    status: false,
+                    location: [],
+                };
+                this.loading = true;
                 this.getProjects(this.projectApiUrl);
             },
 
@@ -242,6 +297,7 @@
                     })
                     .then(function(json){
                         instance.projects = json;
+                        instance.loading = false;
                     })
                     .catch(function(ex) {
                         console.log('Project fetch failed', ex);

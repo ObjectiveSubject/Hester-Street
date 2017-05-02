@@ -96,23 +96,38 @@ function projects_request() {
             'compare' => '>='
 		) );
 	}
-	// Check if there are any areas_of_study terms
-	// if ( $has_roles ) {
-	// 	array_push( $tax_query, array(
-	// 		'taxonomy'  => 'role',
-	// 		'field'     => 'slug',
-	// 		'terms'     => $roles,
-	// 	) );
-	// }
 
-	// Check for degree_type terms
-	// if ( $has_expertise ) {
-	// 	array_push( $tax_query, array(
-	// 		'taxonomy'  => 'expertise',
-	// 		'field'     => 'slug',
-	// 		'terms'     => $expertise,
-	// 	) );
-	// }
+	if ( $has_services ) {
+		array_push( $tax_query, array(
+			'taxonomy'  => 'service',
+			'field'     => 'slug',
+			'terms'     => $services,
+		) );
+	}
+
+	if ( $has_issues ) {
+		array_push( $tax_query, array(
+			'taxonomy'  => 'issue',
+			'field'     => 'slug',
+			'terms'     => $issues,
+		) );
+	}
+
+	if ( $has_status ) {
+		array_push( $tax_query, array(
+			'taxonomy'  => 'status',
+			'field'     => 'slug',
+			'terms'     => $status,
+		) );
+	}
+
+	if ( $has_locations ) {
+		array_push( $tax_query, array(
+			'taxonomy'  => 'location',
+			'field'     => 'slug',
+			'terms'     => $locations,
+		) );
+	}
 
 	$args = array(
 		'post_type'  => 'project',
@@ -175,6 +190,10 @@ function projects_request() {
 		wp_reset_query();
 		status_header( 200 );
 		wp_send_json( $data );
+	} else {
+		wp_reset_query();
+		status_header( 200 );
+		wp_send_json( array() );
 	}
 
 	return;

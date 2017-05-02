@@ -29,6 +29,18 @@ function register_my_post_types() {
 		'supports' 			=> array( 'title', 'editor', 'excerpt', 'thumbnail' ),
 		'has_archive'		=> true,
 		'admin_cols' => array(
+			'service' => array(
+				'taxonomy' => 'service'
+			),
+			'issue' => array(
+				'taxonomy' => 'issue'
+			),
+			'status' => array(
+				'taxonomy' => 'status'
+			),
+			'location' => array(
+				'taxonomy' => 'location'
+			),
 			'project_begin_date' => array(
 				'title' => 'Begin Date',
 				'meta_key' => 'project_begin_date',
