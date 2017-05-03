@@ -10,7 +10,7 @@ $queried_object = get_queried_object();
         
         <div id="project-archive-app" class="wrap" :class="[[ loading ? 'is-loading' : 'loaded' ], { 'has-filters' : hasFilters } ]">
             
-            <section class="section" data-test-attr="blank">
+            <section class="section">
                 <div class="flex has-sidebar u-container">
                     
                     <?php get_template_part( 'partials/menu-ui' ); ?>
@@ -135,19 +135,28 @@ $queried_object = get_queried_object();
                 </div><!-- .u-container -->
             </section>
 
+            <section class="section flex u-container" v-if="projects.length">
+                <div class="flex__item">
+                    <sort-select :active-choice="currentSort" v-on:selectsortchoice="toggleSort"></sort-select>
+
+                    
+
+                </div>
+            </section>
+
             <section class="section">
                 <div class="project-results flex has-sidebar has-fat-sidebar u-container">
 
-                    <div class="section__sidebar flex__item is-borderless is-flush">
+                    <div class="section__sidebar flex__item is-borderless is-flush u-pt-2">
                         <!-- VueJS node -->
                         <archive-map :projects="projects"></archive-map>
                     </div>
 
-                    <div class="section__content u-width-12 flex__item">
+                    <div class="section__content flex__item u-width-12 u-pt-2">
 
                         <div class="u-clearfix">
 
-                            <div v-if=" ! projects.length " class="error">
+                            <div v-if=" ! projects.length && ! loading" class="error">
                                 <h3 class="u-mt-0">Hmm... no projects match your criteria :(</h3>
                                 <p class="h6">Try removing some of your filters above &uarr;</p>                                
                             </div>
@@ -176,6 +185,18 @@ $queried_object = get_queried_object();
 
 	</div>
 
-
+    <script id="sort-select" type="vue-template">
+        <div class="sort-select" v-on:click="toggleSelect" >
+            <p class="u-caps">Sort By</p>
+            <ul class="u-mt-0">
+                <sort-choice v-on:selectchoice="selectSortChoice('alpha_desc')" v-if=" selectIsOpen || choice == 'alpha_desc' " value="alpha_desc" name="Alphabetical ⬇︎" ></sort-choice>
+                <sort-choice v-on:selectchoice="selectSortChoice('alpha_asc')" v-if=" selectIsOpen || choice == 'alpha_asc' " value="alpha_asc" name="Alphabetical ⬆︎" ></sort-choice>
+                <sort-choice v-on:selectchoice="selectSortChoice('date_start_desc')" v-if=" selectIsOpen || choice == 'date_start_desc' " value="date_start_desc" name="Date Started ⬇︎" ></sort-choice>
+                <sort-choice v-on:selectchoice="selectSortChoice('date_start_asc')" v-if=" selectIsOpen || choice == 'date_start_asc' " value="date_start_asc" name="Date Started ⬆︎" ></sort-choice>
+                <sort-choice v-on:selectchoice="selectSortChoice('date_end_desc')" v-if=" selectIsOpen || choice == 'date_end_desc' " value="date_end_desc" name="Date Completed ⬇︎" ></sort-choice>
+                <sort-choice v-on:selectchoice="selectSortChoice('date_end_asc')" v-if=" selectIsOpen || choice == 'date_end_asc' " value="date_end_asc" name="Date Completed ⬆︎" ></sort-choice>
+            </ul>
+        </div>
+    </script>
 
 <?php get_footer();

@@ -178,6 +178,47 @@
         }
     } );
 
+    Vue.component( 'sort-select', {
+        template: '#sort-select',
+        props: ['activeChoice'],
+        data: function(){
+            return {
+                selectIsOpen: false,
+            };
+        },
+        computed: {
+            choice: function(){
+                return this.activeChoice;
+            }
+        },
+        methods: {
+            toggleSelect: function() {
+                console.log('toggleSelect');
+                this.selectIsOpen = this.selectIsOpen ? false : true;
+            },
+            selectSortChoice: function(value){
+                console.log('selectSortChoice');
+                this.$emit('selectsortchoice', value);
+            }
+        }
+    } );
+
+    Vue.component( 'sort-choice', {
+        template: '<li class="u-font-gta-extended u-color-hover-green u-transition-300 u-cursor-pointer" v-on:click="selectChoice" v-html="name"></li>',
+        props: ['value', 'name'],
+        data: function(){
+            return {
+                
+            };
+        },
+        methods: {
+            selectChoice: function() {
+                console.log('selectChoice');
+                this.$emit('selectchoice');
+            }
+        }
+    } );
+
     var app = new Vue({
         el: '#project-archive-app',
         data: {
@@ -190,11 +231,17 @@
                 status: false,
                 location: [],
             },
+            currentSort: "date_start_desc",
             projectFilterData: projectFilterData,
             projects: []
         },
         mounted: function(e){
             this.getProjects(this.projectApiUrl);
+        },
+        watch: {
+            currentSort: function(){
+                this.sortProjects(this.currentSort);
+            }
         },
         computed: {
             hasFilters: function(){
@@ -285,6 +332,66 @@
                 };
                 this.loading = true;
                 this.getProjects(this.projectApiUrl);
+            },
+
+            toggleSort: function(newSort){
+                if ( this.currentSort === newSort ) return;
+                this.currentSort = newSort;                
+            },
+
+            sortProjects: function(sortKey){
+                if ( this.projects.length ) {
+                    switch(sortKey) {
+                        case 'alpha_desc':
+                            this.projects.sort(function(a,b){
+                                var titleA = a.title.toUpperCase(); // ignore upper and lowercase
+                                var titleB = b.title.toUpperCase(); // ignore upper and lowercase
+                                if (titleA > titleB) return -1;
+                                if (titleA < titleB) return 1;
+                                return 0;
+                            });
+                            break;
+                        case 'alpha_asc':
+                            this.projects.sort(function(a,b){
+                                var titleA = a.title.toUpperCase(); // ignore upper and lowercase
+                                var titleB = b.title.toUpperCase(); // ignore upper and lowercase
+                                if (titleA < titleB) return -1;
+                                if (titleA > titleB) return 1;
+                                return 0;
+                            });
+                            break;
+                        case 'date_start_desc':
+                            this.projects.sort(function(a,b){
+                                if (a.begin_date > b.begin_date) return -1;
+                                if (a.begin_date < b.begin_date) return 1;
+                                return 0;
+                            });
+                            break;
+                        case 'date_start_asc':
+                            this.projects.sort(function(a,b){
+                                if (a.begin_date < b.begin_date) return -1;
+                                if (a.begin_date > b.begin_date) return 1;
+                                return 0;
+                            });
+                            break;
+                        case 'date_end_desc':
+                            this.projects.sort(function(a,b){
+                                if (a.end_date > b.end_date) return -1;
+                                if (a.end_date < b.end_date) return 1;
+                                return 0;
+                            });
+                            break;
+                        case 'date_end_asc':
+                            this.projects.sort(function(a,b){
+                                if (a.end_date < b.end_date) return -1;
+                                if (a.end_date > b.end_date) return 1;
+                                return 0;
+                            });
+                            break;
+                        default:
+                            return;
+                    }
+                }
             },
 
             getProjects: function( url ) {

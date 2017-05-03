@@ -133,7 +133,7 @@ function projects_request() {
 		'post_type'  => 'project',
 		'tax_query'  => $tax_query,
         'meta_query' => $meta_query,
-		'order'      => 'ASC',
+		'order'      => 'DESC',
 		'orderby'    => 'meta_value',
         'meta_key'   => 'project_begin_date',
 		'posts_per_page' => 500,
