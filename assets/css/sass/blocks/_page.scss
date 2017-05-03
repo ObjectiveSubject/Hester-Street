@@ -2,7 +2,7 @@
     @extend .u-pr-6;
 }
 .page-content {
-    @include media($md) {
-        padding-right: 30%; // placeholder
-    }
+    // @include media($md) {
+    //     padding-right: 30%; // placeholder
+    // }
 }

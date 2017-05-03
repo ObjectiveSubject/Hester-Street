@@ -26,11 +26,11 @@ function register_taxonomies() {
 	register_extended_taxonomy( 'service', array('project', 'publication') );
 	register_extended_taxonomy( 'issue', array('project', 'publication') );
 	register_extended_taxonomy( 'location', array('project') );
-	register_extended_taxonomy( 'status', array('project'), array(), array(
+	register_extended_taxonomy( 'status', array('project'), array( 'meta_box' => 'radio' ), array(
 		# Override the base names used for labels:
 		'singular' => 'Status',
-		'plural'   => 'Statuses',
-		'slug'     => 'statuses'
+		'plural'   => 'Status',
+		'slug'     => 'status',
 	) );
 	register_extended_taxonomy( 'team_role', array('team_member'), array(), array(
 		# Override the base names used for labels:

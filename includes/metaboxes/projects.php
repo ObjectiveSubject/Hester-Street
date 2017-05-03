@@ -51,19 +51,6 @@ function project_options() {
 		'type'	=> 'text_date_timestamp',
 	) );
     
-    // $cmb->add_field( array(
-	// 	'name'	=> __( 'Location', 'cmb2' ),
-    //     'desc'	=> __( 'paste GEOJSON here. Go to <a href="http://geojson.io/" target="_blank">geojson.io</a> to create your custom geoJSON.', 'cmb2' ),
-	// 	'id'  	=> $prefix . 'geojson', // need to use 'post_' prefix here because we group posts and events together with meta query on front end.
-	// 	'type'	=> 'textarea_code',
-	// ) );
-
-    $cmb->add_field( array(
-		'name'	=> __( 'Scope', 'cmb2' ),
-		'id'  	=> $prefix . 'scope', // need to use 'post_' prefix here because we group posts and events together with meta query on front end.
-		'type'	=> 'textarea_small',
-	) );
-
     $cmb->add_field( array(
 		'name'	=> __( 'Project Site', 'cmb2' ),
 		'id'  	=> $prefix . 'site', // need to use 'post_' prefix here because we group posts and events together with meta query on front end.
@@ -81,9 +68,58 @@ function project_options() {
         'id'  	=> $prefix . 'team_members',
         'type'    => 'custom_attached_posts',
         'options' => array(
-            // 'show_thumbnails' => true, // Show thumbnails on the left
             'filter_boxes'    => true, // Show a text box for filtering the results
-            'query_args'      => array( 'post_type' => 'team_member', 'posts_per_page' => 500 ), // override the get_posts args
+            'query_args'      => array( 
+                'post_type' => 'team_member', 
+                'posts_per_page' => 500, 
+                'tax_query' => array( 
+                    array( 
+                        'taxonomy' => 'team_role', 
+                        'field' => 'slug', 
+                        'terms' => array('staff'),
+                    ) 
+                ) 
+            ),
+        )
+    ) );
+
+    $cmb->add_field( array(
+        'name'	=> __( 'Project Collaborators', 'cmb2' ),
+        'id'  	=> $prefix . 'collaborators',
+        'type'    => 'custom_attached_posts',
+        'options' => array(
+            'filter_boxes'    => true, // Show a text box for filtering the results
+            'query_args'      => array( 
+                'post_type' => 'team_member', 
+                'posts_per_page' => 500, 
+                'tax_query' => array( 
+                    array( 
+                        'taxonomy' => 'team_role', 
+                        'field' => 'slug', 
+                        'terms' => array('collaborators'),
+                    ) 
+                ) 
+            ),
+        )
+    ) );
+
+    $cmb->add_field( array(
+        'name'	=> __( 'Project Partners', 'cmb2' ),
+        'id'  	=> $prefix . 'partners',
+        'type'    => 'custom_attached_posts',
+        'options' => array(
+            'filter_boxes'    => true, // Show a text box for filtering the results
+            'query_args'      => array( 
+                'post_type' => 'team_member', 
+                'posts_per_page' => 500, 
+                'tax_query' => array( 
+                    array( 
+                        'taxonomy' => 'team_role', 
+                        'field' => 'slug', 
+                        'terms' => array('partners', 'supporters') 
+                    ) 
+                ) 
+            ),
         )
     ) );
 	
