@@ -36,11 +36,9 @@
             this.map.doubleClickZoom.disable();
             this.map.touchZoomRotate.disable();
 
-            console.log(this.map);
-
         },
         watch: {
-            projects: function(projects) {
+            projects: function( newProjects ) {
 
                 var _this = this;
                 
@@ -52,9 +50,9 @@
 
                 // set 100ms timeout so project markup has a chance to populate
                 setTimeout(function(){
-                    if ( projects.length ) {
-                        for ( var p=0; projects.length > p; p++ ) {
-                            _this.setupProjectScene(projects[p]);
+                    if ( newProjects.length ) {
+                        for ( var p=0; newProjects.length > p; p++ ) {
+                            _this.setupProjectScene( newProjects[p] );
                         }
                     } else {
                         _this.resetMap();

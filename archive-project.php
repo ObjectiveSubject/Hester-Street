@@ -61,7 +61,7 @@ $queried_object = get_queried_object();
                                         
                                     </li>
                                 </ul>
-
+                                
                                 <!-- VueJS node -->
                                 <ul id="filter-group-issues" class="filter-group list u-mt-2 u-columns-2" :class="{ 'has-selection' : currentFilters.issue.length }" v-if="currentFilterGroup == 'issue'">
                                     <li is="filter-term"
@@ -70,7 +70,7 @@ $queried_object = get_queried_object();
                                         :is-active="currentFilters[issue.taxonomy].indexOf(issue.slug) > -1" 
                                         v-on:select="toggleFilter(issue)"></li>
                                 </ul>
-
+                                
                                 <!-- VueJS node -->
                                 <ul id="filter-group-date" class="filter-group list u-mt-2 " :class="{ 'has-selection' : currentFilters.date }" v-if="currentFilterGroup == 'date'">
                                     <li is="filter-term"
@@ -94,7 +94,7 @@ $queried_object = get_queried_object();
                                         :is-active="currentFilters.date.name == 'Last 3 Years'"
                                         v-on:select="toggleDate({ name: 'Last 3 Years', shortName: 'Last 3 Yrs.', seconds: ((365*24*60*60)*3) })"></li>
                                 </ul>
-
+                                
                                 <!-- VueJS node -->
                                 <ul id="filter-group-status" class="filter-group list u-mt-2" :class="{ 'has-selection' : currentFilters.status }" v-if="currentFilterGroup == 'status'">
                                     <li is="filter-term"
@@ -103,17 +103,17 @@ $queried_object = get_queried_object();
                                         :is-active="currentFilters.status.slug == stati.slug" 
                                         v-on:select="toggleStatus(stati)"></li>
                                 </ul>
-
+                                
                                 <!-- VueJS node -->
                                 <ul id="filter-group-locations" class="filter-group list u-mt-2" :class="{ 'has-selection' : currentFilters.location.length }" v-if="currentFilterGroup == 'location'">
                                     <li class="list__item u-mt-1" v-for="location in projectFilterData.locations" :key="location.slug"> 
                                         
                                         <span class="u-caps" v-if="location.children.length">{{ location.name }}</span>
                                         <span is="filter-term" 
-                                              v-if="location.children.length === 0" 
-                                              :filter-obj="location" 
-                                              :is-active="currentFilters[location.taxonomy].indexOf(location.slug) > -1" 
-                                              v-on:select="toggleFilter(location)"></span>
+                                            v-if="location.children.length === 0" 
+                                            :filter-obj="location" 
+                                            :is-active="currentFilters[location.taxonomy].indexOf(location.slug) > -1" 
+                                            v-on:select="toggleFilter(location)"></span>
                                             
                                         <ul v-if="location.children.length" class="u-columns-2">
                                             <li is="filter-term"
@@ -153,7 +153,7 @@ $queried_object = get_queried_object();
                             </div>
 
                             <!-- VueJS node -->
-                            <article :id="project.slug" class="u-mb-4" v-for="project in projects" :key="project.title" :class="project.post_class" :data-geojson='project.geojson'>
+                            <article :id="project.slug" class="u-mb-4" v-for="project in projects" :key="project.title" :class="project.post_class" >
                                 <div class="hentry-thumbnail" v-if="project.attachment.src">
                                     <img :src="project.attachment.src" :width="project.attachment.width" :height="project.attachment.height" alt="project image"/>
                                 </div>
