@@ -192,11 +192,9 @@
         },
         methods: {
             toggleSelect: function() {
-                console.log('toggleSelect');
                 this.selectIsOpen = this.selectIsOpen ? false : true;
             },
             selectSortChoice: function(value){
-                console.log('selectSortChoice');
                 this.$emit('selectsortchoice', value);
             }
         }
@@ -205,14 +203,8 @@
     Vue.component( 'sort-choice', {
         template: '<li class="u-font-gta-extended u-color-hover-green u-transition-300 u-cursor-pointer" v-on:click="selectChoice" v-html="name"></li>',
         props: ['value', 'name'],
-        data: function(){
-            return {
-                
-            };
-        },
         methods: {
             selectChoice: function() {
-                console.log('selectChoice');
                 this.$emit('selectchoice');
             }
         }
@@ -238,8 +230,8 @@
             this.getProjects(this.projectApiUrl);
         },
         watch: {
-            currentSort: function(){
-                this.sortProjects(this.currentSort);
+            currentSort: function(newSort){
+                this.sortProjects(newSort);
             }
         },
         computed: {
@@ -393,8 +385,10 @@
                 }
             },
 
-            getProjects: function( url ) {
+            getProjects: function( url, sortKey ) {
                 var instance = this;
+
+                sortKey = ( sortKey ) ? sortKey : this.currentSort;
                     
                 fetch( HSC.api + '/projects/' + url )
                     .then(function(response){
@@ -403,6 +397,7 @@
                     .then(function(json){
                         instance.projects = json;
                         instance.loading = false;
+                        instance.sortProjects(sortKey);
                     })
                     .catch(function(ex) {
                         console.log('Project fetch failed', ex);
