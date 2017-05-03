@@ -5,8 +5,8 @@
 
 // Border
 // ------------------------------------- //
-@mixin border($color) {
-    border-left: $border-width solid $color;
+@mixin border($side: left, $color: black ) {
+    border-#{$side}: $border-width solid $color;
 }
 
 // Media queries

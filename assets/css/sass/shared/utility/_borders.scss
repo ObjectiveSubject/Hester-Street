@@ -1,24 +1,24 @@
 @each $color-name, $hex in $border_color_map {
 	.u-border-#{$color-name} {
-    	@include border( $hex );
+    	@include border( left, $hex );
 	}
 }
 .has-border {
-    @include border( #000000 );
+    @include border( left, #000000 );
     [class*="u-bg-"] & {
-        @include border( #ffffff );
+        @include border( left, #ffffff );
     }
 }
 
 .u-border-top {
-    border-top: 2px solid black;
+    @include border( top, black );
 }
 .u-border-right {
-    border-right: 2px solid black;
+    @include border( right, black );
 }
 .u-border-bottom {
-    border-bottom: 2px solid black;
+    @include border( bottom, black );
 }
 .u-border-left {
-    border-left: 2px solid black;
+    @include border( left, black );
 }

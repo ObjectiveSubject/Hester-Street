@@ -459,27 +459,27 @@ hr {
     /* Above WP toolbar. */ }
 
 .u-border-black {
-  border-left: 2px solid black; }
+  border-left: 1px solid black; }
 
 .u-border-white {
-  border-left: 2px solid white; }
+  border-left: 1px solid white; }
 
 .has-border, .menu, .flex__item {
-  border-left: 2px solid #000000; }
+  border-left: 1px solid #000000; }
   [class*="u-bg-"] .has-border, [class*="u-bg-"] .menu, [class*="u-bg-"] .flex__item {
-    border-left: 2px solid #ffffff; }
+    border-left: 1px solid #ffffff; }
 
 .u-border-top {
-  border-top: 2px solid black; }
+  border-top: 1px solid black; }
 
 .u-border-right {
-  border-right: 2px solid black; }
+  border-right: 1px solid black; }
 
 .u-border-bottom {
-  border-bottom: 2px solid black; }
+  border-bottom: 1px solid black; }
 
 .u-border-left {
-  border-left: 2px solid black; }
+  border-left: 1px solid black; }
 
 .u-color-blue {
   color: #3266cc !important; }
@@ -1365,7 +1365,7 @@ hr {
     width: 50%;
     float: left; }
     .filter-toggle-list__item a {
-      border-left: 2px solid;
+      border-left: 1px solid;
       padding-left: 1em; }
     .filter-toggle-list__item:nth-child(2n+1) a {
       border-left: 0;
@@ -1375,7 +1375,7 @@ hr {
   .filter-toggle-list__item {
     width: 20%; }
     .filter-toggle-list__item:nth-child(2n+1) a {
-      border-left: 2px solid;
+      border-left: 1px solid;
       padding-left: 1em; }
     .filter-toggle-list__item:nth-child(5n+1) a {
       border-left: 0;
