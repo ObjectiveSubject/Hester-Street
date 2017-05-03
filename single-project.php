@@ -31,38 +31,56 @@ get_header(); ?>
                     <section class="section">
                         <div class="flex has-sidebar u-container">
 
-                                <?php get_template_part( 'partials/menu-ui' ); ?>
+                            <?php get_template_part( 'partials/menu-ui' ); ?>
 
-                                <div class="sidebar-masthead section__sidebar flex__item">
+                            <div class="sidebar-masthead section__sidebar flex__item">
+
+                                <?php get_template_part( 'partials/sidebar', 'masthead' ); ?>
+
+                            </div>
+
+                            <div class="section__content flex__item">
+                                
+                                <?php if ( get_the_post_thumbnail() ) : ?>
+                                    <div class="post-image" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);"></div>
+                                <?php endif; ?>
+
+                                <h1 class="post-title u-mt-3">
+                                    <?php 
+                                    if ( $alt_title ) {
+                                        echo apply_filters( 'the_title', $alt_title );
+                                    } else {
+                                        the_title();
+                                    } ?>
+                                </h1>
+                                <?php if ( $subtitle || $begin_date || $end_date ) : ?>
+                                    <p class="h6">
+                                        <?php echo $subtitle; ?>
+                                        <span class="u-pl-1"><?php echo implode( '–', $date_string ); ?></span>
+                                    </p>
+                                <?php endif; ?>
+
+                            </div>
+                            
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <div id="map" style="height:350px;" data-geojson='<?php echo get_field('project_geojson') ?>'></div>
+                    </section>
+
+                    <section class="section">
+                        <div class="flex has-sidebar u-container">
+
+                                <div class="sidebar-masthead section__sidebar flex__item u-pt-6">
 
                                     <?php get_template_part( 'partials/sidebar', 'masthead' ); ?>
 
                                 </div>
 
-                                <div class="section__content flex__item">
-                                    
-                                    <?php if ( get_the_post_thumbnail() ) : ?>
-                                        <div class="post-image" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);"></div>
-                                    <?php endif; ?>
+                                <div class="section__content flex__item u-pt-6">                                    
 
-                                    <h1 class="post-title u-mt-3">
-                                        <?php 
-                                        if ( $alt_title ) {
-                                            echo apply_filters( 'the_title', $alt_title );
-                                        } else {
-                                            the_title();
-                                        } ?>
-                                    </h1>
-                                    <?php if ( $subtitle || $begin_date || $end_date ) : ?>
-                                        <p class="h6">
-                                            <?php echo $subtitle; ?>
-                                            <span class="u-pl-1"><?php echo implode( '–', $date_string ); ?></span>
-                                        </p>
-                                    <?php endif; ?>
-
-                                    <div id="map" class="u-mt-3" style="height:350px;" data-geojson='<?php echo get_field('project_geojson') ?>'></div>
-
-                                    <div class="clearfix u-mt-3">
+                                    <div class="clearfix">
                                         <div class="project-content">
                                             <div class="h6 u-mt-0">Description</div>
                                             <?php the_content(); ?>

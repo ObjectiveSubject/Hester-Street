@@ -1748,7 +1748,7 @@ figure {
 @media screen and (min-width: 768px) {
   .section__sidebar {
     order: 2;
-    margin-bottom: 6rem;
+    padding-bottom: 6rem;
     -webkit-flex-basis: 23.23%;
     -moz-flex-basis: 23.23%;
     flex-basis: 23.23%;

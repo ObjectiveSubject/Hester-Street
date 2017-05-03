@@ -19,6 +19,7 @@
         center: [-73.98270130711586, 40.72701126185467], // manhattan
         zoom: 11
     });
+    map.addControl(new mapboxgl.NavigationControl());
     map.scrollZoom.disable();
 
     map.on("load", function() {
