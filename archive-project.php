@@ -163,15 +163,17 @@ $queried_object = get_queried_object();
 
                             <!-- VueJS node -->
                             <article :id="project.slug" class="u-mb-4" v-for="project in projects" :key="project.title" :class="project.post_class" >
-                                <div class="hentry-thumbnail" v-if="project.attachment.src">
-                                    <img :src="project.attachment.src" :width="project.attachment.width" :height="project.attachment.height" alt="project image"/>
-                                </div>
-                                <div class="h6 u-mt-nudge">
-                                    {{ project.date_string }}
-                                </div>
-                                <h2 class="hentry-title u-mt-nudge">
-                                    <a :href="project.url" title="Read more">{{ project.title }}</a>
-                                </h2>
+                                <a :href="project.url" title="Read more" class="u-display-block">
+                                    <div class="hentry-thumbnail" v-if="project.attachment.src">
+                                        <img :src="project.attachment.src" :width="project.attachment.width" :height="project.attachment.height" alt="project image"/>
+                                    </div>
+                                    <div class="h6 u-mt-nudge">
+                                        {{ project.date_string }}
+                                    </div>
+                                    <h2 class="hentry-title u-mt-nudge">
+                                        {{ project.title }}
+                                    </h2>
+                                </a>
                             </article>
 
                         </div>

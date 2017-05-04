@@ -17,17 +17,19 @@ if ( ! $end ) {
 }
 $margin = ''; ?>
 
-<?php if ( has_post_thumbnail() ) : ?>
-    <div class="hentry-thumbnail">
-        <?php the_post_thumbnail( 'large' ); ?>
+<a href="<?php the_permalink(); ?>" title="Read more" class="u-display-block">
+    <?php if ( has_post_thumbnail() ) : ?>
+        <div class="hentry-thumbnail">
+            <?php the_post_thumbnail( 'large' ); ?>
+        </div>
+    <?php $margin = 'u-mt-nudge';
+    endif;?>
+
+    <div class="h6 <?php echo $margin; ?>">
+        <?php echo $begin_string . ' – ' . $end_string; ?>
     </div>
-<?php $margin = 'u-mt-nudge';
-endif;?>
 
-<div class="h6 <?php echo $margin; ?>">
-    <?php echo $begin_string . ' – ' . $end_string; ?>
-</div>
-
-<h2 class="hentry-title u-mt-nudge">
-    <a href="<?php the_permalink(); ?>" title="Read more"><?php the_title(); ?></a>
-</h2>
+    <h2 class="hentry-title u-mt-nudge">
+        <?php the_title(); ?>
+    </h2>
+</a>

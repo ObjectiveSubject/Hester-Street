@@ -15,14 +15,18 @@
 
     var map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/objectivesubject/cj21fglc3004t2sp199kzw03v',
+        style: 'mapbox://styles/objectivesubject/cj26w6viz00052ss0boe1o2uf',
         center: [-73.98270130711586, 40.72701126185467], // manhattan
+        pitch: 0,
         zoom: 11
     });
-    map.addControl(new mapboxgl.NavigationControl());
+    map.addControl(new mapboxgl.NavigationControl(), 'top-left');
     map.scrollZoom.disable();
+    
 
     map.on("load", function() {
+
+        window.myMap = map;
 
         map.addSource("project-features", {"type":"geojson", "data":geoJson} );
 
@@ -53,7 +57,7 @@
         });
 
         var geoJsonBounds = turf.extent(geoJson);
-        map.fitBounds(geoJsonBounds, { maxZoom: 14, padding: { top:40, bottom:20, left:20, right:20 } });
+        map.fitBounds(geoJsonBounds, { maxZoom: 14, pitch: 50, padding: { top:40, bottom:20, left:20, right:20 } });
 
     });
 
