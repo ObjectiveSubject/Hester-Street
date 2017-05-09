@@ -87,6 +87,8 @@ get_header(); ?>
                         </div><!-- .u-container -->
                     </section>
 
+                    <?php if ( have_rows('timeline_items') ) : ?>
+
                     <!--Related Events-->
                     <section class="section">
                         <div class="flex u-container">
@@ -208,6 +210,49 @@ get_header(); ?>
 
                         </div><!-- .u-container -->
                     </section>
+
+                    <?php endif; ?>
+
+                    <?php 
+                    $args = array(
+                        'post_type' => 'project',
+                        'posts_per_page' => 2,
+                        'post__not_in' => $post->ID
+                    );
+                    $related_project_ids = get_field('project_related_projects');
+                    $projects_title = __( 'Recent Projects', 'hsc');
+                    if ( ! empty( $related_project_ids ) ) {
+                        $args['post__in'] = $related_project_ids;   
+                        $projects_title = __( 'Related Projects', 'hsc');
+                    } 
+                    $projects = new WP_Query( $args ); ?>
+
+                    <?php if ( $projects->have_posts() ) : ?>
+                        
+                        <section class="section">
+                            <div class="flex u-container">
+                                <div class="section__content flex__item u-width-12 u-pt-6">
+                                    
+                                    <div class="h6 u-mt-0"><?php echo $projects_title; ?></div>
+
+                                    <ul class="u-clearfix">
+                                        <?php while( $projects->have_posts() ) : $projects->the_post(); ?>
+                                            <li class="u-span-6">
+                                                <a href="<?php the_permalink(); ?>" class="u-display-block u-color-hover-green">
+                                                    <?php if ( get_the_post_thumbnail() ) : ?>
+                                                        <div class="post-image" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);"></div>
+                                                    <?php endif; ?>
+                                                    <h3 class="h5 u-max-width-6"><?php the_title(); ?></h3>
+                                                </a>
+                                            </li>
+                                        <?php endwhile; ?>
+                                        </ul>                                
+
+                                </div>
+                            </div><!-- .u-container -->
+                        </section>
+
+                    <?php endif; ?>
                     
                 </div>
 

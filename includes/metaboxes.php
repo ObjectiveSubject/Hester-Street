@@ -8,13 +8,11 @@
 
 require_once HSC_INC . 'metaboxes/events.php';
 require_once HSC_INC . 'metaboxes/posts.php';
-require_once HSC_INC . 'metaboxes/projects.php';
 require_once HSC_INC . 'metaboxes/team-members.php';
 
 // Add General metabox first, so it always appears at top
 HSC\MetaBoxes\Events\setup();
 HSC\MetaBoxes\Posts\setup();
-HSC\MetaBoxes\Projects\setup();
 HSC\MetaBoxes\TeamMembers\setup();
 
 // Add other metaboxes here
