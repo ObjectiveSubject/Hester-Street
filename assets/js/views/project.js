@@ -56,6 +56,17 @@
             "filter": ["==", "$type", "Point"],
         });
 
+        map.addLayer({
+            "id": "project-lines",
+            "type": "line",
+            "source": "project-features",
+            "paint": {
+                "line-color": "#BD319F",
+                "line-width": 2
+            },
+            "filter": ["==", "$type", "LineString"],
+        });
+
         var geoJsonBounds = turf.extent(geoJson);
         map.fitBounds(geoJsonBounds, { maxZoom: 14, pitch: 50, padding: { top:40, bottom:20, left:20, right:20 } });
 

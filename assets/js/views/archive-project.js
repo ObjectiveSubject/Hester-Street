@@ -152,6 +152,17 @@
                     "paint": {},
                     "filter": ["==", "$type", "Point"],
                 });
+
+                this.map.addLayer({
+                    "id": "project-lines",
+                    "type": "line",
+                    "source": source,
+                    "paint": {
+                        "line-color": "#BD319F",
+                        "line-width": 2
+                    },
+                    "filter": ["==", "$type", "LineString"],
+                });
             }
 
         }
