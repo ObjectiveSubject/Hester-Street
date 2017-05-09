@@ -9,6 +9,7 @@
 
     var hsc = {
 
+        // fire callback when DOM is ready
         domReady: function(callback) {
             if ( document.readyState === "interactive" || document.readyState === "complete" ) {
                 callback();
@@ -16,6 +17,12 @@
                 document.addEventListener( "DOMContentLoaded", callback );
             }
         },
+
+        // detect media size from CSS
+        getMediaSize: function( elem ) {
+    		elem = ( elem ) ? elem : 'body';
+    		return window.getComputedStyle( document.querySelector( elem ), '::before' ).getPropertyValue( 'content' ).replace(/"/g, "").replace(/'/g, "");
+    	},
 
     };
 

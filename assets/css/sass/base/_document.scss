@@ -19,6 +19,19 @@ body {
 		overflow: hidden;
 		padding-right: 15px;
 	}
+	&:before{ display: none; content: 'default'; }
+	@include media($sm) {
+		&:before { content: "sm"; }
+	}
+	@include media($md) {
+		&:before { content: "md"; }
+	}
+	@include media($lg) {
+		&:before { content: "lg"; }
+	}
+	@include media($xl) {
+		&:before { content: "xl"; }
+	}
 }
 
 @include selection {
@@ -48,22 +61,22 @@ body {
 	}
 	@include media($sm) {
 		&:before {
-			content: "$sm";
+			content: "sm";
 		}
 	}
 	@include media($md) {
 		&:before {
-			content: "$md";
+			content: "md";
 		}
 	}
 	@include media($lg) {
 		&:before {
-			content: "$lg";
+			content: "lg";
 		}
 	}
 	@include media($xl) {
 		&:before {
-			content: "$xl";
+			content: "xl";
 		}
 	}
 }

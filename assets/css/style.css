@@ -219,6 +219,21 @@ body {
     height: 100vh;
     overflow: hidden;
     padding-right: 15px; }
+  body:before {
+    display: none;
+    content: 'default'; }
+  @media screen and (min-width: 500px) {
+    body:before {
+      content: "sm"; } }
+  @media screen and (min-width: 768px) {
+    body:before {
+      content: "md"; } }
+  @media screen and (min-width: 1000px) {
+    body:before {
+      content: "lg"; } }
+  @media screen and (min-width: 1400px) {
+    body:before {
+      content: "xl"; } }
 
 ::-moz-selection {
   color: white;
@@ -249,16 +264,16 @@ body {
     content: "-"; }
   @media screen and (min-width: 500px) {
     .media-size:before {
-      content: "$sm"; } }
+      content: "sm"; } }
   @media screen and (min-width: 768px) {
     .media-size:before {
-      content: "$md"; } }
+      content: "md"; } }
   @media screen and (min-width: 1000px) {
     .media-size:before {
-      content: "$lg"; } }
+      content: "lg"; } }
   @media screen and (min-width: 1400px) {
     .media-size:before {
-      content: "$xl"; } }
+      content: "xl"; } }
 
 /* Typography
  * ------------------------------------------ */
@@ -946,7 +961,7 @@ hr {
 .u-mt-pull {
   margin-top: -0.18em; }
 
-.u-mt-nudge {
+.u-mt-nudge, .timeline-node .layout-event .title {
   margin-top: 0.5rem; }
 
 .u-mb-nudge {
@@ -2164,59 +2179,73 @@ caption {
     display: flex; } }
 
 @media screen and (min-width: 1000px) {
-  .project-timeline__items {
+  .project-timeline__nodes {
     -webkit-flex-basis: 82.94%;
     -moz-flex-basis: 82.94%;
     flex-basis: 82.94%;
     -ms-flex-preferred-size: 82.94%; } }
 
-.project-timeline__item {
-  padding-bottom: 5rem; }
-  .project-timeline__item:not(:first-child) {
+.timeline-node {
+  padding-bottom: 5rem;
+  -webkit-transition: opacity 300ms ease-out;
+  -moz-transition: opacity 300ms ease-out;
+  transition: opacity 300ms ease-out; }
+  .timeline-node:not(:first-child) {
     padding-top: 1rem; }
-  .project-timeline__item .layout-project-stage,
-  .project-timeline__item .layout-events-recap {
-    float: left;
-    display: block;
-    margin-right: 2.84%;
-    width: 79.43%;
-    float: none; }
-    .project-timeline__item .layout-project-stage:last-child,
-    .project-timeline__item .layout-events-recap:last-child {
-      margin-right: 0; }
-  .project-timeline__item .layout-project-stage > *:first-child {
+  .is-loading .timeline-node,
+  .has-scroll-events .timeline-node:not(.is-active) {
+    opacity: 0.3;
+    pointer-events: none; }
+  .no-js .timeline-node {
+    opacity: 1 !important;
+    pointer-events: all !important; }
+  @media screen and (min-width: 1000px) {
+    .timeline-node .layout-project-stage,
+    .timeline-node .layout-events-recap {
+      float: left;
+      display: block;
+      margin-right: 2.84%;
+      width: 79.43%;
+      float: none; }
+      .timeline-node .layout-project-stage:last-child,
+      .timeline-node .layout-events-recap:last-child {
+        margin-right: 0; } }
+  .timeline-node .layout-project-stage > *:first-child {
     margin-top: 0; }
   @media screen and (min-width: 1000px) {
-    .project-timeline__item .layout-event .image {
+    .timeline-node .layout-event .image {
       float: left;
       display: block;
       margin-right: 2.84%;
       width: 38.29%; }
-      .project-timeline__item .layout-event .image:last-child {
+      .timeline-node .layout-event .image:last-child {
         margin-right: 0; } }
   @media screen and (min-width: 1000px) {
-    .project-timeline__item .layout-event .content {
+    .timeline-node .layout-event .content {
       float: left;
       display: block;
       margin-right: 2.84%;
       width: 58.86%; }
-      .project-timeline__item .layout-event .content:last-child {
+      .timeline-node .layout-event .content:last-child {
         margin-right: 0; } }
   @media screen and (min-width: 1000px) {
-    .project-timeline__item .layout-events-recap .image {
+    .timeline-node .layout-event .title {
+      margin-top: -0.18em; } }
+  @media screen and (min-width: 1000px) {
+    .timeline-node .layout-events-recap .image {
       float: left;
       display: block;
       margin-right: 3.58%;
       width: 48.21%; }
-      .project-timeline__item .layout-events-recap .image:last-child {
+      .timeline-node .layout-events-recap .image:last-child {
         margin-right: 0; } }
   @media screen and (min-width: 1000px) {
-    .project-timeline__item .layout-events-recap .image {
+    .timeline-node .layout-events-recap .image {
       float: left;
       display: block;
       margin-right: 3.58%;
       width: 22.32%; }
-      .project-timeline__item .layout-events-recap .image:last-child {
+      .timeline-node .layout-events-recap .image:last-child {
         margin-right: 0; } }
 
 .project-timeline__sidebar-wrap {
@@ -2236,8 +2265,14 @@ caption {
   overflow: auto;
   max-height: 100vh; }
 
-.project-timeline__sidebar-item a:hover, .project-timeline__sidebar-item a:focus {
-  color: #afbd32; }
+.project-timeline__sidebar-item a {
+  opacity: 0.3; }
+  .project-timeline__sidebar-item a:hover, .project-timeline__sidebar-item a:focus {
+    color: #afbd32;
+    opacity: 1; }
+  .project-timeline__sidebar-item a.is-active {
+    opacity: 1;
+    color: black; }
 
 @media screen and (min-width: 1000px) {
   .project-content {

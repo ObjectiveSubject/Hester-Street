@@ -94,7 +94,7 @@ get_header(); ?>
                             <div class="section__content flex__item u-width-12">
                                 
                                 <!--Vue JS App-->
-                                <div id="project-timeline" class="vue-js-app u-clearfix u-mt-6">
+                                <div id="project-timeline" class="vue-js-app u-clearfix u-mt-6" :class="appClass">
 
                                     <ul class="filter-toggle-list list">
 
@@ -141,7 +141,7 @@ get_header(); ?>
                                             </ul>
                                         </div>
                                         
-                                        <div class="project-timeline__items">
+                                        <div class="project-timeline__nodes">
 
                                             <div v-if="loading">Loading...</div>
 
@@ -150,7 +150,7 @@ get_header(); ?>
                                                 <p class="h6">Try removing some of your filters above &uarr;</p>                                
                                             </div>
 
-                                            <article :id="item.id" v-for="item in visibleTimelineItems" :key="item.id" class="project-timeline__item">
+                                            <article :id="item.id" v-for="item in visibleTimelineItems" :key="item.id" class="timeline-node">
 
                                                 <!-- LAYOUT: Project Stage -->
                                                 <div v-if="item.layout == 'project_stage'" class="layout-project-stage u-clearfix" v-html="item.content"></div>
@@ -167,7 +167,7 @@ get_header(); ?>
                                                     <a :href="item.permalink" class="u-display-block u-color-hover-green">
                                                         <div class="image" v-html="item.image"></div>
                                                         <div class="content">
-                                                            <h3 class="h1 u-mt-pull">{{ item.title }}</h3>
+                                                            <h3 class="title h1">{{ item.title }}</h3>
                                                             <p class="h6 u-mt-nudge">
                                                                 {{ item.date_string }}, {{ item.time_string }}<br/>
                                                                 {{ item.venue }}
