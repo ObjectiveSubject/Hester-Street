@@ -20,6 +20,12 @@
         @include span-columns(8 of 10);
         float: none;
     }
+
+    .layout-project-stage {
+        & > *:first-child {
+            margin-top: 0;
+        }
+    }
     
     .layout-event {
         .image {

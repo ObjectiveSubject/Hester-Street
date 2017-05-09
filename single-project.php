@@ -102,7 +102,9 @@ get_header(); ?>
                                             <a href="#" class="filter-group-toggle" 
                                                v-bind:class="[ currentFilterGroup == toggle.slug ? 'is-active' : '' ]" 
                                                v-on:click.prevent="toggleFilterGroup(toggle)">
-                                                {{toggle.name}}
+                                                {{toggle.name}}<br/>
+                                                <span class="u-color-green u-font-gta-extended" v-if="toggle.slug == 'post-type' && currentPostType !== 'all'">{{ currentPostType.name }}</span>
+                                                <span class="u-color-green u-font-gta-extended" v-if="toggle.slug == 'date' && currentDate !== 'all'">{{ currentDate.name }}</span>
                                             </a>
                                         </li>
 
@@ -113,14 +115,14 @@ get_header(); ?>
                                         <ul id="filter-group-post-type" class="filter-group list" :class="{ 'has-selection' : currentPostType !== 'all' }" v-if="currentFilterGroup == 'post-type'">
                                             <li v-for="type in postTypes" :key="type.slug"
                                                 class="filter-group__item"
-                                                :class="{ 'is-active' : currentPostType == type.slug }"
+                                                :class="{ 'is-active' : currentPostType.slug == type.slug }"
                                                 v-on:click="toggleFilter(type)">{{ type.name }}</li>
                                         </ul>
                                         
                                         <ul id="filter-group-date" class="filter-group list" :class="{ 'has-selection' : currentDate !== 'all' }" v-if="currentFilterGroup == 'date'">
                                             <li v-for="date in dates" :key="date.seconds"
                                                 class="filter-group__item"
-                                                :class="{ 'is-active' : currentDate == date.seconds }"
+                                                :class="{ 'is-active' : currentDate.seconds == date.seconds }"
                                                 v-on:click="toggleFilter(date)">{{ date.name }}</li>
                                         </ul>
 
@@ -129,7 +131,7 @@ get_header(); ?>
                                     <div class="project-timeline__contents u-mt-6">
 
                                         <div class="project-timeline__sidebar-wrap">
-                                            <ul class="project-timeline__sidebar">
+                                            <ul class="project-timeline__sidebar u-mt-0">
                                                 <li v-for="item in timelineItems" class="project-timeline__sidebar-item">
                                                     <a href="#" class="u-display-block h6 u-mt-0 u-mb-1">
                                                         {{ item.label }}<br/>
@@ -141,22 +143,26 @@ get_header(); ?>
                                         
                                         <div v-if="timelineItems.length" class="project-timeline__items">
 
-                                            <article v-if="(currentPostType == item.type || currentPostType == 'all') && (currentDate <= item.date_unix || currentDate == 'all')"
-                                                    v-for="item in timelineItems" class="project-timeline__item u-mb-6">
+                                            <div v-if="loading">Loading...</div>
 
+                                            <article v-for="item in timelineItems" class="project-timeline__item u-mb-6">
+
+                                                <!-- LAYOUT: Project Stage -->
                                                 <div v-if="item.layout == 'project_stage'" class="layout-project-stage u-clearfix" v-html="item.content"></div>
 
+                                                <!-- LAYOUT: Publication -->
                                                 <div v-if="item.type == 'publication'" class="layout-publication u-clearfix">
                                                     <h3 class="h4">{{ item.title }}</h3>
                                                     <p v-html="item.image"></p>
                                                     <p><a :href="link.url" class="u-mr-1 u-color-black u-color-hover-green" v-for="link in item.links" v-html="link.text"></a></p>
                                                 </div>
 
+                                                <!-- LAYOUT: Event -->
                                                 <div v-if="item.type == 'event'" class="layout-event u-clearfix">
                                                     <a :href="item.permalink" class="u-display-block u-color-hover-green">
                                                         <div class="image" v-html="item.image"></div>
                                                         <div class="content">
-                                                            <h3 class="h1 u-mt-0">{{ item.title }}</h3>
+                                                            <h3 class="h1 u-mt-pull">{{ item.title }}</h3>
                                                             <p class="h6 u-mt-nudge">
                                                                 {{ item.date_string }}, {{ item.time_string }}<br/>
                                                                 {{ item.venue }}
@@ -166,6 +172,7 @@ get_header(); ?>
                                                     </a>
                                                 </div>
 
+                                                <!-- LAYOUT: Events Recap -->
                                                 <div v-if="item.type == 'events_recap'" class="layout-events-recap">
                                                     <ul class="u-mt-0" v-if="item.events.length">
                                                         <li v-for="event in item.events" class="u-mb-1">

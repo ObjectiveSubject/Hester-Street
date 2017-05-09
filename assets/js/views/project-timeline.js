@@ -12,7 +12,7 @@
             loading: true,
             timelineItems: [],
             currentFilterGroup: 'post-type',
-            currentPostType: 'event',
+            currentPostType: 'all',
             currentDate: 'all',
             filterToggles: [
                 { name: 'Post Type', slug: 'post-type' },

@@ -2173,6 +2173,9 @@ caption {
   .project-timeline__item .layout-events-recap:last-child {
     margin-right: 0; }
 
+.project-timeline__item .layout-project-stage > *:first-child {
+  margin-top: 0; }
+
 @media screen and (min-width: 1000px) {
   .project-timeline__item .layout-event .image {
     float: left;
