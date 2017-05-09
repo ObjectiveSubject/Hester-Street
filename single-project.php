@@ -103,8 +103,8 @@ get_header(); ?>
                                                v-bind:class="[ currentFilterGroup == toggle.slug ? 'is-active' : '' ]" 
                                                v-on:click.prevent="toggleFilterGroup(toggle)">
                                                 {{toggle.name}}<br/>
-                                                <span class="u-color-green u-font-gta-extended" v-if="toggle.slug == 'post-type' && currentPostType !== 'all'">{{ currentPostType.name }}</span>
-                                                <span class="u-color-green u-font-gta-extended" v-if="toggle.slug == 'date' && currentDate !== 'all'">{{ currentDate.name }}</span>
+                                                <span class="u-color-green u-font-gta-extended" v-if="toggle.slug == 'post-type' && currentFilters.postType !== 'all'">{{ currentFilters.postType.name }}</span>
+                                                <span class="u-color-green u-font-gta-extended" v-if="toggle.slug == 'date' && currentFilters.date !== 'all'">{{ currentFilters.date.name }}</span>
                                             </a>
                                         </li>
 
@@ -112,17 +112,17 @@ get_header(); ?>
 
                                     <div class="project-timeline__filters">
 
-                                        <ul id="filter-group-post-type" class="filter-group list" :class="{ 'has-selection' : currentPostType !== 'all' }" v-if="currentFilterGroup == 'post-type'">
+                                        <ul id="filter-group-post-type" class="filter-group list" :class="{ 'has-selection' : currentFilters.postType !== 'all' }" v-if="currentFilterGroup == 'post-type'">
                                             <li v-for="type in postTypes" :key="type.slug"
                                                 class="filter-group__item"
-                                                :class="{ 'is-active' : currentPostType.slug == type.slug }"
+                                                :class="{ 'is-active' : currentFilters.postType.slug == type.slug }"
                                                 v-on:click="toggleFilter(type)">{{ type.name }}</li>
                                         </ul>
                                         
-                                        <ul id="filter-group-date" class="filter-group list" :class="{ 'has-selection' : currentDate !== 'all' }" v-if="currentFilterGroup == 'date'">
+                                        <ul id="filter-group-date" class="filter-group list" :class="{ 'has-selection' : currentFilters.date !== 'all' }" v-if="currentFilterGroup == 'date'">
                                             <li v-for="date in dates" :key="date.seconds"
                                                 class="filter-group__item"
-                                                :class="{ 'is-active' : currentDate.seconds == date.seconds }"
+                                                :class="{ 'is-active' : currentFilters.date.seconds == date.seconds }"
                                                 v-on:click="toggleFilter(date)">{{ date.name }}</li>
                                         </ul>
 
@@ -132,7 +132,7 @@ get_header(); ?>
 
                                         <div class="project-timeline__sidebar-wrap">
                                             <ul class="project-timeline__sidebar u-mt-0">
-                                                <li v-for="item in timelineItems" class="project-timeline__sidebar-item">
+                                                <li v-for="item in visibleTimelineItems" class="project-timeline__sidebar-item">
                                                     <a href="#" class="u-display-block h6 u-mt-0 u-mb-1">
                                                         {{ item.label }}<br/>
                                                         {{ item.date_string }}
@@ -141,11 +141,11 @@ get_header(); ?>
                                             </ul>
                                         </div>
                                         
-                                        <div v-if="timelineItems.length" class="project-timeline__items">
+                                        <div v-if="visibleTimelineItems.length" class="project-timeline__items">
 
                                             <div v-if="loading">Loading...</div>
 
-                                            <article v-for="item in timelineItems" class="project-timeline__item u-mb-6">
+                                            <article v-for="item in visibleTimelineItems" class="project-timeline__item u-mb-6">
 
                                                 <!-- LAYOUT: Project Stage -->
                                                 <div v-if="item.layout == 'project_stage'" class="layout-project-stage u-clearfix" v-html="item.content"></div>
