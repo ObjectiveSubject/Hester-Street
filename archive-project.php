@@ -138,9 +138,6 @@ $queried_object = get_queried_object();
             <section class="section flex u-container" v-if="projects.length">
                 <div class="flex__item">
                     <sort-select :active-choice="currentSort" v-on:selectsortchoice="toggleSort"></sort-select>
-
-                    
-
                 </div>
             </section>
 

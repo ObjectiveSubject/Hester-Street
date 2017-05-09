@@ -21,6 +21,12 @@ module.exports = {
 		],
 		dest: 'assets/js/project.js'
 	},
+	projectTimeline: {
+		src: [
+			'assets/js/views/project-timeline.js'
+		],
+		dest: 'assets/js/project-timeline.js'
+	},
 	archiveProject: {
 		src: [
 			'assets/js/views/archive-project.js'

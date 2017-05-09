@@ -6,7 +6,14 @@
     width: 100%;
     vertical-align: bottom;
     fill: black;
-    [class*="u-bg-"] &, .site-menu & {
+    @include transition(all 300ms ease-out);
+    &:hover {
+        opacity: 0.5;
+    }
+    [class*="u-bg-"] &, .site-menu &, .site-footer & {
         fill: white;
+        &:hover {
+            opacity: 0.5;
+        }
     }
 }

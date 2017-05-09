@@ -60,6 +60,7 @@ function scripts( $debug = false ) {
 
 	wp_register_script( 'main', HSC_TEMPLATE_URL . "/assets/js/main{$min}.js", array(), HSC_VERSION, true );
 	wp_register_script( 'single-project', HSC_TEMPLATE_URL . "/assets/js/project{$min}.js", array(), HSC_VERSION, true );
+	wp_register_script( 'project-timeline', HSC_TEMPLATE_URL . "/assets/js/project-timeline{$min}.js", array(), HSC_VERSION, true );
 	wp_register_script( 'archive-project', HSC_TEMPLATE_URL . "/assets/js/archive-project{$min}.js", array(), HSC_VERSION, true );
 
 	/* Main
@@ -80,6 +81,7 @@ function scripts( $debug = false ) {
 	}
 	if ( is_singular('project') ) {
 		wp_enqueue_script( 'single-project' );
+		wp_enqueue_script( 'project-timeline' );
 	}
 	if ( is_post_type_archive( 'project' ) ) {
 		wp_enqueue_script( 'archive-project' );

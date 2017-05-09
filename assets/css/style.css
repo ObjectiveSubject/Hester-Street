@@ -561,7 +561,7 @@ hr {
   background-color: #202022 !important;
   color: white !important; }
 
-.u-color-white, .site-footer .menu-item a, .site-menu {
+.u-color-white, .site-menu {
   color: white !important; }
 
 .u-color-hover-white:hover {
@@ -1464,9 +1464,16 @@ label {
 .hsc-logo {
   width: 100%;
   vertical-align: bottom;
-  fill: black; }
-  [class*="u-bg-"] .hsc-logo, .site-menu .hsc-logo {
+  fill: black;
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  transition: all 300ms ease-out; }
+  .hsc-logo:hover {
+    opacity: 0.5; }
+  [class*="u-bg-"] .hsc-logo, .site-menu .hsc-logo, .site-footer .hsc-logo {
     fill: white; }
+    [class*="u-bg-"] .hsc-logo:hover, .site-menu .hsc-logo:hover, .site-footer .hsc-logo:hover {
+      opacity: 0.5; }
 
 .masthead {
   position: -webkit-sticky;
@@ -2046,6 +2053,26 @@ caption {
   order: 6;
   -ms-flex-order: 6; }
 
+.site-footer {
+  color: white;
+  background-color: #3266cc; }
+  .post-type-archive-project .site-footer {
+    background-color: #afbd32; }
+  .page-team .site-footer, .single-team_member .site-footer {
+    background-color: #795acf; }
+  .post-type-archive-publication .site-footer {
+    background-color: #feac00; }
+  .blog .site-footer {
+    background-color: #21b07a; }
+  .page-about .site-footer {
+    background-color: #ff685d; }
+  .site-footer .flex__item {
+    border-color: white; }
+  .site-footer a {
+    color: white; }
+    .site-footer a:hover, .site-footer a:focus {
+      color: black; }
+
 .footer__content {
   -webkit-box-align: end;
   -moz-box-align: end;
@@ -2117,6 +2144,90 @@ caption {
 .site-menu-content {
   min-height: 100%;
   height: 100%; }
+
+@media screen and (min-width: 1000px) {
+  .project-timeline__contents {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex; } }
+
+@media screen and (min-width: 1000px) {
+  .project-timeline__items {
+    -webkit-flex-basis: 82.94%;
+    -moz-flex-basis: 82.94%;
+    flex-basis: 82.94%;
+    -ms-flex-preferred-size: 82.94%; } }
+
+.project-timeline__item .layout-project-stage,
+.project-timeline__item .layout-events-recap {
+  float: left;
+  display: block;
+  margin-right: 2.84%;
+  width: 79.43%;
+  float: none; }
+  .project-timeline__item .layout-project-stage:last-child,
+  .project-timeline__item .layout-events-recap:last-child {
+    margin-right: 0; }
+
+@media screen and (min-width: 1000px) {
+  .project-timeline__item .layout-event .image {
+    float: left;
+    display: block;
+    margin-right: 2.84%;
+    width: 38.29%; }
+    .project-timeline__item .layout-event .image:last-child {
+      margin-right: 0; } }
+
+@media screen and (min-width: 1000px) {
+  .project-timeline__item .layout-event .content {
+    float: left;
+    display: block;
+    margin-right: 2.84%;
+    width: 58.86%; }
+    .project-timeline__item .layout-event .content:last-child {
+      margin-right: 0; } }
+
+@media screen and (min-width: 1000px) {
+  .project-timeline__item .layout-events-recap .image {
+    float: left;
+    display: block;
+    margin-right: 3.58%;
+    width: 48.21%; }
+    .project-timeline__item .layout-events-recap .image:last-child {
+      margin-right: 0; } }
+
+@media screen and (min-width: 1000px) {
+  .project-timeline__item .layout-events-recap .image {
+    float: left;
+    display: block;
+    margin-right: 3.58%;
+    width: 22.32%; }
+    .project-timeline__item .layout-events-recap .image:last-child {
+      margin-right: 0; } }
+
+.project-timeline__sidebar-wrap {
+  display: none; }
+  @media screen and (min-width: 1000px) {
+    .project-timeline__sidebar-wrap {
+      display: block;
+      margin-right: 2.36%;
+      -webkit-flex-basis: 14.7%;
+      -moz-flex-basis: 14.7%;
+      flex-basis: 14.7%;
+      -ms-flex-preferred-size: 14.7%; } }
+
+.project-timeline__sidebar {
+  position: sticky;
+  top: 1rem;
+  overflow: auto;
+  height: 100vh; }
+
+.project-timeline__sidebar-item a:hover, .project-timeline__sidebar-item a:focus {
+  color: #afbd32; }
 
 @media screen and (min-width: 1000px) {
   .project-content {

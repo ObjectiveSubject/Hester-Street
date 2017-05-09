@@ -35,7 +35,6 @@ include( HSC_INC . 'libraries/cmb2-post-search-field/cmb2_post_search_field.php'
 
 // Run the setup functions
 HSC\Core\setup();
-HSC\API\setup();
 HSC\Comments\setup();
 HSC\Shortcodes\setup();
 HSC\PostTypes\setup();

@@ -3,6 +3,7 @@ module.exports = {
 		files: {
 			'assets/js/main.min.js': ['assets/js/main.js'],
 			'assets/js/project.min.js': ['assets/js/project.js'],
+			'assets/js/project-timeline.min.js': ['assets/js/project-timeline.js'],
 			'assets/js/archive-project.min.js': ['assets/js/archive-project.js']
 		},
 		options: {

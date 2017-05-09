@@ -18,6 +18,7 @@ $collaborators = get_post_meta( $post->ID, 'project_collaborators', true );
 $partners = get_post_meta( $post->ID, 'project_partners', true );
 $site = get_post_meta( $post->ID, 'project_site', true );
 $site_url = get_post_meta( $post->ID, 'project_site_url', true );
+
 get_header(); ?>
 
 	<div class="site-content">
@@ -73,9 +74,7 @@ get_header(); ?>
                         <div class="flex has-sidebar u-container">
 
                                 <div class="sidebar-masthead section__sidebar flex__item u-pt-6">
-
-                                    <?php get_template_part( 'partials/sidebar', 'masthead' ); ?>
-
+                                    &nbsp;
                                 </div>
 
                                 <div class="section__content flex__item u-pt-6">                                    
@@ -174,9 +173,102 @@ get_header(); ?>
 
                             <div class="section__content flex__item u-width-12">
                                 
-                                <div id="single-project-events">
+                                <!--Vue JS App-->
+                                <div id="project-timeline" class="vue-js-app u-clearfix u-mt-6">
 
-                                    Events go here...
+                                    <ul class="filter-toggle-list list">
+
+                                        <li class="filter-toggle-list__item list__item" v-for="toggle in filterToggles">
+                                            <a href="#" class="filter-group-toggle" 
+                                               v-bind:class="[ currentFilterGroup == toggle.slug ? 'is-active' : '' ]" 
+                                               v-on:click.prevent="toggleFilterGroup(toggle)">
+                                                {{toggle.name}}
+                                            </a>
+                                        </li>
+
+                                    </ul>
+
+                                    <div class="project-timeline__filters">
+
+                                        <ul id="filter-group-post-type" class="filter-group list" :class="{ 'has-selection' : currentPostType !== 'all' }" v-if="currentFilterGroup == 'post-type'">
+                                            <li v-for="type in postTypes" :key="type.slug"
+                                                class="filter-group__item"
+                                                :class="{ 'is-active' : currentPostType == type.slug }"
+                                                v-on:click="toggleFilter(type)">{{ type.name }}</li>
+                                        </ul>
+                                        
+                                        <ul id="filter-group-date" class="filter-group list" :class="{ 'has-selection' : currentDate !== 'all' }" v-if="currentFilterGroup == 'date'">
+                                            <li v-for="date in dates" :key="date.seconds"
+                                                class="filter-group__item"
+                                                :class="{ 'is-active' : currentDate == date.seconds }"
+                                                v-on:click="toggleFilter(date)">{{ date.name }}</li>
+                                        </ul>
+
+                                    </div>
+
+                                    <div class="project-timeline__contents u-mt-6">
+
+                                        <div class="project-timeline__sidebar-wrap">
+                                            <ul class="project-timeline__sidebar">
+                                                <li v-for="item in timelineItems" class="project-timeline__sidebar-item">
+                                                    <a href="#" class="u-display-block h6 u-mt-0 u-mb-1">
+                                                        {{ item.label }}<br/>
+                                                        {{ item.date_string }}
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div v-if="timelineItems.length" class="project-timeline__items">
+
+                                            <article v-if="(currentPostType == item.type || currentPostType == 'all') && (currentDate <= item.date_unix || currentDate == 'all')"
+                                                    v-for="item in timelineItems" class="project-timeline__item u-mb-6">
+
+                                                <div v-if="item.layout == 'project_stage'" class="layout-project-stage u-clearfix" v-html="item.content"></div>
+
+                                                <div v-if="item.type == 'publication'" class="layout-publication u-clearfix">
+                                                    <h3 class="h4">{{ item.title }}</h3>
+                                                    <p v-html="item.image"></p>
+                                                    <p><a :href="link.url" class="u-mr-1 u-color-black u-color-hover-green" v-for="link in item.links" v-html="link.text"></a></p>
+                                                </div>
+
+                                                <div v-if="item.type == 'event'" class="layout-event u-clearfix">
+                                                    <a :href="item.permalink" class="u-display-block u-color-hover-green">
+                                                        <div class="image" v-html="item.image"></div>
+                                                        <div class="content">
+                                                            <h3 class="h1 u-mt-0">{{ item.title }}</h3>
+                                                            <p class="h6 u-mt-nudge">
+                                                                {{ item.date_string }}, {{ item.time_string }}<br/>
+                                                                {{ item.venue }}
+                                                            </p>
+                                                            <p>Read more</p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+
+                                                <div v-if="item.type == 'events_recap'" class="layout-events-recap">
+                                                    <ul class="u-mt-0" v-if="item.events.length">
+                                                        <li v-for="event in item.events" class="u-mb-1">
+                                                            <a :href="event.permalink" class="u-display-block u-clearfix u-color-hover-green ">
+                                                                <div class="image" v-html="event.image"></div>
+                                                                <div class="content">
+                                                                    <p class="h5 u-mt-0">
+                                                                        {{event.post_title}}<br/>
+                                                                        {{event.date_string}}
+                                                                    </p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                    <h3 class="h1 u-mt-0">{{ item.title }}</h3>
+                                                    <div v-html="item.desc"></div>
+                                                </div>
+
+                                            </article>
+                                            
+                                        </div>
+                                        
+                                    </div>
 
                                 </div>
 

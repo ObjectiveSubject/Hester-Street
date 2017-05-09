@@ -4,7 +4,7 @@
  */
 ?>
 
-	<footer class="site-footer footer u-bg-blue" role="contentinfo">
+	<footer class="site-footer footer" role="contentinfo">
         
         <div class="flex has-sidebar u-container">
 

@@ -1,5 +1,34 @@
 .site-footer {
     @extend .u-py-3;
+    color: white;
+    background-color: $blue;
+
+    .post-type-archive-project & {
+        background-color: $green;
+    }
+    .page-team &, .single-team_member & {
+        background-color: $purple;
+    }
+    .post-type-archive-publication & {
+        background-color: $orange;
+    }
+    .blog & {
+        background-color: $teal;
+    }
+    .page-about & {
+        background-color: $red;
+    }
+
+    .flex__item {
+        border-color: white;
+    }
+
+    a {
+        color: white;
+        &:hover, &:focus {
+            color: black;
+        }
+    }
 }
 .footer__content {
     @include align-items(flex-end);
@@ -9,16 +38,6 @@
             padding-right: 6rem;
         }
         flex: 1 0 flex-grid(6,$grid-columns);        
-    }
-}
-
-// Menus
-// ----------------------------//
-.menu-item {
-    .site-footer & {
-        a {
-            @extend .u-color-white;
-        }
     }
 }
 
