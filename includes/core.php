@@ -52,6 +52,7 @@ function features() {
  * @return void
  */
 function scripts( $debug = false ) {
+	global $post;
 	$min = ( $debug || defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
 	wp_register_script( 'mapbox_js', 'https://api.mapbox.com/mapbox-gl-js/v0.36.0/mapbox-gl.js', array(), HSC_VERSION, true );
@@ -82,6 +83,7 @@ function scripts( $debug = false ) {
 	if ( is_singular('project') ) {
 		wp_enqueue_script( 'single-project' );
 		wp_enqueue_script( 'project-timeline' );
+		wp_localize_script( 'project-timeline', 'projectData', array( 'id' => $post->ID ) );
 	}
 	if ( is_post_type_archive( 'project' ) ) {
 		wp_enqueue_script( 'archive-project' );

@@ -40,14 +40,14 @@
             scrollMagicController: false
         },
         mounted: function(){
-            this.getTimelineItems(177);
+            if ( ! projectData || ! projectData.id ) return;
+            this.getTimelineItems( projectData.id );
         },
         computed: {
             appClass: function(){
                 return this.appClassArray.join(' ');
             },
             visibleTimelineItems: function(){
-                console.log('computing visibleTimelineItems');
 
                 var postTypeFilter = this.currentFilters.postType,
                     dateFilter = this.currentFilters.date,
@@ -69,8 +69,6 @@
                     });
                 }
                 
-                
-
                 return filteredItems;
             }
         },
