@@ -119,7 +119,7 @@ get_header(); ?>
                                                 v-on:click="toggleFilter(type)">{{ type.name }}</li>
                                         </ul>
                                         
-                                        <ul id="filter-group-date" class="filter-group list" :class="{ 'has-selection' : currentFilters.date !== 'all' }" v-if="currentFilterGroup == 'date'">
+                                        <ul id="filter-group-date" class="filter-group shift-1 u-pl-1 list" :class="{ 'has-selection' : currentFilters.date !== 'all' }" v-if="currentFilterGroup == 'date'">
                                             <li v-for="date in dates" :key="date.seconds"
                                                 class="filter-group__item"
                                                 :class="{ 'is-active' : currentFilters.date.seconds == date.seconds }"
@@ -130,10 +130,10 @@ get_header(); ?>
 
                                     <div class="project-timeline__contents u-mt-6">
 
-                                        <div class="project-timeline__sidebar-wrap">
+                                        <div v-if="visibleTimelineItems.length" class="project-timeline__sidebar-wrap">
                                             <ul class="project-timeline__sidebar u-mt-0">
                                                 <li v-for="item in visibleTimelineItems" class="project-timeline__sidebar-item">
-                                                    <a href="#" class="u-display-block h6 u-mt-0 u-mb-1">
+                                                    <a :href="'#' + item.id" class="u-display-block h6 u-mt-0 u-mb-1">
                                                         {{ item.label }}<br/>
                                                         {{ item.date_string }}
                                                     </a>
@@ -141,18 +141,23 @@ get_header(); ?>
                                             </ul>
                                         </div>
                                         
-                                        <div v-if="visibleTimelineItems.length" class="project-timeline__items">
+                                        <div class="project-timeline__items">
 
                                             <div v-if="loading">Loading...</div>
 
-                                            <article v-for="item in visibleTimelineItems" class="project-timeline__item u-mb-6">
+                                            <div v-if=" ! visibleTimelineItems.length && ! loading" class="error">
+                                                <h3 class="u-mt-0">Hmm... no projects match your criteria :(</h3>
+                                                <p class="h6">Try removing some of your filters above &uarr;</p>                                
+                                            </div>
+
+                                            <article :id="item.id" v-for="item in visibleTimelineItems" :key="item.id" class="project-timeline__item">
 
                                                 <!-- LAYOUT: Project Stage -->
                                                 <div v-if="item.layout == 'project_stage'" class="layout-project-stage u-clearfix" v-html="item.content"></div>
 
                                                 <!-- LAYOUT: Publication -->
                                                 <div v-if="item.type == 'publication'" class="layout-publication u-clearfix">
-                                                    <h3 class="h4">{{ item.title }}</h3>
+                                                    <h3 class="h4 u-mt-0">{{ item.title }}</h3>
                                                     <p v-html="item.image"></p>
                                                     <p><a :href="link.url" class="u-mr-1 u-color-black u-color-hover-green" v-for="link in item.links" v-html="link.text"></a></p>
                                                 </div>

@@ -1392,6 +1392,14 @@ a.filter-group-toggle {
     a.filter-group-toggle {
       min-height: 3rem; } }
 
+@media screen and (min-width: 768px) {
+  .filter-group.shift-1 {
+    margin-left: 50%; } }
+
+@media screen and (min-width: 1000px) {
+  .filter-group.shift-1 {
+    margin-left: 20%; } }
+
 .filter-group__item {
   margin-top: 0;
   cursor: pointer;
@@ -2162,55 +2170,54 @@ caption {
     flex-basis: 82.94%;
     -ms-flex-preferred-size: 82.94%; } }
 
-.project-timeline__item .layout-project-stage,
-.project-timeline__item .layout-events-recap {
-  float: left;
-  display: block;
-  margin-right: 2.84%;
-  width: 79.43%;
-  float: none; }
-  .project-timeline__item .layout-project-stage:last-child,
-  .project-timeline__item .layout-events-recap:last-child {
-    margin-right: 0; }
-
-.project-timeline__item .layout-project-stage > *:first-child {
-  margin-top: 0; }
-
-@media screen and (min-width: 1000px) {
-  .project-timeline__item .layout-event .image {
+.project-timeline__item {
+  padding-bottom: 5rem; }
+  .project-timeline__item:not(:first-child) {
+    padding-top: 1rem; }
+  .project-timeline__item .layout-project-stage,
+  .project-timeline__item .layout-events-recap {
     float: left;
     display: block;
     margin-right: 2.84%;
-    width: 38.29%; }
-    .project-timeline__item .layout-event .image:last-child {
-      margin-right: 0; } }
-
-@media screen and (min-width: 1000px) {
-  .project-timeline__item .layout-event .content {
-    float: left;
-    display: block;
-    margin-right: 2.84%;
-    width: 58.86%; }
-    .project-timeline__item .layout-event .content:last-child {
-      margin-right: 0; } }
-
-@media screen and (min-width: 1000px) {
-  .project-timeline__item .layout-events-recap .image {
-    float: left;
-    display: block;
-    margin-right: 3.58%;
-    width: 48.21%; }
-    .project-timeline__item .layout-events-recap .image:last-child {
-      margin-right: 0; } }
-
-@media screen and (min-width: 1000px) {
-  .project-timeline__item .layout-events-recap .image {
-    float: left;
-    display: block;
-    margin-right: 3.58%;
-    width: 22.32%; }
-    .project-timeline__item .layout-events-recap .image:last-child {
-      margin-right: 0; } }
+    width: 79.43%;
+    float: none; }
+    .project-timeline__item .layout-project-stage:last-child,
+    .project-timeline__item .layout-events-recap:last-child {
+      margin-right: 0; }
+  .project-timeline__item .layout-project-stage > *:first-child {
+    margin-top: 0; }
+  @media screen and (min-width: 1000px) {
+    .project-timeline__item .layout-event .image {
+      float: left;
+      display: block;
+      margin-right: 2.84%;
+      width: 38.29%; }
+      .project-timeline__item .layout-event .image:last-child {
+        margin-right: 0; } }
+  @media screen and (min-width: 1000px) {
+    .project-timeline__item .layout-event .content {
+      float: left;
+      display: block;
+      margin-right: 2.84%;
+      width: 58.86%; }
+      .project-timeline__item .layout-event .content:last-child {
+        margin-right: 0; } }
+  @media screen and (min-width: 1000px) {
+    .project-timeline__item .layout-events-recap .image {
+      float: left;
+      display: block;
+      margin-right: 3.58%;
+      width: 48.21%; }
+      .project-timeline__item .layout-events-recap .image:last-child {
+        margin-right: 0; } }
+  @media screen and (min-width: 1000px) {
+    .project-timeline__item .layout-events-recap .image {
+      float: left;
+      display: block;
+      margin-right: 3.58%;
+      width: 22.32%; }
+      .project-timeline__item .layout-events-recap .image:last-child {
+        margin-right: 0; } }
 
 .project-timeline__sidebar-wrap {
   display: none; }
@@ -2227,7 +2234,7 @@ caption {
   position: sticky;
   top: 1rem;
   overflow: auto;
-  height: 100vh; }
+  max-height: 100vh; }
 
 .project-timeline__sidebar-item a:hover, .project-timeline__sidebar-item a:focus {
   color: #afbd32; }

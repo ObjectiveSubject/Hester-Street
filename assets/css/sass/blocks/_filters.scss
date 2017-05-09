@@ -50,7 +50,14 @@ a.filter-group-toggle {
 }
 
 .filter-group {
-   
+   &.shift-1 {
+       @include media($md){
+           margin-left: 50%;
+       }
+       @include media($lg){
+           margin-left: 20%;
+       }
+   }
 }
 
 .filter-group__item {

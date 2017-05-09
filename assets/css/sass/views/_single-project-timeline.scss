@@ -14,6 +14,10 @@
 }
 
 .project-timeline__item {
+    padding-bottom: 5 * $leading;
+    &:not(:first-child) {
+        padding-top: 1 * $leading;
+    }
 
     .layout-project-stage,
     .layout-events-recap {
@@ -74,7 +78,7 @@
     position: sticky;
     top: $leading;
     overflow: auto;
-    height: 100vh;
+    max-height: 100vh;
 }
 
 .project-timeline__sidebar-item {

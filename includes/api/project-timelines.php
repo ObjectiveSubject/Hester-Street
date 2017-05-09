@@ -61,9 +61,11 @@ function project_timeline_request() {
         $timeline_items = array();
         $date_format = get_option('date_format');
 
-        foreach( $acf_timeline_items as $item ) {
+        foreach( $acf_timeline_items as $key => $item ) {
 
-            $item_array = array();
+            $item_array = array(
+                'id' => 'timeline-node-' . $key
+            );
 
             switch ( $item['acf_fc_layout'] ) {
                 case "project_stage":
