@@ -690,6 +690,29 @@ hr {
 .u-cursor-pointer {
   cursor: pointer; }
 
+.u-animate-pulse {
+  -webkit-animation: pulse 2s infinite;
+  -moz-animation: pulse 2s infinite;
+  animation: pulse 2s infinite; }
+
+@-webkit-keyframes pulse {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; } }
+
+@-moz-keyframes pulse {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; } }
+
+@keyframes pulse {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; } }
+
 .u-width-1 {
   width: 6.17%; }
 

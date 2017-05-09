@@ -9,3 +9,16 @@
 .u-cursor-pointer {
 	cursor: pointer;
 }
+
+.u-animate-pulse {
+	@include animation( pulse 2s infinite );
+}
+
+@include keyframes(pulse) {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+}

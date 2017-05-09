@@ -143,7 +143,7 @@ get_header(); ?>
                                         
                                         <div class="project-timeline__nodes">
 
-                                            <div v-if="loading">Loading...</div>
+                                            <div v-if="loading" class="u-animate-pulse">Loading...</div>
 
                                             <div v-if=" ! visibleTimelineItems.length && ! loading" class="error">
                                                 <h3 class="u-mt-0">Hmm... no projects match your criteria :(</h3>
