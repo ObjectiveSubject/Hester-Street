@@ -1521,13 +1521,14 @@ label {
     [class*="u-bg-"] .hsc-logo:hover, .site-menu .hsc-logo:hover, .site-footer .hsc-logo:hover {
       opacity: 0.5; }
 
-.masthead {
+.masthead.is-sticky {
   position: -webkit-sticky;
   position: sticky;
   top: 3rem; }
-  @media screen and (min-width: 768px) {
-    .masthead {
-      margin-bottom: 0; } }
+
+@media screen and (min-width: 768px) {
+  .masthead {
+    margin-bottom: 0; } }
 
 /* Media
  * -----------------------------------------------------------*/

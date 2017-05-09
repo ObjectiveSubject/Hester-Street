@@ -29,7 +29,9 @@ $result_count = ( 1 === $result_count ) ? $result_count . ' result' : $result_co
 
                                 <div class="sidebar-masthead section__sidebar flex__item">
 
-                                    <?php get_template_part( 'partials/sidebar', 'masthead' ); ?>
+                                    <div id="masthead" class="masthead is-sticky">
+                                        <?php get_template_part( 'partials/sidebar', 'masthead' ); ?>
+                                    </div>
 
                                 </div>
 

@@ -24,7 +24,9 @@ $cat = ( ! empty( $cats ) ) ? $cats[0]->name : 'News'; ?>
 
                                 <div class="sidebar-masthead section__sidebar flex__item">
 
-                                    <?php get_template_part( 'partials/sidebar', 'masthead' ); ?>
+                                    <div id="masthead" class="masthead is-sticky">
+                                        <?php get_template_part( 'partials/sidebar', 'masthead' ); ?>
+                                    </div>
 
                                 </div>
 

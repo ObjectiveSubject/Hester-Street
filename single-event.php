@@ -22,19 +22,31 @@ get_header(); ?>
 
                                 <div class="sidebar-masthead section__sidebar flex__item">
 
-                                    <?php get_template_part( 'partials/sidebar', 'masthead' ); ?>
+                                    <div id="masthead" class="masthead">
+                                        <?php get_template_part( 'partials/sidebar', 'masthead' ); ?>
+                                    </div>
 
                                 </div>
 
                                 <div class="section__content flex__item">
-                                    
                                     <div class="h2 u-mt-pull"><?php _e( 'Event', 'hsc' ); ?></div>
+                                </div>
 
-                                    <h1 class="post-title u-mt-3">
+                            </div><!-- .flex -->
+                        </div><!-- .u-container -->
+                    </section>
+
+                    <section class="section">
+                        <div class="u-container">
+                            <div class="flex">
+
+                                <div class="section__content flex__item u-max-width-8">
+                                    
+                                    <h1 class="post-title">
                                         <?php the_title(); ?>
                                     </h1>
 
-                                    <h2 class="h3 u-mt-0">
+                                    <h2 class="h5 u-mt-0">
                                         <?php echo date( get_option('date_format') . ', g:ia', get_post_meta( $post->ID, 'event_datetime', true ) ); ?><br/>
                                         PS. 101 Auditorium
                                     </h2>
@@ -73,7 +85,7 @@ get_header(); ?>
                         
                         <section class="section">
                             <div class="flex u-container">
-                                <div class="section__content flex__item u-width-12">
+                                <div class="section__content flex__item u-width-12 u-pt-6">
                                     
                                     <div class="h6 u-mt-0"><?php _e( 'Related Projects', 'hsc' ); ?></div>
 
