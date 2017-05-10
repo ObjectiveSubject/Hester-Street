@@ -9,8 +9,8 @@ get_header();
 $roles = get_the_terms( $post->ID, 'team_role' );
 $member_role = ( $roles ) ? $roles[0]->name : 'Team';
 $member_title = get_post_meta( $post->ID, 'member_title', true );
-$member_scope_areas = get_post_meta( $post->ID, 'member_scope_areas', true );
-$member_issue_areas = get_post_meta( $post->ID, 'member_issue_areas', true );
+$member_scope_areas = get_the_terms( $post->ID, 'service' );
+$member_issue_areas = get_the_terms( $post->ID, 'issue' );
 $member_website = get_post_meta( $post->ID, 'member_website', true ); ?>
 
 	<div class="site-content">
@@ -54,11 +54,13 @@ $member_website = get_post_meta( $post->ID, 'member_website', true ); ?>
                                                 <?php the_post_thumbnail( 'large', array( 'class' => 'u-mb-3' ) ); ?>
                                             <?php endif; ?>
 
-                                            <?php if ( $member_issue_areas ) : ?>
+                                            <?php if ( $member_scope_areas ) : ?>
                                                 <div class="scope-areas member-meta u-mb-3">
                                                     <h6 class="u-mt-0">Scope Focus Areas</h6>
                                                     <div class="u-mt-nudge">
-                                                        <?php echo nl2br( $member_issue_areas ); ?>
+                                                        <?php foreach( $member_scope_areas as $scope ) : ?>
+                                                            <p class="u-mt-0"><?php echo $scope->name; ?></p>
+                                                        <?php endforeach; ?>
                                                     </div>
                                                 </div>
                                             <?php endif; ?>
@@ -67,7 +69,9 @@ $member_website = get_post_meta( $post->ID, 'member_website', true ); ?>
                                                 <div class="issue-areas member-meta u-mb-3">
                                                     <h6 class="u-mt-0">Issue Focus Areas</h6>
                                                     <div class="u-mt-nudge">
-                                                        <?php echo nl2br( $member_issue_areas ); ?>
+                                                        <?php foreach( $member_issue_areas as $issue ) : ?>
+                                                            <p class="u-mt-0"><?php echo $issue->name; ?></p>
+                                                        <?php endforeach; ?>
                                                     </div>
                                                 </div>
                                             <?php endif; ?>
