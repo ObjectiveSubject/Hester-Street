@@ -60,6 +60,7 @@ function scripts( $debug = false ) {
 	wp_register_script( 'scrollmagic', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js', array(), HSC_VERSION, true );
 
 	wp_register_script( 'main', HSC_TEMPLATE_URL . "/assets/js/main{$min}.js", array(), HSC_VERSION, true );
+	wp_register_script( 'page-news', HSC_TEMPLATE_URL . "/assets/js/page-news{$min}.js", array(), HSC_VERSION, true );
 	wp_register_script( 'single-project', HSC_TEMPLATE_URL . "/assets/js/project{$min}.js", array(), HSC_VERSION, true );
 	wp_register_script( 'project-timeline', HSC_TEMPLATE_URL . "/assets/js/project-timeline{$min}.js", array(), HSC_VERSION, true );
 	wp_register_script( 'archive-project', HSC_TEMPLATE_URL . "/assets/js/archive-project{$min}.js", array(), HSC_VERSION, true );
@@ -75,6 +76,9 @@ function scripts( $debug = false ) {
 	/* Specific Views
 	 * -------------------------------------------------------- */
 	
+	if ( is_home() && ! is_front_page() ) {
+		wp_enqueue_script( 'page-news' );
+	}
 	if ( is_singular('project') || is_post_type_archive( 'project' ) ) {
 		wp_enqueue_script( 'mapbox_js' );
 		wp_enqueue_script( 'turf_js' );
@@ -129,10 +133,10 @@ function modify_queries( $query ) {
 	if ( ! is_admin() && $query->is_main_query() ) {
 
 		if ( is_home() && ! is_front_page() ) {
-			$query->set('post_type', array( 'post', 'event' ));
-			$query->set('orderby', 'meta_value');
-			$query->set('meta_key', 'post_datetime');
-			$query->set('posts_per_page', '9');
+			// $query->set('post_type', array( 'post', 'event' ));
+			// $query->set('orderby', 'meta_value');
+			// $query->set('meta_key', 'post_datetime');
+			$query->set('posts_per_page', '5');
 		}
 
 	}

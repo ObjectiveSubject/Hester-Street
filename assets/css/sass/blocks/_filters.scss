@@ -65,15 +65,25 @@ a.filter-group-toggle {
     margin-top: 0;
     cursor: pointer;
     @include transition( color 300ms ease-out );
-    &:hover {
-        color: $green;
-    }
+    
     .has-selection & {
         color: $light-gray;
-        &:hover {
+    }
+
+    #project-archive-app &,
+    #project-timeline & {
+        &:hover,
+        .has-selection &:hover {
             color: $green;
         }
     }
+    #news-feed & {
+        &:hover,
+        .has-selection &:hover {
+            color: $teal;
+        }
+    }
+
     .is-loading & {
         cursor: default;
         pointer-events: none;
@@ -81,7 +91,7 @@ a.filter-group-toggle {
     &.is-active {
         color: black;
         &:hover {
-            color: black;
+            color: black !important;
             text-decoration: line-through;
         }
     }

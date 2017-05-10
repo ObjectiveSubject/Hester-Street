@@ -185,7 +185,7 @@ mark, ins {
 hr {
 	background-color: $color-background-hr;
 	border: 0;
-	height: 2px;
+	height: $border-width;
 	margin: $leading 0 0;
 	width: 100%;
 }

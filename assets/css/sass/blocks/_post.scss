@@ -13,6 +13,10 @@
 
 .hentry.preview {
 
+    .is-loading & a {
+        opacity: 0.3;
+    }
+
     &.event-upcoming {
         background-color: black;
         color: white;
@@ -47,7 +51,7 @@
         background-color: $teal 
     }
     &.category-newsletter:hover { background-color: black; }
-    &.category-news a:hover,
+    &.category-news-category a:hover,
     &.category-press a:hover { color: $teal; }
 
 }

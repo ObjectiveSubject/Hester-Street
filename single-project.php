@@ -112,7 +112,7 @@ get_header(); ?>
                                             </a>
                                         </li>
 
-                                    </ul>
+                                    </ul><!-- filter-toggle-list -->
 
                                     <div class="project-timeline__filters">
 
@@ -130,7 +130,7 @@ get_header(); ?>
                                                 v-on:click="toggleFilter(date)">{{ date.name }}</li>
                                         </ul>
 
-                                    </div>
+                                    </div><!-- project-timeline__filters -->
 
                                     <div class="project-timeline__contents u-mt-6">
 
@@ -143,7 +143,7 @@ get_header(); ?>
                                                     </a>
                                                 </li>
                                             </ul>
-                                        </div>
+                                        </div><!-- project-timeline__sidebar-wrap -->
                                         
                                         <div class="project-timeline__nodes">
 
@@ -202,11 +202,11 @@ get_header(); ?>
 
                                             </article>
                                             
-                                        </div>
+                                        </div><!-- .project-timeline__nodes -->
                                         
-                                    </div>
+                                    </div><!-- project-timeline__contents -->
 
-                                </div>
+                                </div><!-- #project-timeline -->
 
                             </div>
 

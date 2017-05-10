@@ -7,7 +7,7 @@
 	}
 
 	.u-color-hover-#{$color-name} {
-		&:hover { color: $hex !important; }
+		&:hover, &:focus { color: $hex !important; }
 	}
     
     .u-bg-#{$color-name} {
