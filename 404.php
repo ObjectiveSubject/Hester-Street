@@ -30,9 +30,7 @@ get_header();
                                     <div class="page-title">
                                         <h1 class="h2 u-mt-pull"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'hsc' ); ?></h1>
                                     </div>
-                                    <div class="page-content h3">
-                                        <?php esc_html_e( 'It looks like nothing was found at this location.', 'hsc' ); ?>
-                                    </div>
+                                    <h2 class="h3"><?php esc_html_e( 'It looks like nothing was found at this location.', 'hsc' ); ?></h2>
 
                                     <form role="search" method="get" class="search-form u-mt-6" action="<?php echo site_url(); ?>">
                                         <label for="page-404-s" class="h6"><?php _e( 'Maybe try a search?', 'hsc' ); ?></label>

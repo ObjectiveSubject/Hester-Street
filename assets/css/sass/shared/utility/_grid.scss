@@ -52,6 +52,12 @@
 
 }
 
+.u-width-8-10 {
+    @include media($md) {
+        width: flex-grid(8, 10);
+    }
+}
+
 [class*="u-span-"]{
     &:last-child {
         margin-right: 0;

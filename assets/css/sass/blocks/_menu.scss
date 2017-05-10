@@ -26,13 +26,15 @@
 }
 
 .menu-ui {
-    @extend .u-px-1;
+    // @extend .u-px-1;
     border-left: 2px solid white;
     @include media($md) {
         border: 0;
-        position: absolute;
-        top: 0;
-        left: 0;
+        position: fixed;
+        top: 3rem;
+        left: auto;
+        margin-left: calc(-1.75rem + -2.36%);
+        z-index: 1000;
     }
 }
 .menu-icon {
