@@ -4,11 +4,11 @@
 
 $services = get_the_terms( $post->ID, 'service' );
 $issues = get_the_terms( $post->ID, 'issue' );
-$team_members = get_post_meta( $post->ID, 'project_team_members', true );
-$collaborators = get_post_meta( $post->ID, 'project_collaborators', true );
-$partners = get_post_meta( $post->ID, 'project_partners', true );
-$site = get_post_meta( $post->ID, 'project_site', true );
-$site_url = get_post_meta( $post->ID, 'project_site_url', true );
+$team_members = get_field( 'project_team_members' );
+$collaborators = get_field( 'project_collaborators' );
+$partners = get_field( 'project_partners' );
+$site = get_field( 'project_site' );
+$site_url = get_field( 'project_site_url' );
 ?>
 
 <?php if ( $services ) : ?>
@@ -61,8 +61,8 @@ $site_url = get_post_meta( $post->ID, 'project_site_url', true );
     <div class="h6 u-mt-0">Partners</div>
     <ul class="u-mt-1">
         <?php foreach ( $partners as $partner ) : 
-            $link_action = get_post_meta( $partner, 'member_link_action', true );
-            $website = get_post_meta( $partner, 'member_website', true );
+            $link_action = get_field( 'member_link_action' );
+            $website = get_field( 'member_website' );
             $target = ( $link_action ) ? '_blank' : '_self';
             $url = ( $link_action ) ? esc_url( $website ) : get_permalink($partner); ?>
             <li>

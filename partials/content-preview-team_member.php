@@ -18,7 +18,7 @@ $margin = ''; ?>
     </h3>
 
     <div class="hentry-excerpt u-mt-nudge">
-        <?php echo nl2br( get_post_meta( $post->ID, 'member_title', true ) ); ?>
+        <?php the_field( 'member_title' ); ?>
     </div>
 
 </a>

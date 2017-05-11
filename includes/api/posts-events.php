@@ -136,7 +136,7 @@ function posts_events_request() {
 				}
 			}
 
-			$date = get_post_meta( $post->ID, 'post_datetime', true );
+			$date = get_field( 'post_datetime' );
 			$date_unix = 0;
 			$date_string = '';
 			if ( $date ) {

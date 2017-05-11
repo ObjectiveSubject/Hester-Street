@@ -52,6 +52,11 @@
 
 }
 
+.u-width-6-10 {
+    @include media($md) {
+        width: flex-grid(6, 10);
+    }
+}
 .u-width-8-10 {
     @include media($md) {
         width: flex-grid(8, 10);

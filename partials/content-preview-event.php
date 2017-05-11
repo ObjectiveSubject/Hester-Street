@@ -3,7 +3,7 @@
 // Event Preview
 
 $now = time();
-$event_datetime = get_post_meta( $post->ID, 'post_datetime', true );
+$event_datetime = get_field( 'post_datetime' );
 $is_upcoming = $now < $event_datetime; 
 $is_past = $now >= $event_datetime;
 ?>

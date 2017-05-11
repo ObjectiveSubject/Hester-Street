@@ -1,0 +1,31 @@
+.badge {
+    display: block;
+    position: relative;
+    background: #000;
+    color: #fff;
+    border-radius: 50%;
+    width: rem(160);
+    height: rem(160);
+    text-align: center;
+    font-family: $gta-extended-black;
+    line-height: 1;
+    text-transform: uppercase;
+    &:hover, &:focus {
+        background: $blue;
+        color: white;
+    }
+
+    @include media($lg) {
+        position: absolute;
+        top: rem(-30);
+        right: rem(40);
+    }
+}
+
+.badge-text {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    padding: 0 0.5rem;
+    @include transform( translateY(-50%) );
+}

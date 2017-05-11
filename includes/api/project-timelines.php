@@ -71,7 +71,7 @@ function project_timeline_request() {
                 case "project_stage":
                     $item_array['type'] = $item['stage_type'];
                     $item_array['layout'] = $item['acf_fc_layout'];
-                    $item_array['label'] = $item['stage_label'];
+                    $item_array['label'] = ( $item['stage_label'] ) ? $item['stage_label'] : 'Project<br/>' . $item['stage_type']['label'];
                     $item_array['date_string'] = date( $date_format, $item['stage_date'] );
                     $item_array['date_unix'] = $item['stage_date'];
                     $item_array['content'] = $item['stage_content'];

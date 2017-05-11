@@ -2,8 +2,8 @@
 
 // Project Preview
 
-$begin = get_post_meta( $post->ID, 'project_begin_date', true );
-$end = get_post_meta( $post->ID, 'project_end_date', true );
+$begin = get_field( 'project_begin_date' );
+$end = get_field( 'project_end_date' );
 if ( ! $end ) {
     $begin_string = date( 'M. Y', $begin );
     $end_string = 'Present';

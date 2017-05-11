@@ -8,10 +8,10 @@ get_header();
 
 $roles = get_the_terms( $post->ID, 'team_role' );
 $member_role = ( $roles ) ? $roles[0]->name : 'Team';
-$member_title = get_post_meta( $post->ID, 'member_title', true );
+$member_title = get_field( 'member_title' );
 $member_scope_areas = get_the_terms( $post->ID, 'service' );
 $member_issue_areas = get_the_terms( $post->ID, 'issue' );
-$member_website = get_post_meta( $post->ID, 'member_website', true ); ?>
+$member_website = get_field( 'member_website' ); ?>
 
 	<div class="site-content">
 

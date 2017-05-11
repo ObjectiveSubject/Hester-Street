@@ -68,7 +68,7 @@
         });
 
         var geoJsonBounds = turf.extent(geoJson);
-        map.fitBounds(geoJsonBounds, { maxZoom: 14, pitch: 50, padding: { top:40, bottom:20, left:20, right:20 } });
+        map.fitBounds(geoJsonBounds, { maxZoom: 14, padding: { top:40, bottom:20, left:20, right:20 } });
 
     });
 

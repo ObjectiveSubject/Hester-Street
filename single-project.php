@@ -4,10 +4,10 @@
  */
 
 global $post;
-$alt_title = get_post_meta($post->ID, 'project_alt_title', true);
-$subtitle = get_post_meta($post->ID, 'project_subtitle', true);
-$begin_date = get_post_meta($post->ID, 'project_begin_date', true);
-$end_date = get_post_meta($post->ID, 'project_end_date', true);
+$alt_title = get_field( 'project_alt_title' );
+$subtitle = get_field( 'project_subtitle' );
+$begin_date = get_field( 'project_begin_date' );
+$end_date = get_field( 'project_end_date' );
 $date_string = array();
 if ( $begin_date ) $date_string[] = date( 'Y', $begin_date );
 $date_string[] = ( $end_date ) ? date( 'Y', $end_date ) : 'Present';
@@ -49,10 +49,11 @@ get_header(); ?>
                                         the_title();
                                     } ?>
                                 </h1>
+
                                 <?php if ( $subtitle || $begin_date || $end_date ) : ?>
                                     <p class="h6">
-                                        <?php echo $subtitle; ?>
-                                        <span class="u-pl-1"><?php echo implode( '–', $date_string ); ?></span>
+                                        <?php echo $subtitle ? '<span class="u-pr-1">'.$subtitle.'</span>' : ''; ?>
+                                        <span><?php echo implode( '–', $date_string ); ?></span>
                                     </p>
                                 <?php endif; ?>
 
@@ -138,7 +139,7 @@ get_header(); ?>
                                             <ul class="project-timeline__sidebar u-mt-0">
                                                 <li v-for="item in visibleTimelineItems" class="project-timeline__sidebar-item">
                                                     <a :href="'#' + item.id" class="u-display-block h6 u-mt-0 u-mb-1">
-                                                        {{ item.label }}<br/>
+                                                        <span v-html="item.label"></span><br/>
                                                         {{ item.date_string }}
                                                     </a>
                                                 </li>
@@ -219,7 +220,7 @@ get_header(); ?>
                     $args = array(
                         'post_type' => 'project',
                         'posts_per_page' => 2,
-                        'post__not_in' => $post->ID
+                        'post__not_in' => array( $post->ID )
                     );
                     $related_project_ids = get_field('project_related_projects');
                     $projects_title = __( 'Recent Projects', 'hsc');
@@ -240,14 +241,9 @@ get_header(); ?>
                                     <ul class="u-clearfix">
                                         <?php while( $projects->have_posts() ) : $projects->the_post(); ?>
                                             <li class="u-span-6">
-                                                <a href="<?php the_permalink(); ?>" class="u-display-block u-color-hover-green">
-                                                    <?php if ( get_the_post_thumbnail() ) : ?>
-                                                        <div class="post-image" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);"></div>
-                                                    <?php endif; ?>
-                                                    <h3 class="h5 u-max-width-6"><?php the_title(); ?></h3>
-                                                </a>
+                                                <?php get_template_part( 'partials/content-preview', 'project' ); ?>
                                             </li>
-                                        <?php endwhile; ?>
+                                        <?php endwhile; wp_reset_query(); ?>
                                         </ul>                                
 
                                 </div>

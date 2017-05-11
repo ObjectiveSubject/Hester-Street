@@ -2,8 +2,8 @@
 
 // Team Member Preview - text version
 
-$website = get_post_meta( $post->ID, 'member_website', true );
-$link_action = get_post_meta( $post->ID, 'member_link_action', true );
+$website = get_field( 'member_website' );
+$link_action = get_field( 'member_link_action' );
 $link = ( $link_action && $website ) ? $website : get_permalink();
 ?>
 

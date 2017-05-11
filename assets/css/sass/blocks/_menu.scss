@@ -16,12 +16,19 @@
 }
 .menu-item {
     .primary-menu & {
-        @extend .h3;
+        @extend .h2;
         @extend .u-mt-0;
     }
     .secondary-menu & {
         @extend .h6;
         @extend .u-mt-0;
+    }
+    .home & {
+        @each $color-name, $hex in $color_map {
+            &.#{$color-name} a:hover {
+                color: $hex;
+            }
+        }
     }
 }
 
