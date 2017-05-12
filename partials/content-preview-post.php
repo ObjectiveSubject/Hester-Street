@@ -9,7 +9,8 @@ $post_class = ( $is_newsletter ) ? 'u-px-1 u-pb-1' : '';
 ?>
 
 <div class="<?php echo $post_class; ?>">
-    <a href="<?php the_permalink(); ?>" class="u-display-block" title="Read more">
+    <a href="<?php the_permalink(); ?>" class="u-display-block u-color-hover-teal" title="Read more">
+        <?php the_post_thumbnail( 'lareg', array( 'class' => 'u-display-block' ) ); ?>
         <div class="h6">
             <?php
             if ( $is_newsletter ) {

@@ -40,7 +40,7 @@ $latest_update_date = date( 'M Y', $latest_update_unix );
 ?>
 <article <?php post_class(); ?>>
 
-    <a href="<?php the_permalink(); ?>" class="u-display-block">
+    <a href="<?php the_permalink(); ?>" class="u-display-block u-color-hover-green">
         <?php the_post_thumbnail( 'large', array( 'class' => 'u-display-block' ) ); ?>
         <p class="h1 u-width-8-10"><?php echo $title; ?></p>
     </a>
@@ -48,7 +48,7 @@ $latest_update_date = date( 'M Y', $latest_update_unix );
     <div class="u-width-6-10">
         <p class="h6">Featured Project &nbsp;&nbsp;&nbsp; Last Update <?php echo $latest_update_date; ?></p>
         <p><?php the_excerpt(); ?></p>
-        <p><a href="<?php the_permalink(); ?>">Continue Reading</a></p>
+        <p><a href="<?php the_permalink(); ?>" class="u-color-hover-green">Continue Reading</a></p>
     </div>
 
 </article>
