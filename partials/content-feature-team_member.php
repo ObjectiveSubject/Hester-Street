@@ -1,3 +1,10 @@
+<?php
+/*
+ * Featured Team Member
+ *
+ */
+?>
+
 <div <?php post_class("featured u-clearfix"); ?> >
     <div class="content-left u-span-4-10">
         <?php the_post_thumbnail( 'large', array( 'class' => 'u-display-block u-mb-1' ) ); ?>

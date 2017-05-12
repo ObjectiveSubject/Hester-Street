@@ -1,6 +1,6 @@
 <?php
 /*
- * Featured Project
+ * Secondary Project
  *
  */
 

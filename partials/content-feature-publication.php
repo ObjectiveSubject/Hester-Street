@@ -1,4 +1,10 @@
-<?php $secondary_images = get_field('publication_sec_featured_images');?>
+<?php
+/*
+ * Featured Publication
+ *
+ */
+
+$secondary_images = get_field('publication_sec_featured_images'); ?>
 
 <div <?php post_class("featured u-clearfix"); ?> >
     <div class="content-left u-span-3">

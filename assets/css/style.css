@@ -1435,12 +1435,22 @@ hr {
   text-transform: uppercase; }
   .badge:hover, .badge:focus {
     background: #3266cc;
-    color: white; }
+    color: white;
+    opacity: 1 !important; }
   @media screen and (min-width: 1000px) {
     .badge {
       position: absolute;
+      z-index: 1;
       top: -1.88rem;
-      right: 2.5rem; } }
+      right: 2.5rem; }
+      .badge.is-displaced {
+        right: -12rem;
+        -webkit-transform: scale(0.7);
+        -moz-transform: scale(0.7);
+        -ms-transform: scale(0.7);
+        -o-transform: scale(0.7);
+        transform: scale(0.7);
+        opacity: 0.3; } }
 
 .badge-text {
   position: absolute;
@@ -1661,25 +1671,68 @@ figure {
 
 /* Responsive Media
  * -----------------------------------------------------------*/
-[class*="responsive-media-"] {
+[class*="responsive-media-"], .hsc-video {
   position: relative;
   height: 0;
   overflow: hidden; }
-  [class*="responsive-media-"][class*="1x2"] {
+  [class*="responsive-media-"][class*="1x2"], [class*="1x2"].hsc-video {
     padding-top: 50%; }
-  [class*="responsive-media-"][class*="16x9"] {
+  [class*="responsive-media-"][class*="16x9"], .hsc-video {
     padding-top: 56.25%; }
-  [class*="responsive-media-"][class*="4x3"] {
+  [class*="responsive-media-"][class*="4x3"], [class*="4x3"].hsc-video {
     padding-top: 75%; }
-  [class*="responsive-media-"][class*="1x1"] {
+  [class*="responsive-media-"][class*="1x1"], [class*="1x1"].hsc-video {
     padding-top: 100%; }
-  [class*="responsive-media-"] iframe, [class*="responsive-media-"] video, [class*="responsive-media-"] object, [class*="responsive-media-"] img {
+  [class*="responsive-media-"] iframe, .hsc-video iframe, [class*="responsive-media-"] video, .hsc-video video, [class*="responsive-media-"] object, .hsc-video object, [class*="responsive-media-"] img, .hsc-video img {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
     z-index: 1; }
+
+.hsc-video {
+  position: relative;
+  cursor: pointer; }
+  .hsc-video.video--preload:after {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    transition: all 300ms ease-out; }
+  .hsc-video.video--preload:hover:after {
+    background: rgba(0, 0, 0, 0.4); }
+
+.hsc-video__play {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  transition: all 300ms ease-out; }
+  .hsc-video:hover .hsc-video__play svg, .hsc-video__play:hover svg {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2); }
+  .hsc-video__play svg {
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    transition: all 300ms ease-out; }
 
 .menu {
   display: -webkit-box;
