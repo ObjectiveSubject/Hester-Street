@@ -1,0 +1,17 @@
+.member-heading {
+    &:before {
+        content: attr(data-title);
+        display: block;
+    }
+    &:hover:before {
+        content: attr(data-title-hover);
+    }
+}
+
+.member-meta {
+    @include media($lg) {
+        border-left: $border-width solid black;
+        padding-left: $leading;
+        margin-left: flex-grid(2, $grid-columns);
+    }
+}

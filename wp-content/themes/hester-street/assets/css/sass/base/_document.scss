@@ -1,0 +1,82 @@
+
+/* Global
+ * ------------------------------------------- */
+
+*,
+*:before,
+*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+body {
+	overflow-x: hidden;
+	&.has-open-menu {
+		height: 100vh;
+		overflow: hidden;
+		padding-right: 15px;
+	}
+	&:before{ display: none; content: 'default'; }
+	@include media($sm) {
+		&:before { content: "sm"; }
+	}
+	@include media($md) {
+		&:before { content: "md"; }
+	}
+	@include media($lg) {
+		&:before { content: "lg"; }
+	}
+	@include media($xl) {
+		&:before { content: "xl"; }
+	}
+}
+
+@include selection {
+	color: $color-selection-text;
+    background: $color-background-selection;
+}
+
+/* Media Size indicator
+ *
+ * Used to display the current media size.
+ * See footer.php for the element.
+ * ---------------------------------------- */
+.media-size  {
+	display: block;
+	position: fixed;
+	z-index: 1000;
+	bottom: 0;
+	left: 0;
+	background: rgba(white, 0.25);
+	text-align: center;
+	line-height: 32px;
+	width: 50px;
+	color: #bbb;
+	font-size: 12px;
+	&:before {
+		content: "-";
+	}
+	@include media($sm) {
+		&:before {
+			content: "sm";
+		}
+	}
+	@include media($md) {
+		&:before {
+			content: "md";
+		}
+	}
+	@include media($lg) {
+		&:before {
+			content: "lg";
+		}
+	}
+	@include media($xl) {
+		&:before {
+			content: "xl";
+		}
+	}
+}

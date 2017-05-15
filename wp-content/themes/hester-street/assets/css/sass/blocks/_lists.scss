@@ -1,0 +1,15 @@
+.list-title {
+    @extend .h6;
+}
+.list {
+    .list-title + & {
+        @extend .u-mt-1;
+    }
+}
+.list__item {
+    .social &,
+    .page-anchors & {
+        @extend .h6;
+        margin-top: 0;
+    }
+}

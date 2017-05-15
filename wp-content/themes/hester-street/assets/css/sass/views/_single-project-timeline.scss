@@ -1,0 +1,106 @@
+#project-timeline {
+}
+
+.project-timeline__contents {
+    @include media($lg) {
+        @include display(flex);
+    }
+}
+
+.project-timeline__nodes {
+    @include media($lg) {
+        @include flex-basis( flex-grid(10, $grid-columns) );
+    }
+}
+
+.timeline-node {
+    padding-bottom: 5 * $leading;
+    @include transition(opacity 300ms ease-out);
+    &:not(:first-child) {
+        padding-top: 1 * $leading;
+    }
+    .is-loading &,
+    .has-scroll-events &:not(.is-active) {
+        opacity: 0.3;
+        pointer-events: none;
+    }
+    .no-js & {
+        opacity: 1 !important;
+        pointer-events: all !important;
+    }
+
+    .layout-project-stage,
+    .layout-events-recap {
+        @include media($lg) {
+            @include span-columns(8 of 10);
+            float: none;
+        }
+    }
+
+    .layout-project-stage {
+        & > *:first-child {
+            margin-top: 0;
+        }
+    }
+    
+    .layout-event {
+        .image {
+            @include media($lg) {
+                @include span-columns(4 of 10);
+            }
+        }
+        .content {
+            @include media($lg) {
+                @include span-columns(6 of 10);
+            }
+        }
+        .title {
+            @extend .u-mt-nudge;
+            @include media($lg) {
+                margin-top: -0.18em;
+            }
+        }
+    }
+
+    .layout-events-recap {
+        .image {
+            @include media($lg) {
+                @include span-columns(4 of 8);
+            }
+            @include media($lg) {
+                @include span-columns(2 of 8);
+            }
+        }
+    }
+
+}
+
+.project-timeline__sidebar-wrap {
+    display: none;
+    @include media($lg) {
+        display: block;
+        margin-right: flex-gutter($grid-columns);
+        @include flex-basis( flex-grid(2, $grid-columns) );
+    }
+}
+
+.project-timeline__sidebar {
+    position: sticky;
+    top: $leading;
+    overflow: auto;
+    max-height: 100vh;
+}
+
+.project-timeline__sidebar-item {
+    a {
+        opacity: 0.3;
+        &:hover, &:focus {
+            color: $green;
+            opacity: 1;
+        }
+        &.is-active {
+            opacity: 1;
+            color: black;
+        }
+    } 
+}

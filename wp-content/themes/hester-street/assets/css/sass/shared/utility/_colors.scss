@@ -1,0 +1,17 @@
+// Colors
+// ======================================= /
+@each $color-name, $hex in $color_map {
+
+	.u-color-#{$color-name} {
+    	color: $hex !important;
+	}
+
+	.u-color-hover-#{$color-name} {
+		&:hover, &:focus { color: $hex !important; }
+	}
+    
+    .u-bg-#{$color-name} {
+    	background-color: $hex !important;
+		color: white !important;
+	}
+}

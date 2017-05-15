@@ -1,0 +1,57 @@
+.post-image {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    background-size: cover;
+}
+.post-title {
+    @extend .page-title;
+}
+.post-content {
+    @extend .page-content;
+}
+
+.hentry.preview {
+
+    .is-loading & a {
+        opacity: 0.3;
+    }
+
+    &.event-upcoming {
+        background-color: black;
+        color: white;
+        a {
+            color: white;
+        }
+    }
+
+    &.event-past {
+        background-color: tint( black, 40% );
+        color: white;
+        a {
+            color: white;
+        }
+    }
+
+    &.category-newsletter {
+        background-color: $teal;
+        color: white;
+        a {
+            color: white;
+        }
+    }
+
+    &.event-upcoming,
+    &.event-past,
+    &.category-newsletter {
+        @include transition(background 300ms ease-out);
+    }
+    &.event-upcoming:hover,
+    &.event-past:hover {    
+        background-color: $teal 
+    }
+    &.category-newsletter:hover { background-color: black; }
+    &.category-news-category a:hover,
+    &.category-press a:hover { color: $teal; }
+
+}

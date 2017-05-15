@@ -1,0 +1,11 @@
+.masthead {
+    &.is-sticky {
+        position: -webkit-sticky;
+        position: sticky; // locally testing intended behaviour; unsupported in ie, edge
+        top: $leading * 3;
+    }
+    @extend .u-mb-2;
+    @include media($md) {
+        margin-bottom: 0;
+    }
+}

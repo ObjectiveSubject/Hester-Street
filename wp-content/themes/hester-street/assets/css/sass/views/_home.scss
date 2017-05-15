@@ -1,0 +1,41 @@
+.home .featured-post {
+    position: relative;
+}
+
+.home .team_member.featured {
+    .content-right {
+        @include media($md) {
+            border-left: $border-width solid black;
+            padding-left: flex-gutter($grid-columns);
+        }
+    }
+}
+
+.home .publication.featured {
+    @include media($lg) {
+            @include display(flex);
+            @include flex-wrap(wrap);
+    }
+    .content-left {
+        display: none;
+        @include media($lg) {
+            display: block;
+        }
+        img:not(:first-child) {
+            margin-top: $leading;
+        }
+    }
+    .content-right {
+        @include media($md) {
+            border-left: $border-width solid black;
+            padding-left: flex-gutter($grid-columns);
+        }
+        @include media($lg) {
+            @include display(flex);
+            @include flex-wrap(wrap);
+        }
+        .align-flex-end {
+            @include align-self(flex-end);
+        }
+    }
+}

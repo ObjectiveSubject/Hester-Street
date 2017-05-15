@@ -1,0 +1,98 @@
+.filter-toggle-list {
+    @extend .u-clearfix;
+}
+
+.filter-toggle-list__item {
+
+    @include media($md) {
+        width: 50%;
+        float: left;
+        a {
+            border-left: $border-width solid;
+            padding-left: 1em;
+        }
+        &:nth-child(2n+1) {
+            a {
+                border-left: 0;
+                padding-left: 0;
+            }
+        }
+    }
+    @include media($lg) {
+        width: 20%;
+        &:nth-child(2n+1) {
+            a {
+                border-left: $border-width solid;
+                padding-left: 1em;
+            }
+        }
+        &:nth-child(5n+1) {
+            a {
+                border-left: 0;
+                padding-left: 0;
+            }
+        }
+    }
+
+}
+
+a.filter-group-toggle {
+    display: block;
+    text-transform: uppercase;
+    min-height: 2rem;
+    color: $medium-gray;
+    &:hover, &:focus, &.is-active {
+        color: black;
+    }
+    @include media($md) {
+        min-height: 3rem;
+    }
+}
+
+.filter-group {
+   &.shift-1 {
+       @include media($md){
+           margin-left: 50%;
+       }
+       @include media($lg){
+           margin-left: 20%;
+       }
+   }
+}
+
+.filter-group__item {
+    @extend .h6;
+    margin-top: 0;
+    cursor: pointer;
+    @include transition( color 300ms ease-out );
+    
+    .has-selection & {
+        color: $light-gray;
+    }
+
+    #project-archive-app &,
+    #project-timeline & {
+        &:hover,
+        .has-selection &:hover {
+            color: $green;
+        }
+    }
+    #news-feed & {
+        &:hover,
+        .has-selection &:hover {
+            color: $teal;
+        }
+    }
+
+    .is-loading & {
+        cursor: default;
+        pointer-events: none;
+    }
+    &.is-active {
+        color: black;
+        &:hover {
+            color: black !important;
+            text-decoration: line-through;
+        }
+    }
+}

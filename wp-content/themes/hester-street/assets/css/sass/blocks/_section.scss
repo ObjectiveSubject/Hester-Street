@@ -1,0 +1,47 @@
+.section__content {
+    min-width: 0;
+    
+    @include media($md) {
+        order: 1;
+    }
+    .has-sidebar & {
+        @extend .u-pb-6;
+        @include media($md) {
+            @include flex-basis( flex-grid(9, $grid-columns) );
+        }
+        @include media($lg) {
+            @include flex-basis( flex-grid(10, $grid-columns) );
+        }
+    }
+    .has-sidebar.has-fat-sidebar & {
+        @include media($md) {
+            @include flex-basis( flex-grid(6, $grid-columns) );
+        }
+        @include media($lg) {
+            @include flex-basis( flex-grid(8, $grid-columns) );
+        }
+    }
+    .section:last-of-type & {
+        padding-bottom: 0;
+        @extend .u-mb-6;
+    }
+}
+.section__sidebar {
+    @include media($md) {
+        order: 2;
+        padding-bottom: $leading * 6;
+        .footer & {
+            margin-bottom: 0;
+        }
+        @include flex-basis( flex-grid(3, $grid-columns) );
+        .has-fat-sidebar & {
+            @include flex-basis( flex-grid(6, $grid-columns) );
+        }
+    }
+    @include media($lg) {
+        @include flex-basis( flex-grid(2, $grid-columns) );
+        .has-fat-sidebar & {
+            @include flex-basis( flex-grid(4, $grid-columns) );
+        }
+    }
+}
