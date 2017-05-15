@@ -19,8 +19,8 @@ wp-content/plugins/**
 !wp-content/themes/hester-street/**
 
 # Functionality Plugin
-!wp-content/plugins/core-functionality/
-!wp-content/plugins/core-functionality/**
+!wp-content/plugins/acf-mapbox_gl_geojson/
+!wp-content/plugins/acf-mapbox_gl_geojson/**
 
 *.css.map
 node_modules
