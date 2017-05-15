@@ -1,17 +1,60 @@
 <?php
 /**
- * Front to the WordPress application. This file doesn't do anything, but loads
- * wp-blog-header.php which does and tells WordPress to load the theme.
- *
- * @package WordPress
+ * General page template
  */
 
-/**
- * Tells WordPress to load the WordPress theme and output it.
- *
- * @var bool
- */
-define('WP_USE_THEMES', true);
+get_header(); ?>
 
-/** Loads the WordPress Environment and Template */
-require( dirname( __FILE__ ) . '/wp-blog-header.php' );
+	<div class="site-content">
+
+		<?php while ( have_posts() ) : the_post(); ?>
+
+			<article <?php post_class(); ?>>
+               
+                <div class="wrap">
+                
+                    <section class="section">
+                        <div class="u-container">
+                            <div class="flex has-sidebar">
+
+                                <?php get_template_part( 'partials/menu-ui' ); ?>
+
+                                <div class="sidebar-masthead section__sidebar flex__item">
+
+                                    <div id="masthead" class="masthead is-sticky">
+                                        <?php get_template_part( 'partials/sidebar', 'masthead' ); ?>
+                                    </div>
+
+                                </div>
+
+                                <div class="section__content flex__item">
+                                    <div class="page-title">
+                                        <h1 class="h2 u-mt-pull">Base Content</h1>
+                                        <ul class="list page-anchors">
+                                            <li class="list__item">
+                                                <a href="#">Anchor</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="page-content">
+                                        
+                                        <?php the_content(); ?>
+
+                                        <?php get_template_part( 'content', 'base' ); ?>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+			</article>
+
+		<?php endwhile; ?>
+
+	</div>
+
+<?php get_footer(); ?>
