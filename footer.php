@@ -59,11 +59,24 @@
                     }
                     ?>
 
+                    <? $social_accounts = array(
+                        'Facebook' => get_theme_mod('facebook', ''),
+                        'Twitter' => get_theme_mod('twitter', ''),
+                        'Instagram' => get_theme_mod('instagram', ''),
+                        'Vimeo' => get_theme_mod('vimeo', ''),
+                        'Linkedin' => get_theme_mod('linkedin', '')
+                    );
+                    ?>
+
                     <ul class="list social footer-social">
                     
-                        <li class="list__item menu-item">
-                            <a href="#">Social item</a>
-                        </li>
+                        <? foreach ( $social_accounts as $name => $url ) :
+                            if ( ! empty( $url ) ) : ?>
+                                <li class="list__item menu-item">
+                                    <a href="<? echo esc_url( $url ); ?>" target="_blank"><? echo $name; ?></a>
+                                </li>
+                            <? endif; ?>
+                        <? endforeach; ?>
 
                     </ul>
 

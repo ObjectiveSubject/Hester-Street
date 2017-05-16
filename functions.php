@@ -18,6 +18,7 @@ require_once HSC_INC . 'core.php';
 
 require_once HSC_INC . 'api.php';
 require_once HSC_INC . 'comments.php';
+require_once HSC_INC . 'customizer.php';
 require_once HSC_INC . 'helpers.php';
 require_once HSC_INC . 'post-types.php';
 require_once HSC_INC . 'shortcodes.php';
@@ -31,6 +32,7 @@ include( HSC_INC . 'libraries/extended-taxos.php' );
 // Run the setup functions
 HSC\Core\setup();
 HSC\Comments\setup();
+HSC\Customizer\setup();
 HSC\Shortcodes\setup();
 HSC\PostTypes\setup();
 HSC\Taxonomies\setup();
