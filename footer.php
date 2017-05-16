@@ -70,7 +70,33 @@
                 </nav>
 
                 <div id="colophon" class="footer-colophon flex__item">
-                    Hester Street is an urban planning, design and community development nonprofit working so that neighborhoods are shaped by their people.
+                    <div>
+                        <p class="u-mt-0">Hester Street is an urban planning, design and community development nonprofit working so that neighborhoods are shaped by their people.</p>
+                        
+
+
+                        <!-- Begin MailChimp Signup Form -->
+                        <div id="mc_embed_signup">
+                        <p class="h6"><?php _e( 'Sign up for updates' ); ?></p>
+                        <form action="//hesterstreet.us15.list-manage.com/subscribe/post?u=ad4ffc9caf6943d4a15bfaefb&amp;id=ab79784775" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                            <div id="mc_embed_signup_scroll">
+                                <div class="mc-field-group">
+                                    <label for="mce-EMAIL" class="h6 u-mt-0">Email Address</label>
+                                    <input type="email" value="" name="EMAIL" class="required email form-field" id="mce-EMAIL">
+                                    <div class="helper">press return</div>
+                                </div>
+                                <div id="mce-responses" class="clear">
+                                    <div class="response" id="mce-error-response" style="display:none"></div>
+                                    <div class="response" id="mce-success-response" style="display:none"></div>
+                                </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_ad4ffc9caf6943d4a15bfaefb_ab79784775" tabindex="-1" value=""></div>
+                                <div class="u-display-none"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                            </div>
+                        </form>
+                        </div>
+                        <!--End mc_embed_signup-->
+                    </div>
+
                     <address class="u-mt-6">
                         <span class="h6 u-display-block">113 Hester Street</span>
                         <span class="h6 u-mt-0 u-display-block">New York, NY 10002</span>

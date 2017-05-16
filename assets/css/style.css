@@ -1622,6 +1622,7 @@ label {
   border: 0;
   border-bottom: 2px solid transparent;
   border-radius: 0;
+  background-color: transparent;
   box-sizing: border-box;
   padding: 0;
   outline: 0;
@@ -2301,6 +2302,37 @@ caption {
     @media screen and (min-width: 768px) {
       .footer__content .flex__item {
         padding-right: 6rem; } }
+
+.site-footer .email.form-field {
+  border-color: white;
+  position: relative;
+  z-index: 1;
+  color: transparent;
+  cursor: pointer; }
+  .site-footer .email.form-field:focus {
+    padding-top: 2rem;
+    color: white; }
+    .site-footer .email.form-field:focus + .helper {
+      opacity: 0.5; }
+
+.site-footer .mc-field-group {
+  position: relative; }
+  .site-footer .mc-field-group:hover label {
+    color: black; }
+  .site-footer .mc-field-group label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    transition: all 300ms ease-out; }
+  .site-footer .mc-field-group .helper {
+    opacity: 0;
+    font-size: 0.75rem;
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    transition: all 300ms ease-out; }
 
 .site-footer address {
   font-style: normal; }

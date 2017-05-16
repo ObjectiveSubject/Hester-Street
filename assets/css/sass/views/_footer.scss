@@ -47,6 +47,49 @@
     @extend .secondary-menu;
 }
 
+// Subscribe
+// ----------------------------//
+.site-footer {
+    .email.form-field {
+        border-color: white;
+        position: relative;
+        z-index: 1;
+        color: transparent;
+        cursor: pointer;
+        &:focus {
+            padding-top: 2rem;
+            color: white;
+            & + .helper {
+                opacity: 0.5;
+            }
+        }
+    }
+    .mc-field-group {
+        position: relative;
+        &:hover {
+            label {
+                color: black;
+            }
+        }
+
+        label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            @include transition( all 300ms ease-out );
+        }
+
+        .helper {
+            opacity: 0;
+            font-size: rem(12);
+            @include transition( all 300ms ease-out );
+        }
+    }
+
+}
+
+
 // Colophon
 // ----------------------------//
 address {
