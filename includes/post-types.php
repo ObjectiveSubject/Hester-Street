@@ -41,16 +41,16 @@ function register_my_post_types() {
 			'location' => array(
 				'taxonomy' => 'location'
 			),
-			'project_begin_date' => array(
-				'title' => 'Begin Date',
-				'meta_key' => 'project_begin_date',
-				'date_format' => get_option( 'date_format' )
-			),
-			'project_end_date' => array(
-				'title' => 'End Date',
-				'meta_key' => 'project_end_date',
-				'date_format' => get_option( 'date_format' )
-			),
+			// 'project_begin_date' => array(
+			// 	'title' => 'Begin Date',
+			// 	'meta_key' => 'project_begin_date',
+			// 	'date_format' => get_option( 'date_format' )
+			// ),
+			// 'project_end_date' => array(
+			// 	'title' => 'End Date',
+			// 	'meta_key' => 'project_end_date',
+			// 	'date_format' => get_option( 'date_format' )
+			// ),
 		),
 	) );
 
