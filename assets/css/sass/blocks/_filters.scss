@@ -1,3 +1,7 @@
+
+/* FILTER LIST TOGGLES
+ * ---------------------------------------------------------------- */
+
 .filter-toggle-list {
     @extend .u-clearfix;
 }
@@ -35,6 +39,10 @@
     }
 
 }
+
+
+/* FILTER GROUPS
+ * ---------------------------------------------------------------- */
 
 a.filter-group-toggle {
     display: block;
@@ -94,5 +102,28 @@ a.filter-group-toggle {
             color: black !important;
             text-decoration: line-through;
         }
+    }
+}
+
+
+/* RESET FILTERS
+ * ---------------------------------------------------------------- */
+.reset-filters-btn {
+    text-transform: uppercase;
+    height: 100%;
+    display: block;
+    color: $green;
+
+    @include media($lg){
+        padding-left: 1em;
+        border-left: 2px solid;
+    }
+
+    &:hover {
+        color: $red;
+    }
+    @include transform( translateY(100%) );
+    .has-filters & {
+        @include transform( translateY(0) );
     }
 }

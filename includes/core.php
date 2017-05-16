@@ -64,6 +64,7 @@ function scripts( $debug = false ) {
 	wp_register_script( 'single-project', HSC_TEMPLATE_URL . "/assets/js/project{$min}.js", array(), HSC_VERSION, true );
 	wp_register_script( 'project-timeline', HSC_TEMPLATE_URL . "/assets/js/project-timeline{$min}.js", array(), HSC_VERSION, true );
 	wp_register_script( 'archive-project', HSC_TEMPLATE_URL . "/assets/js/archive-project{$min}.js", array(), HSC_VERSION, true );
+	wp_register_script( 'archive-publication', HSC_TEMPLATE_URL . "/assets/js/archive-publication{$min}.js", array(), HSC_VERSION, true );
 
 	/* Main
 	 * -------------------------------------------------------- */
@@ -92,6 +93,10 @@ function scripts( $debug = false ) {
 	if ( is_post_type_archive( 'project' ) ) {
 		wp_enqueue_script( 'archive-project' );
 		wp_localize_script( 'archive-project', 'projectFilterData', \HSC\Helpers\get_lcl_data_archive_project() );
+	}
+	if ( is_post_type_archive( 'publication' ) ) {
+		wp_enqueue_script( 'archive-publication' );
+		wp_localize_script( 'archive-publication', 'publicationFilterData', \HSC\Helpers\get_lcl_data_archive_publication() );
 	}
 }
 

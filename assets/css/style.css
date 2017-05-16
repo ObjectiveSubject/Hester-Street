@@ -1508,6 +1508,8 @@ hr {
   .button.button--small {
     padding: 0.5em 1em; }
 
+/* FILTER LIST TOGGLES
+ * ---------------------------------------------------------------- */
 @media screen and (min-width: 768px) {
   .filter-toggle-list__item {
     width: 50%;
@@ -1529,6 +1531,8 @@ hr {
       border-left: 0;
       padding-left: 0; } }
 
+/* FILTER GROUPS
+ * ---------------------------------------------------------------- */
 a.filter-group-toggle {
   display: block;
   text-transform: uppercase;
@@ -1573,6 +1577,31 @@ a.filter-group-toggle {
     .filter-group__item.is-active:hover {
       color: black !important;
       text-decoration: line-through; }
+
+/* RESET FILTERS
+ * ---------------------------------------------------------------- */
+.reset-filters-btn {
+  text-transform: uppercase;
+  height: 100%;
+  display: block;
+  color: #afbd32;
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  -o-transform: translateY(100%);
+  transform: translateY(100%); }
+  @media screen and (min-width: 1000px) {
+    .reset-filters-btn {
+      padding-left: 1em;
+      border-left: 2px solid; } }
+  .reset-filters-btn:hover {
+    color: #ff685d; }
+  .has-filters .reset-filters-btn {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0); }
 
 /* Basic Form Styles
  * ------------------------------------------- */
@@ -2076,6 +2105,33 @@ caption {
 .table--hover > tbody > tr:hover {
   background-color: gray; }
 
+.hentry .no-js {
+  opacity: 1 !important; }
+
+.post-type-archive .hentry {
+  -webkit-transition: opacity 300ms ease-out;
+  -moz-transition: opacity 300ms ease-out;
+  transition: opacity 300ms ease-out; }
+
+.post-type-archive .is-loading .hentry,
+.post-type-archive-project .hentry:not(.is-active) {
+  opacity: 0.3; }
+
+@media screen and (min-width: 1000px) {
+  .post-type-archive .page-title, .post-type-archive .post-title {
+    max-width: 80%;
+    float: left; } }
+
+.post-type-archive .page-header__right {
+  overflow: hidden;
+  margin-top: 1rem; }
+  @media screen and (min-width: 1000px) {
+    .post-type-archive .page-header__right {
+      height: 3rem;
+      width: 20%;
+      float: right;
+      margin-top: 0; } }
+
 .sidebar-map {
   display: none;
   -webkit-transition: opacity 300ms ease-out;
@@ -2090,56 +2146,6 @@ caption {
       display: block; } }
   .is-loading .sidebar-map {
     opacity: 0.3; }
-
-.project.hentry .no-js {
-  opacity: 1 !important; }
-
-.post-type-archive-project .project.hentry {
-  -webkit-transition: opacity 300ms ease-out;
-  -moz-transition: opacity 300ms ease-out;
-  transition: opacity 300ms ease-out; }
-
-.post-type-archive-project .is-loading .project.hentry,
-.post-type-archive-project .project.hentry:not(.is-active) {
-  opacity: 0.3; }
-
-@media screen and (min-width: 1000px) {
-  .post-type-archive-project .page-title, .post-type-archive-project .post-title {
-    max-width: 80%;
-    float: left; } }
-
-.post-type-archive-project .page-header__right {
-  overflow: hidden;
-  margin-top: 1rem; }
-  @media screen and (min-width: 1000px) {
-    .post-type-archive-project .page-header__right {
-      height: 3rem;
-      width: 20%;
-      float: right;
-      margin-top: 0; } }
-
-.reset-filters-btn {
-  text-transform: uppercase;
-  height: 100%;
-  display: block;
-  color: #afbd32;
-  -webkit-transform: translateY(100%);
-  -moz-transform: translateY(100%);
-  -ms-transform: translateY(100%);
-  -o-transform: translateY(100%);
-  transform: translateY(100%); }
-  @media screen and (min-width: 1000px) {
-    .reset-filters-btn {
-      padding-left: 1em;
-      border-left: 2px solid; } }
-  .reset-filters-btn:hover {
-    color: #ff685d; }
-  .has-filters .reset-filters-btn {
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -o-transform: translateY(0);
-    transform: translateY(0); }
 
 @media screen and (min-width: 768px) {
   .wrap {

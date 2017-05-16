@@ -1,0 +1,35 @@
+.hentry {
+    .no-js {
+        opacity: 1 !important;
+    }
+    .post-type-archive & {
+        @include transition(opacity 300ms ease-out);
+    }
+    .post-type-archive .is-loading &,
+    .post-type-archive-project &:not(.is-active) {
+        opacity: 0.3;
+    }
+    
+}
+
+.page-title  {
+    .post-type-archive & {
+        @include media($lg){
+            max-width: 80%;
+            float: left;
+        }
+    }
+}
+
+.page-header__right {
+    .post-type-archive & {
+        overflow: hidden;
+        margin-top: 1rem;
+        @include media($lg){
+            height: 3rem;
+            width: 20%;
+            float: right;
+            margin-top: 0;
+        }
+    }
+}

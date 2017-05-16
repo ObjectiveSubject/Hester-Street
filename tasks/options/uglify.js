@@ -5,6 +5,7 @@ module.exports = {
 			'assets/js/project.min.js': ['assets/js/project.js'],
 			'assets/js/project-timeline.min.js': ['assets/js/project-timeline.js'],
 			'assets/js/archive-project.min.js': ['assets/js/archive-project.js'],
+			'assets/js/archive-publication.min.js': ['assets/js/archive-publication.js'],
 			'assets/js/page-news.min.js': ['assets/js/page-news.js']
 		},
 		options: {

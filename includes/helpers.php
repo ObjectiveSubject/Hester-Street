@@ -34,3 +34,29 @@ function get_lcl_data_archive_project() {
     );
 
 }
+
+
+/**
+ * Get Publication Archive localized data.
+ *
+ * @return array
+ */
+function get_lcl_data_archive_publication() {
+	
+    $services = get_terms( array( 'taxonomy' => 'service', 'hide_empty' => false, 'parent' => 0 ) );
+    foreach ( $services as $service ) {
+        $service->children = get_terms( array( 'taxonomy' => 'service', 'hide_empty' => false, 'parent' => $service->term_id ) );
+    }
+    $issues = get_terms( array( 'taxonomy' => 'issue', 'hide_empty' => false ) );
+    
+    return array(
+        'filterToggles' => array(
+            array( 'slug' => 'service', 'name' => 'Services' ),
+            array( 'slug' => 'issue', 'name' => 'Issues' ),
+            array( 'slug' => 'date', 'name' => 'Date' )
+        ),
+        'services' => $services,
+        'issues' => $issues,
+    );
+
+}

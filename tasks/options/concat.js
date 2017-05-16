@@ -38,5 +38,11 @@ module.exports = {
 			'assets/js/views/archive-project.js'
 		],
 		dest: 'assets/js/archive-project.js'
+	},
+	archivePublication: {
+		src: [
+			'assets/js/views/archive-publication.js'
+		],
+		dest: 'assets/js/archive-publication.js'
 	}
 };
