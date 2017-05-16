@@ -34,26 +34,35 @@
 
 .menu-ui {
     // @extend .u-px-1;
-    border-left: 2px solid white;
+    border-left: $border-width solid black;
+    padding-left: flex-gutter($grid-columns);
+    .site-menu & {
+        border-color: white;
+    }
     @include media($md) {
         border: 0;
         position: fixed;
         top: 3rem;
         left: auto;
+        padding-left: 0;
         margin-left: calc(-1.75rem + -2.36%);
         z-index: 1000;
+        
+        .admin-bar & {
+            margin-top: 32px;
+        }
     }
 }
 .menu-icon {
-    width: 32px;
-    height: 26px;
+    width: 34px;
+    height: 20px;
     display: block;
     position: relative;
     cursor: pointer;
 }
 .menu-icon__bar {
     width: 100%;
-    height: 2px;
+    height: 4px;
     background-color: black;
     display: block;
     position: absolute;
@@ -68,12 +77,12 @@
         @include transform-origin(50% center);
         .has-open-menu & {
            @include transform( rotate(225deg) );
-           top: 13px;
+           top: 10px;
         }
     }
     &.middle { 
         top: 50%; 
-        margin-top: -1px; 
+        margin-top: -2px; 
         @include transition-delay( 300ms );
         .has-open-menu & {
             opacity: 0;
@@ -85,7 +94,7 @@
         @include transform-origin( 50% bottom );
         .has-open-menu & {
             @include transform( rotate(-225deg) );
-            bottom: 13px;
+            bottom: 10px;
         }
     }
 }

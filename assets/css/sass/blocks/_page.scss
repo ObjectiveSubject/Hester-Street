@@ -1,3 +1,5 @@
 .page-title {
-    @extend .u-pr-6;
+    @include media($lg) {
+        padding-right: 6rem;
+    }
 }

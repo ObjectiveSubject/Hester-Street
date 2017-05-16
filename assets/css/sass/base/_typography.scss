@@ -36,7 +36,7 @@ textarea {
 	@include heading-base;
 	font-size: rem(36);
 	line-height: 1;
-	@include media($md) {
+	@include media($lg) {
         font-size: rem(70);
 	}
  }
@@ -44,7 +44,7 @@ textarea {
 	@include heading-base;
 	font-size: rem(34);
 	line-height: 1;
-	@include media($md) {
+	@include media($lg) {
         font-size: rem(48);
 	}
  }
@@ -52,7 +52,7 @@ textarea {
 	@include heading-base;
 	font-size: rem(32);
 	line-height: 1.125em;
-	@include media($md) {
+	@include media($lg) {
         font-size: rem(36);
 	}
  }

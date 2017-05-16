@@ -20,7 +20,7 @@ label {
     width: 100%;
     color: $color-text-input;
     border: 0;
-    border-bottom: 2px solid transparent;
+    border-bottom: $border-width solid transparent;
     border-radius: 0;
     background-color: transparent;
     box-sizing: border-box;

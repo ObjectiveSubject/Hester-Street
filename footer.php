@@ -126,9 +126,9 @@
 
 <?php wp_footer(); ?>
 
-<?php if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
-    get_template_part( 'partials/dev-elements' );    
-} ?>
+<?php if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) { ?>
+    <span class="media-size"></span>
+<?php } ?>
 
 </body>
 </html>
