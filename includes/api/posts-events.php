@@ -84,7 +84,7 @@ function posts_events_request() {
 		'orderby'    => 'meta_value',
         'meta_key'   => 'post_datetime',
 		'paged'		 => $page,
-		'posts_per_page' => 5,
+		'posts_per_page' => 18,
 		'ignore_sticky_posts' => true,
 	);
 
