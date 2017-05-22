@@ -12,7 +12,7 @@
 
     Vue.component( 'archive-map', {
 
-        template: '<div id="archive-project-map" class="sidebar-map"></div>',
+        template: '<div id="archive-project-map" class="sidebar-map is-sticky"></div>',
         props: ['projects'],
         data: function(){
             return {

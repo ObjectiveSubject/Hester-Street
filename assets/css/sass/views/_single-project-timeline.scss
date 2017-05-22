@@ -85,6 +85,7 @@
 }
 
 .project-timeline__sidebar {
+    position: -webkit-sticky;
     position: sticky;
     top: $leading;
     overflow: auto;

@@ -136,7 +136,7 @@ get_header(); ?>
                                     <div class="project-timeline__contents u-mt-6">
 
                                         <div v-if="visibleTimelineItems.length" class="project-timeline__sidebar-wrap">
-                                            <ul class="project-timeline__sidebar u-mt-0">
+                                            <ul class="project-timeline__sidebar is-sticky u-mt-0">
                                                 <li v-for="item in visibleTimelineItems" class="project-timeline__sidebar-item">
                                                     <a :href="'#' + item.id" class="u-display-block h6 u-mt-0 u-mb-1">
                                                         <span v-html="item.label"></span><br/>

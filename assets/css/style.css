@@ -2552,6 +2552,7 @@ caption {
       -ms-flex-preferred-size: 14.7%; } }
 
 .project-timeline__sidebar {
+  position: -webkit-sticky;
   position: sticky;
   top: 1rem;
   overflow: auto;
