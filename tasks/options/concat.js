@@ -17,31 +17,31 @@ module.exports = {
 	},
 	pageNews: {
 		src: [
-			'assets/js/views/page-news.js'
+			'assets/js/src/views/page-news.js'
 		],
 		dest: 'assets/js/page-news.js'
 	},
 	singleProject: {
 		src: [
-			'assets/js/views/project.js'
+			'assets/js/src/views/project.js'
 		],
 		dest: 'assets/js/project.js'
 	},
 	projectTimeline: {
 		src: [
-			'assets/js/views/project-timeline.js'
+			'assets/js/src/views/project-timeline.js'
 		],
 		dest: 'assets/js/project-timeline.js'
 	},
 	archiveProject: {
 		src: [
-			'assets/js/views/archive-project.js'
+			'assets/js/src/views/archive-project.js'
 		],
 		dest: 'assets/js/archive-project.js'
 	},
 	archivePublication: {
 		src: [
-			'assets/js/views/archive-publication.js'
+			'assets/js/src/views/archive-publication.js'
 		],
 		dest: 'assets/js/archive-publication.js'
 	}
