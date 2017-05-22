@@ -8,16 +8,22 @@
 
     var videos = {
 
+        videoEls: [],
+
         init: function() {
             
-            var videoEls = document.querySelectorAll('.js-hsc-video');
+            videoEls = document.querySelectorAll('.js-hsc-video');
 
-            videoEls.forEach(function(video){
-                video.addEventListener('click', function(){
-                    videos.initPlayer(video);
-                });
+            for ( var i=0; videoEls.length > i; i++ ) {
+                videos.addClickEvent(i);
+            }
+
+        },
+
+        addClickEvent: function(i){
+            videoEls[i].addEventListener('click', function(){
+                videos.initPlayer(videoEls[i]);
             });
-
         },
 
         initPlayer: function(video){
