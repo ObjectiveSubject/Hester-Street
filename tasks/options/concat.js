@@ -9,9 +9,9 @@ module.exports = {
 	},
 	main: {
 		src: [
-			'assets/js/vendor/**/*.js',
-			'assets/js/src/prepend/*.js',
-			'assets/js/src/*.js'
+			'assets/js/src/main/vendor/*.js',
+			'assets/js/src/main/prepend/*.js',
+			'assets/js/src/main/*.js'
 		],
 		dest: 'assets/js/main.js'
 	},
