@@ -70,7 +70,7 @@
     display: block;
     position: absolute;
     left: 0;
-    @include transition( all 300ms ease-out );
+    @include transition( all 200ms ease-out );
     .has-open-menu & {
         background-color: white;
     }
@@ -86,7 +86,6 @@
     &.middle { 
         top: 50%; 
         margin-top: -2px; 
-        @include transition-delay( 300ms );
         .has-open-menu & {
             opacity: 0;
             @include transform( translateX(-16px) );

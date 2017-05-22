@@ -9,8 +9,8 @@
     pointer-events: none;
     background-color: black;
     color: white;
-    @include transition( opacity 600ms ease-out, background 300ms ease-out );
-    @extend .u-transition-300;
+    @include transition( opacity 500ms ease-out, background 200ms ease-out );
+    // @extend .u-transition-300;
     @extend .u-color-white;
 
     a {
