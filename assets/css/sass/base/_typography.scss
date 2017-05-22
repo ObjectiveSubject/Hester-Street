@@ -35,7 +35,7 @@ textarea {
  h1, .h1 {
 	@include heading-base;
 	font-size: rem(36);
-	line-height: 1;
+	line-height: 0.85;
 	@include media($lg) {
         font-size: rem(70);
 	}
