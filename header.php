@@ -78,9 +78,9 @@ if ( is_single() || is_page() ) {
                         
                     </nav>
 
-                    <div class="h1 u-my-3 u-width-8-10">
+                    <!--<div class="h1 u-my-3 u-width-8-10">
                         <?php bloginfo( 'description' ); ?>
-                    </div>
+                    </div>-->
                     
                 </div><!-- .menu -->
             
