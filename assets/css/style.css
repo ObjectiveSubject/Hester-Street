@@ -315,7 +315,7 @@ h2, blockquote, .h2, .primary-menu .menu-item {
   margin-top: 1rem;
   margin-bottom: 0;
   font-size: 2.12rem;
-  line-height: 1; }
+  line-height: 0.9; }
   @media screen and (min-width: 1000px) {
     h2, blockquote, .h2, .primary-menu .menu-item {
       font-size: 3rem; } }
@@ -326,7 +326,7 @@ h3, .h3 {
   margin-top: 1rem;
   margin-bottom: 0;
   font-size: 2rem;
-  line-height: 1.125em; }
+  line-height: 0.9; }
   @media screen and (min-width: 1000px) {
     h3, .h3 {
       font-size: 2.25rem; } }
@@ -337,7 +337,7 @@ h4, .h4 {
   margin-top: 1rem;
   margin-bottom: 0;
   font-size: 1.88rem;
-  line-height: 1.25em; }
+  line-height: 1; }
 
 h5, .h5 {
   font-family: "GT-America-Extended-Black", Arial, sans-serif;
@@ -345,7 +345,7 @@ h5, .h5 {
   margin-top: 1rem;
   margin-bottom: 0;
   font-size: 1.5rem;
-  line-height: 1.25em; }
+  line-height: 1; }
 
 h6, .h6, .filter-group__item, .list-title, .social .list__item,
 .page-anchors .list__item, .secondary-menu .menu-item, .footer-social .menu-item, .page-numbers {
@@ -354,7 +354,7 @@ h6, .h6, .filter-group__item, .list-title, .social .list__item,
   margin-top: 1rem;
   margin-bottom: 0;
   font-size: 1.12rem;
-  line-height: 1.25em; }
+  line-height: 1.1; }
 
 /* Links
   * ------------------------------------------- */
@@ -1178,7 +1178,7 @@ hr {
   padding-left: 2rem;
   padding-right: 2rem; }
 
-.u-py-2, .site-menu-content {
+.u-py-2 {
   padding-top: 2rem;
   padding-bottom: 2rem; }
 
@@ -1224,7 +1224,7 @@ hr {
   padding-left: 3rem;
   padding-right: 3rem; }
 
-.u-py-3, .site-footer {
+.u-py-3, .site-footer, .site-menu-content {
   padding-top: 3rem;
   padding-bottom: 3rem; }
 

@@ -43,7 +43,7 @@ textarea {
  h2, .h2 {
 	@include heading-base;
 	font-size: rem(34);
-	line-height: 1;
+	line-height: 0.9;
 	@include media($lg) {
         font-size: rem(48);
 	}
@@ -51,7 +51,7 @@ textarea {
  h3, .h3 {
 	@include heading-base;
 	font-size: rem(32);
-	line-height: 1.125em;
+	line-height: 0.9;
 	@include media($lg) {
         font-size: rem(36);
 	}
@@ -59,17 +59,17 @@ textarea {
  h4, .h4 {
 	@include heading-base;
 	font-size: rem(30);
-	line-height: 1.25em;
+	line-height: 1;
  }
  h5, .h5 {
 	@include heading-base;
 	font-size: rem(24);
-	line-height: 1.25em;
+	line-height: 1;
  }
  h6, .h6 {
 	 @include heading-base;
 	font-size: rem(18);
-	line-height: 1.25em;
+	line-height: 1.1;
  }
 
  /* Links
