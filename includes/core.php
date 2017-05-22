@@ -55,16 +55,19 @@ function scripts( $debug = false ) {
 	global $post;
 	$min = ( $debug || defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
+	// Vendors
 	wp_register_script( 'mapbox_js', 'https://api.mapbox.com/mapbox-gl-js/v0.36.0/mapbox-gl.js', array(), HSC_VERSION, true );
 	wp_register_script( 'turf_js', 'https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js', array(), HSC_VERSION, true );
 	wp_register_script( 'scrollmagic', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js', array(), HSC_VERSION, true );
+	wp_register_script( 'vue', HSC_TEMPLATE_URL . "/assets/js/vue{$min}.js", array(), HSC_VERSION, true );
 
+	// Theme scripts
 	wp_register_script( 'main', HSC_TEMPLATE_URL . "/assets/js/main{$min}.js", array(), HSC_VERSION, true );
-	wp_register_script( 'page-news', HSC_TEMPLATE_URL . "/assets/js/page-news{$min}.js", array(), HSC_VERSION, true );
-	wp_register_script( 'single-project', HSC_TEMPLATE_URL . "/assets/js/project{$min}.js", array(), HSC_VERSION, true );
-	wp_register_script( 'project-timeline', HSC_TEMPLATE_URL . "/assets/js/project-timeline{$min}.js", array(), HSC_VERSION, true );
-	wp_register_script( 'archive-project', HSC_TEMPLATE_URL . "/assets/js/archive-project{$min}.js", array(), HSC_VERSION, true );
-	wp_register_script( 'archive-publication', HSC_TEMPLATE_URL . "/assets/js/archive-publication{$min}.js", array(), HSC_VERSION, true );
+	wp_register_script( 'page-news', HSC_TEMPLATE_URL . "/assets/js/page-news{$min}.js", array('vue'), HSC_VERSION, true );
+	wp_register_script( 'single-project', HSC_TEMPLATE_URL . "/assets/js/project{$min}.js", array('vue', 'mapbox_js', 'turf_js', 'scrollmagic'), HSC_VERSION, true );
+	wp_register_script( 'project-timeline', HSC_TEMPLATE_URL . "/assets/js/project-timeline{$min}.js", array('vue'), HSC_VERSION, true );
+	wp_register_script( 'archive-project', HSC_TEMPLATE_URL . "/assets/js/archive-project{$min}.js", array('vue', 'mapbox_js', 'turf_js', 'scrollmagic'), HSC_VERSION, true );
+	wp_register_script( 'archive-publication', HSC_TEMPLATE_URL . "/assets/js/archive-publication{$min}.js", array('vue'), HSC_VERSION, true );
 
 	/* Main
 	 * -------------------------------------------------------- */
@@ -79,11 +82,6 @@ function scripts( $debug = false ) {
 	
 	if ( is_home() && ! is_front_page() ) {
 		wp_enqueue_script( 'page-news' );
-	}
-	if ( is_singular('project') || is_post_type_archive( 'project' ) ) {
-		wp_enqueue_script( 'mapbox_js' );
-		wp_enqueue_script( 'turf_js' );
-		wp_enqueue_script( 'scrollmagic' );
 	}
 	if ( is_singular('project') ) {
 		wp_enqueue_script( 'single-project' );
