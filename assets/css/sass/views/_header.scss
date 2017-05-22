@@ -9,9 +9,12 @@
     pointer-events: none;
     background-color: black;
     color: white;
-    @include transition( opacity 500ms ease-out, background 200ms ease-out );
-    // @extend .u-transition-300;
+    @include transition( opacity 200ms ease-out, background 200ms ease-out );
     @extend .u-color-white;
+
+    .admin-bar & {
+        top: 32px;
+    }
 
     a {
         color: white;

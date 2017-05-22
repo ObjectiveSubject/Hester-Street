@@ -49,7 +49,7 @@ if ( is_single() || is_page() ) {
                 </div>
 
                 <div class="menu section__content flex__item">
-                    <nav id="site-navigation" class="main-navigation u-mt-pull" role="navigation">
+                    <nav id="site-navigation" class="main-navigation" role="navigation">
 
                         <?php
                         $menu_primary   = false;

@@ -1803,34 +1803,37 @@ figure {
     .primary-menu {
       margin-top: -0.3rem; } }
 
-.home .menu-item.blue a:hover {
+.menu-item.current-menu-item:after {
+  content: "\2190"; }
+
+.home .site-content .menu-item.blue a:hover {
   color: #3266cc; }
 
-.home .menu-item.green a:hover {
+.home .site-content .menu-item.green a:hover {
   color: #afbd32; }
 
-.home .menu-item.orange a:hover {
+.home .site-content .menu-item.orange a:hover {
   color: #feac00; }
 
-.home .menu-item.purple a:hover {
+.home .site-content .menu-item.purple a:hover {
   color: #795acf; }
 
-.home .menu-item.red a:hover {
+.home .site-content .menu-item.red a:hover {
   color: #ff685d; }
 
-.home .menu-item.teal a:hover {
+.home .site-content .menu-item.teal a:hover {
   color: #21b07a; }
 
-.home .menu-item.black a:hover {
+.home .site-content .menu-item.black a:hover {
   color: black; }
 
-.home .menu-item.dark-gray a:hover {
+.home .site-content .menu-item.dark-gray a:hover {
   color: #202022; }
 
-.home .menu-item.white a:hover {
+.home .site-content .menu-item.white a:hover {
   color: white; }
 
-.home .menu-item.home-link {
+.home .site-content .menu-item.home-link {
   display: none; }
 
 .menu-ui {
@@ -1848,7 +1851,9 @@ figure {
       margin-left: calc(-1.75rem + -2.36%);
       z-index: 1000; }
       .admin-bar .menu-ui {
-        margin-top: 32px; } }
+        margin-top: 32px; }
+      .has-open-menu .site-content .menu-ui {
+        display: none; } }
 
 .menu-icon {
   width: 34px;
@@ -1869,6 +1874,10 @@ figure {
   transition: all 200ms ease-out; }
   .has-open-menu .menu-icon__bar {
     background-color: white; }
+  @media screen and (min-width: 768px) {
+    .is-hidden .menu-icon__bar {
+      opacity: 0;
+      pointer-events: none; } }
   .menu-icon__bar.top {
     top: 0;
     -webkit-transform-origin: 50% center;
@@ -1883,6 +1892,13 @@ figure {
       -o-transform: rotate(225deg);
       transform: rotate(225deg);
       top: 10px; }
+    @media screen and (min-width: 768px) {
+      .is-hidden .menu-icon__bar.top {
+        -webkit-transform: translateX(30px);
+        -moz-transform: translateX(30px);
+        -ms-transform: translateX(30px);
+        -o-transform: translateX(30px);
+        transform: translateX(30px); } }
   .menu-icon__bar.middle {
     top: 50%;
     margin-top: -2px; }
@@ -1893,6 +1909,17 @@ figure {
       -ms-transform: translateX(-16px);
       -o-transform: translateX(-16px);
       transform: translateX(-16px); }
+    .home .site-content .menu-icon__bar.middle {
+      -webkit-transition-delay: 50ms;
+      -moz-transition-delay: 50ms;
+      transition-delay: 50ms; }
+    @media screen and (min-width: 768px) {
+      .is-hidden .menu-icon__bar.middle {
+        -webkit-transform: translateX(30px);
+        -moz-transform: translateX(30px);
+        -ms-transform: translateX(30px);
+        -o-transform: translateX(30px);
+        transform: translateX(30px); } }
   .menu-icon__bar.bottom {
     bottom: 0;
     -webkit-transform-origin: 50% bottom;
@@ -1901,12 +1928,23 @@ figure {
     -o-transform-origin: 50% bottom;
     transform-origin: 50% bottom; }
     .has-open-menu .menu-icon__bar.bottom {
+      bottom: 10px;
       -webkit-transform: rotate(-225deg);
       -moz-transform: rotate(-225deg);
       -ms-transform: rotate(-225deg);
       -o-transform: rotate(-225deg);
-      transform: rotate(-225deg);
-      bottom: 10px; }
+      transform: rotate(-225deg); }
+    .home .site-content .menu-icon__bar.bottom {
+      -webkit-transition-delay: 100ms;
+      -moz-transition-delay: 100ms;
+      transition-delay: 100ms; }
+    @media screen and (min-width: 768px) {
+      .is-hidden .menu-icon__bar.bottom {
+        -webkit-transform: translateX(30px);
+        -moz-transform: translateX(30px);
+        -ms-transform: translateX(30px);
+        -o-transform: translateX(30px);
+        transform: translateX(30px); } }
 
 @media screen and (min-width: 1000px) {
   .page-title, .post-title {
@@ -2366,9 +2404,11 @@ caption {
   pointer-events: none;
   background-color: black;
   color: white;
-  -webkit-transition: opacity 500ms ease-out, background 200ms ease-out;
-  -moz-transition: opacity 500ms ease-out, background 200ms ease-out;
-  transition: opacity 500ms ease-out, background 200ms ease-out; }
+  -webkit-transition: opacity 200ms ease-out, background 200ms ease-out;
+  -moz-transition: opacity 200ms ease-out, background 200ms ease-out;
+  transition: opacity 200ms ease-out, background 200ms ease-out; }
+  .admin-bar .site-menu {
+    top: 32px; }
   .site-menu a {
     color: white; }
     .site-menu a:hover, .site-menu a:focus {

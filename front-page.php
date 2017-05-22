@@ -17,6 +17,8 @@ get_header(); ?>
                     <div class="u-container">
                         <div class="flex has-sidebar">
 
+                            <?php get_template_part( 'partials/menu-ui' ); ?>
+
                             <div class="sidebar-masthead section__sidebar flex__item">
 
                                 <div id="masthead" class="masthead is-sticky">
@@ -27,7 +29,7 @@ get_header(); ?>
 
                             <div class="section__content flex__item">
 
-                                <nav id="site-navigation" class="main-navigation u-mt-pull" role="navigation">
+                                <nav class="main-navigation u-mt-pull" role="navigation">
 
                                     <?php
                                     $menu_primary   = false;

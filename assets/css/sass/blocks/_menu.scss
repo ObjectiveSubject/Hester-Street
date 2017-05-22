@@ -15,6 +15,9 @@
     @extend .u-mt-3;
 }
 .menu-item {
+    &.current-menu-item:after {
+        content: "\2190";
+    }
     .primary-menu & {
         @extend .h2;
         @extend .u-mt-0;
@@ -23,7 +26,7 @@
         @extend .h6;
         @extend .u-mt-0;
     }
-    .home & {
+    .home .site-content & {
         @each $color-name, $hex in $color_map {
             &.#{$color-name} a:hover {
                 color: $hex;
@@ -36,12 +39,12 @@
 }
 
 .menu-ui {
-    // @extend .u-px-1;
     border-left: $border-width solid black;
     padding-left: flex-gutter($grid-columns);
     .site-menu & {
         border-color: white;
     }
+    
     @include media($md) {
         border: 0;
         position: fixed;
@@ -50,9 +53,13 @@
         padding-left: 0;
         margin-left: calc(-1.75rem + -2.36%);
         z-index: 1000;
-        
+
         .admin-bar & {
             margin-top: 32px;
+        }
+
+        .has-open-menu .site-content & {
+            display: none;
         }
     }
 }
@@ -74,6 +81,12 @@
     .has-open-menu & {
         background-color: white;
     }
+    .is-hidden & {
+        @include media($md) {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
 
     &.top { 
         top: 0; 
@@ -81,6 +94,11 @@
         .has-open-menu & {
            @include transform( rotate(225deg) );
            top: 10px;
+        }
+        .is-hidden & {
+            @include media($md) {
+                @include transform( translateX(30px) );
+            }
         }
     }
     &.middle { 
@@ -90,13 +108,29 @@
             opacity: 0;
             @include transform( translateX(-16px) );
         }
+        .home .site-content & {
+            @include transition-delay(50ms);
+        }
+        .is-hidden & {
+            @include media($md) {
+                @include transform( translateX(30px) );
+            }
+        }
     }
     &.bottom { 
         bottom: 0;
         @include transform-origin( 50% bottom );
         .has-open-menu & {
-            @include transform( rotate(-225deg) );
             bottom: 10px;
+            @include transform( rotate(-225deg) );
+        }
+        .home .site-content & {
+            @include transition-delay(100ms);
+        }
+        .is-hidden & {
+            @include media($md) {
+                @include transform( translateX(30px) );
+            }
         }
     }
 }

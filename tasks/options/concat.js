@@ -15,6 +15,12 @@ module.exports = {
 		],
 		dest: 'assets/js/main.js'
 	},
+	frontPage: {
+		src: [
+			'assets/js/src/views/front-page.js'
+		],
+		dest: 'assets/js/front-page.js'
+	},
 	pageNews: {
 		src: [
 			'assets/js/src/views/page-news.js'

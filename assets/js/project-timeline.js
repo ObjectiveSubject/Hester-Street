@@ -113,7 +113,7 @@
             setupScrollMagic: function(){
 
                 // if not lg or xl viewport size, bail out
-                if ( ['lg', 'xl'].indexOf( hsc.getMediaSize() ) == -1 || ! this.visibleTimelineItems.length ) return;
+                if ( ['lg', 'xl'].indexOf( hsc.getMediaSize() ) === -1 || ! this.visibleTimelineItems.length ) return;
 
                 this.appClassArray.push('has-scroll-events');
 
