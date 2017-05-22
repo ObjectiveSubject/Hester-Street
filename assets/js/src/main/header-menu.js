@@ -44,7 +44,7 @@
 
             function onMouseover(e){
                 var text = e.target.innerText.toLowerCase();
-                headerMenu.node.dataset.background = text;
+                headerMenu.node.setAttribute( 'data-background', text );
                 // console.log(e);
                 if ( timeout ) {
                     clearTimeout(timeout);
@@ -52,7 +52,7 @@
             }
             function onMouseout(e){
                 timeout = setTimeout(function(){
-                    headerMenu.node.dataset.background = "";
+                    headerMenu.node.setAttribute( 'data-background', '' );
                 }, 500);
             }
         },
