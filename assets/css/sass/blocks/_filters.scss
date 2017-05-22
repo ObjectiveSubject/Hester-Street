@@ -76,19 +76,30 @@ a.filter-group-toggle {
     
     .has-selection & {
         color: $light-gray;
+        &:hover {
+            color: black;
+        }
     }
 
-    #project-archive-app &,
-    #project-timeline & {
+    .post-type-archive-project &,
+    .single-project & {
         &:hover,
-        .has-selection &:hover {
+        &.is-active {
             color: $green;
         }
     }
-    #news-feed & {
+
+    .blog & {
         &:hover,
-        .has-selection &:hover {
+        &.is-active {
             color: $teal;
+        }
+    }
+
+    .post-type-archive-publication & {
+        &:hover,
+        &.is-active {
+            color: $orange;
         }
     }
 
@@ -97,9 +108,9 @@ a.filter-group-toggle {
         pointer-events: none;
     }
     &.is-active {
-        color: black;
+        color: $blue;
         &:hover {
-            color: black !important;
+            color: black;
             text-decoration: line-through;
         }
     }
@@ -112,7 +123,14 @@ a.filter-group-toggle {
     text-transform: uppercase;
     height: 100%;
     display: block;
-    color: $green;
+    color: $blue;
+
+    .post-type-archive-project &,
+    .single-project & {
+        color: $green;
+    }
+    .blog & { color: $teal; }
+    .post-type-archive-publication & { color: $orange; }
 
     @include media($lg){
         padding-left: 1em;

@@ -41,8 +41,8 @@ $queried_object = get_queried_object();
                                 <li class="filter-toggle-list__item list__item" v-for="toggle in publicationFilterData.filterToggles">
                                     <a href="#" class="filter-group-toggle" v-bind:class="[ currentFilterGroup == toggle.slug ? 'is-active' : '' ]" v-on:click="toggleFilterGroup(toggle)">
                                         {{toggle.name}}<br/>
-                                        <span v-if="toggle.slug != 'date' && currentFilters[toggle.slug].length" class="u-color-green u-font-gta-extended">{{ currentFilters[toggle.slug].length }} selected</span>
-                                        <span v-if="toggle.slug == 'date'" class="u-color-green u-font-gta-extended">{{ currentFilters.date.shortName || currentFilters.date.name }}</span>
+                                        <span v-if="toggle.slug != 'date' && currentFilters[toggle.slug].length" class="u-color-orange u-font-gta-extended">{{ currentFilters[toggle.slug].length }} selected</span>
+                                        <span v-if="toggle.slug == 'date'" class="u-color-orange u-font-gta-extended">{{ currentFilters.date.shortName || currentFilters.date.name }}</span>
                                     </a>
                                 </li>
                             </ul>

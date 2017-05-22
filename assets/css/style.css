@@ -1560,22 +1560,23 @@ a.filter-group-toggle {
   transition: color 300ms ease-out; }
   .has-selection .filter-group__item {
     color: #cccccc; }
-  #project-archive-app .filter-group__item:hover,
-  .has-selection #project-archive-app .filter-group__item:hover,
-  #project-timeline .filter-group__item:hover,
-  .has-selection
-  #project-timeline .filter-group__item:hover {
+    .has-selection .filter-group__item:hover {
+      color: black; }
+  .post-type-archive-project .filter-group__item:hover, .post-type-archive-project .filter-group__item.is-active,
+  .single-project .filter-group__item:hover,
+  .single-project .filter-group__item.is-active {
     color: #afbd32; }
-  #news-feed .filter-group__item:hover,
-  .has-selection #news-feed .filter-group__item:hover {
+  .blog .filter-group__item:hover, .blog .filter-group__item.is-active {
     color: #21b07a; }
+  .post-type-archive-publication .filter-group__item:hover, .post-type-archive-publication .filter-group__item.is-active {
+    color: #feac00; }
   .is-loading .filter-group__item {
     cursor: default;
     pointer-events: none; }
   .filter-group__item.is-active {
-    color: black; }
+    color: #3266cc; }
     .filter-group__item.is-active:hover {
-      color: black !important;
+      color: black;
       text-decoration: line-through; }
 
 /* RESET FILTERS
@@ -1584,12 +1585,19 @@ a.filter-group-toggle {
   text-transform: uppercase;
   height: 100%;
   display: block;
-  color: #afbd32;
+  color: #3266cc;
   -webkit-transform: translateY(100%);
   -moz-transform: translateY(100%);
   -ms-transform: translateY(100%);
   -o-transform: translateY(100%);
   transform: translateY(100%); }
+  .post-type-archive-project .reset-filters-btn,
+  .single-project .reset-filters-btn {
+    color: #afbd32; }
+  .blog .reset-filters-btn {
+    color: #21b07a; }
+  .post-type-archive-publication .reset-filters-btn {
+    color: #feac00; }
   @media screen and (min-width: 1000px) {
     .reset-filters-btn {
       padding-left: 1em;
