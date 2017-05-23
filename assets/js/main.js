@@ -1375,10 +1375,9 @@ if (window.jQuery) {
         },
 
         initPlayer: function(video){
-            if ( ! video.dataset ) return;
             
-            var url = video.dataset.url,
-                callback = video.dataset.callback,
+            var url = video.getAttribute('data-url'),
+                callback = video.getAttribute('data-callback'),
                 source,
                 id,
                 html;
