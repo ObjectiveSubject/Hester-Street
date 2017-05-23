@@ -1841,7 +1841,7 @@ figure {
 
 .menu-ui {
   border-left: 1px solid black;
-  padding-left: 2.36%; }
+  padding-left: 18px; }
   .site-menu .menu-ui {
     border-color: white; }
   @media screen and (min-width: 768px) {
@@ -1851,7 +1851,7 @@ figure {
       top: 3rem;
       left: auto;
       padding-left: 0;
-      margin-left: calc(-1.75rem + -2.36%);
+      margin-left: -52px;
       z-index: 1000; }
       .admin-bar .menu-ui {
         margin-top: 32px; }
@@ -2260,8 +2260,8 @@ caption {
   border: 0; }
 
 .flex__item:not(.is-flush) {
-  padding-left: 2.36%;
-  padding-left: 2.36%; }
+  padding-left: 18px;
+  padding-left: 18px; }
 
 .flex-order-0 {
   -webkit-box-ordinal-group: 0;

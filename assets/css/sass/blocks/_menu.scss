@@ -40,7 +40,7 @@
 
 .menu-ui {
     border-left: $border-width solid black;
-    padding-left: flex-gutter($grid-columns);
+    padding-left: $flex-item-padding;
     .site-menu & {
         border-color: white;
     }
@@ -51,7 +51,7 @@
         top: 3rem;
         left: auto;
         padding-left: 0;
-        margin-left: calc(-1.75rem + -2.36%);
+        margin-left: ($flex-item-padding + 34px) * -1;
         z-index: 1000;
 
         .admin-bar & {

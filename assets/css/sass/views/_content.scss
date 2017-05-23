@@ -21,8 +21,8 @@
         border: 0;
     }
     &:not(.is-flush) {
-        padding-left: flex-gutter($grid-columns);
-        padding-left: flex-gutter($grid-columns);
+        padding-left: $flex-item-padding;
+        padding-left: $flex-item-padding;
     }
 }
 @for $i from 0 through 6 {
