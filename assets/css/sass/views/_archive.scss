@@ -1,5 +1,6 @@
 .hentry {
-    .no-js {
+    .no-js &,
+    .no-mapbox-support & {
         opacity: 1 !important;
     }
     .post-type-archive & {

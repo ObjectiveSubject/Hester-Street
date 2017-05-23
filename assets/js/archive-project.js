@@ -221,6 +221,16 @@
         }
     } );
 
+    Vue.component( 'project-inner', {
+        template: '#project-inner',
+        props: ['projectObject'],
+        data: function(){
+            return {
+                project: this.projectObject
+            };
+        }
+    } );
+
     var app = new Vue({
         el: '#project-archive-app',
         data: {
@@ -235,7 +245,8 @@
             },
             currentSort: "date_start_desc",
             projectFilterData: projectFilterData,
-            projects: []
+            projects: [],
+            mapboxSupported: mapboxgl.supported()
         },
         mounted: function(e){
             this.getProjects(this.projectApiUrl);

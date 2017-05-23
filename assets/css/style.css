@@ -2162,7 +2162,8 @@ caption {
 .table--hover > tbody > tr:hover {
   background-color: gray; }
 
-.hentry .no-js {
+.no-js .hentry,
+.no-mapbox-support .hentry {
   opacity: 1 !important; }
 
 .post-type-archive .hentry {
