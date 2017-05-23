@@ -2619,6 +2619,9 @@ caption {
     opacity: 1;
     color: black; }
 
+#single-project-map.mapboxgl-supported {
+  height: 21.88rem; }
+
 @media screen and (min-width: 1000px) {
   .project-content {
     float: left;

@@ -163,15 +163,15 @@ $queried_object = get_queried_object();
                             <!-- VueJS node -->
                             <article :id="project.slug" class="u-mb-4" v-for="project in projects" :key="project.title" :class="project.post_class" >
                                 <a :href="project.url" title="Read more" class="u-display-block u-color-hover-green">
-                                    <project-inner v-if="mapboxSupported" :project-object="project"></project-inner>
-                                    <div v-else class="u-clearfix">
-                                        <div class="u-span-8">
-                                            <project-inner :project-object="project"></project-inner>
-                                        </div>
-                                        <div class="u-span-4">
-                                            <img src="https://api.mapbox.com/styles/v1/objectivesubject/cj26w6viz00052ss0boe1o2uf/static/-73.973379,40.747002,12.96,0.00,0.00/400x400?access_token=pk.eyJ1Ijoib2JqZWN0aXZlc3ViamVjdCIsImEiOiJPY25wYWRjIn0.AFZPHessR_DGefRkzPilDA" width="400" height="400" :alt="project.title" />
-                                        </div>
+                                    <div class="hentry-thumbnail" v-if="project.attachment.src">
+                                        <img :src="project.attachment.src" :width="project.attachment.width" :height="project.attachment.height" alt="project image"/>
                                     </div>
+                                    <div class="h6 u-mt-nudge">
+                                        {{ project.date_string }}
+                                    </div>
+                                    <h2 class="hentry-title u-mt-nudge">
+                                        {{ project.title }}
+                                    </h2>
                                 </a>
                             </article>
 
@@ -185,20 +185,6 @@ $queried_object = get_queried_object();
         </div>
 
 	</div>
-
-    <script id="project-inner" type="vue-template">
-        <div class="project-inner">
-            <div class="hentry-thumbnail" v-if="project.attachment.src">
-                <img :src="project.attachment.src" :width="project.attachment.width" :height="project.attachment.height" alt="project image"/>
-            </div>
-            <div class="h6 u-mt-nudge">
-                {{ project.date_string }}
-            </div>
-            <h2 class="hentry-title u-mt-nudge">
-                {{ project.title }}
-            </h2>
-        </div>
-    </script>
 
     <script id="sort-select" type="vue-template">
         <div class="sort-select" v-on:click="toggleSelect" >

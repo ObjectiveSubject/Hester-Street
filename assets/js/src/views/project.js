@@ -6,15 +6,21 @@
 
     mapboxgl.accessToken = 'pk.eyJ1Ijoib2JqZWN0aXZlc3ViamVjdCIsImEiOiJPY25wYWRjIn0.AFZPHessR_DGefRkzPilDA';
 
-    var mapContainer = document.getElementById('map');
-    if ( ! mapContainer ) return;
+    var mapContainer = document.getElementById('single-project-map');
+    if ( ! mapContainer ) 
+        return;
 
     var geoJsonString = mapContainer.dataset.geojson;
-    if ( ! geoJsonString ) return;
+    if ( ! geoJsonString ) 
+        return;
     var geoJson = JSON.parse( geoJsonString );
 
+    if ( ! mapboxgl.supported() )
+        return;
+
+    mapContainer.className += 'mapboxgl-supported';
     var map = new mapboxgl.Map({
-        container: 'map',
+        container: 'single-project-map',
         style: 'mapbox://styles/objectivesubject/cj26w6viz00052ss0boe1o2uf',
         center: [-73.98270130711586, 40.72701126185467], // manhattan
         pitch: 0,

@@ -4,11 +4,16 @@
 
 ( function( window ) {
 	'use strict';
-	var document = window.document;
+	var document = window.document,
+        mapboxSupported = true;
 
     if ( ! window.projectFilterData ) return;
 
     mapboxgl.accessToken = 'pk.eyJ1Ijoib2JqZWN0aXZlc3ViamVjdCIsImEiOiJPY25wYWRjIn0.AFZPHessR_DGefRkzPilDA';
+
+    if ( ! mapboxgl.supported() ) {
+        mapboxSupported = false;
+    }
 
     Vue.component( 'archive-map', {
 
@@ -222,16 +227,6 @@
         }
     } );
 
-    Vue.component( 'project-inner', {
-        template: '#project-inner',
-        props: ['projectObject'],
-        data: function(){
-            return {
-                project: this.projectObject
-            };
-        }
-    } );
-
     var app = new Vue({
         el: '#project-archive-app',
         data: {
@@ -247,7 +242,7 @@
             currentSort: "date_start_desc",
             projectFilterData: projectFilterData,
             projects: [],
-            mapboxSupported: mapboxgl.supported()
+            mapboxSupported: mapboxSupported
         },
         mounted: function(e){
             this.getProjects(this.projectApiUrl);
