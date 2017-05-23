@@ -275,6 +275,9 @@ body {
     .media-size:before {
       content: "xl"; } }
 
+#page {
+  background: white; }
+
 /* Typography
  * ------------------------------------------ */
 html {
