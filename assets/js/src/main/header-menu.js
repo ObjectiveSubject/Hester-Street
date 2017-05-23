@@ -45,7 +45,6 @@
             function onMouseover(e){
                 var text = e.target.innerText.toLowerCase();
                 headerMenu.node.setAttribute( 'data-background', text );
-                // console.log(e);
                 if ( timeout ) {
                     clearTimeout(timeout);
                 }

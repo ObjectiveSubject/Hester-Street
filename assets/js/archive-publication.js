@@ -134,8 +134,6 @@
                 var _this = this;
 
                 this.loading = true;
-
-                console.log(HSC.api + 'publications/' + url);
                     
                 fetch( HSC.api + 'publications/' + url )
                     .then(function(response){

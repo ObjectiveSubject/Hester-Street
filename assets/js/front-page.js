@@ -7,8 +7,6 @@
         element = document.querySelector('.site-content .main-navigation'),
         ms = hsc.getMediaSize();
 
-        console.log(element, element.offsetHeight);
-
     // if element doesn't exist, bail
     if ( !element )
         return;
