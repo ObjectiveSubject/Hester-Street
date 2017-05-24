@@ -39,6 +39,20 @@ get_header(); ?>
                     </div>
                 </section>
 
+                <section class="section">
+                    <div class="u-container">
+                        <div class="flex">
+
+                            <div class="section__content flex__item u-width-8">
+                                
+                                <?php get_template_part( 'partials/donate-form' ); ?>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
                 <?php get_template_part( 'partials/sections' ); ?>
                 
 			</article>

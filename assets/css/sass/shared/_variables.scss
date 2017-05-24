@@ -48,6 +48,7 @@ $color_map: (
 	// Neutrals
 	'black'				: black,
     'dark-gray'         : $dark-gray,
+	'gray'				: $medium-gray,
 	'white'				: white,
 );
 
@@ -68,12 +69,12 @@ $color-background-pre: #eeeeee;
 $color-background-selection: $blue;
 $color-selection-text: white;
 
-$color-btn: $color-text-main;
-$color-btn-hover: $color-text-main;
-$color-btn-bg: lightgray;
-$color-btn-bg-hover: gray;
-$color-btn-disabled: gray;
-$color-btn-disabled-bg: lightgray;
+$color-btn: white;
+$color-btn-hover: white;
+$color-btn-bg: black;
+$color-btn-bg-hover: $blue;
+$color-btn-disabled: white;
+$color-btn-disabled-bg: tint(black, 80%);
 
 $color-border-input: black;
 $color-border-input-hover: $dark-gray;

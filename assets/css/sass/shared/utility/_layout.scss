@@ -58,3 +58,7 @@
     $val: $leading * $i;
     .u-mt-#{$i} { margin-top: $val; }
 }
+
+.u-float-left {
+    float: left;
+}

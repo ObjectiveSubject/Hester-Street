@@ -1,9 +1,9 @@
 // Display
 // ------------------------------------------ /
-.u-display-block { display: block; }
-.u-display-none { display: none; }
-.u-display-inline { display: inline; }
-.u-display-inline-block { display: inline-block; }
+.u-display-block { display: block !important; }
+.u-display-none { display: none !important; }
+.u-display-inline { display: inline !important; }
+.u-display-inline-block { display: inline-block !important; }
 .u-display-flex {
 	@include display(flex);
 }

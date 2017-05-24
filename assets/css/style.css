@@ -350,7 +350,7 @@ h5, .h5 {
   font-size: 1.5rem;
   line-height: 1; }
 
-h6, .h6, .filter-group__item, .list-title, .social .list__item,
+h6, .h6, .filter-group__item, .label, .list-title, .social .list__item,
 .page-anchors .list__item, .secondary-menu .menu-item, .footer-social .menu-item, .page-numbers {
   font-family: "GT-America-Extended-Black", Arial, sans-serif;
   text-transform: uppercase;
@@ -579,6 +579,16 @@ hr {
   background-color: #202022 !important;
   color: white !important; }
 
+.u-color-gray {
+  color: #999999 !important; }
+
+.u-color-hover-gray:hover, .u-color-hover-gray:focus {
+  color: #999999 !important; }
+
+.u-bg-gray {
+  background-color: #999999 !important;
+  color: white !important; }
+
 .u-color-white, .site-menu {
   color: white !important; }
 
@@ -590,16 +600,16 @@ hr {
   color: white !important; }
 
 .u-display-block {
-  display: block; }
+  display: block !important; }
 
 .u-display-none {
-  display: none; }
+  display: none !important; }
 
 .u-display-inline {
-  display: inline; }
+  display: inline !important; }
 
 .u-display-inline-block {
-  display: inline-block; }
+  display: inline-block !important; }
 
 .u-display-flex {
   display: -webkit-box;
@@ -1012,6 +1022,24 @@ hr {
 [class*="u-span-"]:last-child {
   margin-right: 0; }
 
+.u-width-25 {
+  width: 25%; }
+
+.u-width-33 {
+  width: 33.333%; }
+
+.u-width-50 {
+  width: 50%; }
+
+.u-width-66 {
+  width: 66.666%; }
+
+.u-width-75 {
+  width: 75%; }
+
+.u-width-100 {
+  width: 100%; }
+
 .u-clearfix:after, .filter-toggle-list:after, .form-group:after {
   content: "";
   display: table; }
@@ -1050,7 +1078,7 @@ hr {
 .u-ma-0 {
   margin: 0rem; }
 
-.u-mt-0, .primary-menu .menu-item, .secondary-menu .menu-item, .footer-social .menu-item {
+.u-mt-0, .label, .primary-menu .menu-item, .secondary-menu .menu-item, .footer-social .menu-item {
   margin-top: 0rem; }
 
 .u-mr-0 {
@@ -1119,7 +1147,7 @@ hr {
 .u-pa-1 {
   padding: 1rem; }
 
-.u-pt-1, .form-field {
+.u-pt-1 {
   padding-top: 1rem; }
 
 .u-pr-1 {
@@ -1135,7 +1163,7 @@ hr {
   padding-left: 1rem;
   padding-right: 1rem; }
 
-.u-py-1, .form-field:focus {
+.u-py-1 {
   padding-top: 1rem;
   padding-bottom: 1rem; }
 
@@ -1387,6 +1415,9 @@ hr {
 .u-mt-12 {
   margin-top: 12rem; }
 
+.u-float-left {
+  float: left; }
+
 .u-font-gta-extended {
   font-family: "GT-America-Extended-Black", Arial, sans-serif;
   text-transform: uppercase; }
@@ -1469,45 +1500,42 @@ hr {
 .button {
   border: 0;
   border-radius: 0;
-  background-color: lightgray;
+  background-color: black;
   box-shadow: none;
-  color: black;
+  color: white;
   display: inline-block;
   font-family: "GT-America-Extended-Black", Arial, sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  line-height: 1em;
-  padding: 0.6em 1em 0.4em;
+  font-size: 1.5rem;
+  line-height: 1;
+  font-weight: normal;
+  padding: 0.5em 0.8em;
   text-shadow: none;
   text-align: center;
-  font-size: 0.75rem;
   text-transform: uppercase;
-  padding: 1.25em 2.5em;
   cursor: pointer;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
   -o-appearance: none;
   appearance: none;
-  -webkit-transition: all 300ms ease;
-  -moz-transition: all 300ms ease;
-  transition: all 300ms ease; }
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  transition: all 200ms ease; }
   .button:hover, .button:focus {
-    background-color: gray;
-    color: black; }
+    background-color: #3266cc;
+    color: white; }
   .button:focus {
     outline: none; }
   .button[disabled] {
-    background-color: lightgray;
-    color: gray;
+    background-color: #cccccc;
+    color: white;
     cursor: default; }
   .button.button--inverse {
-    color: lightgray;
-    background-color: black; }
+    color: black;
+    background-color: white; }
     .button.button--inverse:hover, .button.button--inverse:focus {
-      color: lightgray;
-      background-color: #262626; }
+      color: black;
+      background-color: white; }
   .button.button--small {
     padding: 0.5em 1em; }
 
@@ -1616,22 +1644,57 @@ a.filter-group-toggle {
 
 /* Basic Form Styles
  * ------------------------------------------- */
-label {
-  display: block;
-  width: 100%;
-  padding-bottom: 0.25em;
-  margin-top: 0; }
+.label {
+  display: block; }
+  [type="radio"] + .label {
+    position: relative;
+    padding-top: 55px;
+    cursor: pointer;
+    text-align: center;
+    width: auto;
+    min-width: 50px;
+    display: inline-block; }
+    [type="radio"] + .label:before {
+      content: "";
+      display: block;
+      width: 50px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      height: 50px;
+      border: 1px solid;
+      border-radius: 50%;
+      cursor: pointer;
+      transform: translateX(-50%); }
+    [type="radio"] + .label:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      background: #cccccc;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      transform: translateX(-50%) scale(0);
+      transition: all 100ms ease-out; }
+  [type="radio"]:not(:checked) + .label:hover:after {
+    transform: translateX(-50%) scale(0.5); }
+  [type="radio"]:checked + .label:after {
+    transform: translateX(-50%) scale(1);
+    background: #000; }
+
+[type="radio"] {
+  display: none; }
 
 .form-group {
   display: block;
   clear: both; }
 
 .form-field {
-  display: block;
-  width: 100%;
   color: black;
   border: 0;
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid black;
   border-radius: 0;
   background-color: transparent;
   box-sizing: border-box;
@@ -1639,7 +1702,12 @@ label {
   outline: 0;
   -webkit-transition: all 300ms ease;
   -moz-transition: all 300ms ease;
-  transition: all 300ms ease; }
+  transition: all 300ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none; }
   .form-field:hover {
     color: #202022; }
   .form-field:focus {
@@ -1654,6 +1722,11 @@ label {
     color: lightgray; }
   .form-field:-ms-input-placeholder {
     color: lightgray; }
+
+.u-show-on-checked {
+  display: none; }
+  input:checked ~ .u-show-on-checked {
+    display: inline-block; }
 
 .social .list__item,
 .page-anchors .list__item {
@@ -1832,6 +1905,9 @@ figure {
 
 .home .site-content .menu-item.dark-gray a:hover {
   color: #202022; }
+
+.home .site-content .menu-item.gray a:hover {
+  color: #999999; }
 
 .home .site-content .menu-item.white a:hover {
   color: white; }
