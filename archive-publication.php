@@ -129,7 +129,7 @@ $queried_object = get_queried_object();
                                     <h2 class="hentry-title h5 u-mt-nudge">
                                         {{ publication.title }}
                                     </h2>
-                                    <p>Read &nbsp;&nbsp;&nbsp; Download &darr;</p>
+                                    <p>Download &darr;</p>
                                 </a>
                             </article>
 
