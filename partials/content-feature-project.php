@@ -36,7 +36,7 @@ if ( have_rows( 'timeline_items' ) ) {
     $begin_date = get_field( 'project_begin_date' );
     $latest_update_unix = (empty( $end_date )) ? $begin_date : $end_date;
 }
-$latest_update_date = date( 'M Y', $latest_update_unix );
+$latest_update_date = date( 'Y', $latest_update_unix );
 ?>
 <article <?php post_class(); ?>>
 

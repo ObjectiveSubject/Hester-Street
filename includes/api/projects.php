@@ -161,17 +161,12 @@ function projects_request() {
 			}
 
 			$begin = get_post_meta( $post->ID, 'project_begin_date', true );
+			$begin_string = date( 'Y', $begin );
 			$end = get_post_meta( $post->ID, 'project_end_date', true );
 			if ( ! $end ) {
-				$begin_string = date( 'M. Y', $begin );
 				$end_string = 'Present';
 			} else {
-				if ( date( 'Y', $begin ) == date( 'Y', $end ) ) {
-					$begin_string = date( 'M', $begin );
-				} else {
-					$begin_string = date( 'M. Y', $begin );
-				}
-				$end_string = date( 'M. Y', $end );
+				$end_string = date( 'Y', $end );
 			}
 
 			array_push( $data, array(

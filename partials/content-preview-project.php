@@ -3,17 +3,12 @@
 // Project Preview
 
 $begin = get_field( 'project_begin_date' );
+$begin_string = date( 'Y', $begin );
 $end = get_field( 'project_end_date' );
 if ( ! $end ) {
-    $begin_string = date( 'M. Y', $begin );
     $end_string = 'Present';
 } else {
-    if ( date( 'Y', $begin ) == date( 'Y', $end ) ) {
-        $begin_string = date( 'M', $begin );
-    } else {
-        $begin_string = date( 'M. Y', $begin );
-    }
-    $end_string = date( 'M. Y', $end );
+    $end_string = date( 'Y', $end );
 }
 $margin = ''; ?>
 
