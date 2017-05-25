@@ -32,6 +32,8 @@ figure {
 	position: relative;
 	height: 0;
 	overflow: hidden;
+	background-position: center;
+	background-size: cover;
 
 	&[class*="1x2"] {
 		padding-top: 50%;

@@ -129,8 +129,8 @@ $member_website = get_field( 'member_website' ); ?>
                                         <?php while( $projects->have_posts() ) : $projects->the_post(); ?>
                                             <li class="u-span-6 u-mt-1">
                                                 <a href="<?php the_permalink(); ?>" class="u-display-block">
-                                                    <?php if ( get_the_post_thumbnail() ) : ?>
-                                                        <div class="post-image" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);"></div>
+                                                    <?php if ( has_post_thumbnail() ) : ?>
+                                                        <div class="post-image responsive-media-16x9" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);"></div>
                                                     <?php endif; ?>
                                                     <h3 class="h5"><?php the_title(); ?></h3>
                                                 </a>

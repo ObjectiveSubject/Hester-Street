@@ -1788,7 +1788,9 @@ figure {
 [class*="responsive-media-"], .hsc-video {
   position: relative;
   height: 0;
-  overflow: hidden; }
+  overflow: hidden;
+  background-position: center;
+  background-size: cover; }
   [class*="responsive-media-"][class*="1x2"], [class*="1x2"].hsc-video {
     padding-top: 50%; }
   [class*="responsive-media-"][class*="16x9"], .hsc-video {
@@ -2048,12 +2050,6 @@ figure {
     @media screen and (min-width: 768px) {
       .page-numbers.prev {
         margin: 0 1rem 0 0; } }
-
-.post-image {
-  width: 100%;
-  height: 0;
-  padding-bottom: 56.25%;
-  background-size: cover; }
 
 .is-loading .hentry.preview a {
   opacity: 0.3; }

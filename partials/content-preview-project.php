@@ -19,9 +19,9 @@ $margin = ''; ?>
 
 <a href="<?php the_permalink(); ?>" title="Read more" class="u-display-block">
     <?php if ( has_post_thumbnail() ) : ?>
-        <div class="hentry-thumbnail">
-            <?php the_post_thumbnail( 'large' ); ?>
-        </div>
+        <?php if ( has_post_thumbnail() ) : ?>
+            <div class="post-image responsive-media-16x9" style="background-image: url(<?php echo get_the_post_thumbnail_url( $post, 'large' ); ?>);" role="presentation"></div>
+        <?php endif; ?>
     <?php $margin = 'u-mt-nudge';
     endif;?>
 

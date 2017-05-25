@@ -46,13 +46,15 @@ get_header(); ?>
                                         <?php the_title(); ?>
                                     </h1>
 
-                                    <h2 class="h5 u-mt-0">
+                                    <h2 class="h5 u-mt-nudge">
                                         <?php echo date( get_option('date_format') . ', g:ia', get_field( 'event_datetime' ) ); ?><br/>
                                         PS. 101 Auditorium
                                     </h2>
 
-                                     <?php if ( get_the_post_thumbnail() ) : ?>
-                                        <div class="post-image u-mt-3" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);"></div>
+                                     <?php if ( has_post_thumbnail() ) : ?>
+                                        <div class="post-image u-mt-3">
+                                            <?php the_post_thumbnail(); ?>
+                                        </div>
                                     <?php endif; ?>
 
                                     <div class="post-content u-mt-2">
@@ -93,8 +95,8 @@ get_header(); ?>
                                         <?php while( $projects->have_posts() ) : $projects->the_post(); ?>
                                             <li class="u-span-6">
                                                 <a href="<?php the_permalink(); ?>" class="u-display-block u-color-hover-green">
-                                                    <?php if ( get_the_post_thumbnail() ) : ?>
-                                                        <div class="post-image" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);"></div>
+                                                    <?php if ( has_post_thumbnail() ) : ?>
+                                                        <div class="post-image responsive-media-16x9" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);"></div>
                                                     <?php endif; ?>
                                                     <h3 class="h5 u-max-width-6"><?php the_title(); ?></h3>
                                                 </a>
