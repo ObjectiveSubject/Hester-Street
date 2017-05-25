@@ -3,6 +3,10 @@
  * Single Team Member template
  */
 
+if ( has_term( 'board', 'team_role' ) ) {
+    wp_redirect( site_url('team/') );
+}
+
 global $post;
 get_header();
 

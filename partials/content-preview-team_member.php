@@ -2,9 +2,10 @@
 
 // Team Member Preview
 
-$margin = ''; ?>
+$margin = '';
+$is_board = has_term( 'board', 'team_role' );
 
-<a href="<?php the_permalink(); ?>" class="u-display-block u-color-hover-purple" title="Read more">
+ob_start(); ?>
 
     <?php if ( has_post_thumbnail() ) : ?>
         <div class="hentry-thumbnail">
@@ -21,4 +22,16 @@ $margin = ''; ?>
         <?php the_field( 'member_title' ); ?>
     </div>
 
-</a>
+<?php $content = ob_get_contents(); ob_get_clean();
+
+if ( $is_board ) : ?>
+
+    <?php echo $content; ?>
+
+<?php else : ?>
+
+    <a href="<?php the_permalink(); ?>" class="u-display-block u-color-hover-purple" title="Read more">
+        <?php echo $content; ?>
+    </a>
+
+<?php endif; ?>
