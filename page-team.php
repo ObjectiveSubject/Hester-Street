@@ -3,7 +3,7 @@
  * Template Name: Team
  */
 get_header();
-$roles = get_terms( array( 'taxonomy' => 'team_role', 'hide_empty' => false ) );
+$roles = get_terms( array( 'taxonomy' => 'team_role', 'hide_empty' => true ) );
 ?>
 
 	<div class="site-content">
@@ -34,7 +34,9 @@ $roles = get_terms( array( 'taxonomy' => 'team_role', 'hide_empty' => false ) );
                                 </h1>
 
                                 <ul class="list page-anchors">
-                                    <?php foreach ( $roles as $role ) : ?>
+                                    <?php foreach ( $roles as $role ) :
+                                    // hide alumni and collaborators from this list
+                                    if ( 'alumni' == $role->slug || 'collaborators' == $role->slug ) { continue; } ?>
                                     <li class="list__item">
                                         <a href="#<?php echo $role->slug; ?>" class="u-color-hover-purple"><?php echo $role->name; ?></a>
                                     </li>
@@ -52,6 +54,11 @@ $roles = get_terms( array( 'taxonomy' => 'team_role', 'hide_empty' => false ) );
                             <div class="section__content u-width-12 flex__item">
 
                                 <?php foreach ( $roles as $role ) :
+
+                                    // hide alumni and collaborators from this list
+                                    if ( 'alumni' == $role->slug || 'collaborators' == $role->slug )
+                                        continue;
+
                                     $team_members = new WP_Query(array(
                                         'post_type' => 'team_member',
                                         'posts_per_page' => 100,
