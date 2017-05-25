@@ -41,7 +41,9 @@ $cat = ( ! empty( $cats ) ) ? $cats[0]->name : 'News'; ?>
                                     <h2 class="h3 u-mt-0"><?php the_date(); ?></h2>
 
                                      <?php if ( get_the_post_thumbnail() ) : ?>
-                                        <div class="post-image u-mt-3" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);"></div>
+                                        <div class="post-image u-mt-3">
+                                            <?php the_post_thumbnail(); ?>
+                                        </div>
                                     <?php endif; ?>
 
                                     <div class="post-content u-mt-2">
