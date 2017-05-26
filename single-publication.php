@@ -25,20 +25,24 @@ get_header(); ?>
                             </div>
 
                             <div class="section__content flex__item">
+
+                                <div class="page-header">
                                 
-                                <div class="h2 u-mt-pull"><?php _e( 'Publications', 'hsc' ); ?></div>
+                                    <div class="h2 u-mt-pull"><?php _e( 'Publications', 'hsc' ); ?></div>
 
-                                <h1 class="post-title u-mt-3">
-                                    <?php the_title(); ?>
-                                </h1>
+                                    <h1 class="post-title u-mt-3">
+                                        <?php the_title(); ?>
+                                    </h1>
 
-                                <h2 class="h3 u-mt-nudge"><?php the_date(); ?></h2>
+                                    <h2 class="h3 u-mt-nudge"><?php the_date(); ?></h2>
 
-                                    <?php if ( has_post_thumbnail() ) : ?>
-                                    <div class="post-image u-mt-3">
-                                        <?php the_post_thumbnail(); ?>
-                                    </div>
-                                <?php endif; ?>
+                                        <?php if ( has_post_thumbnail() ) : ?>
+                                        <div class="post-image u-mt-3">
+                                            <?php the_post_thumbnail(); ?>
+                                        </div>
+                                    <?php endif; ?>
+
+                                </div>
 
                                 <div class="post-content u-mt-2">
                                     <?php the_content(); ?>

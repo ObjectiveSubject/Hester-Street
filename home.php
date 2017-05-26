@@ -26,7 +26,9 @@ $page_for_posts = get_option( 'page_for_posts' )
 
                         <div class="section__content flex__item">
 
-                            <h1 class="page-title h2 u-mt-pull"><? echo get_the_title( $page_for_posts ); ?></h1> 
+                            <div class="page-header">
+                                <h1 class="page-title h2 u-mt-pull"><? echo get_the_title( $page_for_posts ); ?></h1> 
+                            </div>
                             
                         </div> <!-- .section__content -->
 

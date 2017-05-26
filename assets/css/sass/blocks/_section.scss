@@ -6,8 +6,10 @@
     }
     .has-sidebar & {
         @extend .u-pb-6;
+        @include flex( 1 1 100% );
         @include media($md) {
             @include flex-basis( flex-grid(9, $grid-columns) );
+            margin-right: $flex-item-padding;
         }
         @include media($lg) {
             @include flex-basis( flex-grid(10, $grid-columns) );

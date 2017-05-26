@@ -82,5 +82,6 @@ body {
 }
 
 #page {
+	@extend .u-clearfix;
 	background: white;
 }

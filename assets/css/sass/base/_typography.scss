@@ -34,7 +34,7 @@ textarea {
 
  h1, .h1 {
 	@include heading-base;
-	font-size: rem(36);
+	font-size: rem(32);
 	line-height: 0.85;
 	@include media($lg) {
         font-size: rem(70);
@@ -42,7 +42,7 @@ textarea {
  }
  h2, .h2 {
 	@include heading-base;
-	font-size: rem(34);
+	font-size: rem(28);
 	line-height: 0.9;
 	@include media($lg) {
         font-size: rem(48);
@@ -50,7 +50,7 @@ textarea {
  }
  h3, .h3 {
 	@include heading-base;
-	font-size: rem(32);
+	font-size: rem(24);
 	line-height: 0.9;
 	@include media($lg) {
         font-size: rem(36);
@@ -58,18 +58,27 @@ textarea {
  }
  h4, .h4 {
 	@include heading-base;
-	font-size: rem(30);
+	font-size: rem(19);
 	line-height: 1;
+	@include media($lg) {
+        font-size: rem(30);
+	}
  }
  h5, .h5 {
 	@include heading-base;
-	font-size: rem(24);
+	font-size: rem(16);
 	line-height: 1;
+	@include media($lg) {
+        font-size: rem(24);
+	}
  }
  h6, .h6 {
 	 @include heading-base;
-	font-size: rem(18);
+	font-size: rem(13);
 	line-height: 1.1;
+	@include media($lg) {
+        font-size: rem(18);
+	}
  }
 
  /* Links

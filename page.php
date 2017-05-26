@@ -26,9 +26,11 @@ get_header(); ?>
                             </div>
 
                             <div class="section__content flex__item">
-                                <div class="page-title">
-                                    <h1 class="h2 u-mt-pull"><?php the_title(); ?></h1>
-                                    <?php get_template_part( 'partials/section-anchors' ); ?>
+                                <div class="page-header">
+                                    <div class="page-title">
+                                        <h1 class="h2 u-mt-pull"><?php the_title(); ?></h1>
+                                        <?php get_template_part( 'partials/section-anchors' ); ?>
+                                    </div>
                                 </div>
                                 <div class="page-content u-mt-6 u-width-8-10">
                                     <?php the_content(); ?>

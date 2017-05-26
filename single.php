@@ -29,9 +29,11 @@ $cat = ( ! empty( $cats ) ) ? $cats[0]->name : 'News'; ?>
                             </div>
 
                             <div class="section__content flex__item">
-                                
-                                <div class="h2 u-mt-pull"><?php echo $cat; ?></div>
 
+                                <div class="page-header">
+                                    <div class="h2 u-mt-pull"><?php echo $cat; ?></div>
+                                </div>
+                                
                                 <h1 class="post-title u-mt-3">
                                     <?php the_title(); ?>
                                 </h1>
