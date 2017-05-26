@@ -2,58 +2,88 @@
  * ------------------------------------------- */
 
 .label {
-    @extend .h6;
+    @extend .h5;
     @extend .u-mt-0;
     display: block;
+    @include transition( all 300ms ease-out );
 
     [type="radio"] + & {
         position: relative;
-        padding-top: 55px;
+        padding-left: 55px;
         cursor: pointer;
         text-align: center;
         width: auto;
-        min-width: 50px;
+        min-height: 50px;
+        line-height: 50px;
         display: inline-block;
+        font-size: rem(16);
+        @include media($md) {
+            min-height: 0;
+            min-width: 50px;
+            padding-left: 0;
+            padding-top: 55px;
+            line-height: 1;
+        }
     
         &:before {
             content: "";
             display: block;
-            width: 50px;
             position: absolute;
-            top: 0;
-            left: 50%;
+            top: 50%;
+            left: 0;
+            width: 50px;
             height: 50px;
             border: 1px solid;
             border-radius: 50%;
             cursor: pointer;
-            transform: translateX(-50%);
+            @include transform( translateY(-50%) );
+            @include media($md) {
+                top: 0;
+                left: 50%;                
+                @include transform( translateY(0) translateX(-50%) );
+            }
         }
         &:after {
             content: "";
             display: block;
             position: absolute;
-            top: 10px;
-            left: 50%;
+            top: 50%;
+            left: 10px;
             background: tint(black, 80%);
             width: 30px;
             height: 30px;
             border-radius: 50%;
-            transform: translateX(-50%) scale(0);
-            transition: all 100ms ease-out;
+            @include transform( translateY(-50%) scale(0) );
+            @include transition( all 100ms ease-out );
+            @include media($md) {
+                top: 10px;
+                left: 50%;
+                @include transform( translateY(0) translateX(-50%) scale(0) );
+            }
         }
     }
     [type="radio"]:not(:checked) + &:hover:after {
-        transform: translateX(-50%) scale(0.5);
+        @include transform( translateY(-50%) scale(0.5) );
+        @include media($md) {
+            @include transform( translateY(0) translateX(-50%) scale(0.5) );
+        }
     }
     [type="radio"]:checked + &:after {
-        transform: translateX(-50%) scale(1);
+        @include transform( translateY(-50%) scale(1) );
         background: #000;
+        @include media($md) {
+            @include transform( translateY(0) translateX(-50%) scale(1) );
+        }
     }
     
 }
 
 [type="radio"] {
     display: none;
+}
+
+select {
+    cursor: pointer;
 }
 
 .form-group {
@@ -70,9 +100,9 @@
     border-radius: 0;
     background-color: transparent;
     box-sizing: border-box;
-    padding: 0;
+    padding: 0.25em 0;
     outline: 0;
-    @include transition( all 300ms ease );
+    @include transition( all 300ms ease-out );
     @include appearance(none);
 
     &:hover {
@@ -94,4 +124,252 @@
     input:checked ~ & {
         display: inline-block;
     }
+}
+
+// Gravity Forms
+// -----------------------------------------------
+
+label {    
+
+    .gfield & {
+        @extend .label;
+    }
+    .gfield.gfield_error > & {
+        color: $red;
+    }
+    .ginput_complex & {
+        font-size: rem(16);
+        font-family: $gta-regular;
+        text-transform: none;
+        margin: 0.5em 0;
+    }
+
+}
+
+// Text Field Appearance
+// ----------------------------------------
+input[type="text"],
+input[type="email"],
+select {
+
+    .gfield & {
+        @extend .form-field;
+        width: 100%;
+        font-family: $gta-extended-black;
+        text-transform: uppercase;
+        color: $green;
+        &:focus {
+            color: $blue;
+        }
+        &:focus + label {
+            color: $blue;
+        }
+    }
+
+    .ginput_container_creditcard & {
+        @include media($md) {
+            &[pattern] {
+                letter-spacing: 0.3em;
+            }
+        }
+        @include media($lg) {
+            font-size: 1.5rem;
+        }
+        @include media($xl) {
+            font-size: 2rem;
+        }
+    }
+
+}
+
+// Field Layout
+// ----------------------------------------
+.gfield {
+    margin-top: 4rem;
+    &.donate-product {
+        display: none;
+    }
+}
+
+.ginput_complex {
+    @extend .u-clearfix;
+    margin-top: 1rem;
+}
+
+.ginput_left,
+.ginput_right,
+.name_first,
+.name_last,
+.ginput_cardinfo_left,
+.ginput_cardinfo_right {
+    @include media($md) {
+        width: 47.5%;
+        float: left;
+        margin-right: 5%;
+        &:nth-child(2n) {
+            margin-right: 0;
+        }
+    }
+}
+.ginput_full {
+    @extend .u-clearfix;
+     @include media($md) {
+        width: 100%;
+        float: left;
+    }
+}
+
+.ginput_price {
+    display: none;
+}
+
+
+// Field Type: Credit Card
+// -------------------------------------- 
+.ginput_container_creditcard {
+    & > .ginput_full:first-child {
+        position: relative;
+    }
+}
+.gform_card_icon_container {
+    margin-top: 1rem;
+    @include media($lg) {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        margin-top: calc(-1em - 15px);
+    }
+}
+.gform_card_icon,
+.ginput_card_security_code_icon {
+    width: 36px;
+    height: 30px;
+    display: inline-block;
+    overflow: hidden;
+    text-indent: -999999px;
+    background-image: url(../images/gf-creditcard-icons.png);
+    background-position: 0 0;
+
+    &.gform_card_icon_mastercard {
+        background-position: -36px 0;
+    }
+    &.gform_card_icon_amex {
+        background-position: -72px 0;
+    }
+    &.gform_card_icon_discover {
+        background-position: -108px 0;
+    }
+
+    &.gform_card_icon_inactive {
+        background-position-y: -64px;
+    }
+
+    &.gform_card_icon_selected {
+        background-position-y: -32px;
+    }
+}
+
+// expiration field
+.ginput_card_expiration_container {
+    @extend .u-clearfix;
+
+    select {
+        @include media($md) {
+            width: 47.5%;
+            float: left;
+            &:first-child {
+                margin-right: 5%;
+            }
+        }
+    }
+    label {
+        @include media($md) {
+            width: 100%;
+            float: left;
+        }
+    }
+    
+}
+
+// security code field
+.ginput_cardinfo_right {
+    position: relative;
+}
+.ginput_card_security_code {
+    padding-right: 36px;
+}
+.ginput_card_security_code_icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: calc(-1em - 15px);
+    background-position-y: -124px;
+}
+
+
+// Field Type: Radio
+// --------------------------------------
+.gfield_radio {
+    @extend .u-clearfix;
+
+    li {
+        margin-bottom: 1rem;
+        @include media($md) {
+            float: left;
+            margin-right: 1rem;
+        }
+    }
+}
+
+
+// Form Footer
+// ----------------------------------------
+.gform_footer {
+    margin-top: 4rem;
+
+    .gform_ajax_spinner {
+        margin-left: 1rem;
+    }
+}
+
+
+// Hidden fields
+// ----------------------------------------
+.gform_validation_container {
+    display: none;
+}
+
+
+// Errors
+// ----------------------------------------
+.FormMessage {
+    color: $blue;
+    font-size: rem(16);
+    padding: 0.5em 1em;
+    margin: 1em 0;
+    border: 1px solid $blue;
+    background-color: tint($blue, 95%);
+}
+.FormError {
+    color: $red;
+    font-size: rem(16);
+    padding: 0.5em 1em;
+    margin: 1em 0;
+    border: 1px solid $red;
+    background-color: tint($red, 95%);
+}
+
+.validation_message,
+.gform_confirmation_message {
+    @extend .FormMessage;
+}
+
+.gform_confirmation_message {
+    margin-top: 4rem;
+}
+
+.validation_error,
+.gfield_creditcard_warning_message,
+.gfield_error .validation_message {
+    @extend .FormError;
 }

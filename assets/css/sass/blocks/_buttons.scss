@@ -6,7 +6,7 @@
 	color: $color-btn;
 	display: inline-block;
 	font-family: $gta-extended-black;
-	font-size: rem(24);
+	font-size: rem(16);
 	line-height: 1;
 	font-weight: normal;
 	padding: 0.5em 0.8em;
@@ -16,6 +16,10 @@
     cursor: pointer;
     @include appearance(none);
     @include transition(all 200ms ease);
+
+	@include media($md) {
+		font-size: rem(24);
+	}
 
 	&:hover, &:focus {
 		background-color: $color-btn-bg-hover;
