@@ -157,7 +157,6 @@ select {
         width: 100%;
         font-family: $gta-extended-black;
         text-transform: uppercase;
-        color: $green;
         &:focus {
             color: $blue;
         }
@@ -186,9 +185,6 @@ select {
 // ----------------------------------------
 .gfield {
     margin-top: 4rem;
-    &.donate-product {
-        display: none;
-    }
 }
 
 .ginput_complex {
@@ -342,26 +338,26 @@ select {
 
 // Errors
 // ----------------------------------------
-.FormMessage {
-    color: $blue;
+.Message {
+    color: white;
     font-size: rem(16);
-    padding: 0.5em 1em;
+    padding: $flex-item-padding;
     margin: 1em 0;
-    border: 1px solid $blue;
-    background-color: tint($blue, 95%);
-}
-.FormError {
-    color: $red;
-    font-size: rem(16);
-    padding: 0.5em 1em;
-    margin: 1em 0;
-    border: 1px solid $red;
-    background-color: tint($red, 95%);
+    background-color: black;
+
+    a {
+        text-decoration: underline;
+        color: white;
+    }
+    & > *:first-child {
+        margin-top: 0;
+    }
 }
 
 .validation_message,
 .gform_confirmation_message {
-    @extend .FormMessage;
+    @extend .Message;
+    background-color: $blue;
 }
 
 .gform_confirmation_message {
@@ -371,5 +367,6 @@ select {
 .validation_error,
 .gfield_creditcard_warning_message,
 .gfield_error .validation_message {
-    @extend .FormError;
+    @extend .Message;
+    background-color: $red;
 }

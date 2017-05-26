@@ -1820,8 +1820,7 @@ input[type="email"], .gfield
 select {
   width: 100%;
   font-family: "GT-America-Extended-Black", Arial, sans-serif;
-  text-transform: uppercase;
-  color: #afbd32; }
+  text-transform: uppercase; }
   .gfield input[type="text"]:focus, .gfield
   input[type="email"]:focus, .gfield
   select:focus {
@@ -1851,8 +1850,6 @@ select {
 
 .gfield {
   margin-top: 4rem; }
-  .gfield.donate-product {
-    display: none; }
 
 .ginput_complex {
   margin-top: 1rem; }
@@ -1960,27 +1957,38 @@ select {
 .gform_validation_container {
   display: none; }
 
-.FormMessage, .validation_message,
-.gform_confirmation_message {
-  color: #3266cc;
-  font-size: 1rem;
-  padding: 0.5em 1em;
-  margin: 1em 0;
-  border: 1px solid #3266cc;
-  background-color: #f5f7fc; }
-
-.FormError, .validation_error,
+.Message, .validation_message,
+.gform_confirmation_message, .validation_error,
 .gfield_creditcard_warning_message,
 .gfield_error .validation_message {
-  color: #ff685d;
+  color: white;
   font-size: 1rem;
-  padding: 0.5em 1em;
+  padding: 18px;
   margin: 1em 0;
-  border: 1px solid #ff685d;
-  background-color: #fff7f7; }
+  background-color: black; }
+  .Message a, .validation_message a,
+  .gform_confirmation_message a, .validation_error a,
+  .gfield_creditcard_warning_message a,
+  .gfield_error .validation_message a {
+    text-decoration: underline;
+    color: white; }
+  .Message > *:first-child, .validation_message > *:first-child,
+  .gform_confirmation_message > *:first-child, .validation_error > *:first-child,
+  .gfield_creditcard_warning_message > *:first-child,
+  .gfield_error .validation_message > *:first-child {
+    margin-top: 0; }
+
+.validation_message,
+.gform_confirmation_message {
+  background-color: #3266cc; }
 
 .gform_confirmation_message {
   margin-top: 4rem; }
+
+.validation_error,
+.gfield_creditcard_warning_message,
+.gfield_error .validation_message {
+  background-color: #ff685d; }
 
 .social .list__item,
 .page-anchors .list__item {
