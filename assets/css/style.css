@@ -1957,6 +1957,12 @@ select {
 .gform_validation_container {
   display: none; }
 
+.fine-print p {
+  font-size: 16px;
+  line-height: 1.2;
+  color: #A2A2A2;
+  margin-top: 0.5em; }
+
 .Message, .validation_message,
 .gform_confirmation_message, .validation_error,
 .gfield_creditcard_warning_message,
