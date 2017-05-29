@@ -4,6 +4,16 @@
  */
 get_header();
 $roles = get_terms( array( 'taxonomy' => 'team_role', 'hide_empty' => true ) );
+function compare_team_members($a, $b) {
+    $a_name = explode( ' ', $a->post_title );
+    $b_name = explode( ' ', $b->post_title );
+    $a_last_name = $a_name[ (count($a_name) - 1) ];
+    $b_last_name = $b_name[ (count($b_name) - 1) ];
+    if ( $a_last_name == $b_last_name ) {
+        return 0;
+    }
+    return ( $a_last_name < $b_last_name ) ? -1 : 1;
+}
 ?>
 
 	<div class="site-content">
@@ -69,37 +79,44 @@ $roles = get_terms( array( 'taxonomy' => 'team_role', 'hide_empty' => true ) );
                                             'terms' => $role->slug
                                         )
                                     )
-                                )); ?>
+                                )); 
+                                
+                                if ( $team_members->have_posts() ) :
+                                
+                                    $team_member_posts = $team_members->posts;
+                                    usort( $team_member_posts, 'compare_team_members' ); ?>
 
-                                <div id="<?php echo $role->slug; ?>">
+                                    <div id="<?php echo $role->slug; ?>">
 
-                                    <h2 class="h4 u-pt-4"><?php echo $role->name; ?></h2>
+                                        <h2 class="h4 u-pt-4"><?php echo $role->name; ?></h2>
 
-                                    <div class="u-clearfix">
+                                        <div class="u-clearfix">
 
-                                        <?php while ( $team_members->have_posts() ) : $team_members->the_post(); ?>
+                                            <?php foreach ( $team_member_posts as $post ) : setup_postdata( $post ); ?>
 
-                                            <?php if ( has_term( 'supporters', 'team_role' ) || has_term( 'partners', 'team_role' ) ) : ?>
-                                            
-                                                <article <?php post_class( 'u-span-4 u-mt-1 preview' ); ?> >
-                                                    <?php get_template_part( 'partials/content-preview', 'team_member-text' ); ?>
-                                                </article>
+                                                <?php if ( has_term( 'supporters', 'team_role' ) || has_term( 'partners', 'team_role' ) ) : ?>
+                                                
+                                                    <article <?php post_class( 'u-span-4 u-mt-1 preview' ); ?> >
+                                                        <?php get_template_part( 'partials/content-preview', 'team_member-text' ); ?>
+                                                    </article>
 
-                                            <?php else : ?>
+                                                <?php else : ?>
 
-                                                <article <?php post_class( 'u-span-3 u-mt-2 preview' ); ?> >
-                                                    <?php get_template_part( 'partials/content-preview', 'team_member' ); ?>
-                                                </article>
+                                                    <article <?php post_class( 'u-span-3 u-mt-2 preview' ); ?> >
+                                                        <?php get_template_part( 'partials/content-preview', 'team_member' ); ?>
+                                                    </article>
 
-                                            <?php endif; ?>
-                                            
-                                        <?php endwhile; ?>
+                                                <?php endif; ?>
+                                                
+                                            <?php endforeach; wp_reset_postdata(); ?>
+
+                                        </div>
 
                                     </div>
 
-                                </div>
-
-                            <?php endforeach; wp_reset_query(); ?>
+                                <?php endif; ?>
+                            
+                            <?php endforeach; ?>
 
                         </div> <!-- .section__content -->
 
