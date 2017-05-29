@@ -160,9 +160,9 @@ function projects_request() {
 				);
 			}
 
-			$begin = get_post_meta( $post->ID, 'project_begin_date', true );
+			$begin = get_field( 'project_begin_date', $post->ID );
 			$begin_string = date( 'Y', $begin );
-			$end = get_post_meta( $post->ID, 'project_end_date', true );
+			$end = get_field( 'project_end_date', $post->ID );
 			if ( ! $end ) {
 				$end_string = 'Present';
 			} else {
@@ -171,14 +171,14 @@ function projects_request() {
 
 			array_push( $data, array(
 				'title' 	=> $post->post_title,
-                'title_alt' => get_post_meta( $post->ID, 'project_alt_title', true ),
+                'title_alt' => get_field( 'project_alt_title', $post->ID ),
 				'slug' => $post->post_name,
 				'url'	=> get_the_permalink( $post->ID ),
 				'attachment' => $attachment,
-				'begin_date' => get_post_meta( $post->ID, 'project_begin_date', true ),
-                'end_date' => get_post_meta( $post->ID, 'project_end_date', true ),
+				'begin_date' => get_field( 'project_begin_date', $post->ID ),
+                'end_date' => get_field( 'project_end_date', $post->ID ),
 				'date_string' => $begin_string . ' – ' . $end_string, 
-                'geojson' => get_post_meta( $post->ID, 'project_geojson', true ),
+                'geojson' => get_field( 'project_geojson', $post->ID ),
 				'post_class' => implode( ' ', get_post_class() )
 			) );
 		}
