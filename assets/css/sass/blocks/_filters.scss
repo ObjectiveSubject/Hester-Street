@@ -123,23 +123,30 @@ a.filter-group-toggle {
     text-transform: uppercase;
     height: 100%;
     display: block;
-    color: $blue;
+    color: black;
 
     .post-type-archive-project &,
     .single-project & {
-        color: $green;
+        &:hover, &:focus {
+            color: $green;
+        }
     }
-    .blog & { color: $teal; }
-    .post-type-archive-publication & { color: $orange; }
+    .blog & { 
+        &:hover, &:focus {
+            color: $teal;
+        }
+     }
+    .post-type-archive-publication & { 
+        &:hover, &:focus {
+            color: $orange;
+        }
+     }
 
     @include media($lg){
         padding-left: 1em;
-        border-left: 2px solid;
+        border-left: $border-width solid;
     }
 
-    &:hover {
-        color: $red;
-    }
     @include transform( translateY(100%) );
     .has-filters & {
         @include transform( translateY(0) );

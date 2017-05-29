@@ -1629,25 +1629,24 @@ a.filter-group-toggle {
   text-transform: uppercase;
   height: 100%;
   display: block;
-  color: #3266cc;
+  color: black;
   -webkit-transform: translateY(100%);
   -moz-transform: translateY(100%);
   -ms-transform: translateY(100%);
   -o-transform: translateY(100%);
   transform: translateY(100%); }
-  .post-type-archive-project .reset-filters-btn,
-  .single-project .reset-filters-btn {
+  .post-type-archive-project .reset-filters-btn:hover, .post-type-archive-project .reset-filters-btn:focus,
+  .single-project .reset-filters-btn:hover,
+  .single-project .reset-filters-btn:focus {
     color: #afbd32; }
-  .blog .reset-filters-btn {
+  .blog .reset-filters-btn:hover, .blog .reset-filters-btn:focus {
     color: #21b07a; }
-  .post-type-archive-publication .reset-filters-btn {
+  .post-type-archive-publication .reset-filters-btn:hover, .post-type-archive-publication .reset-filters-btn:focus {
     color: #feac00; }
   @media screen and (min-width: 1000px) {
     .reset-filters-btn {
       padding-left: 1em;
-      border-left: 2px solid; } }
-  .reset-filters-btn:hover {
-    color: #ff685d; }
+      border-left: 1px solid; } }
   .has-filters .reset-filters-btn {
     -webkit-transform: translateY(0);
     -moz-transform: translateY(0);
