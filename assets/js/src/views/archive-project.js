@@ -83,10 +83,16 @@
                     if ( el.className.indexOf("is-active") == -1 ) {
                         el.className += " is-active";   
                     }
+                    if ( event.scrollDirection == "REVERSE" ) {
+                        el.className = el.className.split("is-past").join("");
+                    }
                     _this.moveMapTo(project);
                 } );
                 scene.on( "leave", function(event){
                     el.className = el.className.split("is-active").join("");
+                    if ( event.scrollDirection == "FORWARD" ) {
+                        el.className += " is-past";
+                    }
                 } );
 
             },

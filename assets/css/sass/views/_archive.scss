@@ -7,10 +7,12 @@
         @include transition(opacity 300ms ease-out);
     }
     .post-type-archive .is-loading &,
-    .post-type-archive-project &:not(.is-active) {
+    .post-type-archive-project &:not(.is-active):not(:first-child) {
         opacity: 0.3;
     }
-    
+    .post-type-archive-project &.is-past {
+        opacity: 0.3 !important;
+    }
 }
 
 .page-title  {

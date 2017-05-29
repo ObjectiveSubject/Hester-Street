@@ -2531,8 +2531,11 @@ caption {
   transition: opacity 300ms ease-out; }
 
 .post-type-archive .is-loading .hentry,
-.post-type-archive-project .hentry:not(.is-active) {
+.post-type-archive-project .hentry:not(.is-active):not(:first-child) {
   opacity: 0.3; }
+
+.post-type-archive-project .hentry.is-past {
+  opacity: 0.3 !important; }
 
 @media screen and (min-width: 1000px) {
   .post-type-archive .page-title, .post-type-archive .post-title {
