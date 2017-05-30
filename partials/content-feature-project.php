@@ -48,7 +48,7 @@ $latest_update_date = date( 'Y', $latest_update_unix );
     <div class="u-width-6-10">
         <p class="h6">Featured Project &nbsp;&nbsp;&nbsp; Last Update <?php echo $latest_update_date; ?></p>
         <p><?php the_excerpt(); ?></p>
-        <p><a href="<?php the_permalink(); ?>" class="u-color-hover-green">Continue Reading</a></p>
+        <p><a href="<?php the_permalink(); ?>" class="u-color-hover-green"><?php _e( 'Continue Reading', 'hsc' ); echo ' &rarr;' ?></a></p>
     </div>
 
 </article>

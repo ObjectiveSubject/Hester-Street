@@ -170,7 +170,7 @@ get_header(); ?>
                                     <a href="<?php the_permalink(); ?>" class="u-display-block u-color-hover-black">
                                         <p class="u-font-gta-extended"><?php the_title(); ?></p>
                                         <blockquote class="u-color-white"><?php echo esc_html( $featured_page_text ); ?></blockquote>
-                                        <p class="u-mt-2">Read More</p>
+                                        <p class="u-mt-2"><?php _e( 'Read more', 'hsc' ); echo ' &rarr;' ?></p>
                                     </a>
 
                                 </div>

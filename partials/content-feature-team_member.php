@@ -15,7 +15,7 @@
             <p class="h1 u-mt-pull"><?php the_title(); ?></p>
             <p class="h6 u-color-black">Team</p>
             <p class="u-color-black"><?php echo get_the_excerpt(); ?></p>
-            <p><?php _e( 'Continue Reading', 'hsc' ); ?></p>
+            <p><?php _e( 'Continue Reading', 'hsc' ); echo ' &rarr;' ?></p>
         </a>
     </div>
 </div>

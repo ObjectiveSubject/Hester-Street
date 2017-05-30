@@ -35,7 +35,7 @@ $video_url = get_field('featured_video_url');
     <div class="u-width-6-10">
         <p class="h6">Featured Event &nbsp;&nbsp;&nbsp; <?php echo date( $date_format, $post_datetime); ?></p>
         <p><?php the_excerpt(); ?></p>
-        <p><a href="<?php the_permalink(); ?>" class="u-color-hover-teal">Continue Reading</a></p>
+        <p><a href="<?php the_permalink(); ?>" class="u-color-hover-teal"><?php _e( 'Continue Reading', 'hsc' ); echo ' &rarr;' ?></a></p>
     </div>
 
 </article>

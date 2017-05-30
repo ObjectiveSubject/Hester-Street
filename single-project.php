@@ -181,7 +181,7 @@ get_header(); ?>
                                                             {{ item.date_string }}, {{ item.time_string }}<br/>
                                                             {{ item.venue }}
                                                         </p>
-                                                        <p>Read more</p>
+                                                        <p><?php _e( 'Read more', 'hsc' ); echo ' &rarr;' ?></p>
                                                     </div>
                                                 </a>
                                             </div>

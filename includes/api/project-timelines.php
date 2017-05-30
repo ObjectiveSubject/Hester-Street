@@ -84,7 +84,7 @@ function project_timeline_request() {
                     $item_array['title'] = $item['timeline_publication']->post_title;
                     $item_array['image'] = get_the_post_thumbnail( $item['timeline_publication']->ID, 'large' );
                     $item_array['links'] = array(
-                        array('text' => 'Read More', 'url' => '#'),
+                        array('text' => 'Read More &rarr;', 'url' => '#'),
                         array('text' => 'Download &darr;', 'url' => '#')
                     );
                     break; 

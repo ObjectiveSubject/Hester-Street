@@ -19,6 +19,6 @@ $date_string[] = ( $end_date ) ? date( 'M. Y', $end_date ) : 'Present';
 
     <p class="h6">Project &nbsp;&nbsp;&nbsp; <?php echo implode( '–', $date_string ); ?></p>
     <p><?php the_excerpt(); ?></p>
-    <p><a href="<?php the_permalink(); ?>" class="u-color-hover-green">Continue Reading</a></p>
+    <p><a href="<?php the_permalink(); ?>" class="u-color-hover-green"><?php _e( 'Continue Reading', 'hsc' ); echo ' &rarr;' ?></a></p>
 
 </article>
