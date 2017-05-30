@@ -12,7 +12,7 @@
             appClassArray: ['is-loading'],
             loading: true,
             allTimelineItems: [],
-            currentFilterGroup: 'post-type',
+            currentFilterGroup: '',
             currentFilters: {
                 postType: 'all',
                 date: 'all'
