@@ -47,7 +47,7 @@ get_header(); ?>
                                 </h1>
 
                                 <h2 class="h5 u-mt-nudge">
-                                    <?php echo date( get_option('date_format') . ', g:ia', get_field( 'event_datetime' ) ); ?><br/>
+                                    <?php echo date( get_option('date_format') . ', g:ia', get_field( 'post_datetime' ) ); ?><br/>
                                     PS. 101 Auditorium
                                 </h2>
 
