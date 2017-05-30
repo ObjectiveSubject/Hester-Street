@@ -105,6 +105,8 @@ get_header(); ?>
                             <!--Vue JS App-->
                             <div id="project-timeline" class="vue-js-app u-clearfix u-mt-6" :class="appClass">
 
+                                <div class="h5"><?php _e( 'Project Timeline', 'hsc' ); ?></div>
+
                                 <ul class="filter-toggle-list list">
 
                                     <li class="filter-toggle-list__item list__item" v-for="toggle in filterToggles">
