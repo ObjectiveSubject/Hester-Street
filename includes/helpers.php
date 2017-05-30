@@ -60,21 +60,3 @@ function get_lcl_data_archive_publication() {
     );
 
 }
-
-
-/**
- * Get Publication PDF URL or the post permalink.
- *
- * @return array
- */
-function get_publication_url($id = 0) {
-    if ( ! $id )
-        return;
-
-    $pdf_url = get_field( 'publication_pdf', $id );
-    if ( $pdf_url ) {
-        return $pdf_url;
-    } else {
-        return get_permalink( $id );
-    }
-}

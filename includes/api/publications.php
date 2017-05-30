@@ -137,7 +137,7 @@ function publications_request() {
 			array_push( $posts, array(
 				'title' 	=> $post->post_title,
 				'slug' => $post->post_name,
-				'url'	=> \HSC\Helpers\get_publication_url( $post->ID ),
+				'url'	=> get_permalink( $post ),
 				'attachment' => $attachment,
 				'date_unix' => strtotime( $post->post_date ),
 				'date_string' => date( get_option('date_format'), strtotime( $post->post_date ) ), 
