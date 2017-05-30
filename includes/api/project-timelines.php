@@ -91,11 +91,11 @@ function project_timeline_request() {
                 case "event":
                     $item_array['type'] = 'event';
                     $item_array['label'] = 'Event';
-                    $item_array['date_string'] = date( $date_format, get_post_meta( $item['timeline_event']->ID, 'post_datetime', true ) );
-                    $item_array['date_unix'] = get_post_meta( $item['timeline_event']->ID, 'post_datetime', true );
+                    $item_array['date_string'] = date( $date_format, get_field( 'post_datetime', $item['timeline_event']->ID ) );
+                    $item_array['date_unix'] = get_field( 'post_datetime', $item['timeline_event']->ID );
                     $item_array['image'] = get_the_post_thumbnail( $item['timeline_event']->ID, 'large' );
                     $item_array['permalink'] = get_permalink( $item['timeline_event']->ID );
-                    $item_array['time_string'] = date( 'g:ia', get_post_meta( $item['timeline_event']->ID, 'post_datetime', true ) );
+                    $item_array['time_string'] = date( 'g:ia', get_field( 'post_datetime', $item['timeline_event']->ID ) );
                     $item_array['title'] = $item['timeline_event']->post_title;
                     $item_array['venue'] = get_post_meta( $item['timeline_event']->ID, 'event_venue', true);
                     break;
@@ -108,7 +108,7 @@ function project_timeline_request() {
                     $item_array['desc'] = $item['recap_desc'];
                     $item_array['events'] = $item['recap_events'];
                     foreach( $item_array['events'] as $event ) {
-                        $event->date_string = date( $date_format, get_post_meta( $event->ID, 'post_datetime', true ) );
+                        $event->date_string = date( $date_format, get_field( 'post_datetime', $event->ID ) );
                         $event->image = get_the_post_thumbnail( $event->ID, 'thumbnail' );
                         $event->permalink = get_permalink( $event->ID );
                     }
