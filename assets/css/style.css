@@ -2548,9 +2548,12 @@ caption {
   transition: opacity 300ms ease-out; }
 
 .post-type-archive .is-loading .hentry,
+.tax-archive .is-loading .hentry,
+.post-type-archive .hentry:not(.is-active):not(:first-child),
 .tax-archive .hentry:not(.is-active):not(:first-child) {
   opacity: 0.3; }
 
+.post-type-archive .hentry.is-past,
 .tax-archive .hentry.is-past {
   opacity: 0.3 !important; }
 
