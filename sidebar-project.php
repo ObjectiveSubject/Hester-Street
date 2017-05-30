@@ -17,7 +17,7 @@ $site_url = get_field( 'project_site_url' );
     <div class="h6 u-mt-0">Scope</div>
     <ul class="u-mt-1">
         <?php foreach( $services as $service ) : ?>
-            <li><?php echo $service->name; ?></li>
+            <li><a href="<?php echo get_term_link( $service ); ?>" class="u-color-hover-green u-display-block u-mb-nudge" style="line-height:1.2" title="See projects tagged <?php echo $service->name; ?>"><?php echo $service->name; ?></a></li>
         <?php endforeach; ?>
     </ul>
 </div>
@@ -28,7 +28,7 @@ $site_url = get_field( 'project_site_url' );
     <div class="h6 u-mt-0">Issues</div>
     <ul class="u-mt-1">
         <?php foreach( $issues as $issue ) : ?>
-            <li><?php echo $issue->name; ?></li>
+            <li><a href="<?php echo get_term_link( $issue ); ?>" class="u-color-hover-green u-display-block u-mb-nudge" style="line-height:1.2" title="See projects tagged <?php echo $issue->name; ?>"><?php echo $issue->name; ?></a></li>
         <?php endforeach; ?>
     </ul>
 </div>
