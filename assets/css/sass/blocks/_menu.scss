@@ -81,7 +81,7 @@
     .has-open-menu & {
         background-color: white;
     }
-    .is-hidden & {
+    .site-content .is-hidden & {
         @include media($md) {
             opacity: 0;
             pointer-events: none;
@@ -95,7 +95,7 @@
            @include transform( rotate(225deg) );
            top: 10px;
         }
-        .is-hidden & {
+        .site-content .is-hidden & {
             @include media($md) {
                 @include transform( translateX(30px) );
             }
@@ -111,7 +111,7 @@
         .home .site-content & {
             @include transition-delay(50ms);
         }
-        .is-hidden & {
+        .site-content .is-hidden & {
             @include media($md) {
                 @include transform( translateX(30px) );
             }
@@ -127,7 +127,7 @@
         .home .site-content & {
             @include transition-delay(100ms);
         }
-        .is-hidden & {
+        .site-content .is-hidden & {
             @include media($md) {
                 @include transform( translateX(30px) );
             }

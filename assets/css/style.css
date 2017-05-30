@@ -2226,7 +2226,7 @@ figure {
   .has-open-menu .menu-icon__bar {
     background-color: white; }
   @media screen and (min-width: 768px) {
-    .is-hidden .menu-icon__bar {
+    .site-content .is-hidden .menu-icon__bar {
       opacity: 0;
       pointer-events: none; } }
   .menu-icon__bar.top {
@@ -2244,7 +2244,7 @@ figure {
       transform: rotate(225deg);
       top: 10px; }
     @media screen and (min-width: 768px) {
-      .is-hidden .menu-icon__bar.top {
+      .site-content .is-hidden .menu-icon__bar.top {
         -webkit-transform: translateX(30px);
         -moz-transform: translateX(30px);
         -ms-transform: translateX(30px);
@@ -2265,7 +2265,7 @@ figure {
       -moz-transition-delay: 50ms;
       transition-delay: 50ms; }
     @media screen and (min-width: 768px) {
-      .is-hidden .menu-icon__bar.middle {
+      .site-content .is-hidden .menu-icon__bar.middle {
         -webkit-transform: translateX(30px);
         -moz-transform: translateX(30px);
         -ms-transform: translateX(30px);
@@ -2290,7 +2290,7 @@ figure {
       -moz-transition-delay: 100ms;
       transition-delay: 100ms; }
     @media screen and (min-width: 768px) {
-      .is-hidden .menu-icon__bar.bottom {
+      .site-content .is-hidden .menu-icon__bar.bottom {
         -webkit-transform: translateX(30px);
         -moz-transform: translateX(30px);
         -ms-transform: translateX(30px);

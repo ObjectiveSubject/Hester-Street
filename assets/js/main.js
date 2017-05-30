@@ -1287,14 +1287,9 @@ if (window.jQuery) {
             function onMouseover(e){
                 var text = e.target.innerText.toLowerCase();
                 headerMenu.node.setAttribute( 'data-background', text );
-                if ( timeout ) {
-                    clearTimeout(timeout);
-                }
             }
             function onMouseout(e){
-                timeout = setTimeout(function(){
-                    headerMenu.node.setAttribute( 'data-background', '' );
-                }, 500);
+                headerMenu.node.setAttribute( 'data-background', '' );
             }
         },
 
