@@ -81,7 +81,7 @@ a.filter-group-toggle {
         }
     }
 
-    .post-type-archive-project &,
+    .project-archive-app &,
     .single-project & {
         &:hover,
         &.is-active {
@@ -125,7 +125,7 @@ a.filter-group-toggle {
     display: block;
     color: black;
 
-    .post-type-archive-project &,
+    .project-archive-app &,
     .single-project & {
         &:hover, &:focus {
             color: $green;

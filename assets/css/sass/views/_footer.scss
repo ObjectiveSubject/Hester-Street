@@ -3,7 +3,8 @@
     color: white;
     background-color: $blue;
 
-    .post-type-archive-project & {
+    .post-type-archive-project &,
+    .tax-archive & {
         background-color: $green;
     }
     .page-team &, .single-team_member & {

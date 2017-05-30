@@ -13,12 +13,15 @@
 </head>
 
 <?php
-$body_class = ''; 
+$body_class = array(); 
 if ( is_single() || is_page() ) {
-    $body_class = get_post_type() . '-' . $post->post_name;
+    array_push( $body_class, get_post_type() . '-' . $post->post_name );
+} 
+if ( is_tax() ) {
+    array_push( $body_class, 'tax-archive' );
 } ?>
 
-<body <?php body_class( $body_class ); ?>>
+<body <?php body_class( implode( ' ', $body_class ) ); ?>>
     
 
 

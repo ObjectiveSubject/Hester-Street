@@ -1606,7 +1606,7 @@ a.filter-group-toggle {
     color: #cccccc; }
     .has-selection .filter-group__item:hover {
       color: black; }
-  .post-type-archive-project .filter-group__item:hover, .post-type-archive-project .filter-group__item.is-active,
+  .project-archive-app .filter-group__item:hover, .project-archive-app .filter-group__item.is-active,
   .single-project .filter-group__item:hover,
   .single-project .filter-group__item.is-active {
     color: #afbd32; }
@@ -1635,7 +1635,7 @@ a.filter-group-toggle {
   -ms-transform: translateY(100%);
   -o-transform: translateY(100%);
   transform: translateY(100%); }
-  .post-type-archive-project .reset-filters-btn:hover, .post-type-archive-project .reset-filters-btn:focus,
+  .project-archive-app .reset-filters-btn:hover, .project-archive-app .reset-filters-btn:focus,
   .single-project .reset-filters-btn:hover,
   .single-project .reset-filters-btn:focus {
     color: #afbd32; }
@@ -2430,6 +2430,21 @@ figure {
       flex-basis: 31.76%;
       -ms-flex-preferred-size: 31.76%; } }
 
+.sidebar-map {
+  display: none;
+  -webkit-transition: opacity 300ms ease-out;
+  -moz-transition: opacity 300ms ease-out;
+  transition: opacity 300ms ease-out;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 100vh; }
+  @media screen and (min-width: 768px) {
+    .sidebar-map {
+      display: block; } }
+  .is-loading .sidebar-map {
+    opacity: 0.3; }
+
 /* Tables
  * -----------------------------------------------------------*/
 table {
@@ -2524,47 +2539,37 @@ caption {
 .no-mapbox-support .hentry {
   opacity: 1 !important; }
 
-.post-type-archive .hentry {
+.post-type-archive .hentry,
+.tax-archive .hentry {
   -webkit-transition: opacity 300ms ease-out;
   -moz-transition: opacity 300ms ease-out;
   transition: opacity 300ms ease-out; }
 
 .post-type-archive .is-loading .hentry,
-.post-type-archive-project .hentry:not(.is-active):not(:first-child) {
+.tax-archive .hentry:not(.is-active):not(:first-child) {
   opacity: 0.3; }
 
-.post-type-archive-project .hentry.is-past {
+.tax-archive .hentry.is-past {
   opacity: 0.3 !important; }
 
 @media screen and (min-width: 1000px) {
-  .post-type-archive .page-title, .post-type-archive .post-title {
+  .post-type-archive .page-title, .post-type-archive .post-title,
+  .tax-archive .page-title,
+  .tax-archive .post-title {
     max-width: 80%;
     float: left; } }
 
-.post-type-archive .page-header__right {
+.post-type-archive .page-header__right,
+.tax-archive .page-header__right {
   overflow: hidden;
   margin-top: 1rem; }
   @media screen and (min-width: 1000px) {
-    .post-type-archive .page-header__right {
+    .post-type-archive .page-header__right,
+    .tax-archive .page-header__right {
       height: 3rem;
       width: 20%;
       float: right;
       margin-top: 0; } }
-
-.sidebar-map {
-  display: none;
-  -webkit-transition: opacity 300ms ease-out;
-  -moz-transition: opacity 300ms ease-out;
-  transition: opacity 300ms ease-out;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  height: 100vh; }
-  @media screen and (min-width: 768px) {
-    .sidebar-map {
-      display: block; } }
-  .is-loading .sidebar-map {
-    opacity: 0.3; }
 
 @media screen and (min-width: 768px) {
   .wrap {
@@ -2687,7 +2692,8 @@ caption {
 .site-footer {
   color: white;
   background-color: #3266cc; }
-  .post-type-archive-project .site-footer {
+  .post-type-archive-project .site-footer,
+  .tax-archive .site-footer {
     background-color: #afbd32; }
   .page-team .site-footer, .single-team_member .site-footer {
     background-color: #795acf; }
