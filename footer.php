@@ -126,9 +126,25 @@
 
 <?php wp_footer(); ?>
 
-<?php if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) { ?>
+<?php if ( ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) || ( defined( 'WP_DEBUG' ) && WP_DEBUG )  ) : ?>
+
     <span class="media-size"></span>
-<?php } ?>
+
+<?php : else : ?>
+
+    <!--Google Analytics-->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-99112296-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+<?php endif; ?>
 
 </body>
 </html>
