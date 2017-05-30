@@ -147,11 +147,15 @@ dfn, cite, em, i {
 
 blockquote {
 	@extend h2;
-	text-transform: none;
+	text-transform: none !important;
     margin: $leading 0 0;
 
 	p {
 		margin: 0;
+	}
+
+	.module--quote & {
+		padding: 1.5em 0;
 	}
 }
 

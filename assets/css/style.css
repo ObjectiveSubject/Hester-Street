@@ -417,10 +417,12 @@ dfn, cite, em, i {
   font-style: italic; }
 
 blockquote {
-  text-transform: none;
+  text-transform: none !important;
   margin: 1rem 0 0; }
   blockquote p {
     margin: 0; }
+  .module--quote blockquote {
+    padding: 1.5em 0; }
 
 address {
   margin: 1rem 0 0; }
