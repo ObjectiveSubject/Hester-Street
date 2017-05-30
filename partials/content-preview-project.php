@@ -11,7 +11,7 @@ if ( ! $end ) {
     $end_string = date( 'Y', $end );
 }
 $margin = '';
-$title_size = ( is_singular( array( 'team_member', 'event' ) ) ) ? 'h5' : 'h2'; ?>
+$title_size = ( is_single() ) ? 'h5' : 'h2'; ?>
 
 <a href="<?php the_permalink(); ?>" title="Read more" class="u-display-block u-color-hover-green">
     <?php if ( has_post_thumbnail() ) : ?>

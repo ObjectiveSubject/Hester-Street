@@ -2691,7 +2691,8 @@ caption {
     background-color: #afbd32; }
   .page-team .site-footer, .single-team_member .site-footer {
     background-color: #795acf; }
-  .post-type-archive-publication .site-footer {
+  .post-type-archive-publication .site-footer,
+  .single-publication .site-footer {
     background-color: #feac00; }
   .blog .site-footer {
     background-color: #21b07a; }

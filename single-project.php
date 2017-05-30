@@ -220,7 +220,51 @@ get_header(); ?>
 
                 <?php endif; ?>
 
+
                 <?php 
+
+                // Related Publications
+
+                $args = array(
+                    'post_type' => 'publication',
+                    'posts_per_page' => 10,
+                    'meta_query' => array(
+                        array(
+                            'key' => 'publication_related_projects',
+                            'value' => strval($post->ID),
+                            'compare' => 'LIKE'
+                        )
+                    )
+                );
+                $publications = new WP_Query( $args ); ?>
+
+                <?php if ( $publications->have_posts() ) : ?>
+                
+                    <section class="section">
+                        <div class="flex u-container">
+                            <div class="section__content flex__item u-width-12 u-pt-6">
+                                
+                                <div class="h6 u-mt-0"><?php _e( 'Related Publications', 'hsc' ); ?></div>
+
+                                <ul class="u-clearfix u-mt-0">
+                                    <?php while( $publications->have_posts() ) : $publications->the_post(); ?>
+                                        <li class="u-span-6 u-mt-1">
+                                            <?php get_template_part( 'partials/content-preview', 'publication' ); ?>
+                                        </li>
+                                    <?php endwhile; ?>
+                                </ul>
+
+                            </div>
+                        </div><!-- .u-container -->
+                    </section>
+
+                <?php endif; ?>
+                
+
+                <?php 
+
+                // Related Projects
+
                 $args = array(
                     'post_type' => 'project',
                     'posts_per_page' => 2,

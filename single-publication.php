@@ -3,7 +3,9 @@
  * Single Publication
  */
 
-get_header(); ?>
+get_header();
+$pdf_url = get_field( 'publication_pdf' );
+$related_projects = get_field( 'publication_related_projects' ); ?>
 
 	<div class="site-content">
 
@@ -36,7 +38,11 @@ get_header(); ?>
 
                                     <h2 class="h3 u-mt-nudge"><?php the_date(); ?></h2>
 
-                                        <?php if ( has_post_thumbnail() ) : ?>
+                                    <?php if ( $pdf_url ) : ?>
+                                        <p class="h6"><a href="<?php echo esc_url( $pdf_url ); ?>" class="u-color-orange u-color-hover-black"><? _e( 'Download (PDF)', 'hsc' ); echo ' &darr;' ?></a></p>
+                                    <?php endif; ?>
+
+                                    <?php if ( has_post_thumbnail() ) : ?>
                                         <div class="post-image u-mt-3">
                                             <?php the_post_thumbnail(); ?>
                                         </div>
@@ -46,7 +52,33 @@ get_header(); ?>
 
                                 <div class="post-content u-mt-2">
                                     <?php the_content(); ?>
+
+                                    <?php if ( $pdf_url ) : ?>
+                                        <p class="h6 u-mt-4">
+                                            <a href="<?php echo esc_url( $pdf_url ); ?>" class="u-color-orange u-color-hover-black"><? _e( 'Download (PDF)', 'hsc' ); echo ' &darr;' ?></a>
+                                        </p>
+                                    <?php endif; ?>
                                 </div>
+
+                                <?php 
+                                
+                                // Related Projects
+
+                                if ( $related_projects ) : ?>
+                                
+                                    <div class="h6 u-mt-4"><?php _e( 'Related Projects', 'hsc' ); ?></div>
+
+                                    <ul class="u-clearfix u-mt-0">
+                                        <?php foreach( $related_projects as $project_id ) :
+                                            $post = get_post( $project_id );
+                                            setup_postdata( $post ); ?>
+                                            <li class="u-span-6 u-mt-1">
+                                                <?php get_template_part( 'partials/content-preview', 'project' ); ?>
+                                            </li>
+                                        <?php endforeach; wp_reset_postdata(); ?>
+                                    </ul>
+
+                                <?php endif; ?>
 
                             </div>
 

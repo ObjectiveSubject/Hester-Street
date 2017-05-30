@@ -9,7 +9,8 @@
     .page-team &, .single-team_member & {
         background-color: $purple;
     }
-    .post-type-archive-publication & {
+    .post-type-archive-publication &,
+    .single-publication & {
         background-color: $orange;
     }
     .blog & {
