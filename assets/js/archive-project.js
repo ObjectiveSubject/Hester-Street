@@ -257,7 +257,14 @@
             currentSort: "date_start_desc",
             projectFilterData: projectFilterData,
             projects: [],
-            mapboxSupported: mapboxSupported
+            mapboxSupported: mapboxSupported,
+        },
+        beforeMount: function(){
+            var preloadFilters = this.$el.getAttribute('data-preload-filters');
+            if ( preloadFilters ) {
+                preloadFilters = JSON.parse( preloadFilters );
+            }
+            this.currentFilters = Object.assign( {}, this.currentFilters, preloadFilters );
         },
         mounted: function(e){
             this.getProjects(this.projectApiUrl);

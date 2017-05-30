@@ -94,7 +94,7 @@ function scripts( $debug = false ) {
 		wp_enqueue_script( 'project-timeline' );
 		wp_localize_script( 'project-timeline', 'projectData', array( 'id' => $post->ID ) );
 	}
-	if ( is_post_type_archive( 'project' ) ) {
+	if ( is_post_type_archive( 'project' ) || is_tax( 'issue' ) || is_tax( 'service' ) ) {
 		wp_enqueue_script( 'archive-project' );
 		wp_localize_script( 'archive-project', 'projectFilterData', \HSC\Helpers\get_lcl_data_archive_project() );
 	}
