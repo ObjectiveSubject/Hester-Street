@@ -130,7 +130,7 @@
 
     <span class="media-size"></span>
 
-<?php : else : ?>
+<?php else : ?>
 
     <!--Google Analytics-->
     <script>
