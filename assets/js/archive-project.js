@@ -200,7 +200,17 @@
     } );
 
     Vue.component( 'sort-select', {
-        template: '#sort-select',
+        template: '<div class="sort-select" v-on:click="toggleSelect" >'+
+                        '<p class="u-caps">Sort By</p>'+
+                        '<ul class="u-mt-0">'+
+                            '<sort-choice v-on:selectchoice="selectSortChoice(\'alpha_desc\')" v-if=" selectIsOpen || choice == \'alpha_desc\' " value="alpha_desc" name="Alphabetical ⬇︎" ></sort-choice>'+
+                            '<sort-choice v-on:selectchoice="selectSortChoice(\'alpha_asc\')" v-if=" selectIsOpen || choice == \'alpha_asc\' " value="alpha_asc" name="Alphabetical ⬆︎" ></sort-choice>'+
+                            '<sort-choice v-on:selectchoice="selectSortChoice(\'date_start_desc\')" v-if=" selectIsOpen || choice == \'date_start_desc\' " value="date_start_desc" name="Date Started ⬇︎" ></sort-choice>'+
+                            '<sort-choice v-on:selectchoice="selectSortChoice(\'date_start_asc\')" v-if=" selectIsOpen || choice == \'date_start_asc\' " value="date_start_asc" name="Date Started ⬆︎" ></sort-choice>'+
+                            '<sort-choice v-on:selectchoice="selectSortChoice(\'date_end_desc\')" v-if=" selectIsOpen || choice == \'date_end_desc\' " value="date_end_desc" name="Date Completed ⬇︎" ></sort-choice>'+
+                            '<sort-choice v-on:selectchoice="selectSortChoice(\'date_end_asc\')" v-if=" selectIsOpen || choice == \'date_end_asc\' " value="date_end_asc" name="Date Completed ⬆︎" ></sort-choice>'+
+                        '</ul>'+
+                    '</div>',
         props: ['activeChoice'],
         data: function(){
             return {
