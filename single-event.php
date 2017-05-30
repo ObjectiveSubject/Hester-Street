@@ -4,6 +4,22 @@
  */
 
 global $post;
+
+$begin_datetime = get_field( 'post_datetime' );
+$begin_string = date( get_option('date_format') . ', g:ia', $begin_datetime );
+$end_datetime = get_field( 'post_datetime_end' );
+if ( $end_datetime ) {
+    if ( date('M j, Y', $begin_datetime) == date('M j, Y', $end_datetime) ) {
+        $end_string = date('g:ia', $end_datetime);
+    } else {
+        $end_string = date( get_option('date_format') . ', g:ia', $end_datetime );
+    }
+    $date_string = $begin_string . ' - ' . $end_string;
+} else {
+    $date_string = $begin_string;
+}
+
+
 get_header(); ?>
 
 	<div class="site-content">
@@ -47,8 +63,8 @@ get_header(); ?>
                                 </h1>
 
                                 <h2 class="h5 u-mt-nudge">
-                                    <?php echo date( get_option('date_format') . ', g:ia', get_field( 'post_datetime' ) ); ?><br/>
-                                    PS. 101 Auditorium
+                                    <?php echo $date_string; ?><br/>
+                                    <?php the_field('event_venue'); ?>
                                 </h2>
 
                                     <?php if ( has_post_thumbnail() ) : ?>
