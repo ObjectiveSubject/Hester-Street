@@ -3,7 +3,9 @@
 // Sidebar: Project
 
 $services = get_the_terms( $post->ID, 'service' );
+$custom_services = get_field( 'project_custom_services' );
 $issues = get_the_terms( $post->ID, 'issue' );
+$custom_issues = get_field( 'project_custom_issues' );
 $team_members = get_field( 'project_team_members' );
 $collaborators = get_field( 'project_collaborators' );
 $partners = get_field( 'project_partners' );
@@ -20,6 +22,11 @@ $site_url = get_field( 'project_site_url' );
             <li><a href="<?php echo get_term_link( $service ); ?>" class="u-color-hover-green u-display-block u-mb-nudge" style="line-height:1.2" title="See projects tagged <?php echo $service->name; ?>"><?php echo $service->name; ?></a></li>
         <?php endforeach; ?>
     </ul>
+    <?php if ( $custom_services ) : ?>
+        <div class="custom-services">
+            <?php echo $custom_services; ?>
+        </div>
+    <?php endif; ?>
 </div>
 <?php endif; ?>
 
@@ -31,6 +38,11 @@ $site_url = get_field( 'project_site_url' );
             <li><a href="<?php echo get_term_link( $issue ); ?>" class="u-color-hover-green u-display-block u-mb-nudge" style="line-height:1.2" title="See projects tagged <?php echo $issue->name; ?>"><?php echo $issue->name; ?></a></li>
         <?php endforeach; ?>
     </ul>
+    <?php if ( $custom_issues ) : ?>
+        <div class="custom-services">
+            <?php echo $custom_issues; ?>
+        </div>
+    <?php endif; ?>
 </div>
 <?php endif; ?>
 
