@@ -32,6 +32,13 @@ get_header(); ?>
                                         <?php get_template_part( 'partials/section-anchors' ); ?>
                                     </div>
                                 </div>
+
+                                <?php if ( has_post_thumbnail() ) : ?>
+                                    <div class="page-image u-mt-3">
+                                        <?php the_post_thumbnail('large'); ?>
+                                    </div>
+                                <?php endif; ?>
+
                                 <div class="page-content u-mt-6 u-width-8-10">
                                     <?php the_content(); ?>
                                 </div>
