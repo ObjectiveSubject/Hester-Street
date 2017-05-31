@@ -4,8 +4,6 @@
 
 (function(window) {
 
-    console.log('mapjs running')
-
     mapboxgl.accessToken = 'pk.eyJ1Ijoib2JqZWN0aXZlc3ViamVjdCIsImEiOiJPY25wYWRjIn0.AFZPHessR_DGefRkzPilDA';
 
     var mapContainer = document.getElementById('page-map');
