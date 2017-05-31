@@ -2021,12 +2021,6 @@ select {
   height: 21.88rem; }
 
 @media screen and (min-width: 768px) {
-  .masthead.is-sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 3rem; } }
-
-@media screen and (min-width: 768px) {
   .masthead {
     margin-bottom: 0; } }
 
@@ -2439,6 +2433,8 @@ figure {
   -moz-transition: opacity 300ms ease-out;
   transition: opacity 300ms ease-out;
   position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
   position: sticky;
   top: 0;
   height: 100vh; }
@@ -2990,6 +2986,8 @@ caption {
 
 .project-timeline__sidebar {
   position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
   position: sticky;
   top: 1rem;
   overflow: auto;

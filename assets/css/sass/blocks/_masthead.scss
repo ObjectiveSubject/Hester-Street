@@ -1,11 +1,11 @@
 .masthead {
-    &.is-sticky {
-        @include media($md) {
-            position: -webkit-sticky;
-            position: sticky;
-            top: $leading * 3;
-        }
-    }
+    // &.is-sticky {
+        // @include media($md) {
+            // position: -webkit-sticky;
+            // position: sticky;
+            // top: $leading * 3;
+        // }
+    // }
     @extend .u-mb-2;
     @include media($md) {
         margin-bottom: 0;
