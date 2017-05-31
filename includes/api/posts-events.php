@@ -50,6 +50,19 @@ function handle_api_endpoints() {
 
 
 /**
+ * Sorting logic
+ */
+function sort_by_date_desc($a, $b) {
+	$a_unix = $a['date_unix'];
+	$b_unix = $b['date_unix'];
+	if ( $a_unix == $b_unix ) {
+		return 0;
+	}
+	return ( $a_unix < $b_unix ) ? 1 : -1;
+}
+
+
+/**
  * Handle project requests
  */
 function posts_events_request() {
@@ -181,7 +194,10 @@ function posts_events_request() {
 			) );
 		}
 		
-	} 
+	}
+
+	// sort posts
+	usort( $posts, 'HSC\API\PostsEvents\sort_by_date_desc' );
 	
 	wp_reset_query();
 	status_header( 200 );
