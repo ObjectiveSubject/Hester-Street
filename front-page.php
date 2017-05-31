@@ -191,13 +191,13 @@ get_header(); ?>
 
                             <div class="section__content">
 
-                                <div class="u-width-10">
+                                <!--<div class="u-width-10">-->
                                     <?php 
                                     $post = $featured_publication; 
                                     setup_postdata( $post );
                                     get_template_part( 'partials/content-feature', 'publication' );
                                     wp_reset_postdata(); ?>
-                                </div>
+                                <!--</div>-->
 
                             </div><!-- .section__content -->
 

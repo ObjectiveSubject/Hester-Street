@@ -8,14 +8,14 @@ $pdf_url = get_field( 'publication_pdf', $id );
 $secondary_images = get_field('publication_sec_featured_images'); ?>
 
 <div <?php post_class("featured u-clearfix"); ?> >
-    <div class="content-left u-span-3">
+    <div class="content-left">
         <?php if ( $secondary_images ) {
             foreach ( $secondary_images as $img ) {
                 echo wp_get_attachment_image( $img['ID'], 'large', false, array('u-display-block') );
             }
         } ?>
     </div>
-    <div class="content-right u-span-9">
+    <div class="content-right">
         <div>
             <?php get_template_part( 'partials/content-preview', 'publication' ) ?>
         </div>
