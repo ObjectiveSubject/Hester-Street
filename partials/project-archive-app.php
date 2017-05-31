@@ -49,7 +49,12 @@ if ( is_tax() ) {
                         <!-- VueJS node -->
                         <ul id="filter-group-services" class="filter-group list u-mt-2" :class="{ 'has-selection' : currentFilters.service.length }" v-if="currentFilterGroup == 'service'">
                             <li class="list__item u-mb-1" v-for="service in projectFilterData.services" :key="service.slug"> 
-                                <span class="u-caps">{{ service.name }}</span>
+                                <span v-if="service.children.length" class="u-caps">{{ service.name }}</span>
+                                <span is="filter-term" 
+                                    v-if="service.children.length === 0" 
+                                    :filter-obj="service" 
+                                    :is-active="currentFilters[service.taxonomy].indexOf(service.slug) > -1" 
+                                    v-on:select="toggleFilter(service)"></span>
                                 <ul v-if="service.children.length" class="u-columns-2">
                                     <li is="filter-term"
                                         v-for="child in service.children" :key="child.slug"
