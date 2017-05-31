@@ -155,9 +155,8 @@
                     "type": "fill",
                     "source": source,
                     "paint": {
-                        "fill-color": "#BD319F",
-                        "fill-opacity": 0.7,
-                        "fill-outline-color": "rgba(0,0,0,0)"
+                        "fill-color": "rgba(189,49,159,0.5)",
+                        "fill-outline-color": "rgba(0,0,0,0)",
                     },
                     "filter": ["==", "$type", "Polygon"]
                 });
@@ -184,7 +183,7 @@
                         "line-color": "#BD319F",
                         "line-width": 2
                     },
-                    "filter": ["==", "$type", "LineString"],
+                    "filter": ["in", "$type", "LineString", "Polygon"],
                 });
             }
 
