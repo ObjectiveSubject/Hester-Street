@@ -262,7 +262,7 @@
                 found_posts: 0,
                 total_pages: 1
             },
-            currentFilterGroup: "",
+            currentFilterGroup: "service",
             currentFilters: {
                 service: [],
                 issue: [],
