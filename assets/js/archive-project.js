@@ -23,7 +23,8 @@
                 map: false,
                 mapCenter: [-73.98270130711586, 40.72701126185467], // manhattan
                 mapZoom: 11,
-                scrollMagicController: false
+                scrollMagicController: false,
+                timeout: false
             };
         },
         mounted: function(){
@@ -85,7 +86,18 @@
                     if ( event.scrollDirection == "REVERSE" ) {
                         el.className = el.className.split("is-past").join("");
                     }
-                    _this.moveMapTo(project);
+
+                    //  delay map move until user is on project for at least 1000ms.
+                    if ( _this.timeout ) {
+                        clearTimeout( _this.timeout );
+                        _this.timeout = setTimeout( function(){
+                            _this.moveMapTo(project);
+                        }, 1000 );
+                    } else {
+                        _this.timeout = setTimeout( function(){
+                            _this.moveMapTo(project);
+                        }, 0 );
+                    }
                 } );
                 scene.on( "leave", function(event){
                     el.className = el.className.split("is-active").join("");
