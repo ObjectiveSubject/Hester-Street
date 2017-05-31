@@ -2002,20 +2002,8 @@ select {
 .logo {
   display: block;
   max-width: 10rem; }
-
-.hsc-logo {
-  width: 100%;
-  vertical-align: bottom;
-  fill: black;
-  -webkit-transition: all 300ms ease-out;
-  -moz-transition: all 300ms ease-out;
-  transition: all 300ms ease-out; }
-  .hsc-logo:hover {
+  .logo:hover {
     opacity: 0.5; }
-  [class*="u-bg-"] .hsc-logo, .site-menu .hsc-logo, .site-footer .hsc-logo {
-    fill: white; }
-    [class*="u-bg-"] .hsc-logo:hover, .site-menu .hsc-logo:hover, .site-footer .hsc-logo:hover {
-      opacity: 0.5; }
 
 #page-map.mapboxgl-supported {
   height: 21.88rem; }
