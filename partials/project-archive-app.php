@@ -173,9 +173,18 @@ if ( is_tax() ) {
 
                 </div>
 
+                <hr v-if="queryData.current_page < queryData.total_pages"/>
+                <p class="u-my-2" v-if="loading || queryData.current_page < queryData.total_pages">
+                    <a href="#" class="u-font-gta-extended u-caps u-color-hover-green" v-on:click.prevent="getMoreProjects()">
+                        <span v-if="loading" class="u-animate-pulse">Loading ...</span>
+                        <span v-else>Load More &plus;</span>
+                    </a>
+                </p>
+
             </div> <!-- .section__content -->
 
-        </div><!-- .u-container -->
+        </div><!-- .u-container --> 
+        
     </section>
     
 </div>

@@ -24,11 +24,12 @@ function add_endpoint(){
     add_rewrite_tag( "%issues%", '([^&]+)' );
 	add_rewrite_tag( "%status%", '([^&]+)' );
 	add_rewrite_tag( "%locations%", '([^&]+)' );
+	add_rewrite_tag( "%page%", '([^&]+)' );
     add_rewrite_tag( "%api-call%", '([^&]+)' );
 
 	add_rewrite_rule(
-		'hsc-api/projects/([^&]+)/([^&]+)/([^&]+)/([^&]+)/([^&]+)/?',
-		'index.php?start-date=$matches[1]&services=$matches[2]&issues=$matches[3]&status=$matches[4]&locations=$matches[5]&api-call=projects',
+		'hsc-api/projects/([^&]+)/([^&]+)/([^&]+)/([^&]+)/([^&]+)/([^&]+)/?',
+		'index.php?start-date=$matches[1]&services=$matches[2]&issues=$matches[3]&status=$matches[4]&locations=$matches[5]&page=$matches[6]&api-call=projects',
 		'top' );
 }
 
@@ -60,8 +61,10 @@ function projects_request() {
 	$issues 	= explode( '+', $wp_query->get( 'issues' ) );
     $status 	= explode( '+', $wp_query->get( 'status' ) );
     $locations 	= explode( '+', $wp_query->get( 'locations' ) );
+	$page 		= $wp_query->get( 'page' );
 
 	$start_date = sanitize_text_field( $start_date );
+	$page = sanitize_text_field( $page );
 
 	foreach ( $services as $key => $value ) {
 		$services[$key] = sanitize_text_field( $value );
@@ -134,16 +137,16 @@ function projects_request() {
 		'post_type'  => 'project',
 		'tax_query'  => $tax_query,
         'meta_query' => $meta_query,
+		'paged'		 => $page,
+		'posts_per_page' => 10,
 		'order'      => 'DESC',
 		'orderby'    => 'meta_value',
         'meta_key'   => 'project_begin_date',
-		'posts_per_page' => 500,
 		'post_parent' => 0,
-		'ignore_sticky_posts' => true,
-		'no_found_rows' => true
 	);
 	$query = new \WP_Query( $args );
-	$data = array();
+	$queryData = array( 'total_pages' => $query->max_num_pages, 'found_posts' => intval($query->found_posts), 'current_page' => intval($page) );
+	$posts = array();
 
 	if ( $query->have_posts() ) {
 		while ( $query->have_posts() ) {
@@ -170,7 +173,7 @@ function projects_request() {
 				$end_string = date( 'Y', intval($end) );
 			}
 
-			array_push( $data, array(
+			array_push( $posts, array(
 				'title' 	=> $post->post_title,
                 'title_alt' => get_field( 'project_alt_title', $post->ID ),
 				'slug' => $post->post_name,
@@ -183,14 +186,11 @@ function projects_request() {
 				'post_class' => implode( ' ', get_post_class() )
 			) );
 		}
-		wp_reset_query();
-		status_header( 200 );
-		wp_send_json( $data );
-	} else {
-		wp_reset_query();
-		status_header( 200 );
-		wp_send_json( array() );
 	}
+
+	wp_reset_query();
+	status_header( 200 );
+	wp_send_json( array( 'query' => $queryData, 'posts' => $posts ) );
 
 	return;
 }

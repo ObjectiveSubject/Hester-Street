@@ -247,7 +247,12 @@
         el: '#project-archive-app',
         data: {
             loading: true,
-            currentFilterGroup: "service",
+            queryData: {
+                current_page: 1,
+                found_posts: 0,
+                total_pages: 1
+            },
+            currentFilterGroup: "",
             currentFilters: {
                 service: [],
                 issue: [],
@@ -268,7 +273,7 @@
             this.currentFilters = Object.assign( {}, this.currentFilters, preloadFilters );
         },
         mounted: function(e){
-            this.getProjects(this.projectApiUrl);
+            this.getProjects( this.getProjectApiUrl() );
         },
         watch: {
             currentSort: function(newSort){
@@ -282,8 +287,13 @@
                 if ( this.currentFilters.location.length ) return true;
                 if ( this.currentFilters.date ) return true;
                 if ( this.currentFilters.status ) return true;
-            },
-            projectApiUrl: function() {
+            }
+        },
+        methods: {
+
+            getProjectApiUrl: function(page) {
+
+                page = (page) ? page : 1;
 
                 var services  = computeFilterString(this.currentFilters.service, 'all_services'),
                     issues    = computeFilterString(this.currentFilters.issue, 'all_issues'),
@@ -314,10 +324,8 @@
                     }
                 }
 
-                return [ date, services, issues, status, locations ].join('/');
-            }
-        },
-        methods: {
+                return [ date, services, issues, status, locations, page ].join('/');
+            },
             
             toggleFilterGroup: function( toggle, e ){
                 this.currentFilterGroup = toggle.slug;
@@ -331,7 +339,7 @@
                     this.currentFilters[filter_obj.taxonomy].push(filter_obj.slug);
                 }
                 this.loading = true;
-                this.getProjects(this.projectApiUrl);
+                this.getProjects( this.getProjectApiUrl() );
             },
 
             toggleDate: function(filter_obj, e) {
@@ -341,7 +349,7 @@
                     this.currentFilters.date = filter_obj;
                 }
                 this.loading = true;
-                this.getProjects(this.projectApiUrl);
+                this.getProjects( this.getProjectApiUrl() );
             },
 
             toggleStatus: function(filter_obj, e) {
@@ -351,7 +359,7 @@
                     this.currentFilters.status = filter_obj;
                 }
                 this.loading = true;
-                this.getProjects(this.projectApiUrl);
+                this.getProjects( this.getProjectApiUrl() );
             },
 
             resetFilters: function(){
@@ -363,7 +371,7 @@
                     location: [],
                 };
                 this.loading = true;
-                this.getProjects(this.projectApiUrl);
+                this.getProjects( this.getProjectApiUrl() );
             },
 
             toggleSort: function(newSort){
@@ -426,8 +434,10 @@
                 }
             },
 
-            getProjects: function( url, sortKey ) {
-                var instance = this;
+            getProjects: function( url, sortKey, append ) {
+                var _this = this;
+
+                _this.loading = true;
 
                 sortKey = ( sortKey ) ? sortKey : this.currentSort;
                     
@@ -436,14 +446,24 @@
                         return response.json();
                     })
                     .then(function(json){
-                        instance.projects = json;
-                        instance.loading = false;
-                        instance.sortProjects(sortKey);
+                        _this.queryData = json.query;
+                        if ( append ) {
+                            _this.projects = _this.projects.concat(json.posts);
+                        } else {
+                            _this.projects = json.posts;
+                        }
+                        _this.loading = false;
+                        _this.sortProjects(sortKey);
                     })
                     .catch(function(ex) {
                         console.log('Project fetch failed', ex);
                     });
                 
+            },
+
+            getMoreProjects: function(){
+                var url = this.getProjectApiUrl( this.queryData.current_page + 1 );
+                this.getProjects( url, this.currentSort, 'append' );
             }
 
         }
