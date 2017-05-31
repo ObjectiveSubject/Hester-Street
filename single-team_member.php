@@ -93,7 +93,9 @@ $member_website = get_field( 'member_website' ); ?>
                                             <?php the_title(); ?>
                                         </h1>
                                         <div class="h6"><?php echo $member_title; ?></div>
-                                        <div class="h6"><?php echo get_the_excerpt(); ?></div>
+                                        <?php  if ( $post->post_excerpt ) : ?>
+                                            <div class="h6"><?php echo get_the_excerpt(); ?></div>
+                                        <?php endif; ?>
                                         <div class="post-content">
                                             <?php the_content(); ?>
                                         </div>
