@@ -7,8 +7,8 @@
 $begin_date = get_field( 'project_begin_date' );
 $end_date = get_field( 'project_end_date' );
 $date_string = array();
-if ( $begin_date ) $date_string[] = date( 'M. Y', $begin_date );
-$date_string[] = ( $end_date ) ? date( 'M. Y', $end_date ) : 'Present';
+if ( $begin_date ) $date_string[] = date( 'Y', $begin_date );
+$date_string[] = ( $end_date ) ? date( 'Y', $end_date ) : 'Present';
 ?>
 <article <?php post_class(); ?>>
 
