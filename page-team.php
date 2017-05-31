@@ -5,8 +5,6 @@
 get_header();
 $roles = get_terms( array( 'taxonomy' => 'team_role', 'hide_empty' => true ) );
 function sort_by_name($a, $b) {
-    $a_name = explode( ' ', $a->post_title );
-    $b_name = explode( ' ', $b->post_title );
     if ( $a->post_title == $b->post_title ) {
         return 0;
     }
