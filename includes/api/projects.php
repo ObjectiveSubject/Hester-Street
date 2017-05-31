@@ -92,8 +92,9 @@ function projects_request() {
 	if ( $has_start_date ) {
 		array_push( $meta_query, array(
 			'key' => 'project_begin_date',
-            'value' => $start_date,
-            'compare' => '>='
+            'value' => date( 'Ymd', $start_date),
+            'compare' => '>=',
+			'type' => 'DATE'
 		) );
 	}
 
@@ -161,12 +162,12 @@ function projects_request() {
 			}
 
 			$begin = get_field( 'project_begin_date', $post->ID );
-			$begin_string = date( 'Y', $begin );
+			$begin_string = date( 'Y', intval($begin) );
 			$end = get_field( 'project_end_date', $post->ID );
 			if ( ! $end ) {
 				$end_string = 'Present';
 			} else {
-				$end_string = date( 'Y', $end );
+				$end_string = date( 'Y', intval($end) );
 			}
 
 			array_push( $data, array(
