@@ -4,7 +4,15 @@
  */
 get_header();
 $roles = get_terms( array( 'taxonomy' => 'team_role', 'hide_empty' => true ) );
-function compare_team_members($a, $b) {
+function sort_by_name($a, $b) {
+    $a_name = explode( ' ', $a->post_title );
+    $b_name = explode( ' ', $b->post_title );
+    if ( $a->post_title == $b->post_title ) {
+        return 0;
+    }
+    return ( $a->post_title < $b->post_title ) ? -1 : 1;
+}
+function sort_by_last_name($a, $b) {
     $a_name = explode( ' ', $a->post_title );
     $b_name = explode( ' ', $b->post_title );
     $a_last_name = $a_name[ (count($a_name) - 1) ];
@@ -71,7 +79,7 @@ function compare_team_members($a, $b) {
 
                                 $team_members = new WP_Query(array(
                                     'post_type' => 'team_member',
-                                    'posts_per_page' => 100,
+                                    'posts_per_page' => 500,
                                     'tax_query' => array(
                                         array(
                                             'taxonomy' => 'team_role',
@@ -84,7 +92,11 @@ function compare_team_members($a, $b) {
                                 if ( $team_members->have_posts() ) :
                                 
                                     $team_member_posts = $team_members->posts;
-                                    usort( $team_member_posts, 'compare_team_members' ); ?>
+                                    if ( 'staff' == $role->slug || 'board' == $role->slug ) {
+                                        usort( $team_member_posts, 'sort_by_last_name' );
+                                    } else {
+                                        usort( $team_member_posts, 'sort_by_name' );
+                                    } ?>
 
                                     <div id="<?php echo $role->slug; ?>">
 
