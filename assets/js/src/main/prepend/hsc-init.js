@@ -26,14 +26,6 @@
 
     };
 
-    hsc.query = function( selector, getFirst ) {
-        if ( getFirst ) {
-            return document.querySelector(selector);
-        } else {
-            return document.querySelectorAll( selector );
-        }
-    };
-
     hsc.domReady(function(){
         var html = document.querySelector('html');
         if ( html ) html.className = html.className.split('no-js').join('js');

@@ -17,8 +17,8 @@
 
         toggles: function() {
 
-            var menuToggles = hsc.query( '.js-menu-toggle' ),
-                body = hsc.query( 'body', true ),
+            var menuToggles = document.querySelectorAll( '.js-menu-toggle' ),
+                body = document.querySelector( 'body', true ),
                 onClick = function(e) {
                     e.preventDefault();
                     body.className = (body.className.indexOf('has-open-menu') > -1) ? body.className.split('has-open-menu').join('') : body.className + ' has-open-menu';
