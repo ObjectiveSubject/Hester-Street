@@ -137,12 +137,12 @@ function posts_events_request() {
 			}
 
 			$date = get_field( 'post_datetime' );
-			$date_unix = 0;
-			$date_string = '';
 			if ( $date ) {
 				$date_unix = intval($date);
-				$date_string = date( $date_format, $date );
+			} else {
+				$date_unix = strtotime($post->post_date);
 			}
+			$date_string = date( $date_format, $date_unix );
 
 			$cats = (array) get_the_terms( $post, 'category' );
 			$cat = ( ! empty( $cats ) ) ? $cats[0] : false;
