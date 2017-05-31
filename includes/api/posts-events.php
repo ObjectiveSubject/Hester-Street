@@ -93,9 +93,6 @@ function posts_events_request() {
     $meta_query = array();
 	$args = array(
 		'post_type'  => array('post', 'event'),
-		'order'      => 'DESC',
-		'orderby'    => 'meta_value',
-        'meta_key'   => 'post_datetime',
 		'paged'		 => $page,
 		'posts_per_page' => 18,
 		'ignore_sticky_posts' => true,
@@ -105,8 +102,9 @@ function posts_events_request() {
 	if ( $has_date ) {
 		array_push( $meta_query, array(
 			'key' => 'post_datetime',
-            'value' => $date,
-            'compare' => '>='
+            'value' => date('Y-m-d H:i:s',$date),
+            'compare' => '>=',
+			'type' => 'DATETIME'
 		) );
 	}
 
@@ -185,6 +183,7 @@ function posts_events_request() {
 				'slug' => $post->post_name,
 				'url'	=> get_the_permalink( $post->ID ),
 				'attachment' => $attachment,
+				'post_datetime' => get_post_meta( $post->ID, 'post_datetime', true ),
 				'date_unix' => $date_unix,
 				'date_string' => $date_string, 
 				'post_class' => implode( ' ', get_post_class($event_class) ),
