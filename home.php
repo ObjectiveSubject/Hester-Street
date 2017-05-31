@@ -97,7 +97,7 @@ $page_for_posts = get_option( 'page_for_posts' )
                                     <a v-if="post.post_type == 'post'" :href="post.url" class="u-display-block" :class="{ 'u-px-1 u-pb-1' : post.fake_type == 'newsletter' }" title="Read more">
                                         <img v-if="post.attachment" :src="post.attachment.src" :width="post.attachment.width" :height="post.attachment.height" class="u-display-block" />
                                         <div class="h6">{{ post.label }}&nbsp;&nbsp;&nbsp;{{ post.date_string }}</div>
-                                        <h3 class="hentry-title u-mt-nudge">{{ post.title }}</h3>
+                                        <h3 class="hentry-title h4 u-mt-nudge">{{ post.title }}</h3>
                                         <div class="hentry-excerpt u-mt-nudge">{{ post.excerpt }}</div>
                                     </a>
 
