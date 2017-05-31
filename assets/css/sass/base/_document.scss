@@ -16,8 +16,8 @@ body {
 	overflow-x: hidden;
 	&.has-open-menu {
 		height: 100vh;
-		overflow: hidden;
-		padding-right: 15px;
+		// overflow: hidden;
+		// padding-right: 15px;
 	}
 	&:before{ display: none; content: 'default'; }
 	@include media($sm) {
