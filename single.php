@@ -7,7 +7,9 @@ get_header();
 
 global $post;
 $cats = get_the_terms( $post, 'category' );
-$cat = ( ! empty( $cats ) ) ? $cats[0]->name : 'News'; ?>
+$cat = ( ! empty( $cats ) ) ? $cats[0]->name : 'News';
+$post_datetime = get_field( 'post_datetime' );
+$post_datetime = ( $post_datetime ) ? $post_datetime : strtotime( $post->post_date ); ?>
 
 	<div class="site-content">
 
@@ -38,7 +40,7 @@ $cat = ( ! empty( $cats ) ) ? $cats[0]->name : 'News'; ?>
                                     <?php the_title(); ?>
                                 </h1>
 
-                                <h2 class="h3 u-mt-nudge"><?php the_date(); ?></h2>
+                                <h2 class="h3 u-mt-nudge"><?php echo date( get_option( 'date_format' ), $post_datetime ); ?></h2>
 
                                     <?php if ( has_post_thumbnail() ) : ?>
                                     <div class="post-image u-mt-3">
