@@ -2019,6 +2019,9 @@ select {
     [class*="u-bg-"] .hsc-logo:hover, .site-menu .hsc-logo:hover, .site-footer .hsc-logo:hover {
       opacity: 0.5; }
 
+#page-map.mapboxgl-supported {
+  height: 21.88rem; }
+
 @media screen and (min-width: 768px) {
   .masthead.is-sticky {
     position: -webkit-sticky;
@@ -2988,9 +2991,6 @@ caption {
   .project-timeline__sidebar-item a.is-active {
     opacity: 1;
     color: black; }
-
-#single-project-map.mapboxgl-supported {
-  height: 21.88rem; }
 
 @media screen and (min-width: 1000px) {
   .project-content {

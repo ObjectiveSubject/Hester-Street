@@ -27,11 +27,11 @@ module.exports = {
 		],
 		dest: 'assets/js/page-news.js'
 	},
-	singleProject: {
+	map: {
 		src: [
-			'assets/js/src/views/project.js'
+			'assets/js/src/views/map.js'
 		],
-		dest: 'assets/js/project.js'
+		dest: 'assets/js/map.js'
 	},
 	projectTimeline: {
 		src: [

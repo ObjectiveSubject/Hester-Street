@@ -67,7 +67,7 @@ get_header(); ?>
                 </section>
 
                 <section class="section">
-                    <div id="single-project-map" data-geojson='<?php echo get_field('project_geojson') ?>'></div>
+                    <div id="page-map" data-geojson='<?php echo get_field('project_geojson') ?>'></div>
                 </section>
 
                 <section class="section">

@@ -3,7 +3,8 @@
  * General page template
  */
 
-get_header(); ?>
+get_header();
+$map_features = get_field( 'map_features' ); ?>
 
 	<div class="site-content">
 
@@ -47,6 +48,12 @@ get_header(); ?>
                         </div>
                     </div>
                 </section>
+
+                <?php if ( $map_features ) : ?>
+                    <section class="section">
+                        <div id="page-map" data-geojson='<?php echo $map_features; ?>'></div>
+                    </section>
+                <?php endif; ?>
 
                 <?php get_template_part( 'partials/sections' ); ?>
                 

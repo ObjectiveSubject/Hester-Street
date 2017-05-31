@@ -67,7 +67,8 @@ function scripts( $debug = false ) {
 	wp_register_script( 'main', HSC_TEMPLATE_URL . "/assets/js/main{$min}.js", array(), $version, true );
 	wp_register_script( 'front-page', HSC_TEMPLATE_URL . "/assets/js/front-page{$min}.js", array('scrollmagic'), $version, true );
 	wp_register_script( 'page-news', HSC_TEMPLATE_URL . "/assets/js/page-news{$min}.js", array('vue'), $version, true );
-	wp_register_script( 'single-project', HSC_TEMPLATE_URL . "/assets/js/project{$min}.js", array('vue', 'scrollmagic', 'mapbox_js', 'mapbox_supported_js', 'turf_js'), $version, true );
+	wp_register_script( 'map', HSC_TEMPLATE_URL . "/assets/js/map{$min}.js", array('mapbox_js', 'mapbox_supported_js', 'turf_js'), $version, true );
+	wp_register_script( 'single-project', HSC_TEMPLATE_URL . "/assets/js/project{$min}.js", array('vue', 'scrollmagic', 'map'), $version, true );
 	wp_register_script( 'project-timeline', HSC_TEMPLATE_URL . "/assets/js/project-timeline{$min}.js", array('vue'), $version, true );
 	wp_register_script( 'archive-project', HSC_TEMPLATE_URL . "/assets/js/archive-project{$min}.js", array('vue', 'scrollmagic', 'mapbox_js', 'mapbox_supported_js', 'turf_js'), $version, true );
 	wp_register_script( 'archive-publication', HSC_TEMPLATE_URL . "/assets/js/archive-publication{$min}.js", array('vue'), $version, true );
@@ -83,6 +84,9 @@ function scripts( $debug = false ) {
 	/* Specific Views
 	 * -------------------------------------------------------- */
 	
+	if ( is_page('contact') ) {
+		wp_enqueue_script( 'map' );
+	}
 	if ( is_front_page() ) {
 		wp_enqueue_script( 'front-page' );
 	}

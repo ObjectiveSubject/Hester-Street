@@ -1,8 +1,3 @@
-
-#single-project-map.mapboxgl-supported {
-    height: rem(350);
-}
-
 .project-content {
     @include media($lg) {
         @include span-columns(7);

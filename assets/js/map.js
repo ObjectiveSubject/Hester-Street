@@ -1,16 +1,15 @@
-/*
- * Projects
- */
-
+/*! Hester Street Collaborative - v1.0.0
+ * http://hesterstreet.org/
+ * Copyright (c) 2017; * Licensed GPLv2+ */
 (function(window) {
 
     mapboxgl.accessToken = 'pk.eyJ1Ijoib2JqZWN0aXZlc3ViamVjdCIsImEiOiJPY25wYWRjIn0.AFZPHessR_DGefRkzPilDA';
 
-    var mapContainer = document.getElementById('single-project-map');
+    var mapContainer = document.getElementById('page-map');
     if ( ! mapContainer ) 
         return;
 
-    var geoJsonString = mapContainer.dataset.geojson;
+    var geoJsonString = mapContainer.getAttribute('data-geojson');
     if ( ! geoJsonString ) 
         return;
     var geoJson = JSON.parse( geoJsonString );
@@ -20,7 +19,7 @@
 
     mapContainer.className += 'mapboxgl-supported';
     var map = new mapboxgl.Map({
-        container: 'single-project-map',
+        container: 'page-map',
         style: 'mapbox://styles/objectivesubject/cj26w6viz00052ss0boe1o2uf',
         center: [-73.98270130711586, 40.72701126185467], // manhattan
         pitch: 0,
