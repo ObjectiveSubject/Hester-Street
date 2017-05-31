@@ -39,11 +39,11 @@ get_header(); ?>
                             
                                 <?php if ( has_post_thumbnail() ) : ?>
                                     <div class="post-image">
-                                        <?php the_post_thumbnail(); ?>
+                                        <?php the_post_thumbnail('large'); ?>
                                     </div>
                                 <?php endif; ?>
 
-                                <h1 class="post-title u-mt-3">
+                                <h1 class="post-title <?php echo ( has_post_thumbnail() ) ? 'u-mt-3' : 'u-mt-pull'; ?>">
                                     <?php 
                                     if ( $alt_title ) {
                                         echo apply_filters( 'the_title', $alt_title );
