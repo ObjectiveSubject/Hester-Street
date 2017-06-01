@@ -16,12 +16,8 @@ get_header();
 
                         <?php get_template_part( 'partials/menu-ui' ); ?>
 
-                        <div class="sidebar sidebar-masthead section__sidebar flex__item">
-
-                            <div id="masthead" class="masthead is-sticky">
-                                <?php get_template_part( 'partials/sidebar', 'masthead' ); ?>
-                            </div>
-
+                        <div class="sidebar-masthead section__sidebar flex__item">
+                            <?php get_template_part( 'partials/masthead' ); ?>
                         </div>
 
                         <div class="content section__content flex__item">

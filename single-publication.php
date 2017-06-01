@@ -19,11 +19,7 @@ $related_projects = get_field( 'publication_related_projects' ); ?>
                             <?php get_template_part( 'partials/menu-ui' ); ?>
 
                             <div class="sidebar-masthead section__sidebar flex__item">
-
-                                <div id="masthead" class="masthead is-sticky">
-                                    <?php get_template_part( 'partials/sidebar', 'masthead' ); ?>
-                                </div>
-
+                                <?php get_template_part( 'partials/masthead' ); ?>
                             </div>
 
                             <div class="section__content flex__item">

@@ -1186,7 +1186,7 @@ hr {
 .u-mr-2 {
   margin-right: 2rem; }
 
-.u-mb-2, .masthead {
+.u-mb-2 {
   margin-bottom: 2rem; }
 
 .u-ml-2 {
@@ -2019,10 +2019,6 @@ select {
 
 #page-map.mapboxgl-supported {
   height: 21.88rem; }
-
-@media screen and (min-width: 768px) {
-  .masthead {
-    margin-bottom: 0; } }
 
 /* Media
  * -----------------------------------------------------------*/
