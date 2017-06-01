@@ -91,14 +91,14 @@ $page_for_posts = get_option( 'page_for_posts' )
                                         <div class="h6">{{ post.label }}</div>
                                         <h3 class="hentry-title h5 u-mt-nudge">{{ post.title }}</h3>
                                         <div class="h3 u-mt-nudge">{{ post.date_string }}</div>
-                                        <div class="hentry-excerpt u-mt-nudge">{{ post.excerpt }}</div>
+                                        <div class="hentry-excerpt u-mt-nudge" v-html="post.excerpt"></div>
                                     </a>
 
                                     <a v-if="post.post_type == 'post'" :href="post.url" class="u-display-block" :class="{ 'u-px-1 u-pb-1' : post.fake_type == 'newsletter' }" title="Read more">
                                         <img v-if="post.attachment" :src="post.attachment.src" :width="post.attachment.width" :height="post.attachment.height" class="u-display-block" />
                                         <div class="h6">{{ post.label }}&nbsp;&nbsp;&nbsp;{{ post.date_string }}</div>
                                         <h3 class="hentry-title h4 u-mt-nudge">{{ post.title }}</h3>
-                                        <div class="hentry-excerpt u-mt-nudge">{{ post.excerpt }}</div>
+                                        <div class="hentry-excerpt u-mt-nudge" v-html="post.excerpt"></div>
                                     </a>
 
                                 </article>
