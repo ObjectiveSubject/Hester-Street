@@ -41,6 +41,11 @@
             this.map.doubleClickZoom.disable();
             this.map.touchZoomRotate.disable();
 
+            new Sticky('.sidebar-map', {
+                stickyFor: 768,
+                stickyContainer: '.section__sidebar',
+            });
+
         },
         watch: {
             projects: function( newProjects ) {

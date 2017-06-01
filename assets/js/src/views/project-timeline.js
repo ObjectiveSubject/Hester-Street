@@ -11,6 +11,7 @@
         data: {
             appClassArray: ['is-loading'],
             loading: true,
+            stickySidebar: null,
             allTimelineItems: [],
             currentFilterGroup: '',
             currentFilters: {
@@ -42,6 +43,13 @@
         mounted: function(){
             if ( ! projectData || ! projectData.id ) return;
             this.getTimelineItems( projectData.id );
+
+            this.stickySidebar = new Sticky('.project-timeline__sidebar', {
+                marginTop: 16,
+                stickyFor: 1000,
+                stickyContainer: '.project-timeline__sidebar-wrap',
+            });
+            // window.stickySidebar = this.stickySidebar;
         },
         computed: {
             appClass: function(){
@@ -74,8 +82,17 @@
         },
         watch: {
             visibleTimelineItems: function(){
+
+                // break down scrollmagic controller and rebuild
                 if ( this.scrollMagicController ) this.scrollMagicController.destroy();
                 setTimeout( this.setupScrollMagic, 100 );
+                
+                // fire the window 'resize' event in order to update stickySidebar
+                if ( this.stickySidebar ) {
+                    setTimeout( function() {
+                        window.dispatchEvent( new Event('resize') );
+                    }, 100 );
+                } 
             }
         },
         methods: {

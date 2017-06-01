@@ -134,7 +134,7 @@ if ( is_tax() ) {
         </div><!-- .u-container -->
     </section>
 
-    <section class="section flex u-container" v-if="projects.length">
+    <section class="section flex u-container">
         <div class="flex__item">
             <sort-select :active-choice="currentSort" v-on:selectsortchoice="toggleSort"></sort-select>
         </div>
@@ -143,7 +143,7 @@ if ( is_tax() ) {
     <section class="section">
         <div class="project-results flex u-container" :class="{ 'has-sidebar has-fat-sidebar' : mapboxSupported }">
 
-            <div v-if="mapboxSupported" class="section__sidebar flex__item is-borderless is-flush u-pt-2">
+            <div v-if="mapboxSupported" class="section__sidebar flex__item is-borderless is-flush u-mt-2">
                 <!-- VueJS node -->
                 <archive-map :projects="projects"></archive-map>
             </div>

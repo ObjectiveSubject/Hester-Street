@@ -135,10 +135,17 @@ get_header(); ?>
 
                                 </div><!-- project-timeline__filters -->
 
+                                <div v-if="loading" class="h6 u-mt-3 u-animate-pulse">Loading...</div>
+
+                                <div v-if=" ! visibleTimelineItems.length && ! loading" class="error u-mt-3">
+                                    <h3 class="u-mt-0">Hmm... no projects match your criteria :(</h3>
+                                    <p class="h6">Try removing some of your filters above &uarr;</p>                                
+                                </div>
+
                                 <div class="project-timeline__contents u-mt-6">
 
-                                    <div v-if="visibleTimelineItems.length" class="project-timeline__sidebar-wrap">
-                                        <ul class="project-timeline__sidebar is-sticky u-mt-0">
+                                    <div class="project-timeline__sidebar-wrap">
+                                        <ul class="project-timeline__sidebar u-mt-0">
                                             <li v-for="item in visibleTimelineItems" class="project-timeline__sidebar-item">
                                                 <a :href="'#' + item.id" class="u-display-block h6 u-mt-0 u-mb-1">
                                                     <span v-html="item.label"></span><br/>
@@ -149,13 +156,6 @@ get_header(); ?>
                                     </div><!-- project-timeline__sidebar-wrap -->
                                     
                                     <div class="project-timeline__nodes">
-
-                                        <div v-if="loading" class="u-animate-pulse">Loading...</div>
-
-                                        <div v-if=" ! visibleTimelineItems.length && ! loading" class="error">
-                                            <h3 class="u-mt-0">Hmm... no projects match your criteria :(</h3>
-                                            <p class="h6">Try removing some of your filters above &uarr;</p>                                
-                                        </div>
 
                                         <article :id="item.id" v-for="item in visibleTimelineItems" :key="item.id" class="timeline-node">
 

@@ -1,15 +1,10 @@
 .sidebar-map {
     display: none;
+    height: 100vh;
     @include transition(opacity 300ms ease-out);
     @include media($md) {
         display: block;
     }
-    position: -webkit-sticky;
-    position: -moz-sticky;
-    position: -ms-sticky;
-    position: sticky;
-    top: 0;
-    height: 100vh;
     
     .is-loading & {
         opacity: 0.3;

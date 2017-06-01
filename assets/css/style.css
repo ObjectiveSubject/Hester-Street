@@ -2425,15 +2425,10 @@ figure {
 
 .sidebar-map {
   display: none;
+  height: 100vh;
   -webkit-transition: opacity 300ms ease-out;
   -moz-transition: opacity 300ms ease-out;
-  transition: opacity 300ms ease-out;
-  position: -webkit-sticky;
-  position: -moz-sticky;
-  position: -ms-sticky;
-  position: sticky;
-  top: 0;
-  height: 100vh; }
+  transition: opacity 300ms ease-out; }
   @media screen and (min-width: 768px) {
     .sidebar-map {
       display: block; } }
@@ -2981,11 +2976,6 @@ caption {
       -ms-flex-preferred-size: 14.7%; } }
 
 .project-timeline__sidebar {
-  position: -webkit-sticky;
-  position: -moz-sticky;
-  position: -ms-sticky;
-  position: sticky;
-  top: 1rem;
   overflow: auto;
   max-height: 100vh; }
 

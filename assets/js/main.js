@@ -820,10 +820,8 @@ function _classCallCheck(t,i){if(!(t instanceof i))throw new TypeError("Cannot c
             return;
         
         new Sticky('.masthead.is-sticky', {
-            wrap: false,
             marginTop: 48,
             stickyFor: 768,
-            stickyClass: 'is-fixed',
             stickyContainer: '.sidebar-masthead',
         });
 
