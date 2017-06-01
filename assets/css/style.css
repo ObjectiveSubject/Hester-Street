@@ -2705,21 +2705,26 @@ caption {
       color: black !important; }
 
 .footer__content {
-  -webkit-box-align: end;
-  -moz-box-align: end;
-  box-align: end;
-  -webkit-align-items: flex-end;
-  -moz-align-items: flex-end;
-  -ms-align-items: flex-end;
-  -o-align-items: flex-end;
-  align-items: flex-end;
-  -ms-flex-align: end;
   padding: 0 !important; }
   .footer__content .flex__item {
-    flex: 1 0 48.82%; }
-    @media screen and (min-width: 768px) {
+    padding-right: 18px;
+    flex: 1 1 48.82%; }
+    @media screen and (min-width: 1000px) {
       .footer__content .flex__item {
-        padding-right: 6rem; } }
+        padding-right: 2rem; } }
+    @media screen and (min-width: 1400px) {
+      .footer__content .flex__item {
+        padding-right: 5rem; } }
+
+.footer-colophon {
+  margin-top: 2rem;
+  -webkit-align-self: flex-end;
+  -moz-align-self: flex-end;
+  align-self: flex-end;
+  -ms-flex-item-align: end; }
+  @media screen and (min-width: 585px) {
+    .footer-colophon {
+      margin-top: 0; } }
 
 .site-footer .email.form-field, .site-footer .gfield input.email[type="text"], .gfield .site-footer input.email[type="text"], .site-footer .gfield input.email[type="email"], .gfield .site-footer input.email[type="email"], .site-footer .gfield select.email, .gfield .site-footer select.email {
   border-color: white;
