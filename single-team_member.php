@@ -78,7 +78,7 @@ $member_website = get_field( 'member_website' ); ?>
 
                                         <?php if ( $member_website ) : ?>
                                             <div class="member-website member-meta">
-                                                <a href="<?php echo esc_url( $member_website ); ?>" class="h6" target="_blank">View Website &nearr;</a>
+                                                <a href="<?php echo esc_url( $member_website ); ?>" class="h6" target="_blank" rel="nofollow" >View Website &nearr;</a>
                                             </div>
                                         <?php endif; ?>
 

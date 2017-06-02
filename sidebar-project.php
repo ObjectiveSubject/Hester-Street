@@ -82,9 +82,10 @@ $site_url = get_field( 'project_site_url' );
             $link_action = get_field( 'member_link_action' );
             $website = get_field( 'member_website' );
             $target = ( $link_action ) ? '_blank' : '_self';
+            $rel = ('_blank' == $target) ? 'nofollow' : '';
             $url = ( $link_action ) ? esc_url( $website ) : get_permalink($partner); ?>
             <li>
-                <a href="<?php echo $url; ?>" target="<?php echo $target; ?>" class="u-color-hover-green">
+                <a href="<?php echo $url; ?>" target="<?php echo esc_attr( $target ); ?>" rel="<?php echo esc_attr( $rel ); ?>" class="u-color-hover-green">
                     <?php echo get_the_title( $partner ); ?>
                     <?php echo ( $link_action ) ? '&nearr;' : ''; ?>
                 </a>
@@ -98,7 +99,7 @@ $site_url = get_field( 'project_site_url' );
 <div class="project-sidebar__group u-mb-3 u-mt-0">
     <div class="h6">Project Site</div>
     <ul class="u-mt-1">
-        <li><a href="<?php echo esc_url($site_url); ?>" target="_blank" class="u-color-hover-green"><?php echo $site . ' &nearr;'; ?></a></li>
+        <li><a href="<?php echo esc_url($site_url); ?>" target="_blank" rel="nofollow" class="u-color-hover-green"><?php echo $site . ' &nearr;'; ?></a></li>
     </ul>
 </div>
 

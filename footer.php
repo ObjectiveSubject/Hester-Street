@@ -73,7 +73,7 @@
                         <? foreach ( $social_accounts as $name => $url ) :
                             if ( ! empty( $url ) ) : ?>
                                 <li class="list__item menu-item">
-                                    <a href="<? echo esc_url( $url ); ?>" target="_blank"><? echo $name; ?></a>
+                                    <a href="<? echo esc_url( $url ); ?>" target="_blank" rel="nofollow"><? echo $name; ?></a>
                                 </li>
                             <? endif; ?>
                         <? endforeach; ?>
@@ -91,7 +91,7 @@
                         <!-- Begin MailChimp Signup Form -->
                         <div id="mc_embed_signup">
                         <p class="h6"><?php _e( 'Sign up for updates' ); ?></p>
-                        <form action="//hesterstreet.us15.list-manage.com/subscribe/post?u=ad4ffc9caf6943d4a15bfaefb&amp;id=ab79784775" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                        <form action="//hesterstreet.us15.list-manage.com/subscribe/post?u=ad4ffc9caf6943d4a15bfaefb&amp;id=ab79784775" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" rel="nofollow" novalidate>
                             <div id="mc_embed_signup_scroll">
                                 <div class="mc-field-group">
                                     <label for="mce-EMAIL" class="h6 u-mt-0">Email Address</label>
