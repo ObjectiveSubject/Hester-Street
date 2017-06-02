@@ -51,7 +51,13 @@ $site_url = get_field( 'project_site_url' );
     <div class="h6 u-mt-0">Team Members</div>
     <ul class="u-mt-1">
         <?php foreach ( $team_members as $member ) : ?>
-            <li><a href="<?php echo get_permalink($member); ?>" class="u-color-hover-green"><?php echo get_the_title( $member ); ?></a></li>
+            <li>
+                <?php if ( has_term( 'staff', 'team_role', $member ) ) : ?>
+                    <a href="<?php echo get_permalink($member); ?>" class="u-color-hover-green"><?php echo get_the_title( $member ); ?></a>
+                <?php else : ?>
+                    <?php echo get_the_title( $member ); ?>
+                <?php endif; ?>
+            </li>
         <?php endforeach; ?>
     </ul>
 </div>
