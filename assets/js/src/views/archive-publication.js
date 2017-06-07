@@ -8,8 +8,6 @@
 
     if ( ! window.publicationFilterData ) return;
 
-
-
     Vue.component( 'filter-term', {
         template: '<li class="list__item filter-group__item" v-bind:class="{ \'is-active\' : active }" v-on:click="select">{{ filterObj.name }}</li>',
         props: [ 'filterObj', 'isActive' ],
@@ -30,10 +28,9 @@
         }
     } );
 
-
-
     var app = new Vue({
         el: '#publication-archive-app',
+        template: '#publication-archive-template',
         data: {
             loading: true,
             queryData: {
