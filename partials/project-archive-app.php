@@ -170,7 +170,17 @@ if ( is_tax() ) {
 
         <section class="section flex u-container">
             <div class="flex__item">
+
+                <div v-if="error" class="u-pa-1 u-bg-red u-color-white">
+                    <div class="h6">Sorry, there's been an error</div>
+                    <p>
+                        Please deselect your last filter or reload the page.<br>
+                        <a href="mailto:<?php echo get_option('admin_email'); ?>" class="u-color-hover-black" style="text-decoration:underline">Contact the webmaster</a> if this issue persists.
+                    </p>
+                </div>
+
                 <sort-select :active-choice="currentSort" v-on:selectsortchoice="toggleSort"></sort-select>
+            
             </div>
         </section>
 

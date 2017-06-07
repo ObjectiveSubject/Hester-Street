@@ -263,6 +263,7 @@
         template: '#project-archive-template',
         data: {
             loading: true,
+            error: false,
             queryData: {
                 current_page: 1,
                 found_posts: 0,
@@ -451,9 +452,11 @@
             },
 
             getProjects: function( url, sortKey, append ) {
+                console.log(url);
                 var _this = this;
 
                 _this.loading = true;
+                _this.error = false;
 
                 sortKey = ( sortKey ) ? sortKey : this.currentSort;
                     
@@ -472,6 +475,8 @@
                         _this.sortProjects(sortKey);
                     })
                     .catch(function(ex) {
+                        _this.loading = false;
+                        _this.error = true;
                         console.log('Project fetch failed', ex);
                     });
                 
