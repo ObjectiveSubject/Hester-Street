@@ -2086,6 +2086,14 @@ figure {
     transition: all 300ms ease-out; }
   .hsc-video.video--preload:hover:after {
     background: rgba(0, 0, 0, 0.4); }
+  .hsc-video img {
+    height: auto;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%); }
 
 .hsc-video__play {
   position: absolute;

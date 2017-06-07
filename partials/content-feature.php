@@ -1,12 +1,18 @@
 <?php
 /*
- * Featured Event
+ * Featured Post
  *
  */
 
 $post_datetime = get_field('post_datetime');
 $date_format = get_option('date_format');
 $video_url = get_field('featured_video_url');
+$cats = get_the_category();
+if ( $cats ) {
+    $post_label = sprintf( __( 'Featured %s', 'hsc' ), $cats[0]->name );
+} else {
+    $post_label = sprintf( __( 'Featured %s', 'hsc' ), get_post_type() );
+}
 ?>
 <article <?php post_class(); ?>>
 
@@ -33,7 +39,7 @@ $video_url = get_field('featured_video_url');
     
 
     <div class="u-width-6-10">
-        <p class="h6">Featured Event &nbsp;&nbsp;&nbsp; <?php echo date( $date_format, $post_datetime); ?></p>
+        <p class="h6"><?php echo $post_label; ?> &nbsp;&nbsp;&nbsp; <?php echo date( $date_format, $post_datetime); ?></p>
         <p><?php the_excerpt(); ?></p>
         <p><a href="<?php the_permalink(); ?>" class="u-color-hover-teal"><?php _e( 'Continue Reading', 'hsc' ); echo ' &rarr;' ?></a></p>
     </div>
