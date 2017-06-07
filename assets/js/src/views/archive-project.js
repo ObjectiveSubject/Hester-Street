@@ -25,7 +25,8 @@
                 mapCenter: [-73.98270130711586, 40.72701126185467], // manhattan
                 mapZoom: 11,
                 scrollMagicController: false,
-                timeout: false
+                timeout: false,
+                previousProject: null
             };
         },
         mounted: function(){
@@ -86,6 +87,7 @@
                 .addTo( this.scrollMagicController );
                 
                 scene.on( "enter", function(event){
+
                     if ( el.className.indexOf("is-active") == -1 ) {
                         el.className += " is-active";   
                     }
@@ -97,15 +99,18 @@
                     if ( _this.timeout ) {
                         clearTimeout( _this.timeout );
                         _this.timeout = setTimeout( function(){
-                            _this.moveMapTo(project);
-                        }, 1000 );
+                            _this.moveMapTo(project, _this.previousProject);
+                        }, 750 );
                     } else {
                         _this.timeout = setTimeout( function(){
-                            _this.moveMapTo(project);
+                            _this.moveMapTo(project, _this.previousProject);
                         }, 0 );
                     }
                 } );
                 scene.on( "leave", function(event){
+
+                    _this.previousProject = project;
+
                     el.className = el.className.split("is-active").join("");
                     if ( event.scrollDirection == "FORWARD" ) {
                         el.className += " is-past";
@@ -114,16 +119,34 @@
 
             },
 
-            moveMapTo: function(project) {
-                var geoJsonString = project.geojson;
-                if ( ! geoJsonString ) return;
-                var geoJson = JSON.parse(geoJsonString);
+            moveMapTo: function(project, previous) {
+                var fitOptions = { maxZoom: 12, padding: { top:100, bottom:100, left:20, right:20 } },
+                    geoJsonString = project.geojson,
+                    geoJson, projectBounds;
+                
+                if ( ! geoJsonString ) 
+                    return;
+                
+                geoJson = JSON.parse(geoJsonString);
 
                 this.updateSource( "project-features", geoJson );
                 this.updateLayers( "project-features" );
+                                    
+                if ( previous ) {
+                    var prevGeoJsonString = previous.geojson,
+                        prevGeoJson = JSON.parse(prevGeoJsonString),
+                        previousCenter = turf.center(prevGeoJson),
+                        projectCenter = turf.center(geoJson),
+                        distance = turf.distance( projectCenter, previousCenter );
 
-                var geoJsonBounds = turf.extent(geoJson);
-                this.map.fitBounds(geoJsonBounds, { maxZoom: 14, padding: { top:40, bottom:20, left:20, right:20 } });
+                    // if the distance between two projects is greater than 50km, use instant transition rather than panning/zooming.
+                    if ( distance > 50 ) {
+                        fitOptions.linear = true;
+                    }
+                }
+
+                projectBounds = turf.extent(geoJson);
+                this.map.fitBounds( projectBounds, fitOptions );
             },
 
             resetMap: function(){
