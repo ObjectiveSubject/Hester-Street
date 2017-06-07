@@ -260,7 +260,7 @@
 
     var app = new Vue({
         el: '#app',
-        template: '#project-archive-app',
+        template: '#project-archive-template',
         data: {
             loading: true,
             queryData: {

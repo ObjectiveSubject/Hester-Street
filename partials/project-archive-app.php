@@ -25,7 +25,7 @@ if ( is_tax() ) {
                         <h1 class="page-title h2 u-mt-pull"><?php _e( 'Projects', 'hsc' ); ?></h1>
                     </div>
 
-                    <div class="h6 u-animate-pulse">Loading...</div>
+                    <div class="h6 u-animate-pulse"><?php _e( 'Loading...', 'hsc' ); ?></div>
 
                 </div> <!-- .section__content -->
 
@@ -38,7 +38,7 @@ if ( is_tax() ) {
 
 
 
-<script id="project-archive-app" type="text/html">
+<script id="project-archive-template" type="text/html">
 
     <div class="project-archive-app wrap" data-preload-filters='<?php echo json_encode( $preloadFilters ); ?>' :class="[[ loading ? 'is-loading' : 'loaded' ], { 'has-filters' : hasFilters }, [ mapboxSupported ? 'mapbox-support' : 'no-mapbox-support' ] ]">
         
