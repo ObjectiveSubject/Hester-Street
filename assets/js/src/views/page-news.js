@@ -8,6 +8,7 @@
 
     var app = new Vue({
         el: "#news-feed",
+        template: "#news-feed-template",
         data: {
             loading: true,
             queryData: {
