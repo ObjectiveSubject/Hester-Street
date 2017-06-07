@@ -21,9 +21,9 @@
     var map = new mapboxgl.Map({
         container: 'page-map',
         style: 'mapbox://styles/objectivesubject/cj26w6viz00052ss0boe1o2uf',
-        center: [-73.98270130711586, 40.72701126185467], // manhattan
+        center: turf.center(geoJson).geometry.coordinates, //[-73.98270130711586, 40.72701126185467], // manhattan
         pitch: 0,
-        zoom: 11
+        zoom: 14
     });
     map.addControl(new mapboxgl.NavigationControl(), 'top-left');
     map.scrollZoom.disable();
@@ -72,7 +72,7 @@
         });
 
         var geoJsonBounds = turf.extent(geoJson);
-        map.fitBounds(geoJsonBounds, { maxZoom: 14, padding: { top:40, bottom:20, left:20, right:20 } });
+        map.fitBounds(geoJsonBounds, { linear: true, maxZoom: 14, padding: { top:40, bottom:20, left:20, right:20 } });
 
     });
 
