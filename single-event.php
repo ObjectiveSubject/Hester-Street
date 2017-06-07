@@ -5,6 +5,7 @@
 
 global $post;
 
+$video_url = get_field('featured_video_url');
 $begin_datetime = get_field( 'post_datetime' );
 $begin_string = date( get_option('date_format') . ', g:ia', $begin_datetime );
 $end_datetime = get_field( 'post_datetime_end' );
@@ -63,10 +64,21 @@ get_header(); ?>
                                     <?php the_field('event_venue'); ?>
                                 </h2>
 
-                                    <?php if ( has_post_thumbnail() ) : ?>
-                                    <div class="post-image u-mt-3">
-                                        <?php the_post_thumbnail(); ?>
+                                <?php if ( $video_url ) : ?>
+                                
+                                    <div class="hsc-video u-mt-3 video--preload js-hsc-video" data-url="<?php echo $video_url; ?>" data-callback="removeBadge">
+                                        <?php the_post_thumbnail( 'large', array( 'class' => 'u-display-block' ) ); ?>
+                                        <div class="hsc-video__play"><?php get_template_part( 'partials/play-icon' ); ?></div>
                                     </div>
+
+                                <?php else : ?>
+                                
+                                    <?php if ( has_post_thumbnail() ) : ?>
+                                        <div class="post-image u-mt-3">
+                                            <?php the_post_thumbnail(); ?>
+                                        </div>
+                                    <?php endif; ?>
+
                                 <?php endif; ?>
 
                                 <div class="post-content u-mt-2">

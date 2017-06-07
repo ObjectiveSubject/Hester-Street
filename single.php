@@ -9,7 +9,8 @@ global $post;
 $cats = get_the_terms( $post, 'category' );
 $cat = ( ! empty( $cats ) ) ? $cats[0]->name : 'News';
 $post_datetime = get_field( 'post_datetime' );
-$post_datetime = ( $post_datetime ) ? $post_datetime : strtotime( $post->post_date ); ?>
+$post_datetime = ( $post_datetime ) ? $post_datetime : strtotime( $post->post_date );
+$video_url = get_field('featured_video_url'); ?>
 
 	<div class="site-content">
 
@@ -38,11 +39,22 @@ $post_datetime = ( $post_datetime ) ? $post_datetime : strtotime( $post->post_da
 
                                 <h2 class="h3 u-mt-nudge"><?php echo date( get_option( 'date_format' ), $post_datetime ); ?></h2>
 
-                                    <?php if ( has_post_thumbnail() ) : ?>
-                                    <div class="post-image u-mt-3">
-                                        <?php the_post_thumbnail(); ?>
-                                    </div>
-                                <?php endif; ?>
+                                    <?php if ( $video_url ) : ?>
+                                    
+                                        <div class="hsc-video u-mt-3 video--preload js-hsc-video" data-url="<?php echo $video_url; ?>" data-callback="removeBadge">
+                                            <?php the_post_thumbnail( 'large', array( 'class' => 'u-display-block' ) ); ?>
+                                            <div class="hsc-video__play"><?php get_template_part( 'partials/play-icon' ); ?></div>
+                                        </div>
+
+                                    <?php else : ?>
+                                    
+                                        <?php if ( has_post_thumbnail() ) : ?>
+                                            <div class="post-image u-mt-3">
+                                                <?php the_post_thumbnail(); ?>
+                                            </div>
+                                        <?php endif; ?>
+
+                                    <?php endif; ?>                                    
 
                                 <div class="post-content u-mt-2">
                                     <?php the_content(); ?>
