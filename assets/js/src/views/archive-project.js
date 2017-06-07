@@ -260,7 +260,8 @@
     } );
 
     var app = new Vue({
-        el: '#project-archive-app',
+        el: '#app',
+        template: '#project-archive-app',
         data: {
             loading: true,
             queryData: {
