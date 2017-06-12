@@ -484,7 +484,7 @@
 
                 sortKey = ( sortKey ) ? sortKey : this.currentSort;
                     
-                fetch( HSC.api + '/projects/' + url )
+                fetch( HSC.api + 'hsc-projects/' + url )
                     .then(function(response){
                         return response.json();
                     })

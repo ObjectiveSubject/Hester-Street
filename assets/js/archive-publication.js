@@ -132,7 +132,7 @@
 
                 this.loading = true;
                     
-                fetch( HSC.api + 'publications/' + url )
+                fetch( HSC.api + 'hsc-publications/' + url )
                     .then(function(response){
                         return response.json();
                     })

@@ -26,7 +26,7 @@ function add_endpoint(){
     add_rewrite_tag( "%api-call%", '([^&]+)' );
 
 	add_rewrite_rule(
-		'hsc-api/publications/([^&]+)/([^&]+)/([^&]+)/([^&]+)/?',
+		'hsc-api/hsc-publications/([^&]+)/([^&]+)/([^&]+)/([^&]+)/?',
 		'index.php?date=$matches[1]&services=$matches[2]&issues=$matches[3]&page=$matches[4]&api-call=publications',
 		'top' );
 }
