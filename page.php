@@ -47,7 +47,10 @@ $map_features = get_field( 'map_features' ); ?>
 
                 <?php if ( $map_features ) : ?>
                     <section class="section">
-                        <div id="page-map" data-geojson='<?php echo $map_features; ?>'></div>
+                        <div id="page-map"></div>
+                        <script type="text/javascript" id="map-geojson">
+                            <?php echo $map_features; ?>
+                        </script>
                     </section>
                 <?php endif; ?>
 

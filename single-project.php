@@ -63,9 +63,22 @@ get_header(); ?>
                 </section>
 
                 <section class="section">
-                    <div id="page-map" data-geojson='<?php echo get_field('project_geojson') ?>'></div>
-                </section>
+                    <div id="page-map"></div>
+                    <script type="text/javascript" id="map-geojson">
+                    
+                        <?php 
+                        $project_geojson_file = get_field('project_geojson_file');
+                        if ( $project_geojson_file ) {
+                            echo file_get_contents( $project_geojson_file['url'] );
+                        } else {
+                            echo get_field('project_geojson');
+                        }
+                        ?>
+                        
+                    </script>
 
+                </section>
+                
                 <section class="section">
                     <div class="flex has-sidebar u-container">
 

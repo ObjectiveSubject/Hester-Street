@@ -10,10 +10,11 @@
     if ( ! mapContainer ) 
         return;
 
-    var geoJsonString = mapContainer.getAttribute('data-geojson');
-    if ( ! geoJsonString ) 
+    var geoJsonScript = document.getElementById('map-geojson'),
+        geoJsonString = geoJsonScript.innerText;
+    if ( ! geoJsonScript || ! geoJsonString ) 
         return;
-    var geoJson = JSON.parse( geoJsonString );
+    var geoJson = JSON.parse( geoJsonString.trim() );
 
     if ( ! mapboxgl.supported() )
         return;
@@ -31,8 +32,6 @@
     
 
     map.on("load", function() {
-
-        window.myMap = map;
 
         map.addSource("project-features", {"type":"geojson", "data":geoJson} );
 

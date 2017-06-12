@@ -173,6 +173,13 @@ function projects_request() {
 				$end_string = date( 'Y', intval($end) );
 			}
 
+			$project_geojson_file = get_field( 'project_geojson_file', $post->ID );
+			if ( $project_geojson_file ) {
+				$geoJson = file_get_contents( $project_geojson_file['url'] );
+			} else {
+				$geoJson = get_field( 'project_geojson', $post->ID );
+			}
+
 			array_push( $posts, array(
 				'title' 	=> $post->post_title,
                 'title_alt' => get_field( 'project_alt_title', $post->ID ),
@@ -182,7 +189,7 @@ function projects_request() {
 				'begin_date' => get_field( 'project_begin_date', $post->ID ),
                 'end_date' => get_field( 'project_end_date', $post->ID ),
 				'date_string' => $begin_string . ' – ' . $end_string, 
-                'geojson' => get_field( 'project_geojson', $post->ID ),
+                'geojson' => trim( $geoJson ),
 				'post_class' => implode( ' ', get_post_class() )
 			) );
 		}
