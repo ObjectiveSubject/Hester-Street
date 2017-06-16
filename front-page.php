@@ -25,36 +25,7 @@ get_header(); ?>
 
                             <div class="section__content flex__item">
 
-                                <nav class="main-navigation u-mt-pull" role="navigation">
-
-                                    <?php
-                                    $menu_primary   = false;
-                                    $menu_secondary = false;
-                                    if ( has_nav_menu( 'primary' ) ) {
-                                        $menu_primary = wp_nav_menu(array(
-                                            'theme_location' => 'primary',
-                                            'container'		 => false,
-                                            'menu_class'	 => 'primary-menu header-primary-menu',
-                                            'menu_id'		 => 'header-primary-menu',
-                                            'echo'			 => false
-                                        ));
-                                        echo $menu_primary;
-                                    }
-                                    if ( has_nav_menu( 'secondary' ) ) {
-                                        $menu_secondary = wp_nav_menu(array(
-                                            'theme_location' => 'secondary',
-                                            'container'		 => false,
-                                            'menu_class'	 => 'secondary-menu header-secondary-menu',
-                                            'menu_id'		 => 'header-secondary-menu',
-                                            'echo'			 => false
-                                        ));
-                                        echo $menu_secondary;
-                                    }
-                                    ?>
-                                    
-                                </nav>
-
-                                <div class="h1 u-mt-3 u-width-8-10"><? echo bloginfo( 'description' ); ?></div> 
+                                <div class="h1 u-mt-pull u-width-8-10"><? echo bloginfo( 'description' ); ?></div> 
 
                                 <?php 
                                 $featured_post = get_field( 'featured_post' );

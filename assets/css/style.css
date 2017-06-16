@@ -2224,10 +2224,6 @@ figure {
   transition: all 200ms ease-out; }
   .has-open-menu .menu-icon__bar {
     background-color: white; }
-  @media screen and (min-width: 768px) {
-    .site-content .is-hidden .menu-icon__bar {
-      opacity: 0;
-      pointer-events: none; } }
   .menu-icon__bar.top {
     top: 0;
     -webkit-transform-origin: 50% center;
@@ -2242,13 +2238,6 @@ figure {
       -o-transform: rotate(225deg);
       transform: rotate(225deg);
       top: 10px; }
-    @media screen and (min-width: 768px) {
-      .site-content .is-hidden .menu-icon__bar.top {
-        -webkit-transform: translateX(30px);
-        -moz-transform: translateX(30px);
-        -ms-transform: translateX(30px);
-        -o-transform: translateX(30px);
-        transform: translateX(30px); } }
   .menu-icon__bar.middle {
     top: 50%;
     margin-top: -2px; }
@@ -2259,17 +2248,6 @@ figure {
       -ms-transform: translateX(-16px);
       -o-transform: translateX(-16px);
       transform: translateX(-16px); }
-    .home .site-content .menu-icon__bar.middle {
-      -webkit-transition-delay: 50ms;
-      -moz-transition-delay: 50ms;
-      transition-delay: 50ms; }
-    @media screen and (min-width: 768px) {
-      .site-content .is-hidden .menu-icon__bar.middle {
-        -webkit-transform: translateX(30px);
-        -moz-transform: translateX(30px);
-        -ms-transform: translateX(30px);
-        -o-transform: translateX(30px);
-        transform: translateX(30px); } }
   .menu-icon__bar.bottom {
     bottom: 0;
     -webkit-transform-origin: 50% bottom;
@@ -2284,17 +2262,6 @@ figure {
       -ms-transform: rotate(-225deg);
       -o-transform: rotate(-225deg);
       transform: rotate(-225deg); }
-    .home .site-content .menu-icon__bar.bottom {
-      -webkit-transition-delay: 100ms;
-      -moz-transition-delay: 100ms;
-      transition-delay: 100ms; }
-    @media screen and (min-width: 768px) {
-      .site-content .is-hidden .menu-icon__bar.bottom {
-        -webkit-transform: translateX(30px);
-        -moz-transform: translateX(30px);
-        -ms-transform: translateX(30px);
-        -o-transform: translateX(30px);
-        transform: translateX(30px); } }
 
 .page-header {
   margin-top: 2rem; }

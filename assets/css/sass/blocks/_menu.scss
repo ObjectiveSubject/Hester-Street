@@ -81,12 +81,6 @@
     .has-open-menu & {
         background-color: white;
     }
-    .site-content .is-hidden & {
-        @include media($md) {
-            opacity: 0;
-            pointer-events: none;
-        }
-    }
 
     &.top { 
         top: 0; 
@@ -94,11 +88,6 @@
         .has-open-menu & {
            @include transform( rotate(225deg) );
            top: 10px;
-        }
-        .site-content .is-hidden & {
-            @include media($md) {
-                @include transform( translateX(30px) );
-            }
         }
     }
     &.middle { 
@@ -108,14 +97,6 @@
             opacity: 0;
             @include transform( translateX(-16px) );
         }
-        .home .site-content & {
-            @include transition-delay(50ms);
-        }
-        .site-content .is-hidden & {
-            @include media($md) {
-                @include transform( translateX(30px) );
-            }
-        }
     }
     &.bottom { 
         bottom: 0;
@@ -123,14 +104,6 @@
         .has-open-menu & {
             bottom: 10px;
             @include transform( rotate(-225deg) );
-        }
-        .home .site-content & {
-            @include transition-delay(100ms);
-        }
-        .site-content .is-hidden & {
-            @include media($md) {
-                @include transform( translateX(30px) );
-            }
         }
     }
 }
