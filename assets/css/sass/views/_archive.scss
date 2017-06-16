@@ -42,3 +42,22 @@
         }
     }
 }
+
+.project-search-bar {
+    margin-top: 6rem;
+    input {
+        @extend .h6;
+        @extend .u-mt-0;
+        @extend .u-width-100;
+        color: $medium-gray;
+        border-color: $medium-gray;
+        &:hover, &:focus {
+            border-color: black;
+            color: black;
+        }
+    }
+    .helper {
+        font-size: rem(12);
+        opacity: 0.5;
+    }
+}

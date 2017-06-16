@@ -355,7 +355,7 @@ h5, .h5, .label, .gfield label {
       font-size: 1.5rem; } }
 
 h6, .h6, .filter-group__item, .list-title, .social .list__item,
-.page-anchors .list__item, .secondary-menu .menu-item, .footer-social .menu-item, .page-numbers {
+.page-anchors .list__item, .secondary-menu .menu-item, .footer-social .menu-item, .page-numbers, .project-search-bar input {
   font-family: "GT-America-Extended-Black", Arial, sans-serif;
   text-transform: uppercase;
   margin-top: 1rem;
@@ -364,7 +364,7 @@ h6, .h6, .filter-group__item, .list-title, .social .list__item,
   line-height: 1.1; }
   @media screen and (min-width: 1000px) {
     h6, .h6, .filter-group__item, .list-title, .social .list__item,
-    .page-anchors .list__item, .secondary-menu .menu-item, .footer-social .menu-item, .page-numbers {
+    .page-anchors .list__item, .secondary-menu .menu-item, .footer-social .menu-item, .page-numbers, .project-search-bar input {
       font-size: 1.12rem; } }
 
 /* Links
@@ -1047,7 +1047,7 @@ hr {
 .u-width-75 {
   width: 75%; }
 
-.u-width-100 {
+.u-width-100, .project-search-bar input {
   width: 100%; }
 
 .u-clearfix:before, #page:before, .filter-toggle-list:before, .form-group:before, .ginput_complex:before, .ginput_full:before, .ginput_card_expiration_container:before, .gfield_radio:before, .u-clearfix:after, #page:after, .filter-toggle-list:after, .form-group:after, .ginput_complex:after, .ginput_full:after, .ginput_card_expiration_container:after, .gfield_radio:after {
@@ -1088,7 +1088,7 @@ hr {
 .u-ma-0 {
   margin: 0rem; }
 
-.u-mt-0, .label, .gfield label, .primary-menu .menu-item, .secondary-menu .menu-item, .footer-social .menu-item {
+.u-mt-0, .label, .gfield label, .primary-menu .menu-item, .secondary-menu .menu-item, .footer-social .menu-item, .project-search-bar input {
   margin-top: 0rem; }
 
 .u-mr-0 {
@@ -2355,6 +2355,8 @@ figure {
         -moz-flex-basis: 82.94%;
         flex-basis: 82.94%;
         -ms-flex-preferred-size: 82.94%; } }
+  .section__content.flush-bottom {
+    padding-bottom: 0; }
   @media screen and (min-width: 768px) {
     .has-sidebar.has-fat-sidebar .section__content {
       -webkit-flex-basis: 48.82%;
@@ -2538,6 +2540,18 @@ caption {
       width: 20%;
       float: right;
       margin-top: 0; } }
+
+.project-search-bar {
+  margin-top: 6rem; }
+  .project-search-bar input {
+    color: #999999;
+    border-color: #999999; }
+    .project-search-bar input:hover, .project-search-bar input:focus {
+      border-color: black;
+      color: black; }
+  .project-search-bar .helper {
+    font-size: 0.75rem;
+    opacity: 0.5; }
 
 @media screen and (min-width: 768px) {
   .wrap {

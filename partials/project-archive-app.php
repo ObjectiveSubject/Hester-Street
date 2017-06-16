@@ -51,7 +51,7 @@ if ( is_tax() ) {
                     <?php get_template_part( 'partials/masthead' ); ?>
                 </div>
 
-                <div class="section__content flex__item">
+                <div class="section__content flex__item flush-bottom">
                     
                     <div class="page-header u-clearfix">
                         <h1 class="page-title h2 u-mt-pull"><?php _e( 'Projects', 'hsc' ); ?></h1>
@@ -161,6 +161,17 @@ if ( is_tax() ) {
                             
                         </div>
 
+                    </div>
+
+                    <div id="project-search-bar" class="project-search-bar">
+                        <label for="project-search">SEARCH...</label>
+                        <input id="project-search" class="form-field u-display-block" type="text" placeholder="by project name..." v-model.trim="search"/>
+                        <div class="helper" v-if="searchHelper">{{ searchHelper }}</div>
+                        <ul class="project-search-results">
+                            <li class="h4" v-for="searchedProject in searchedProjects">
+                                <a :href="searchedProject.url" class="u-color-hover-green">{{ searchedProject.title }}</a>
+                            </li>
+                        </ul>
                     </div>
 
                 </div> <!-- .section__content -->

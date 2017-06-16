@@ -15,6 +15,9 @@
             @include flex-basis( flex-grid(10, $grid-columns) );
         }
     }
+    &.flush-bottom {   
+        padding-bottom: 0;
+    }
     .has-sidebar.has-fat-sidebar & {
         @include media($md) {
             @include flex-basis( flex-grid(6, $grid-columns) );

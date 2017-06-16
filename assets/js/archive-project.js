@@ -240,7 +240,7 @@
 
     Vue.component( 'sort-select', {
         template: '<div class="sort-select" v-on:click="toggleSelect" >'+
-                        '<p class="u-caps">Sort By</p>'+
+                        '<p class="u-caps u-mt-3">Sort By</p>'+
                         '<ul class="u-mt-0">'+
                             '<sort-choice v-on:selectchoice="selectSortChoice(\'alpha_desc\')" v-if=" selectIsOpen || choice == \'alpha_desc\' " value="alpha_desc" name="Alphabetical ⬇︎" ></sort-choice>'+
                             '<sort-choice v-on:selectchoice="selectSortChoice(\'alpha_asc\')" v-if=" selectIsOpen || choice == \'alpha_asc\' " value="alpha_asc" name="Alphabetical ⬆︎" ></sort-choice>'+
@@ -287,6 +287,9 @@
         data: {
             loading: true,
             error: false,
+            search: "",
+            searchTimeout: undefined,
+            searchHelper: "",
             queryData: {
                 current_page: 1,
                 found_posts: 0,
@@ -303,6 +306,7 @@
             currentSort: "date_start_desc",
             projectFilterData: projectFilterData,
             projects: [],
+            searchedProjects: [],
             mapboxSupported: mapboxSupported,
         },
         beforeMount: function(){
@@ -318,6 +322,21 @@
         watch: {
             currentSort: function(newSort){
                 this.sortProjects(newSort);
+            },
+            search: function(newSearch){
+                var _this = this;
+
+                _this.searchHelper = "waiting...";
+                
+                if ( _this.searchTimeout ) {
+                    clearTimeout( _this.searchTimeout );
+                }
+                
+                _this.searchTimeout = setTimeout( function() {
+                    _this.searchProjects(newSearch);
+                    _this.searchTimeout = undefined;
+                }, 500);
+                
             }
         },
         computed: {
@@ -475,7 +494,6 @@
             },
 
             getProjects: function( url, sortKey, append ) {
-                console.log(url);
                 var _this = this;
 
                 _this.loading = true;
@@ -505,10 +523,40 @@
                 
             },
 
+            searchProjects: function( keywords ) {
+                
+                if ( typeof keywords !== 'string' || keywords.length < 2 ) {
+                    this.searchHelper = "";
+                    this.searchedProjects = [];
+                    return;
+                }
+
+                this.searchHelper = "searching...";
+
+                keywords = keywords.replace( / /g, '+' );
+
+                var _this = this;
+                
+                fetch( HSC.api + 'hsc-projects-search/' + keywords )
+                    .then(function(response){
+                        return response.json();
+                    })
+                    .then(function(json){
+                        _this.searchedProjects = json.posts;
+                        var projectsForm = ( json.posts.length > 1 ) ? 'Projects' : 'Project';
+                        _this.searchHelper = ( json.posts.length ) ? json.posts.length + " " + projectsForm + " found" : "Nothing found";
+                    })
+                    .catch(function(ex) {
+                        console.log('Project Search fetch failed: ', ex);
+                        _this.searchHelper = "There\'s been an error";
+                    });
+                
+            },
+
             getMoreProjects: function(){
                 var url = this.getProjectApiUrl( this.queryData.current_page + 1 );
                 this.getProjects( url, this.currentSort, 'append' );
-            }
+            },
 
         }
     });

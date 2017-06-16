@@ -744,13 +744,15 @@ function _classCallCheck(t,i){if(!(t instanceof i))throw new TypeError("Cannot c
         getMediaSize: function( elem ) {
     		elem = ( elem ) ? elem : 'body';
     		return window.getComputedStyle( document.querySelector( elem ), '::before' ).getPropertyValue( 'content' ).replace(/"/g, "").replace(/'/g, "");
-    	},
+    	}
 
     };
 
     hsc.domReady(function(){
-        var html = document.querySelector('html');
-        if ( html ) html.className = html.className.split('no-js').join('js');
+        var html = document.querySelector('html'),
+            htmlClasses = ['js'];
+
+        if ( html ) html.className = htmlClasses.join(' ');
     });
 
     window.hsc = hsc;
