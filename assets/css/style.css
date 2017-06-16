@@ -2542,6 +2542,7 @@ caption {
       margin-top: 0; } }
 
 .project-search-bar {
+  position: relative;
   margin-top: 6rem; }
   .project-search-bar input {
     color: #999999;
@@ -2552,6 +2553,25 @@ caption {
   .project-search-bar .helper {
     font-size: 0.75rem;
     opacity: 0.5; }
+
+.project-search-results {
+  display: none;
+  position: relative;
+  background-color: white;
+  margin-top: 0;
+  padding: 0 0 1rem;
+  overflow: auto;
+  max-height: 15.62rem;
+  z-index: 999;
+  box-shadow: 0 10px 20px -15px;
+  width: 100%; }
+  @media screen and (min-width: 768px) {
+    .project-search-results {
+      position: absolute;
+      top: 100%; } }
+  .project-search-results:hover,
+  input:focus ~ .project-search-results {
+    display: block; }
 
 @media screen and (min-width: 768px) {
   .wrap {

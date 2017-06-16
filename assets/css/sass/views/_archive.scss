@@ -44,6 +44,7 @@
 }
 
 .project-search-bar {
+    position: relative;
     margin-top: 6rem;
     input {
         @extend .h6;
@@ -59,5 +60,28 @@
     .helper {
         font-size: rem(12);
         opacity: 0.5;
+    }
+}
+
+.project-search-results {
+    display: none;
+    position: relative;
+    background-color: white;
+    margin-top: 0;
+    padding: 0 0 1rem;
+    overflow: auto;
+    max-height: rem(250);
+    z-index: 999;
+    box-shadow: 0 10px 20px -15px;
+    width: 100%;
+
+    @include media($md) {
+        position: absolute;
+        top: 100%;
+    }
+
+    &:hover,
+    input:focus ~ & {
+        display: block;
     }
 }

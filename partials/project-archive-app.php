@@ -168,7 +168,7 @@ if ( is_tax() ) {
                         <input id="project-search" class="form-field u-display-block" type="text" placeholder="by project name..." v-model.trim="search"/>
                         <div class="helper" v-if="searchHelper">{{ searchHelper }}</div>
                         <ul class="project-search-results">
-                            <li class="h4" v-for="searchedProject in searchedProjects">
+                            <li class="h6" v-for="searchedProject in searchedProjects">
                                 <a :href="searchedProject.url" class="u-color-hover-green">{{ searchedProject.title }}</a>
                             </li>
                         </ul>
