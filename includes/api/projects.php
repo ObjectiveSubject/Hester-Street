@@ -11,14 +11,15 @@ function setup() {
 		return __NAMESPACE__ . "\\$function";
 	};
 
-	add_action( 'init', $n( 'add_endpoint' ) );
+	add_action( 'init', $n( 'add_projects_endpoint' ) );
+	add_action( 'init', $n( 'add_projects_search_endpoint' ) );
 	add_action( 'template_redirect', $n( 'handle_api_endpoints' ) );
 }
 
 /**
  * Create our json endpoint by adding new rewrite rules to WordPress
  */
-function add_endpoint(){
+function add_projects_endpoint(){
     add_rewrite_tag( "%start-date%", '([^&]+)' );
 	add_rewrite_tag( "%services%", '([^&]+)' );
     add_rewrite_tag( "%issues%", '([^&]+)' );
@@ -30,6 +31,15 @@ function add_endpoint(){
 	add_rewrite_rule(
 		'hsc-api/hsc-projects/([^&]+)/([^&]+)/([^&]+)/([^&]+)/([^&]+)/([^&]+)/?',
 		'index.php?start-date=$matches[1]&services=$matches[2]&issues=$matches[3]&status=$matches[4]&locations=$matches[5]&page=$matches[6]&api-call=projects',
+		'top' );
+}
+
+function add_projects_search_endpoint(){
+	add_rewrite_tag( "%keywords%", '([^&]+)' );
+
+	add_rewrite_rule(
+		'hsc-api/hsc-projects-search/([^&]+)/?',
+		'index.php?keywords=$matches[1]&api-call=searchprojects',
 		'top' );
 }
 
@@ -45,15 +55,14 @@ function handle_api_endpoints() {
 	// route api request
 	if ( 'projects' === $api_call ) {
         projects_request();
+	} elseif ( 'searchprojects' === $api_call ) {
+		projects_search_request();
 	} else {
 		return;
 	}
 }
 
 
-/**
- * Handle project requests
- */
 function projects_request() {
 	global $wp_query;
 	$start_date = $wp_query->get( 'start-date' );
@@ -191,6 +200,44 @@ function projects_request() {
 				'date_string' => $begin_string . ' – ' . $end_string, 
                 'geojson' => trim( $geoJson ),
 				'post_class' => implode( ' ', get_post_class() )
+			) );
+		}
+	}
+
+	wp_reset_query();
+	status_header( 200 );
+	wp_send_json( array( 'query' => $queryData, 'posts' => $posts ) );
+
+	return;
+}
+
+
+function projects_search_request() {
+	global $wp_query;
+	
+	$keywords = $wp_query->get( 'keywords' );
+	$keywords = sanitize_text_field( $keywords );
+
+	$args = array(
+		'post_type'  => 'project',
+		'posts_per_page' => 500,
+		'order'      => 'ASC',
+		'orderby'    => 'title',
+		'post_parent' => 0,
+		's' => $keywords
+	);
+	$query = new \WP_Query( $args );
+	$queryData = array( 'found_posts' => intval($query->found_posts) );
+	$posts = array();
+
+	if ( $query->have_posts() ) {
+		while ( $query->have_posts() ) {
+			$query->the_post();
+			global $post;
+
+			array_push( $posts, array(
+				'title' 	=> $post->post_title,
+				'url'	=> get_the_permalink( $post->ID ),
 			) );
 		}
 	}
