@@ -3,6 +3,10 @@
 }
 .post-content {
     @extend .page-content;
+
+    a {
+        @extend .u-underline;
+    }
 }
 
 .hentry.preview {

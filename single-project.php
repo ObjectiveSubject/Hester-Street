@@ -89,7 +89,7 @@ get_header(); ?>
                             <div class="section__content flex__item u-pt-6">                                    
 
                                 <div class="clearfix">
-                                    <div class="project-content">
+                                    <div class="project-content post-content">
                                         <div class="h6 u-mt-0">Description</div>
                                         <?php the_content(); ?>
                                     </div>

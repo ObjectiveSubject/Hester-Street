@@ -1429,41 +1429,44 @@ hr {
   float: left; }
 
 .u-font-gta-extended {
-  font-family: "GT-America-Extended-Black", Arial, sans-serif;
-  text-transform: uppercase; }
+  font-family: "GT-America-Extended-Black", Arial, sans-serif !important;
+  text-transform: uppercase !important; }
 
 .u-weight-light {
-  font-weight: 300; }
+  font-weight: 300 !important; }
 
 .u-weight-normal {
-  font-weight: 400; }
+  font-weight: 400 !important; }
 
 .u-weight-medium {
-  font-weight: 500; }
+  font-weight: 500 !important; }
 
 .u-weight-bold {
-  font-weight: 700; }
+  font-weight: 700 !important; }
 
 .u-caps {
-  text-transform: uppercase; }
+  text-transform: uppercase !important; }
 
 .u-font-size-sm {
-  font-size: 75%; }
+  font-size: 75% !important; }
 
 .u-font-size-lg {
-  font-size: 125%; }
+  font-size: 125% !important; }
 
 .u-font-size-xl {
-  font-size: 150%; }
+  font-size: 150% !important; }
 
 .u-text-left, caption, th {
-  text-align: left; }
+  text-align: left !important; }
 
 .u-text-center {
-  text-align: center; }
+  text-align: center !important; }
 
 .u-text-right {
-  text-align: right; }
+  text-align: right !important; }
+
+.u-underline, .post-content a {
+  text-decoration: underline !important; }
 
 .badge {
   display: block;
