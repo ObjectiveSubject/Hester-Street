@@ -3,6 +3,11 @@
  * Single Post template
  */
 
+$external_url = get_field('post_external_url');
+if ( $external_url ) {
+    wp_redirect( $external_url );
+}
+
 get_header();
 
 global $post;

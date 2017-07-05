@@ -177,19 +177,26 @@ function posts_events_request() {
 				$fake_type = $cat->slug;
 			}
 
+			$url = get_the_permalink( $post->ID );
+			$ext_url = get_field( 'post_external_url' );
+			if ( $ext_url ) {
+				$url = $ext_url;
+			}
+
 			array_push( $posts, array(
-				'title' 	=> $post->post_title,
-				'excerpt'	=> get_the_excerpt( $post ),
-				'slug' => $post->post_name,
-				'url'	=> get_the_permalink( $post->ID ),
-				'attachment' => $attachment,
+				'title' 	    => $post->post_title,
+				'excerpt'	    => get_the_excerpt( $post ),
+				'slug'          => $post->post_name,
+				'url'	        => $url,
+				'is_external'	=> ( $ext_url ) ? true : false,
+				'attachment'    => $attachment,
 				'post_datetime' => get_post_meta( $post->ID, 'post_datetime', true ),
-				'date_unix' => $date_unix,
-				'date_string' => $date_string, 
-				'post_class' => implode( ' ', get_post_class($event_class) ),
-				'post_type' => $post->post_type,
-				'fake_type' => $fake_type,
-				'label' => $label,
+				'date_unix'     => $date_unix,
+				'date_string'   => $date_string, 
+				'post_class'    => implode( ' ', get_post_class($event_class) ),
+				'post_type'     => $post->post_type,
+				'fake_type'     => $fake_type,
+				'label'         => $label,
 			) );
 		}
 		
