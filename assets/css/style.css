@@ -2517,7 +2517,7 @@ caption {
 
 .post-type-archive .is-loading .hentry,
 .tax-archive .is-loading .hentry,
-.post-type-archive .hentry:not(.is-active):not(:first-child),
+.post-type-archive-project .hentry:not(.is-active):not(:first-child),
 .tax-archive .hentry:not(.is-active):not(:first-child) {
   opacity: 0.3; }
 

@@ -9,7 +9,7 @@
     }
     .post-type-archive .is-loading &,
     .tax-archive .is-loading &,
-    .post-type-archive &:not(.is-active):not(:first-child),
+    .post-type-archive-project &:not(.is-active):not(:first-child),
     .tax-archive &:not(.is-active):not(:first-child) {
         opacity: 0.3;
     }
