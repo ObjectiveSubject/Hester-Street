@@ -59,12 +59,23 @@ $queried_object = get_queried_object();
                                 <h1 class="page-title h2 u-mt-pull">
                                     <?php post_type_archive_title(); ?>
                                 </h1>
+
+
+                                <!-- ////
                                 <div class="page-header__right">
                                     <a href="#" v-on:click.prevent="resetFilters()" class="reset-filters-btn u-font-gta-extended">Clear All</a>
                                 </div>
+                                //// -->
+
+
                             </div>
 
-                            <div id="publication-filters">
+
+                            <!-- //// 
+                            CURRENTLY HIDING FILTERS. MAY REACTIVATE LATER 
+                            //// -->
+
+                            <div id="publication-filters" style="display:none">
 
                                 <ul class="filter-toggle-list list">
                                     <!-- VueJS node -->
@@ -134,6 +145,9 @@ $queried_object = get_queried_object();
 
                             </div>
 
+                            <!-- //// -->
+
+
                         </div> <!-- .section__content -->
 
                     </div><!-- .u-container -->
@@ -146,10 +160,15 @@ $queried_object = get_queried_object();
 
                             <div class="u-clearfix">
 
+                                <div v-if="loading" class="h6 u-animate-pulse">Loading...</div>
+                                
+                                <!-- ////
                                 <div v-if=" ! publications.length && ! loading" class="error">
                                     <h3 class="u-mt-0">Hmm... no publications match your criteria :(</h3>
                                     <p class="h6">Try removing some of your filters above &uarr;</p>                                
                                 </div>
+                                //// -->
+
 
                                 <!-- VueJS node -->
                                 <article :id="publication.slug" class="u-mb-4 u-span-4" v-for="publication in publications" :key="publication.title" :class="publication.post_class" >

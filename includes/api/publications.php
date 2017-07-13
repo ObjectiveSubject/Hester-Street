@@ -112,7 +112,8 @@ function publications_request() {
         'paged'		 => $page,
 		'posts_per_page' => 9,
 		'ignore_sticky_posts' => true,
-		'no_found_rows' => true
+		'no_found_rows' => true,
+		'posts_per_page' => 500
 	);
 	$query = new \WP_Query( $args );
     $queryData = array( 'args' => $args, 'total_pages' => $query->max_num_pages, 'found_posts' => intval($query->found_posts), 'current_page' => intval($page) );
