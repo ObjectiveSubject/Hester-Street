@@ -208,7 +208,7 @@ if ( is_tax() ) {
                     <div class="u-clearfix">
 
                         <div v-if=" ! projects.length && ! loading" class="error">
-                            <h3 class="u-mt-0">Hmm... no projects match your criteria :(</h3>
+                            <h3 class="u-mt-0">Sorry, no projects match your criteria.</h3>
                             <p class="h6">Try removing some of your filters above &uarr;</p>                                
                         </div>
 
