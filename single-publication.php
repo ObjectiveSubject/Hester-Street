@@ -41,13 +41,13 @@ $secondary_images = get_field('publication_sec_featured_images'); ?>
 
                                     <div class="u-mt-3">
                                         <div class="publication-images">
+                                            <?php if ( $secondary_images ) : ?>
                                             <div class="content-left">
-                                                <?php if ( $secondary_images ) {
-                                                    foreach ( $secondary_images as $img ) {
-                                                        echo wp_get_attachment_image( $img['ID'], 'large', false, array('u-display-block') );
-                                                    }
+                                                <?php foreach ( $secondary_images as $img ) {
+                                                    echo wp_get_attachment_image( $img['ID'], 'large', false, array('u-display-block') );
                                                 } ?>
                                             </div>
+                                            <?php endif; ?>
                                             <div class="content-right">
                                                 <div>
                                                     <?php the_post_thumbnail( 'large', array( 'class' => 'u-display-block' ) ); ?>
