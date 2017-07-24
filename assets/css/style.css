@@ -2858,23 +2858,19 @@ caption {
     .home .publication.featured .content-left,
     .publication-images .content-left {
       display: block;
+      border-right: 1px solid black;
+      padding-right: 2.36%;
+      margin-right: 2.36%;
       -webkit-box-flex: 0;
       -moz-box-flex: 0;
       box-flex: 0;
       -webkit-flex: 0 1 23.23%;
       -moz-flex: 0 1 23.23%;
       -ms-flex: 0 1 23.23%;
-      flex: 0 1 23.23%;
-      margin-right: 2.36%; } }
+      flex: 0 1 23.23%; } }
   .home .publication.featured .content-left img:not(:first-child),
   .publication-images .content-left img:not(:first-child) {
     margin-top: 1rem; }
-
-@media screen and (min-width: 768px) {
-  .home .publication.featured .content-right,
-  .publication-images .content-right {
-    border-left: 1px solid black;
-    padding-left: 2.36%; } }
 
 @media screen and (min-width: 1000px) {
   .home .publication.featured .content-right,

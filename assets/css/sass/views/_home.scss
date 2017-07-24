@@ -21,18 +21,16 @@
         display: none;
         @include media($lg) {
             display: block;
-            @include flex( 0 1 flex-grid(3, $grid-columns) );
+            border-right: $border-width solid black;
+            padding-right: flex-gutter($grid-columns);
             margin-right: flex-gutter($grid-columns);
+            @include flex( 0 1 flex-grid(3, $grid-columns) );
         }
         img:not(:first-child) {
             margin-top: $leading;
         }
     }
     .content-right {
-        @include media($md) {
-            border-left: $border-width solid black;
-            padding-left: flex-gutter($grid-columns);
-        }
         @include media($lg) {
             @include flex( 0 1 flex-grid(8, $grid-columns) );
             @include display(flex);
