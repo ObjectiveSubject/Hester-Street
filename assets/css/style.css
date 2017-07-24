@@ -2834,7 +2834,8 @@ caption {
     padding-left: 2.36%; } }
 
 @media screen and (min-width: 1000px) {
-  .home .publication.featured {
+  .home .publication.featured,
+  .publication-images {
     display: -webkit-box;
     display: -moz-box;
     display: box;
@@ -2850,10 +2851,12 @@ caption {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; } }
 
-.home .publication.featured .content-left {
+.home .publication.featured .content-left,
+.publication-images .content-left {
   display: none; }
   @media screen and (min-width: 1000px) {
-    .home .publication.featured .content-left {
+    .home .publication.featured .content-left,
+    .publication-images .content-left {
       display: block;
       -webkit-box-flex: 0;
       -moz-box-flex: 0;
@@ -2863,16 +2866,19 @@ caption {
       -ms-flex: 0 1 23.23%;
       flex: 0 1 23.23%;
       margin-right: 2.36%; } }
-  .home .publication.featured .content-left img:not(:first-child) {
+  .home .publication.featured .content-left img:not(:first-child),
+  .publication-images .content-left img:not(:first-child) {
     margin-top: 1rem; }
 
 @media screen and (min-width: 768px) {
-  .home .publication.featured .content-right {
+  .home .publication.featured .content-right,
+  .publication-images .content-right {
     border-left: 1px solid black;
     padding-left: 2.36%; } }
 
 @media screen and (min-width: 1000px) {
-  .home .publication.featured .content-right {
+  .home .publication.featured .content-right,
+  .publication-images .content-right {
     -webkit-box-flex: 0;
     -moz-box-flex: 0;
     box-flex: 0;
@@ -2895,7 +2901,8 @@ caption {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; } }
 
-.home .publication.featured .content-right .align-flex-end {
+.home .publication.featured .content-right .align-flex-end,
+.publication-images .content-right .align-flex-end {
   -webkit-align-self: flex-end;
   -moz-align-self: flex-end;
   align-self: flex-end;

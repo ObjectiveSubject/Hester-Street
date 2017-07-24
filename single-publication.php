@@ -5,7 +5,8 @@
 
 get_header();
 $pdf_url = get_field( 'publication_pdf' );
-$related_projects = get_field( 'publication_related_projects' ); ?>
+$related_projects = get_field( 'publication_related_projects' );
+$secondary_images = get_field('publication_sec_featured_images'); ?>
 
 	<div class="site-content">
 
@@ -36,13 +37,24 @@ $related_projects = get_field( 'publication_related_projects' ); ?>
 
                                     <?php if ( $pdf_url ) : ?>
                                         <p class="h6"><a href="<?php echo esc_url( $pdf_url ); ?>" class="u-color-orange u-color-hover-black"><? _e( 'Download (PDF)', 'hsc' ); echo ' &darr;' ?></a></p>
-                                    <?php endif; ?>
+                                    <?php endif; ?> 
 
-                                    <?php if ( has_post_thumbnail() ) : ?>
-                                        <div class="post-image u-mt-3">
-                                            <?php the_post_thumbnail(); ?>
+                                    <div class="u-mt-3">
+                                        <div class="publication-images">
+                                            <div class="content-left">
+                                                <?php if ( $secondary_images ) {
+                                                    foreach ( $secondary_images as $img ) {
+                                                        echo wp_get_attachment_image( $img['ID'], 'large', false, array('u-display-block') );
+                                                    }
+                                                } ?>
+                                            </div>
+                                            <div class="content-right">
+                                                <div>
+                                                    <?php the_post_thumbnail( 'large', array( 'class' => 'u-display-block' ) ); ?>
+                                                </div>
+                                            </div>
                                         </div>
-                                    <?php endif; ?>
+                                    </div>
 
                                 </div>
 

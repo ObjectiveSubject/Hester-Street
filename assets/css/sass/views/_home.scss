@@ -11,7 +11,8 @@
     }
 }
 
-.home .publication.featured {
+.home .publication.featured,
+.publication-images {
     @include media($lg) {
         @include display(flex);
         @include flex-wrap(wrap);
