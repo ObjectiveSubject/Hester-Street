@@ -59,7 +59,8 @@
                     }
                     ?>
 
-                    <? $social_accounts = array(
+                    <?php 
+                    $social_accounts = array(
                         'Facebook' => get_theme_mod('facebook', ''),
                         'Twitter' => get_theme_mod('twitter', ''),
                         'Instagram' => get_theme_mod('instagram', ''),
@@ -70,13 +71,14 @@
 
                     <ul class="list social footer-social">
                     
-                        <? foreach ( $social_accounts as $name => $url ) :
+                        <?php 
+                        foreach ( $social_accounts as $name => $url ) :
                             if ( ! empty( $url ) ) : ?>
                                 <li class="list__item menu-item">
                                     <a href="<? echo esc_url( $url ); ?>" target="_blank" rel="nofollow"><? echo $name; ?></a>
                                 </li>
-                            <? endif; ?>
-                        <? endforeach; ?>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
 
                     </ul>
 
