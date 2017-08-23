@@ -2738,33 +2738,37 @@ caption {
     .footer-colophon {
       margin-top: 0; } }
 
-.site-footer .email.form-field, .site-footer .gfield input.email[type="text"], .gfield .site-footer input.email[type="text"], .site-footer .gfield input.email[type="email"], .gfield .site-footer input.email[type="email"], .site-footer .gfield select.email, .gfield .site-footer select.email {
-  border-color: white;
+.site-footer .form-field, .site-footer .gfield input[type="text"], .gfield .site-footer input[type="text"], .site-footer .gfield input[type="email"], .gfield .site-footer input[type="email"], .site-footer .gfield select, .gfield .site-footer select {
+  cursor: pointer;
   position: relative;
-  z-index: 1;
-  color: transparent;
-  cursor: pointer; }
-  .site-footer .email.form-field:focus, .site-footer .gfield input.email[type="text"]:focus, .gfield .site-footer input.email[type="text"]:focus, .site-footer .gfield input.email[type="email"]:focus, .gfield .site-footer input.email[type="email"]:focus, .site-footer .gfield select.email:focus, .gfield .site-footer select.email:focus {
-    padding-top: 2rem;
-    color: white; }
-    .site-footer .email.form-field:focus + .helper, .site-footer .gfield input.email[type="text"]:focus + .helper, .gfield .site-footer input.email[type="text"]:focus + .helper, .site-footer .gfield input.email[type="email"]:focus + .helper, .gfield .site-footer input.email[type="email"]:focus + .helper, .site-footer .gfield select.email:focus + .helper, .gfield .site-footer select.email:focus + .helper {
-      opacity: 0.5; }
+  z-index: 1; }
+  .site-footer .form-field:focus, .site-footer .gfield input[type="text"]:focus, .gfield .site-footer input[type="text"]:focus, .site-footer .gfield input[type="email"]:focus, .gfield .site-footer input[type="email"]:focus, .site-footer .gfield select:focus, .gfield .site-footer select:focus, .site-footer .form-field:hover, .site-footer .gfield input[type="text"]:hover, .gfield .site-footer input[type="text"]:hover, .site-footer .gfield input[type="email"]:hover, .gfield .site-footer input[type="email"]:hover, .site-footer .gfield select:hover, .gfield .site-footer select:hover {
+    color: white;
+    border-color: white; }
 
 .site-footer .mc-field-group {
-  position: relative; }
+  position: relative;
+  margin-bottom: 1rem; }
   .site-footer .mc-field-group:hover label {
     color: black; }
-  .site-footer .mc-field-group label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    -webkit-transition: all 300ms ease-out;
-    -moz-transition: all 300ms ease-out;
-    transition: all 300ms ease-out; }
-  .site-footer .mc-field-group .helper {
-    opacity: 0;
-    font-size: 0.75rem;
+
+.site-footer [type="submit"] {
+  margin: 1rem 0 0; }
+
+.fields-toggle-label {
+  cursor: pointer;
+  margin: 1rem 0; }
+  .fields-toggle-label:before {
+    content: "Sign up for updates"; }
+  .fields-toggle-label:hover {
+    color: black; }
+  [type="checkbox"]:checked + .fields-toggle-label:before {
+    content: "x Close"; }
+
+.toggled-fields {
+  display: none; }
+  [type="checkbox"]:checked ~ .toggled-fields {
+    display: block;
     -webkit-transition: all 300ms ease-out;
     -moz-transition: all 300ms ease-out;
     transition: all 300ms ease-out; }
