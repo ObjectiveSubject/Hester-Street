@@ -12,7 +12,9 @@
     }
 }
 .secondary-menu {
-    @extend .u-mt-3;
+    &.header-secondary-menu {
+        @extend .u-mt-3;
+    }
 }
 .menu-item {
     &.current-menu-item:after {

@@ -13,6 +13,7 @@
         @include flex-wrap(nowrap);
     }
 }
+
 .flex__item {
     @extend .has-border;
 
@@ -25,6 +26,11 @@
         padding-left: $flex-item-padding;
     }
 }
+
+.flex-wrap {
+    @include flex-wrap( wrap );
+}
+
 @for $i from 0 through 6 {
     .flex-order-#{$i} {
         @include order($i);
