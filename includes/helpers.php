@@ -23,7 +23,7 @@ function get_lcl_data_archive_project() {
         'filterToggles' => array(
             array( 'slug' => 'service', 'name' => 'Services' ),
             array( 'slug' => 'issue', 'name' => 'Issues' ),
-            array( 'slug' => 'date', 'name' => 'Date' ),
+            // array( 'slug' => 'date', 'name' => 'Date' ),
             array( 'slug' => 'status', 'name' => 'Status' ),
             array( 'slug' => 'location', 'name' => 'Locations')
         ),
