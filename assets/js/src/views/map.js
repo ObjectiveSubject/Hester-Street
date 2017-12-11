@@ -16,7 +16,7 @@
         return;
     var geoJson = JSON.parse( geoJsonString.trim() );
 
-    if ( ! mapboxgl.supported() )
+    if ( ! mapboxgl.supported() || ! geoJson.features.length )
         return;
 
     mapContainer.className += 'mapboxgl-supported';
