@@ -59,7 +59,7 @@ function project_timeline_request() {
 
         $acf_timeline_items = (array) get_field( 'timeline_items', $project_id );
         $timeline_items = array();
-        $date_format = get_option('date_format');
+        $date_format = 'M. Y';
 
         foreach( $acf_timeline_items as $key => $item ) {
 
@@ -68,14 +68,36 @@ function project_timeline_request() {
             );
 
             switch ( $item['acf_fc_layout'] ) {
+
                 case "project_stage":
+                    // $item_array['item'] = $item;
                     $item_array['type'] = $item['stage_type'];
                     $item_array['layout'] = $item['acf_fc_layout'];
                     $item_array['label'] = ( $item['stage_label'] ) ? $item['stage_label'] : 'Project<br/>' . $item['stage_type']['label'];
-                    $item_array['date_string'] = date( $date_format, $item['stage_date'] );
-                    $item_array['date_unix'] = $item['stage_date'];
                     $item_array['content'] = $item['stage_content'];
+                    
+                    $item_array['date_unix'] = $date_unix = $item['stage_date'];
+                    $item_array['date_end_unix'] = $date_end_unix = $item['stage_end_date'];
+
+                    $start_month = $date_unix ? date( 'M', $date_unix ) : '';
+                    $end_month = $date_end_unix ? date( 'M', $date_end_unix ) : '';
+                    $start_year = $date_unix ? date( 'Y', $date_unix ) : '';
+                    $end_year = $date_end_unix ? date( 'Y', $date_end_unix ) : '';
+
+                    if ( $end_month && $end_year ) {
+                        if ( $start_year === $end_year ) {
+                            $date_string = "$start_month. — $end_month. $end_year";
+                        } else {
+                            $date_string = "$start_month. $start_year — $end_month. $end_year";
+                        }
+                    } else {
+                        $date_string = "$start_month. $start_year";
+                    }
+
+                    $item_array['date_string'] = $date_string;
+                    
                     break;
+
                 case "publication":
                     $item_array['type'] = 'publication';
                     $item_array['label'] = 'Publication';
@@ -88,6 +110,7 @@ function project_timeline_request() {
                         array('text' => 'Download &darr;', 'url' => '#')
                     );
                     break; 
+                    
                 case "event":
                     $item_array['type'] = 'event';
                     $item_array['label'] = 'Event';
@@ -99,6 +122,7 @@ function project_timeline_request() {
                     $item_array['title'] = $item['timeline_event']->post_title;
                     $item_array['venue'] = get_post_meta( $item['timeline_event']->ID, 'event_venue', true);
                     break;
+
                 case "events_recap":
                     $item_array['type'] = 'events_recap';
                     $item_array['label'] = 'Events Recap';
@@ -113,8 +137,10 @@ function project_timeline_request() {
                         $event->permalink = get_permalink( $event->ID );
                     }
                     break;
+
                 default:
                     $item_array = $item;
+
             }
 
             if ( ! empty( $item_array ) ) {

@@ -62,6 +62,7 @@
                         return response.json();
                     })
                     .then(function(json){
+                        console.log(json);
                         _this.allTimelineItems = json.timeline_items;
                         _this.appClassArray.splice( _this.appClassArray.indexOf('is-loading'), 1 );
                         _this.loading = false;

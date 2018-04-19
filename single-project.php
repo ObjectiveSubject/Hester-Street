@@ -130,7 +130,9 @@ get_header(); ?>
                                             <li v-for="item in visibleTimelineItems" class="project-timeline__sidebar-item">
                                                 <a :href="'#' + item.id" class="u-display-block h6 u-mt-0 u-mb-1">
                                                     <span v-html="item.label"></span><br/>
-                                                    {{ item.date_string }}
+                                                    <span style="opacity:0.5">
+                                                        {{ item.date_string }}
+                                                    </span>
                                                 </a>
                                             </li>
                                         </ul>
