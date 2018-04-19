@@ -1,6 +1,6 @@
 /*! Hester Street Collaborative - v1.0.0
  * http://hesterstreet.org/
- * Copyright (c) 2017; * Licensed GPLv2+ */
+ * Copyright (c) 2018; * Licensed GPLv2+ */
 if (typeof Object.assign != 'function') {
   Object.assign = function(target, varArgs) { // .length of function is 2
     'use strict';

@@ -2986,8 +2986,7 @@ caption {
   transition: opacity 300ms ease-out; }
   .timeline-node:not(:first-child) {
     padding-top: 1rem; }
-  .is-loading .timeline-node,
-  .has-scroll-events .timeline-node:not(.is-active) {
+  .is-loading .timeline-node {
     opacity: 0.3;
     pointer-events: none; }
   .no-js .timeline-node {
@@ -3057,14 +3056,12 @@ caption {
   overflow: auto;
   max-height: 100vh; }
 
-.project-timeline__sidebar-item a {
-  opacity: 0.3; }
-  .project-timeline__sidebar-item a:hover, .project-timeline__sidebar-item a:focus {
-    color: #afbd32;
-    opacity: 1; }
-  .project-timeline__sidebar-item a.is-active {
-    opacity: 1;
-    color: black; }
+.project-timeline__sidebar-item a:hover, .project-timeline__sidebar-item a:focus {
+  color: #afbd32;
+  opacity: 1; }
+
+.project-timeline__sidebar-item a.is-active {
+  color: black; }
 
 @media screen and (min-width: 1000px) {
   .project-content {

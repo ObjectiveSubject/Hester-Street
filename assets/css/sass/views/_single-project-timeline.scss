@@ -19,8 +19,7 @@
     &:not(:first-child) {
         padding-top: 1 * $leading;
     }
-    .is-loading &,
-    .has-scroll-events &:not(.is-active) {
+    .is-loading & {
         opacity: 0.3;
         pointer-events: none;
     }
@@ -91,13 +90,11 @@
 
 .project-timeline__sidebar-item {
     a {
-        opacity: 0.3;
         &:hover, &:focus {
             color: $green;
             opacity: 1;
         }
         &.is-active {
-            opacity: 1;
             color: black;
         }
     } 

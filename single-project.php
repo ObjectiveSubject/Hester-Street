@@ -64,7 +64,7 @@ get_header(); ?>
 
                 <section class="section">
                     <div id="page-map"></div>
-                    <script type="text/javascript" id="map-geojson">
+                    <script type="text/json" id="map-geojson">
                     
                         <?php 
                         $project_geojson_file = get_field('project_geojson_file');
@@ -116,47 +116,15 @@ get_header(); ?>
 
                                 <div class="h5"><?php _e( 'Project Timeline', 'hsc' ); ?></div>
 
-                                <ul class="filter-toggle-list list">
-
-                                    <li class="filter-toggle-list__item list__item" v-for="toggle in filterToggles">
-                                        <a href="#" class="filter-group-toggle" 
-                                            v-bind:class="[ currentFilterGroup == toggle.slug ? 'is-active' : '' ]" 
-                                            v-on:click.prevent="toggleFilterGroup(toggle)">
-                                            {{toggle.name}}<br/>
-                                            <span class="u-color-green u-font-gta-extended" v-if="toggle.slug == 'post-type' && currentFilters.postType !== 'all'">{{ currentFilters.postType.name }}</span>
-                                            <span class="u-color-green u-font-gta-extended" v-if="toggle.slug == 'date' && currentFilters.date !== 'all'">{{ currentFilters.date.name }}</span>
-                                        </a>
-                                    </li>
-
-                                </ul><!-- filter-toggle-list -->
-
-                                <div class="project-timeline__filters">
-
-                                    <ul id="filter-group-post-type" class="filter-group list" :class="{ 'has-selection' : currentFilters.postType !== 'all' }" v-if="currentFilterGroup == 'post-type'">
-                                        <li v-for="type in postTypes" :key="type.slug"
-                                            class="filter-group__item"
-                                            :class="{ 'is-active' : currentFilters.postType.slug == type.slug }"
-                                            v-on:click="toggleFilter(type)">{{ type.name }}</li>
-                                    </ul>
-                                    
-                                    <ul id="filter-group-date" class="filter-group shift-1 u-pl-1 list" :class="{ 'has-selection' : currentFilters.date !== 'all' }" v-if="currentFilterGroup == 'date'">
-                                        <li v-for="date in dates" :key="date.seconds"
-                                            class="filter-group__item"
-                                            :class="{ 'is-active' : currentFilters.date.seconds == date.seconds }"
-                                            v-on:click="toggleFilter(date)">{{ date.name }}</li>
-                                    </ul>
-
-                                </div><!-- project-timeline__filters -->
-
                                 <div v-if="loading" class="h6 u-mt-3 u-animate-pulse">Loading...</div>
 
                                 <div v-if=" ! visibleTimelineItems.length && ! loading" class="error u-mt-3">
-                                    <h3 class="u-mt-0">Hmm... no projects match your criteria :(</h3>
-                                    <p class="h6">Try removing some of your filters above &uarr;</p>                                
+                                    <h3 class="u-mt-0">Sorry, no projects were found.</h3>
                                 </div>
 
                                 <div class="project-timeline__contents u-mt-6">
 
+                                    <!-- project-timeline__sidebar-wrap -->
                                     <div class="project-timeline__sidebar-wrap">
                                         <ul class="project-timeline__sidebar u-mt-0">
                                             <li v-for="item in visibleTimelineItems" class="project-timeline__sidebar-item">
@@ -166,7 +134,7 @@ get_header(); ?>
                                                 </a>
                                             </li>
                                         </ul>
-                                    </div><!-- project-timeline__sidebar-wrap -->
+                                    </div>
                                     
                                     <div class="project-timeline__nodes">
 

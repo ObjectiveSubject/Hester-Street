@@ -67,7 +67,7 @@ function scripts( $debug = false ) {
 	wp_register_script( 'main', HSC_TEMPLATE_URL . "/assets/js/main{$min}.js", array(), $version, true );
 	wp_register_script( 'page-news', HSC_TEMPLATE_URL . "/assets/js/page-news{$min}.js", array('vue'), $version, true );
 	wp_register_script( 'map', HSC_TEMPLATE_URL . "/assets/js/map{$min}.js", array('mapbox_js', 'mapbox_supported_js', 'turf_js'), $version, true );
-	wp_register_script( 'project-timeline', HSC_TEMPLATE_URL . "/assets/js/project-timeline{$min}.js", array('vue'), $version, true );
+	wp_register_script( 'project-timeline', HSC_TEMPLATE_URL . "/assets/js/project-timeline{$min}.js", array('vue', 'scrollmagic'), $version, true );
 	wp_register_script( 'archive-project', HSC_TEMPLATE_URL . "/assets/js/archive-project{$min}.js", array('vue', 'scrollmagic', 'mapbox_js', 'mapbox_supported_js', 'turf_js'), $version, true );
 	wp_register_script( 'archive-publication', HSC_TEMPLATE_URL . "/assets/js/archive-publication{$min}.js", array('vue'), $version, true );
 

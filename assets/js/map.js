@@ -1,6 +1,6 @@
 /*! Hester Street Collaborative - v1.0.0
  * http://hesterstreet.org/
- * Copyright (c) 2017; * Licensed GPLv2+ */
+ * Copyright (c) 2018; * Licensed GPLv2+ */
 (function(window) {
 
     mapboxgl.accessToken = 'pk.eyJ1Ijoib2JqZWN0aXZlc3ViamVjdCIsImEiOiJPY25wYWRjIn0.AFZPHessR_DGefRkzPilDA';
