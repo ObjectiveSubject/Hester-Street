@@ -123,67 +123,66 @@ get_header(); ?>
                                 </div>
 
                                 <div class="project-timeline__contents u-mt-6">
-
-                                    <!-- project-timeline__sidebar-wrap -->
-                                    <div class="project-timeline__sidebar-wrap">
-                                        <ul class="project-timeline__sidebar u-mt-0">
-                                            <li v-for="item in visibleTimelineItems" class="project-timeline__sidebar-item">
-                                                <a :href="'#' + item.id" class="u-display-block h6 u-mt-0 u-mb-1">
-                                                    <span v-html="item.label"></span><br/>
-                                                    <span style="opacity:0.5">
-                                                        {{ item.date_string }}
-                                                    </span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
                                     
                                     <div class="project-timeline__nodes">
 
                                         <article :id="item.id" v-for="item in visibleTimelineItems" :key="item.id" class="timeline-node">
 
-                                            <!-- LAYOUT: Project Stage -->
-                                            <div v-if="item.layout == 'project_stage'" class="layout-project-stage u-clearfix" v-html="item.content"></div>
+                                            <aside class="timeline-node__aside">
+                                                <p class="timeline-node__aside-traveller h6 u-mt-0 u-mb-1">
+                                                    <span v-html="item.label"></span><br/>
+                                                    <span style="opacity:0.5">
+                                                        {{ item.date_string }}
+                                                    </span>
+                                                </p>
+                                            </aside>
 
-                                            <!-- LAYOUT: Publication -->
-                                            <div v-if="item.type == 'publication'" class="layout-publication u-clearfix">
-                                                <h3 class="h4 u-mt-0">{{ item.title }}</h3>
-                                                <p v-html="item.image"></p>
-                                                <p><a :href="link.url" class="u-mr-1 u-color-black u-color-hover-green" v-for="link in item.links" v-html="link.text"></a></p>
-                                            </div>
+                                            <div class="timeline-node__main">
 
-                                            <!-- LAYOUT: Event -->
-                                            <div v-if="item.type == 'event'" class="layout-event u-clearfix">
-                                                <a :href="item.permalink" class="u-display-block u-color-hover-green">
-                                                    <div class="image" v-html="item.image"></div>
-                                                    <div class="content">
-                                                        <h3 class="title h1">{{ item.title }}</h3>
-                                                        <p class="h6 u-mt-nudge">
-                                                            {{ item.date_string }}, {{ item.time_string }}<br/>
-                                                            {{ item.venue }}
-                                                        </p>
-                                                        <p><?php _e( 'Read more', 'hsc' ); echo ' &rarr;' ?></p>
-                                                    </div>
-                                                </a>
-                                            </div>
+                                                <!-- LAYOUT: Project Stage -->
+                                                <div v-if="item.layout == 'project_stage'" class="layout-project-stage u-clearfix" v-html="item.content"></div>
 
-                                            <!-- LAYOUT: Events Recap -->
-                                            <div v-if="item.type == 'events_recap'" class="layout-events-recap">
-                                                <ul class="u-mt-0" v-if="item.events.length">
-                                                    <li v-for="event in item.events" class="u-mb-1">
-                                                        <a :href="event.permalink" class="u-display-block u-clearfix u-color-hover-green ">
-                                                            <div class="image" v-html="event.image"></div>
-                                                            <div class="content">
-                                                                <p class="h5 u-mt-0">
-                                                                    {{event.post_title}}<br/>
-                                                                    {{event.date_string}}
-                                                                </p>
-                                                            </div>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                                <h3 class="h1 u-mt-0">{{ item.title }}</h3>
-                                                <div v-html="item.desc"></div>
+                                                <!-- LAYOUT: Publication -->
+                                                <div v-if="item.type == 'publication'" class="layout-publication u-clearfix">
+                                                    <h3 class="h4 u-mt-0">{{ item.title }}</h3>
+                                                    <p v-html="item.image"></p>
+                                                    <p><a :href="link.url" class="u-mr-1 u-color-black u-color-hover-green" v-for="link in item.links" v-html="link.text"></a></p>
+                                                </div>
+
+                                                <!-- LAYOUT: Event -->
+                                                <div v-if="item.type == 'event'" class="layout-event u-clearfix">
+                                                    <a :href="item.permalink" class="u-display-block u-color-hover-green">
+                                                        <div class="image" v-html="item.image"></div>
+                                                        <div class="content">
+                                                            <h3 class="title h1">{{ item.title }}</h3>
+                                                            <p class="h6 u-mt-nudge">
+                                                                {{ item.date_string }}, {{ item.time_string }}<br/>
+                                                                {{ item.venue }}
+                                                            </p>
+                                                            <p><?php _e( 'Read more', 'hsc' ); echo ' &rarr;' ?></p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+
+                                                <!-- LAYOUT: Events Recap -->
+                                                <div v-if="item.type == 'events_recap'" class="layout-events-recap">
+                                                    <ul class="u-mt-0" v-if="item.events.length">
+                                                        <li v-for="event in item.events" class="u-mb-1">
+                                                            <a :href="event.permalink" class="u-display-block u-clearfix u-color-hover-green ">
+                                                                <div class="image" v-html="event.image"></div>
+                                                                <div class="content">
+                                                                    <p class="h5 u-mt-0">
+                                                                        {{event.post_title}}<br/>
+                                                                        {{event.date_string}}
+                                                                    </p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                    <h3 class="h1 u-mt-0">{{ item.title }}</h3>
+                                                    <div v-html="item.desc"></div>
+                                                </div>
+
                                             </div>
 
                                         </article>

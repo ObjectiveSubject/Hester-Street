@@ -2972,14 +2972,8 @@ caption {
     display: -ms-flexbox;
     display: flex; } }
 
-@media screen and (min-width: 1000px) {
-  .project-timeline__nodes {
-    -webkit-flex-basis: 82.94%;
-    -moz-flex-basis: 82.94%;
-    flex-basis: 82.94%;
-    -ms-flex-preferred-size: 82.94%; } }
-
 .timeline-node {
+  display: flex;
   padding-bottom: 5rem;
   -webkit-transition: opacity 300ms ease-out;
   -moz-transition: opacity 300ms ease-out;
@@ -3041,10 +3035,17 @@ caption {
       .timeline-node .layout-events-recap .image:last-child {
         margin-right: 0; } }
 
-.project-timeline__sidebar-wrap {
+@media screen and (min-width: 1000px) {
+  .timeline-node__main {
+    -webkit-flex-basis: 82.94%;
+    -moz-flex-basis: 82.94%;
+    flex-basis: 82.94%;
+    -ms-flex-preferred-size: 82.94%; } }
+
+.timeline-node__aside {
   display: none; }
   @media screen and (min-width: 1000px) {
-    .project-timeline__sidebar-wrap {
+    .timeline-node__aside {
       display: block;
       margin-right: 2.36%;
       -webkit-flex-basis: 14.7%;
@@ -3052,16 +3053,12 @@ caption {
       flex-basis: 14.7%;
       -ms-flex-preferred-size: 14.7%; } }
 
-.project-timeline__sidebar {
-  overflow: auto;
-  max-height: 100vh; }
-
-.project-timeline__sidebar-item a:hover, .project-timeline__sidebar-item a:focus {
-  color: #afbd32;
-  opacity: 1; }
-
-.project-timeline__sidebar-item a.is-active {
-  color: black; }
+.timeline-node__aside-traveller {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 16px; }
+  .admin-bar .timeline-node__aside-traveller {
+    top: 48px; }
 
 @media screen and (min-width: 1000px) {
   .project-content {
