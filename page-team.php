@@ -3,7 +3,9 @@
  * Template Name: Team
  */
 get_header();
-$roles = get_terms( array( 'taxonomy' => 'team_role', 'hide_empty' => true ) );
+
+// $roles = get_terms( array( 'taxonomy' => 'team_role', 'hide_empty' => true ) );
+
 function sort_by_name($a, $b) {
     if ( $a->post_title == $b->post_title ) {
         return 0;
@@ -46,13 +48,18 @@ function sort_by_last_name($a, $b) {
                             </div>
 
                             <ul class="list page-anchors">
-                                <?php foreach ( $roles as $role ) :
-                                // hide alumni and collaborators from this list
-                                if ( 'alumni' == $role->slug || 'collaborators' == $role->slug ) { continue; } ?>
+                                
+                                <?php 
+                                while ( have_rows( 'visible_roles' ) ) : the_row();
+                                
+                                $role = get_sub_field('role'); ?>
+
                                 <li class="list__item">
                                     <a href="#<?php echo $role->slug; ?>" class="u-color-hover-purple"><?php echo $role->name; ?></a>
                                 </li>
-                                <?php endforeach; ?>
+
+                                <?php endwhile; ?>
+
                             </ul>
 
                         </div> <!-- .section__content -->
@@ -65,12 +72,10 @@ function sort_by_last_name($a, $b) {
 
                         <div class="section__content u-width-12 flex__item">
 
-                            <?php foreach ( $roles as $role ) :
+                            <?php while ( have_rows( 'visible_roles' ) ) : the_row();
 
-                                // hide alumni and collaborators from this list
-                                if ( 'alumni' == $role->slug || 'collaborators' == $role->slug )
-                                    continue;
-
+                                $role = get_sub_field('role');
+                                $display_as = get_sub_field('display_as');
                                 $team_members = new WP_Query(array(
                                     'post_type' => 'team_member',
                                     'posts_per_page' => 500,
@@ -100,10 +105,16 @@ function sort_by_last_name($a, $b) {
 
                                             <?php foreach ( $team_member_posts as $post ) : setup_postdata( $post ); ?>
 
-                                                <?php if ( has_term( 'supporters', 'team_role' ) || has_term( 'partners', 'team_role' ) ) : ?>
+                                                <?php if ( 'text' === $display_as ) : ?>
                                                 
                                                     <article <?php post_class( 'u-span-4 u-mt-1 preview' ); ?> >
                                                         <?php get_template_part( 'partials/content-preview', 'team_member-text' ); ?>
+                                                    </article>
+
+                                                <?php elseif ( 'profile_card' === $display_as ) : ?>
+
+                                                    <article <?php post_class( 'u-span-3 u-mt-2 preview' ); ?> >
+                                                        <?php get_template_part( 'partials/content-preview', 'team_member_no_image' ); ?>
                                                     </article>
 
                                                 <?php else : ?>
@@ -122,7 +133,7 @@ function sort_by_last_name($a, $b) {
 
                                 <?php endif; ?>
                             
-                            <?php endforeach; ?>
+                            <?php endwhile; ?>
 
                         </div> <!-- .section__content -->
 
