@@ -184,8 +184,9 @@ get_header(); ?>
                             'terms' => array('news-category')
                         )
                     ),
-                    'orderby' => 'meta_value',
-                    'meta_key' => 'post_datetime'
+                    // 'orderby' => 'meta_value',
+                    // 'order' => 'ASC',
+                    // 'meta_key' => 'post_datetime'
                 )); 
                 
                 if ( $recent_news->have_posts() ) : ?>
