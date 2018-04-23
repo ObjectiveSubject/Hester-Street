@@ -4,14 +4,6 @@
  */
 get_header();
 
-// $roles = get_terms( array( 'taxonomy' => 'team_role', 'hide_empty' => true ) );
-
-function sort_by_name($a, $b) {
-    if ( $a->post_title == $b->post_title ) {
-        return 0;
-    }
-    return ( $a->post_title < $b->post_title ) ? -1 : 1;
-}
 function sort_by_last_name($a, $b) {
     $a_name = explode( ' ', $a->post_title );
     $b_name = explode( ' ', $b->post_title );
@@ -75,10 +67,11 @@ function sort_by_last_name($a, $b) {
                             <?php while ( have_rows( 'visible_roles' ) ) : the_row();
 
                                 $role = get_sub_field('role');
-                                $display_as = get_sub_field('display_as');
                                 $team_members = new WP_Query(array(
                                     'post_type' => 'team_member',
                                     'posts_per_page' => 500,
+                                    'orderby' => 'title',
+                                    'order' => 'ASC',
                                     'tax_query' => array(
                                         array(
                                             'taxonomy' => 'team_role',
@@ -91,10 +84,9 @@ function sort_by_last_name($a, $b) {
                                 if ( $team_members->have_posts() ) :
                                 
                                     $team_member_posts = $team_members->posts;
-                                    if ( 'staff' == $role->slug || 'board' == $role->slug ) {
+                                    $order_by = get_sub_field('order_by');
+                                    if ( 'last_name' === $order_by ) {
                                         usort( $team_member_posts, 'sort_by_last_name' );
-                                    } else {
-                                        usort( $team_member_posts, 'sort_by_name' );
                                     } ?>
 
                                     <div id="<?php echo $role->slug; ?>">
@@ -105,7 +97,10 @@ function sort_by_last_name($a, $b) {
 
                                             <?php foreach ( $team_member_posts as $post ) : setup_postdata( $post ); ?>
 
-                                                <?php if ( 'text' === $display_as ) : ?>
+                                                <?php 
+                                                $display_as = get_sub_field('display_as');
+
+                                                if ( 'text' === $display_as ) : ?>
                                                 
                                                     <article <?php post_class( 'u-span-4 u-mt-1 preview' ); ?> >
                                                         <?php get_template_part( 'partials/content-preview', 'team_member-text' ); ?>
